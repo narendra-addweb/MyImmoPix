@@ -1,0 +1,61 @@
+.ba-slider {
+  position: relative;
+  overflow: hidden;
+}
+.ba-slider img {
+  width: 100%;
+  display: block;
+}
+.resize {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width:47%;
+  overflow: hidden;
+}
+.handle {
+  /* Thin line seperator */
+  position: absolute;
+  left:47%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  margin-left: -2px;
+  background:#fff;
+  cursor: ew-resize;
+}
+body .handle:after {
+  /* Big orange knob  */
+ 
+ 
+  	content: '\21d4';
+ 	font-size: 36px;
+    font-weight: bold;
+    height:50px!important;
+    left: -26px!important;
+    line-height:40px;
+    margin: -32px 0 0;
+    position: absolute;
+    text-align: center;
+    border-radius: 50%;
+    color: white;
+    top: 50%;
+    width:50px!important;
+ 
+  /* @orange */
+  border:2px solid #fff;
+  /* darken(@orange, 5%) */
+  border-radius: 50%;
+  
+  /* lighten(@orange, 20%)*/
+}
+.draggable:after {
+  width: 48px;
+  height: 48px;
+  margin: -24px 0 0 -24px;
+  line-height: 48px;
+  font-size: 30px;
+}
+
+.bootstrap-select{margin-top: -35px;}
