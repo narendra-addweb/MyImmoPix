@@ -1,0 +1,107 @@
+
+/**
+ * Header
+ */
+.cg-logo-cart-wrap .logo.image {
+  height: auto;
+}
+.cg-logo-cart-wrap .logo.image img {
+  padding-top: 20px;
+}
+.cg-logo-cart-wrap .homemenu {
+  margin-top: 0;
+}
+.cg-header-search .login-area {
+  margin-top: 33px !important;
+}
+.cg-header-search .login-area .fleft {
+  margin-top: -17px !important;
+  margin-right: 20px !important;
+}
+.cg-header-search .login-area .logincls {
+  margin-right: 1px;
+}
+.cg-header-fixed .logo.image {
+  padding-left: 15px;
+}
+.cg-header-fixed .homemenu {
+  padding-right: 15px;
+}
+.cg-header-fixed .homemenu .menu-home-menus-container {
+  float: right;
+}
+
+/* End */
+
+
+/**
+ * Footer 
+ */
+.footer .foote-nav ul li a {
+  color: #fff !important;
+  opacity: 0.77;
+}
+.footer ul li a:hover {
+  opacity: 1;
+}
+/* End */
+
+/**
+ * Home page 
+ */
+.entry-content .clsexamp {
+  margin-left: 0;
+  padding: 0;
+}
+.entry-content .exampimage {
+  margin-left: 0;
+}
+.entry-content .bxslider {
+  margin-left: 0;
+}
+.entry-content .bxslider li {
+  margin-left: 30px !important;
+}
+.cg-is-fixed .homemenu .menu-home-menus-container ul li:last-child {
+  margin-right: 0 !important;
+  padding-right: 0 !important;
+}
+.mbx-pager {
+  float: right;
+}
+.mbx-pager .bx_pager_ul li:nth-child(4n + 1){
+  clear: left;
+}
+.tour-area h4 {
+  margin-top: 0;
+}
+/* End */
+
+
+/**
+ * video
+ */
+video {
+  /*position:relative;
+  padding-bottom:56.25%;
+  padding-top:25px;*/
+  height: 100%;
+  width:100%;
+  margin:0 auto;
+}
+video source {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  margin-left:auto;
+  margin-right:auto;
+}
+/* End */
+
+
+/* Error message design */
+.cg-wc-messages .woocommerce-error {
+  margin: 0;
+}
