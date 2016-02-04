@@ -272,6 +272,13 @@ function load_cg_styles() {
     if ( isset( $cg_live_preview ) ) {
         wp_enqueue_style( 'cg-livepreviewcss', get_template_directory_uri() . '/css/livepreview.css' );
     }
+
+    /*
+        Custom style
+        Please remove below comment for two line if you want to add custom.css style
+    */
+    //wp_register_style( 'parent-style', get_template_directory_uri() . '/css/custom.css' );
+    //wp_enqueue_style( 'parent-style' );
 }
 
 add_action( 'wp_enqueue_scripts', 'load_cg_styles' );
