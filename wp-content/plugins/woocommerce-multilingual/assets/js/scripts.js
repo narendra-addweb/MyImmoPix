@@ -245,7 +245,7 @@ jQuery(document).ready(function($){
        });
    }
    
-   $(document).on('click', '.wcml_duplicate_product_notice a[href^=#edit-]', function(){
+   $(document).on('click', '.wcml_duplicate_product_notice a[href^="#edit-"]', function(){
        
        var spl = $(this).attr('href').replace(/#edit-/, '').split('_');
        var pid = spl[0];
@@ -260,14 +260,14 @@ jQuery(document).ready(function($){
        
    });
 
-   $(document).on('click', '.wcml_duplicate_product_notice a[href^=#undo-]', function(){
+   $(document).on('click', '.wcml_duplicate_product_notice a[href^="#undo-"]', function(){
        
        var spl = $(this).attr('href').replace(/#undo-/, '').split('_');
        var pid = spl[0];
        var lng = spl[1];
        
        $('#prid_' + pid + ' tr[rel=' + lng + '] .js-dup-disabled').attr('disabled', 'disabled');
-       $('#prid_' + pid + ' tr[rel=' + lng + '] input[name^=end_duplication]').val(0);
+       $('#prid_' + pid + ' tr[rel=' + lng + '] input[name^="end_duplication"]').val(0);
        $('#prid_' + pid + ' .js-wcml_duplicate_product_undo_'+lng).hide();
        $('#prid_' + pid + ' .js-wcml_duplicate_product_notice_'+lng).show();
        
@@ -275,7 +275,7 @@ jQuery(document).ready(function($){
        
    });
    
-   $(document).on('click', '.js-tax-translation li a[href^=#ignore-]', function(){
+   $(document).on('click', '.js-tax-translation li a[href^="#ignore-"]', function(){
                 
        var taxonomy = $(this).attr('href').replace(/#ignore-/, '');
                 
@@ -306,7 +306,7 @@ jQuery(document).ready(function($){
        return false;
    })
    
-   $(document).on('click', '.js-tax-translation li a[href^=#unignore-]', function(){
+   $(document).on('click', '.js-tax-translation li a[href^="#unignore-"]', function(){
                 
        var taxonomy = $(this).attr('href').replace(/#unignore-/, '');
                 
@@ -495,6 +495,9 @@ jQuery(document).ready(function($){
             if(  window.parent.tinyMCE.get(id)  == null ){
                 tinymce.execCommand( 'mceAddEditor', false, id);
             }
+
+            $(this).parent().find('.wp-editor-wrap').find('.mce-tinymce').show();
+            $(this).parent().find('textarea.wcml_content_tr').hide();
         }
 
     });
@@ -529,6 +532,9 @@ jQuery(document).ready(function($){
         }else{
             $(this).closest('.wp-editor-wrap').find('.mce-tinymce').show();
         }
+
+        window.parent.tinyMCE.get(id).setContent( $(this).closest('.wp-editor-wrap').find('textarea.wcml_content_tr').val() );
+
     });
 
     $(document).on('click','.switch-html',function(){
@@ -538,6 +544,11 @@ jQuery(document).ready(function($){
         QTags(id);
         QTags._buttonsInit();
         $(this).closest('.wp-editor-wrap').find('.mce-tinymce').hide();
+
+        if(  window.parent.tinyMCE.get(id)  != null ){
+            $(this).closest('.wp-editor-wrap').find('textarea.wcml_content_tr').val( window.parent.tinyMCE.get(id).getContent() );
+        }
+
         $(this).closest('.wp-editor-wrap').find('textarea.wcml_content_tr').show();
     });
 
@@ -555,7 +566,7 @@ jQuery(document).ready(function($){
             text_area.val(window.parent.tinyMCE.get(text_area.attr('id')).getContent());
         }
         $(this).closest('.wcml_editor').css('display','none');
-
+        window.parent.tinyMCE.get(text_area.attr('id')).setContent( text_area.val() );
 
         var row_lang = $(this).closest('tr[rel]').attr('rel');
         var prod_id  = $(this).closest('div.wcml_product_row').attr('id');

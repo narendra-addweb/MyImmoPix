@@ -46,9 +46,9 @@ function wpr2x_wp_retina_2x() {
 
 	echo '<div class="wrap">';
   jordy_meow_donation(true);
-	echo "<h2>Retina";
+	echo "<h1>Retina";
   by_jordy_meow();
-  echo "</h2>";
+  echo "</h1>";
 
 	if ( wr2x_is_pro() && $view == 'issues' ) {
 		global $wpdb;

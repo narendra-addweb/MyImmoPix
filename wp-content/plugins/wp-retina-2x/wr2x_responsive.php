@@ -13,9 +13,14 @@ add_filter( 'wp_calculate_image_srcset', 'wr2x_wp_calculate_image_srcset', 1000,
 function wr2x_wp_calculate_image_srcset( $srcset, $size ) {
   if ( wr2x_getoption( "disable_responsive", "wr2x_basics", false ) )
     return null;
+  $method = wr2x_getoption( "method", "wr2x_advanced", 'Picturefill' );
+  if ( $method == "none" )
+    return $srcset;
   $count = 0;
   $total = 0;
   $retinized_srcset = $srcset;
+  if ( empty( $srcset ) )
+    return $srcset;
   foreach ( $srcset as $s => $cfg ) {
     $total++;
     $retina = wr2x_get_retina_from_url( $cfg['url'] );

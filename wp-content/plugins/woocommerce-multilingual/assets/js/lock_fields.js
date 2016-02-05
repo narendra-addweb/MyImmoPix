@@ -32,13 +32,13 @@ jQuery(document).ready(function($){
 
     }
 
-    $('.woocommerce_attribute_data td textarea,.attribute_values,.attribute_name').each(function(){
+    $('#product_attributes td textarea,#product_attributes input[type="text"]').each(function(){
        $(this).attr('readonly','readonly');
        $(this).after($('.wcml_lock_img').clone().removeClass('wcml_lock_img').show());
     });
 
 
-    $('.woocommerce_attribute_data input[type="checkbox"]').each(function(){
+    $('#product_attributes input[type="checkbox"]').each(function(){
         $(this).attr('disabled','disabled');
         $(this).after($('.wcml_lock_img').clone().removeClass('wcml_lock_img').show());
     });
@@ -47,7 +47,7 @@ jQuery(document).ready(function($){
         for (i = 0; i < ids.length; i++) {
             $('#'+ids[i]).removeAttr('disabled');
         }
-        $('.woocommerce_variation select,#variable_product_options .toolbar select,.woocommerce_variation input[type="checkbox"],.woocommerce_attribute_data input[type="checkbox"]').each(function(){
+        $('.woocommerce_variation select,#variable_product_options .toolbar select,.woocommerce_variation input[type="checkbox"],#product_attributes input[type="checkbox"]').each(function(){
             $(this).removeAttr('disabled');
         });
     });
@@ -77,6 +77,7 @@ var wcml_lock_variation_fields = function(){
     jQuery('.woocommerce_variation>h3 select, #variable_product_options .toolbar select, .show_if_variation_manage_stock select').each(function(){
 
         jQuery(this).attr('disabled','disabled');
+        jQuery(this).parent().append('<input type="hidden" name="'+jQuery(this).attr('name')+'" value="'+jQuery(this).val()+'" />');
         jQuery(this).after(jQuery('.wcml_lock_img').clone().removeClass('wcml_lock_img').show());
     });
 
@@ -105,6 +106,7 @@ var wcml_lock_variation_fields = function(){
     for (i = 0; i < var_selectboxes.length; i++) {
         jQuery('select[name^="variable'+var_selectboxes[i]+'"]').each(function(){
             jQuery(this).attr('disabled','disabled');
+            jQuery(this).parent().append('<input type="hidden" name="'+jQuery(this).attr('name')+'" value="'+jQuery(this).val()+'" />');
             jQuery(this).after(jQuery('.wcml_lock_img').clone().removeClass('wcml_lock_img').show());
         });
     }

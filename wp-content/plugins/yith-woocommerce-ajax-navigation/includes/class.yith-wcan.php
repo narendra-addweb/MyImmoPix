@@ -63,7 +63,7 @@ if ( ! class_exists( 'YITH_WCAN' ) ) {
             $this->version = YITH_WCAN_VERSION;
 
             /* Load Plugin Framework */
-            add_action( 'plugins_loaded', array( $this, 'plugin_fw_loader' ) );
+            add_action( 'plugins_loaded', array( $this, 'plugin_fw_loader' ), 15 );
 
             /* Register Widget */
             add_action( 'widgets_init', array( $this, 'registerWidgets' ) );
