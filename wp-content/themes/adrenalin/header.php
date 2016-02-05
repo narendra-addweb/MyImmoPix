@@ -168,7 +168,7 @@ if ( isset( $cg_options['cg_logo_position'] ) ) {
                     <div class="cg-logo-cart-wrap">
                         <div class="cg-logo-inner-cart-wrap">
                             <div class="row">
-                                <div class="container">
+                                <div class="remove-container">
                                     <div class="cg-wp-menu-wrapper">
                                         <?php
                                         if ( $cg_responsive_status !== 'disabled' ) { ?>
