@@ -20,7 +20,7 @@
 	
 	</div>
 <?php }else if(ICL_LANGUAGE_CODE == 'nl'){?>
-<div class="col-lg-7 col-ms-7 col-md-7" >
+<div class="col-lg-7 col-sm-7 col-md-7" >
 	
 	<div class="tour-area" ><h4>OVERZICHT</h4>
 	
@@ -39,7 +39,7 @@
 
 
 <?php }else if(ICL_LANGUAGE_CODE == 'fr'){?>
-<div class="col-lg-7 col-ms-7 col-md-7" >
+<div class="col-lg-7 col-sm-7 col-md-7" >
 	
 	<div class="tour-area" ><h4>VISITE</h4>
 	

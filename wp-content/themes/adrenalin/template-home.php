@@ -122,70 +122,50 @@ function drags(dragElement, resizeElement, container) {
 	
 	</div><!-- #primary -->
 
-
-
-
 <div class="top-blog topmargin-price" id="price">
-		<div class="container"><div class="row"><div class="col-lg-12 col-ms-12 col-md-12">
-		
-		
-		<div class="col-lg-6 col-ms-6 col-md-6">
-		<?php if(ICL_LANGUAGE_CODE == 'en'){?>
-		<div class="cer-blog"> <img src="<?php echo $upload_dir['baseurl']; ?>/icon/price1.jpg" /></div>
-		<?php }else if(ICL_LANGUAGE_CODE == 'nl'){?>
-		<div class="cer-blog"> <img src="<?php echo $upload_dir['baseurl']; ?>/icon/price-new.jpg" /></div>
-		<?php }else if(ICL_LANGUAGE_CODE == 'fr'){?>
-		<div class="cer-blog"> <img src="<?php echo $upload_dir['baseurl']; ?>/icon/price-new.jpg" /></div>
-		<?php }?>
-		</div>
-		
-		<?php include('home-price.php');?>
-		</div></div>
-		
-		
-		</div>
-
+	<div class="container">
+    <div class="row">
+    		<div class="col-lg-5 col-sm-5 col-md-5">
+      		<?php if(ICL_LANGUAGE_CODE == 'en'){?>
+      		<div class="cer-blog"> <img src="<?php echo $upload_dir['baseurl']; ?>/icon/price1.jpg" /></div>
+      		<?php }else if(ICL_LANGUAGE_CODE == 'nl'){?>
+      		<div class="cer-blog"> <img src="<?php echo $upload_dir['baseurl']; ?>/icon/price-new.jpg" /></div>
+      		<?php }else if(ICL_LANGUAGE_CODE == 'fr'){?>
+      		<div class="cer-blog"> <img src="<?php echo $upload_dir['baseurl']; ?>/icon/price-new.jpg" /></div>
+      		<?php }?>
+    		</div>
+		    <?php include('home-price.php');?>
+    </div>
+	</div>
 </div>
-
-
 
 
 <div class="blog-blue" id="tour">
-
-<div class="container"><div class="row"><div class="col-lg-12 col-ms-12 col-md-12">
-	
-	
-	<div class="col-lg-5 col-ms-5 col-md-5">
-	
-	<?php if(ICL_LANGUAGE_CODE == 'en'){?>
-	<video width="450" height="340" controls>
-		<source src="<?php echo $upload_dir['baseurl']; ?>/video/maxrevised.mp4" type="video/mp4">
-		Your browser does not support the video tag.
-	</video>
-	<?php }else if(ICL_LANGUAGE_CODE == 'nl'){?>
-	
-	<video width="450" height="340" controls>
-		<source src="<?php echo $upload_dir['baseurl']; ?>/video/maxrevised.mp4" type="video/mp4">
-		Your browser does not support the video tag.
-	</video>
-	
-	<?php }else if(ICL_LANGUAGE_CODE == 'fr'){?>
-	
-	<video width="450" height="340" controls>
-		<source src="<?php echo $upload_dir['baseurl']; ?>/video/maxrevised.mp4" type="video/mp4">
-		Your browser does not support the video tag.
-	</video>
-	
-	<?php }?>
-	
+  <div class="container"><div class="row">
+  	<div class="col-lg-5 col-ms-5 col-md-5">
+    	<?php if(ICL_LANGUAGE_CODE == 'en'){?>
+    	<video width="450" height="340" controls>
+    		<source src="<?php echo $upload_dir['baseurl']; ?>/video/maxrevised.mp4" type="video/mp4">
+    		Your browser does not support the video tag.
+    	</video>
+    	<?php }else if(ICL_LANGUAGE_CODE == 'nl'){?>
+    	
+    	<video width="450" height="340" controls>
+    		<source src="<?php echo $upload_dir['baseurl']; ?>/video/maxrevised.mp4" type="video/mp4">
+    		Your browser does not support the video tag.
+    	</video>
+    	
+    	<?php }else if(ICL_LANGUAGE_CODE == 'fr'){?>
+    	
+    	<video width="450" height="340" controls>
+    		<source src="<?php echo $upload_dir['baseurl']; ?>/video/maxrevised.mp4" type="video/mp4">
+    		Your browser does not support the video tag.
+    	</video>
+    	<?php }?>
+    </div>
+    <?php include('home-tour.php');?>
+  	</div>
 </div>
-	
-	
-	<?php include('home-tour.php');?>
-	
-	
-	</div></div></div>
-
 
 
 </div>

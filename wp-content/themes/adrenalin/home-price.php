@@ -1,21 +1,18 @@
 
 <?php if(ICL_LANGUAGE_CODE == 'en'){?>
-<div class="col-lg-6 col-ms-6 col-md-6">
-		   <h6>PRICING</h6>
-		  <div class="hprice"><span>1,89&#8364; <small> PER PHOTO</small></span>
+	<div class="col-lg-7 col-sm-7 col-md-7">
+		<h6>PRICING</h6>
+		<div class="hprice"><span>1,89&#8364; <small> PER PHOTO</small></span>
+		<div class="para-area">Get a professionally edited real estate 
+		photo for as low as 1,89&#8364; (excl. VAT).</div>
 
-<div class="para-area">Get a professionally edited real estate 
-photo for as low as 1,89&#8364; (excl. VAT).</div>
+		<p><small>Myimmopix.com</small> uses credits to pay for editing services. One credit is necessary for one editing job.</p>
 
-<p><small>Myimmopix.com</small> uses credits to pay for editing services. One credit is necessary for one editing job.</p>
+		<p>You can buy bundle of credits to get discounts up to 16% !</p>
+		</div></div>
+		<?php }else if(ICL_LANGUAGE_CODE == 'nl'){?>
 
-<p>You can buy bundle of credits to get discounts up to 16% !</p>
-
-		  
-		  </div></div>
-<?php }else if(ICL_LANGUAGE_CODE == 'nl'){?>
-
-<div class="col-lg-6 col-ms-6 col-md-6">
+<div class="col-lg-7 col-sm-7 col-md-7">
 		   <h6>PRIJZEN</h6>
 		  <div class="hprice"><span>1,89&#8364; <small> PER FOTO</small></span>
 
@@ -26,7 +23,7 @@ photo for as low as 1,89&#8364; (excl. VAT).</div>
 		  
 		  </div></div>
 <?php }else if(ICL_LANGUAGE_CODE == 'fr'){?>
-<div class="col-lg-6 col-ms-6 col-md-6">
+<div class="col-lg-7 col-sm-7 col-md-7">
 		   <h6>Tarifs</h6>
 		  <div class="hprice"><span>1,89&#8364; <small> PAR PHOTO</small></span>
 
