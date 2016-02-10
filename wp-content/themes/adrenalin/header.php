@@ -192,7 +192,7 @@ if ( isset( $cg_options['cg_logo_position'] ) ) {
 							
 							
 											<?php if($user_ID>0){?>
-											<?php $name =  ucfirst(get_user_fname($user_ID)) .' '.ucfirst(get_user_lname($user_ID))?> 
+											<?php $name = get_user_name_string($user_ID);?> 
                                                 <div class="seactbox"><select class="selectpicker" name="userbox" id="userid" onChange="location = this.options[this.selectedIndex].value;">
                                                 <option><?php echo $name;?></option>
                                                 <option value=""><?php echo do_shortcode('[usercreditwoocommerce]');?>  <?php echo get_str_credit();?> </option>
