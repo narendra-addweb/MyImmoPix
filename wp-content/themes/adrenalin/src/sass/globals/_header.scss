@@ -1,0 +1,72 @@
+/**
+ * @file
+ * SCSS file to generate CSS.
+ *
+ * Header SCSS.
+ */
+
+$assets-path: '../..';
+/* Import to basic elements created for site */
+@import '../components/fonts';
+@import 'variable';
+
+
+/**
+ * Top Header
+ */
+.cg-logo-cart-wrap {
+  .logo.image {
+    height: auto;
+    img {
+      padding-top: 20px;
+    }
+  }
+  .homemenu {
+    margin-top: 0;
+  }
+}
+.cg-header-search {
+  .login-area {
+    margin-top: 33px;
+    .fleft {
+      margin-top: -17px;
+      margin-right: 20px;
+    }
+    .logincls {
+      margin-right: 1px;
+    }
+  }
+}
+.login-area {
+  .signupcls,
+  .logincls {
+    background: none;
+    div {
+      margin: 0;
+      a {
+        display: inline-block;
+        padding: 6px 15px;
+        border: 1px solid $blue-font;
+        background-color: $white;
+        color: $blue-font;
+        font-size: 14px;
+        &:hover,
+        &:focus {
+          background-color: $blue-font;
+          color: $white;
+        }
+      }
+    }
+  }
+
+}
+/* End */
+
+/* Fixed header */
+.cg-header-fixed {
+  .homemenu {
+    .menu-home-menus-container {
+      float: right;
+    }
+  }
+}

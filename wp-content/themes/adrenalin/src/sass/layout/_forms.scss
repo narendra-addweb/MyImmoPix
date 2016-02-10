@@ -1,0 +1,59 @@
+/**
+ * @file
+ * SCSS file to generate CSS.
+ *
+ * Form SCSS
+ */
+
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='number'],
+input[type='tel'],
+textarea {
+  @include box-shadow(none);
+}
+input[type='text']:focus,
+input[type='email']:focus,
+input[type='password']:focus,
+input[type='number']:focus,
+input[type='tel']:focus,
+textarea:focus {
+  border-color: $gray;
+  @include box-shadow(0 0 5px #999);
+}
+
+.checkbox label {
+  padding: 0;
+}
+
+.btn,
+.button {
+  &:hover,
+  &:focus {
+    opacity: .7;
+  }
+}
+/* Link hover effect */
+.mainlink {
+  a {
+    color: $red-dark;
+    &:hover,
+    &:focus {
+      color: $black-light;
+    }
+  }
+}
+
+/* Error message design */
+.cg-wc-messages {
+  .container {
+    max-width: 100%;
+    padding: 0;
+    .woocommerce-error {
+      margin: 0;
+    }
+  }
+}
+/* End */

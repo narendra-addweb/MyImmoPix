@@ -1,0 +1,31 @@
+/**
+ * @file
+ * SCSS file to generate CSS.
+ *
+ * Footer SCSS.
+ */
+
+$assets-path: '../..';
+/* Import to basic elements created for site */
+@import '../components/fonts';
+@import 'variable';
+
+
+/**
+ * Footer design
+ */
+.footer {
+  .foote-nav {
+    ul {
+      li {
+        a {
+          color: #FFF !important;
+          opacity: .77;
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
