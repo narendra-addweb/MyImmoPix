@@ -170,8 +170,47 @@ if ( isset( $cg_live_preview ) )
     ?>
 <?php wp_footer(); ?>
 
-<?php get_template_part('trash' ,'closed-project' ); ?> 
+<?php get_template_part('trash' ,'closed-project' ); ?>
+<script type='text/javascript' src='<?php print(CG_THEMEURI);?>/js/easing.jquery.js'></script> 
+<script type='text/javascript' src='<?php print(CG_THEMEURI);?>/js/valocity.min.js'></script>
+<script type='text/javascript'>
+    /*
+        Function for call sign up page scrolling
+    */
+    function redirectOnSection(redirectURL, whereRedirect){
+        
+         var isFront = "<?php if(is_front_page()){ print('1');} else {print('0');}?>";
+         if(isFront){               
+            var el = jQuery( '#' + whereRedirect);
+            var is_sticky = ( jQuery( '.cg-header-fixed-wrapper' ).length > 0 );
 
+            //var offset = ( is_sticky ) ? 94 : -3;
+            var offset = 60;//Initialize with 0 value
+
+            if ( el.length > 0 ) {
+                jQuery( 'html' ).velocity( "scroll", {
+                    offset: el.offset().top - offset,
+                    duration: 2000,
+                    easing: 'easeOutExpo'
+                } );
+            }
+        }
+        else {
+            jQuery(location).attr('href',redirectURL);
+        }
+    }
+
+
+</script>
+<script type="text/javascript">
+    
+
+    jQuery(window).on('hashchange', function(e){
+        var hasValueURL = window.location.hash.substr(1);
+        redirectURL = '<?php print(esc_url( home_url( '/' ) ));?>' + '#' + hasValueURL;
+        redirectOnSection(redirectURL, hasValueURL);
+    });
+    </script>
 </body>
 </html>
 

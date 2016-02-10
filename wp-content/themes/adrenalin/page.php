@@ -83,10 +83,10 @@ $page_id = get_the_id();
 
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script><script>-->
 <script>
-$( document ).ready(function() {
-$('.page-id-7 .update-button').addClass("new-update-btn");
-$('.page-id-7 .checkout-button').removeClass("button");
-$(".btnclass .btn-danger").val("ADD");
+jQuery( document ).ready(function() {
+jQuery('.page-id-7 .update-button').addClass("new-update-btn");
+jQuery('.page-id-7 .checkout-button').removeClass("button");
+jQuery(".btnclass .btn-danger").val("ADD");
 
 		
 });

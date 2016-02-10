@@ -1024,6 +1024,20 @@ function get_user_lname($uid)
     return $user_info->last_name;
 }
 
+
+/*
+This function will return user first name and last if already set other wise return username
+*/
+function get_user_name_string($uid){
+    $user_info = get_userdata($uid);
+    $userName = $user_info->user_login;
+    if(!empty($user_info->first_name) && !empty($user_info->last_name)){
+        $userName = ucfirst($user_info->first_name) .' '.ucfirst($user_info->last_name);
+    }
+    return $userName;
+}
+
+
 // get user phone
 function get_user_phone($uid) 
 {
