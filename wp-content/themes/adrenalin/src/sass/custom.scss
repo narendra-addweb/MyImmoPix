@@ -149,3 +149,28 @@ video {
     background-color: #FFF;
   }
 }
+
+/* Login-signup */
+.signupcls,
+.logincls {
+  ul {
+    display: inline-block;
+    padding: 0;
+    line-height: normal;
+    vertical-align: top;
+    list-style: none;
+    li {
+      display: inline-block;
+      line-height: normal;
+      vertical-align: top;
+      a {
+        height: auto;
+        line-height: normal;
+        &:hover {
+          color: #FFF;
+        }
+      }
+    }
+  }
+}
+/* End */
