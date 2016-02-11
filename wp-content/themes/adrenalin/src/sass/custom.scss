@@ -167,7 +167,7 @@ video {
         height: auto;
         line-height: normal;
         &:hover {
-          color: #FFF;
+          color: #FFF !important;
         }
       }
     }
