@@ -2356,3 +2356,77 @@ function time_to_his ($seconds)
 	
 	return gmdate ('H:i:s', $seconds);
 	}
+
+
+/**
+ * Redirect users to custom URL based on their role after login
+ *
+ * @param string $redirect
+ * @param object $user
+ * @return string
+ */
+function wc_custom_user_redirect( $redirect, $user ) {
+    // Get the first of all the roles assigned to the user...
+    $role = $user->roles[0];
+    if(isset($_REQUEST['red'])){
+        
+        //Get language specific file upload page url...
+        if(ICL_LANGUAGE_CODE == "fr"){
+            $upload_photo_url = get_permalink('69199');
+        }
+        else if(ICL_LANGUAGE_CODE == "nl"){
+            $upload_photo_url = get_permalink('69198');
+        }
+        else if(ICL_LANGUAGE_CODE == "en"){
+            $upload_photo_url = get_permalink('66607');
+        }
+        return $redirect;
+    }
+
+    /*$dashboard = admin_url();
+    $myaccount = get_permalink( wc_get_page_id( 'myaccount' ) );
+
+    if( $role == 'administrator' ) {
+        //Redirect administrators to the dashboard
+        $redirect = $dashboard;
+    } elseif ( $role == 'shop-manager' ) {
+        //Redirect shop managers to the dashboard
+        $redirect = $dashboard;
+    } elseif ( $role == 'editor' ) {
+        //Redirect editors to the dashboard
+        $redirect = $dashboard;
+    } elseif ( $role == 'author' ) {
+        //Redirect authors to the dashboard
+        $redirect = $dashboard;
+    } elseif ( $role == 'customer' || $role == 'subscriber' ) {
+        //Redirect customers and subscribers to the "My Account" page
+        $redirect = $myaccount;
+    } else {
+        //Redirect any other role to the previous visited page or, if not available, to the home
+        $redirect = wp_get_referer() ? wp_get_referer() : home_url();
+    }*/
+
+    //return $redirect;
+}
+//add_filter( 'woocommerce_login_redirect', 'wc_custom_user_redirect', 10, 2 );
+
+
+/*
+    This function will return language wise upload photo page url...
+*/
+function get_upload_page_url(){
+    if(isset($_REQUEST['red'])){
+        
+        //Get language specific file upload page url...
+        if(ICL_LANGUAGE_CODE == "fr"){
+            $upload_photo_url = get_permalink('69199');
+        }
+        else if(ICL_LANGUAGE_CODE == "nl"){
+            $upload_photo_url = get_permalink('69198');
+        }
+        else if(ICL_LANGUAGE_CODE == "en"){
+            $upload_photo_url = get_permalink('66607');
+        }
+        return $upload_photo_url;
+    }
+}
