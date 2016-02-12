@@ -153,6 +153,15 @@ video {
 /* Login-signup */
 .signupcls,
 .logincls {
+  #nav_menu-3 {
+    ul {
+      li {
+        a:hover {
+          color: #FFF !important;
+        }
+      }
+    }
+  }
   ul {
     display: inline-block;
     padding: 0;
@@ -166,9 +175,6 @@ video {
       a {
         height: auto;
         line-height: normal;
-        &:hover {
-          color: #FFF !important;
-        }
       }
     }
   }
