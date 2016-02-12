@@ -209,11 +209,19 @@ if ( isset( $cg_live_preview ) )
 </script>
 <script type="text/javascript">
     
-
+    //While has changed...
     jQuery(window).on('hashchange', function(e){
         var hasValueURL = window.location.hash.substr(1);
         redirectURL = '<?php print(esc_url( home_url( '/' ) ));?>' + '#' + hasValueURL;
         redirectOnSection(redirectURL, hasValueURL);
+    });
+    //While Click event...
+    jQuery(window).on('click', function(e){
+        if(window.location.href.indexOf("#") > -1) {
+            var hasValueURL = window.location.hash.substr(1);
+            redirectURL = '<?php print(esc_url( home_url( '/' ) ));?>' + '#' + hasValueURL;
+            redirectOnSection(redirectURL, hasValueURL);
+        }
     });
     </script>
 </body>
