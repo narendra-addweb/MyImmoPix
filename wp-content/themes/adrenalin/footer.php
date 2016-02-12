@@ -183,24 +183,29 @@ if ( isset( $cg_live_preview ) )
          if(isFront){               
             var el = jQuery( '#' + whereRedirect);
             var is_sticky = ( jQuery( '.cg-header-fixed-wrapper' ).length > 0 );
+            var exist_sticky = ( jQuery( '.cg-header-fixed-wrapper' ).hasClass("cg-is-fixed"));
 
             //var offset = ( is_sticky ) ? 94 : -3;
             var offset = 60;//Initialize with 0 value
 
             if ( el.length > 0 ) {
-                jQuery( 'html' ).velocity( "scroll", {
-                    offset: el.offset().top - offset,
-                    duration: 2000,
-                    easing: 'easeOutExpo'
-                } );
+                var timeOutMS = 800;
+                if(exist_sticky){
+                    var timeOutMS = 0;    
+                }
+                setTimeout( function(){
+                    jQuery( 'html' ).velocity( "scroll", {
+                        offset: el.offset().top - offset,
+                        duration: 2000,
+                        easing: 'easeOutExpo'
+                    });
+                },timeOutMS);
             }
         }
         else {
             jQuery(location).attr('href',redirectURL);
         }
     }
-
-
 </script>
 <script type="text/javascript">
     
