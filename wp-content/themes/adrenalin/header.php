@@ -223,11 +223,7 @@ if ( isset( $cg_options['cg_logo_position'] ) ) {
 												<option value="<?php echo get_bloginfo('url');?>/contact-us"><?php echo get_str_contactus();?></option>
                                                 <option value="<?php echo wp_logout_url( home_url() );?>"><?php echo get_str_logout();?></option>
                                                 </select></div>
-                            `				<?php } ?>
-											
-											
-							
-							
+                            				<?php } ?>
                                         </div></div>
 										
 										
@@ -265,7 +261,8 @@ if ( isset( $cg_options['cg_logo_position'] ) ) {
 											
 											
 											
-											<?php if(is_front_page() || is_home()){?>
+											<?php //if(is_front_page() || is_home()){?>
+                                            <?php if(true){?>
 											<div class="homemenu">
 												
 												<?php
@@ -300,7 +297,8 @@ if ( isset( $cg_options['cg_logo_position'] ) ) {
 									  		 <?php }?>
 									  
 									  
-									  	<?php if ( $shop_announcements == 'enabled' ) { ?>
+									  	<?php //if ( $shop_announcements == 'enabled' ) { ?>
+                                        <?php if ( false ) { ?>
 
                                                 <div class="cg-announcements">
                                                     <div class="divider"></div>
@@ -322,12 +320,13 @@ if ( isset( $cg_options['cg_logo_position'] ) ) {
                                                 </div>
 												<?php }?>
 												
-												</div>
+												
 												
 												
 												
 
                                             <?php } ?>
+                                            </div>
                                         <?php } else { ?>
                                             <div class="logo text-logo">
                                                 <h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
@@ -446,7 +445,8 @@ if ( isset( $cg_options['cg_logo_position'] ) ) {
 							
 							
 
-					<?php if(!is_front_page() && !is_home() && $user_ID>0){?>		
+					<?php //if(!is_front_page() && !is_home() && $user_ID>0){?>
+                    <?php if(false){?>		
 					<div class="col-lg-6 col-md-6">
                         
 						<?php $pageid = get_the_id();?>
@@ -541,30 +541,31 @@ if ( isset( $cg_options['cg_logo_position'] ) ) {
 												
 												
 												
-												<?php if(is_front_page() || is_home() ){ ?>
+												<?php //if(is_front_page() || is_home() ){ ?>
+                                                <?php if(true){ ?>
 												
 												<div class="homemenu">
 												
 												<?php
 												
 												$defaults = array(
-												'theme_location'  => '',
-												'menu'            => 'Home Menus',
-												'container'       => 'div',
-												'container_class' => '',
-												'container_id'    => '',
-												'menu_class'      => 'menu',
-												'menu_id'         => '',
-												'echo'            => true,
-												'fallback_cb'     => 'wp_page_menu',
-												'before'          => '',
-												'after'           => '',
-												'link_before'     => '',
-												'link_after'      => '',
-												'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-												'depth'           => 0,
-												'walker'          => ''
-												);
+                                                'theme_location'  => '',
+                                                'menu'            => 'Home Menus',
+                                                'container'       => 'div',
+                                                'container_class' => '',
+                                                'container_id'    => '',
+                                                'menu_class'      => 'menu',
+                                                'menu_id'         => '',
+                                                'echo'            => true,
+                                                'fallback_cb'     => 'wp_page_menu',
+                                                'before'          => '',
+                                                'after'           => '',
+                                                'link_before'     => '',
+                                                'link_after'      => '',
+                                                'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                                                'depth'           => 0,
+                                                'walker'          => ''
+                                                );
 												
 												?>
 												
@@ -575,22 +576,23 @@ if ( isset( $cg_options['cg_logo_position'] ) ) {
 												<?php }else{ ?>
 												
 												
-												 <?php if ( has_nav_menu( 'primary' ) ) { ?>
-                                                    <?php
-                                                    wp_nav_menu( array(
-                                                        'theme_location' => 'primary',
-                                                        'before' => '',
-                                                        'after' => '',
-                                                        'link_before' => '',
-                                                        'link_after' => '',
-                                                        'depth' => 4,
-                                                        'fallback_cb' => false,
-                                                        'walker' => new primary_cg_menu() )
-                                                    );
-                                                    ?>
-                                                <?php } else { ?>
-                                                    <p class="setup-message">You can set your main menu in <strong>Appearance &gt; Menus</strong></p>
-                                                <?php }} ?>
+    												 <?php if ( has_nav_menu( 'primary' ) ) { ?>
+                                                        <?php
+                                                        wp_nav_menu( array(
+                                                            'theme_location' => 'primary',
+                                                            'before' => '',
+                                                            'after' => '',
+                                                            'link_before' => '',
+                                                            'link_after' => '',
+                                                            'depth' => 4,
+                                                            'fallback_cb' => false,
+                                                            'walker' => new primary_cg_menu() )
+                                                        );
+                                                        ?>
+                                                    <?php } else { ?>
+                                                        <p class="setup-message">You can set your main menu in <strong>Appearance &gt; Menus</strong></p>
+                                                    <?php }
+                                                } ?>
                                             </div><!--/cg-wp-menu-wrapper -->
                                         </div><!--/container -->
                                     </div><!--/row -->
