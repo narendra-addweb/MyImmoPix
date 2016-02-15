@@ -2430,3 +2430,60 @@ function get_upload_page_url(){
         return $upload_photo_url;
     }
 }
+
+
+//This function will remove password strength meter, this is currently display wrong.
+function wc_aws_remove_password_strength() {
+    if ( wp_script_is( 'wc-password-strength-meter', 'enqueued' ) ) {
+        wp_dequeue_script( 'wc-password-strength-meter' );
+    }
+}
+add_action( 'wp_print_scripts', 'wc_aws_remove_password_strength', 100 );
+
+/**
+ * Process the checkout, first name and last name allow character only...
+ */
+add_action('woocommerce_checkout_process', 'my_custom_checkout_field_process');
+
+function my_custom_checkout_field_process() {
+    // Check if set, if its not set add an error.
+    if (isset($_POST['billing_first_name'])){
+
+        if (!preg_match("/^[a-z]$/i", $_POST['billing_first_name'])) {
+            // throw an Exception...
+
+            //Get language specific file upload page url...
+            if(ICL_LANGUAGE_CODE == "fr"){
+                $validation_FName = '<strong>FirstName</strong>Pr&eacute;nom permettre caract&egrave;re seulement';
+            }
+            else if(ICL_LANGUAGE_CODE == "nl"){
+                $validation_FName = "<strong>FirstName</strong>Voornaam staan alleen karakter";
+            }
+            else if(ICL_LANGUAGE_CODE == "en"){
+                $validation_FName = "<strong>FirstName</strong>First name allow character only";
+            }
+            wc_add_notice( __( $validation_FName ), 'error' );
+        }
+        
+    }
+
+    if (isset($_POST['billing_last_name'])){
+
+        if (!preg_match("/^[a-z]$/i", $_POST['billing_last_name'])) {
+            // throw an Exception...
+
+            //Get language specific file upload page url...
+            if(ICL_LANGUAGE_CODE == "fr"){
+                $validation_FName = '<strong>LastName</strong>Nom permettre caract&egrave;re seulement';
+            }
+            else if(ICL_LANGUAGE_CODE == "nl"){
+                $validation_FName = "<strong>LastName</strong>Achternaam staan alleen karakter";
+            }
+            else if(ICL_LANGUAGE_CODE == "en"){
+                $validation_FName = "<strong>LastName</strong>Last name allow character only";
+            }
+            wc_add_notice( __( $validation_FName ), 'error' );
+        }
+        
+    }
+}
