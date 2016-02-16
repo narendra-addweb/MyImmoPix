@@ -68,7 +68,6 @@ video {
 .entry-content .exampimage {
   margin-left: 0;
 }
-
 .cg-is-fixed .homemenu .menu-home-menus-container ul li:last-child {
   margin-right: 0;
   padding-right: 0;
@@ -175,6 +174,9 @@ video {
       a {
         height: auto;
         line-height: normal;
+        &:hover {
+          color: #FFF !important;
+        }
       }
     }
   }

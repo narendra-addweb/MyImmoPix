@@ -36,6 +36,9 @@ $assets-path: '../..';
       margin-right: 1px;
     }
   }
+  .seactbox {
+    margin-right: 0;
+  }
 }
 .login-area {
   .signupcls,
@@ -58,7 +61,6 @@ $assets-path: '../..';
       }
     }
   }
-
 }
 /* End */
 
@@ -67,6 +69,24 @@ $assets-path: '../..';
   .homemenu {
     .menu-home-menus-container {
       float: right;
+    }
+  }
+}
+
+/* Menu */
+.cg-menu-below {
+  .menu {
+    li {
+      &:nth-child(5),
+      &:nth-child(6) {
+        a {
+          color: #DF440B;
+          &:hover,
+          &:focus {
+            color: $blue !important;
+          }
+        }
+      }
     }
   }
 }
