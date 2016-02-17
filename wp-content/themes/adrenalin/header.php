@@ -261,7 +261,7 @@ if ( isset( $cg_options['cg_logo_position'] ) ) {
                                                 </a>
                                                 <div class="logotxt">
                                                     <!--------better photos better sale ---------------->
-                                                    <div class="logoslogan"><?php echo get_str_slogan();?></div>
+                                                    <div class="logoslogan"><?php echo get_str_logo_slogan();?></div>
                                                 </div>
                                             </div>
 											
@@ -534,11 +534,21 @@ if ( isset( $cg_options['cg_logo_position'] ) ) {
 
                                                     <div class="logo image">
                                                         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" style="max-width: <?php echo $cg_logo_max_width; ?>px;">
-                                                            <span class="helper"></span><img src="<?php echo $cg_logo; ?>" alt="<?php bloginfo( 'name' ); ?>"/></a>
+                                                            <span class="helper"></span>
+                                                            <img src="<?php echo $cg_logo; ?>" alt="<?php bloginfo( 'name' ); ?>"/>
+                                                        </a>
+                                                        <div class="logotxt">
+                                                            <!--------better photos better sale ---------------->
+                                                            <div class="logoslogan"><?php echo get_str_logo_slogan();?></div>
+                                                        </div>
                                                     </div>
                                                 <?php } else { ?>
                                                     <div class="logo text-logo">
                                                         <h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+                                                    <div class="logotxt">
+                                                        <!--------better photos better sale ---------------->
+                                                        <div class="logoslogan"><?php echo get_str_logo_slogan();?></div>
+                                                    </div>
                                                     </div>
                                                 <?php } ?>
 												
