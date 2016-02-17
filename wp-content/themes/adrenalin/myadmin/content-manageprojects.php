@@ -139,15 +139,39 @@ if(isset($_POST['update'])  && $_POST['update']!='')
 	while(have_posts()) : the_post();
 	$feat_image =  wp_get_attachment_url( get_the_ID() );
 	endwhile;	
-	?>
-    
-    <?php
+	
 	$date = date_i18n('Y-m-d H:i:s');
-    $mdate = $post_date.' '.$post_time;
+  $mdate = $post_date.' '.$post_time;
+
+	/*
 	$sq = "SELECT TIME_TO_SEC(TIMEDIFF( '".$date."', '".$mdate."')) diff";
 	$rst = mysql_query($sq);
- 	$seconds = mysql_result($rst,'0','diff');
+ 	$seconds = mysql_result($rst,'0','diff');*/
+
+
+ 	/*$thenDate = $mdate;
+	$thenDate = new DateTime($thenDate);
+
+	$now = new DateTime();
+
+	$sinceThen = $now->diff($thenDate);
+
+	$seconds = $sinceThen->s;
+	if($sinceThen->i > 0){//Convert minute to into second...
+			$convtInSec = $sinceThen->i * 60;
+			$seconds = $seconds + $convtInSec;
+	}
 	
+	if($sinceThen->h > 0){//Convert hours to into second...
+			$convtInSec = $sinceThen->h * 60 * 60;
+			$seconds = $seconds + $convtInSec;
+	}
+
+	if($sinceThen->d > 0){//Convert hours to into second...
+			$convtInSec = $sinceThen->h * 60 * 60;
+			$seconds = $seconds + $convtInSec;
+	}
+
 	if($seconds>=86400)
 	{
 		$days = intval(intval($seconds) / (3600*24));	
@@ -170,8 +194,7 @@ if(isset($_POST['update'])  && $_POST['update']!='')
 	{
 		$val = get_string_sec($seconds);
 		
-	}
-	
+	}*/
 	
 	
 	//-----------------------------

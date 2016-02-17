@@ -2443,91 +2443,50 @@ add_action( 'wp_print_scripts', 'wc_aws_remove_password_strength', 100 );
 /**
  * Process the checkout, first name and last name allow character only...
  */
-add_action('woocommerce_checkout_process', 'my_custom_checkout_field_process');
+add_action('woocommerce_checkout_process', 'wc_aws_checkout_field_process');
 
-function my_custom_checkout_field_process() {
+function wc_aws_checkout_field_process() {
     // Check if set, if its not set add an error.
-    if (isset($_POST['billing_first_name'])){
+    if (isset($_POST['billing_first_name']) && !empty($_POST['billing_first_name'])){
 
         if (!preg_match("/^[a-zA-Z -]+$/", $_POST['billing_first_name'])) {
             // throw an Exception...
 
             //Get language specific file upload page url...
             if(ICL_LANGUAGE_CODE == "fr"){
-                $validation_FName = '<strong>FirstName</strong>Pr&eacute;nom permettre caract&egrave;re seulement';
+                $validation_FName = '<strong>First Name</strong>&nbsp;Pr&eacute;nom permettre caract&egrave;re seulement';
             }
             else if(ICL_LANGUAGE_CODE == "nl"){
-                $validation_FName = "<strong>FirstName</strong>Voornaam staan alleen karakter";
+                $validation_FName = "<strong>First Name</strong>&nbsp;Voornaam staan alleen karakter";
             }
             else if(ICL_LANGUAGE_CODE == "en"){
-                $validation_FName = "<strong>FirstName</strong>First name allow character only";
+                $validation_FName = "<strong>First Name</strong>&nbsp;First name allow character only";
             }
             wc_add_notice( __( $validation_FName ), 'error' );
         }
         
     }
 
-    if (isset($_POST['billing_last_name'])){
+    if (isset($_POST['billing_last_name']) && !empty($_POST['billing_last_name'])){
 
         if (!preg_match("/^[a-zA-Z -]+$/", $_POST['billing_last_name'])) {
             // throw an Exception...
 
             //Get language specific file upload page url...
             if(ICL_LANGUAGE_CODE == "fr"){
-                $validation_FName = '<strong>LastName</strong>Nom permettre caract&egrave;re seulement';
+                $validation_LName = '<strong>Last Name</strong>&nbsp;Nom permettre caract&egrave;re seulement';
             }
             else if(ICL_LANGUAGE_CODE == "nl"){
-                $validation_FName = "<strong>LastName</strong>Achternaam staan alleen karakter";
+                $validation_LName = "<strong>Last Name</strong>&nbsp;Achternaam staan alleen karakter";
             }
             else if(ICL_LANGUAGE_CODE == "en"){
-                $validation_FName = "<strong>LastName</strong>Last name allow character only";
+                $validation_LName = "<strong>Last Name</strong>&nbsp;Last name allow character only";
             }
-            wc_add_notice( __( $validation_FName ), 'error' );
+            wc_add_notice( __( $validation_LName ), 'error' );
         }
         
     }
 }
-
-add_action('user_profile_update_errors','my_custom_validate_custom_field',10,1);
-function my_custom_validate_custom_field($args)
-{
-    if (isset($_POST['account_first_name'])){
-        if (!preg_match("/^[a-zA-Z -]+$/", $_POST['account_first_name'])) {
-            // throw an Exception...
-
-            //Get language specific file upload page url...
-            if(ICL_LANGUAGE_CODE == "fr"){
-                $validation_FName = '<strong>LastName</strong>Nom permettre caract&egrave;re seulement';
-            }
-            else if(ICL_LANGUAGE_CODE == "nl"){
-                $validation_FName = "<strong>LastName</strong>Achternaam staan alleen karakter";
-            }
-            else if(ICL_LANGUAGE_CODE == "en"){
-                $validation_FName = "<strong>LastName</strong>Last name allow character only";
-            }
-            wc_add_notice( __( $validation_FName ), 'error' );
-        }
-    }
-
-    if (isset($_POST['account_last_name'])){
-        if (!preg_match("/^[a-zA-Z -]+$/", $_POST['account_last_name'])) {
-            // throw an Exception...
-
-            //Get language specific file upload page url...
-            if(ICL_LANGUAGE_CODE == "fr"){
-                $validation_FName = '<strong>LastName</strong>Nom permettre caract&egrave;re seulement';
-            }
-            else if(ICL_LANGUAGE_CODE == "nl"){
-                $validation_FName = "<strong>LastName</strong>Achternaam staan alleen karakter";
-            }
-            else if(ICL_LANGUAGE_CODE == "en"){
-                $validation_FName = "<strong>LastName</strong>Last name allow character only";
-            }
-            wc_add_notice( __( $validation_FName ), 'error' );
-        }
-    }
-}
-
 
 
 //This function will return slogan for display under logo on every pages...
@@ -2548,3 +2507,142 @@ function get_str_logo_slogan(){
     
     return $str;
 }
+
+//This function will validate first name and last against other character input for my account...
+add_action( 'woocommerce_save_account_details_errors', 'wc_aws_validate_extra_register_fields');
+function wc_aws_validate_extra_register_fields( ) {
+
+   if (isset($_POST['account_first_name']) && !empty($_POST['account_first_name'])){
+        if (!preg_match("/^[a-zA-Z -]+$/", $_POST['account_first_name'])) {
+            // throw an Exception...
+
+            //Get language specific file upload page url...
+            if(ICL_LANGUAGE_CODE == "fr"){
+                $validation_FName = '<strong>First Name</strong>&nbsp;Pr&eacute;nom caract&egrave;re seulement';
+            }
+            else if(ICL_LANGUAGE_CODE == "nl"){
+                $validation_FName = "<strong>First Name</strong>&nbsp;Voornaam staan alleen karakter";
+            }
+            else if(ICL_LANGUAGE_CODE == "en"){
+                $validation_FName = "<strong>First Name</strong>&nbsp;First name allow character only";
+            }
+            wc_add_notice( __( $validation_FName ), 'error' );
+        }
+    }
+
+    if (isset($_POST['account_last_name']) && !empty($_POST['account_last_name'])){
+        if (!preg_match("/^[a-zA-Z -]+$/", $_POST['account_last_name'])) {
+            // throw an Exception...
+
+            //Get language specific file upload page url...
+            if(ICL_LANGUAGE_CODE == "fr"){
+                $validation_LName = '<strong>Last Name</strong>&nbsp;Nom permettre caract&egrave;re seulement';
+            }
+            else if(ICL_LANGUAGE_CODE == "nl"){
+                $validation_LName = "<strong>Last Name</strong>&nbsp;Achternaam staan alleen karakter";
+            }
+            else if(ICL_LANGUAGE_CODE == "en"){
+                $validation_LName = "<strong>Last Name</strong>&nbsp;Last name allow character only";
+            }
+            wc_add_notice( __( $validation_LName ), 'error' );
+        }
+    }
+}
+
+//This function will return multi language "Before" and "After" text for home > example section...
+function get_str_before_after_example($forStr = 'A'){
+    //For After string...
+    if($forStr == "A"){
+        if(ICL_LANGUAGE_CODE == 'fr') {
+            $strReturn = "Apr&egrave;s";
+        } else if(ICL_LANGUAGE_CODE == 'nl') {
+            $strReturn = "Na";
+        } else if(ICL_LANGUAGE_CODE == 'en') {
+            $strReturn = "After";
+        }
+    }
+
+    if($forStr == "B"){
+        if(ICL_LANGUAGE_CODE == 'fr') {
+            $strReturn = "Avant";
+        } else if(ICL_LANGUAGE_CODE == 'nl') {
+            $strReturn = "Voor";
+        } else if(ICL_LANGUAGE_CODE == 'en') {
+            $strReturn = "Before";
+        }
+    }
+    return $strReturn;
+}
+
+
+
+//This function will validate first name and last against other character input for my account...
+/*add_action( 'woocommerce_process_myaccount_field_billing_first_name', 'wc_aws_edit_billing_fname');
+function wc_aws_edit_billing_fname( ) {
+    if (isset($_POST['billing_first_name']) && !empty($_POST['billing_first_name'])){
+        if (!preg_match("/^[a-zA-Z -]+$/", $_POST['billing_first_name'])) {
+            // throw an Exception...
+
+            //Get language specific file upload page url...
+            if(ICL_LANGUAGE_CODE == "fr"){
+                $validation_FName = 'First Name&nbsp;Pr&eacute;nom caract&egrave;re seulement';
+            }
+            else if(ICL_LANGUAGE_CODE == "nl"){
+                $validation_FName = "First Name&nbsp;Voornaam staan alleen karakter";
+            }
+            else if(ICL_LANGUAGE_CODE == "en"){
+                $validation_FName = "First Name&nbsp;First name allow character only";
+            }
+            wc_add_notice( __( $validation_FName ), 'error' );
+        }
+    }
+}*/
+
+//This function will return upload string.
+function get_string_upload($frontDate) {
+    
+
+    $thenDate = $frontDate;
+    $thenDate = new DateTime($thenDate);
+
+    $now = new DateTime();
+
+    $sinceThen = $now->diff($thenDate);
+    
+    
+
+    
+
+    //For day differance
+    if($sinceThen->d > 0){
+        $days = 0;
+        //For year differance
+        if($sinceThen->y > 0){
+           $days = ($sinceThen->y * 30 * 12);
+        }
+
+        //For month differance
+        if($sinceThen->m > 0){
+           $days = $days + ($sinceThen->m * 30);  
+        }
+        
+        $days = $days + $sinceThen->d;
+        return get_string_day($days);    
+    }
+
+    //For hour differance
+    if($sinceThen->h > 0){
+       return get_string_hours($sinceThen->h);    
+    }
+
+    //For minute differance
+    if($sinceThen->i > 0){
+       return get_string_minutes($sinceThen->i);    
+    }
+
+    //For second differance
+    if($sinceThen->s > 0){
+       return get_string_sec($sinceThen->s);    
+    }
+}
+

@@ -50,16 +50,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			<?php do_action( 'woocommerce_login_form' ); ?>
 
-			<p class="form-row">
-				<?php wp_nonce_field( 'woocommerce-login' ); ?>
-				<input type="submit" class="button" name="login" value="<?php esc_attr_e( 'Login', 'woocommerce' ); ?>" />
+			<p class="form-row form-row-wide myaccount_login_form">
 				<label for="rememberme" class="inline">
 					<input name="rememberme" type="checkbox" id="rememberme" value="forever" /> <?php _e( 'Remember me', 'woocommerce' ); ?>
 				</label>
+				<a href="<?php echo esc_url( wp_lostpassword_url() ); ?>" class="myaccount_form_lost_password"><?php _e( 'Lost your password?', 'woocommerce' ); ?></a>
 			</p>
-			<p class="lost_password">
-				<a href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php _e( 'Lost your password?', 'woocommerce' ); ?></a>
+
+			<p class="form-row">
+				<?php wp_nonce_field( 'woocommerce-login' ); ?>
+				<input type="submit" class="button" name="login" value="<?php esc_attr_e( 'Login', 'woocommerce' ); ?>" />
 			</p>
+			
 			<input type="hidden" name="redirect" value="<?php echo get_upload_page_url(); ?>" />
 			<?php do_action( 'woocommerce_login_form_end' ); ?>
 

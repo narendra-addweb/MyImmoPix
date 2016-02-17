@@ -193,43 +193,38 @@ if ( isset( $cg_options['cg_logo_position'] ) ) {
 							
 											<?php if($user_ID>0){?>
 											<?php $name = get_user_name_string($user_ID);?> 
-                                                <div class="seactbox"><select class="selectpicker" name="userbox" id="userid" onChange="location = this.options[this.selectedIndex].value;">
-                                                <option><?php echo $name;?></option>
-                                                <option value=""><?php echo do_shortcode('[usercreditwoocommerce]');?>  <?php echo get_str_credit();?> </option>
-                                                <option value="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') );?>">
-                                                <?php echo get_str_profilesettings();?></option>
+                                                <div class="seactbox">
+                                                    <select class="selectpicker" name="userbox" id="userid" onChange="location = this.options[this.selectedIndex].value;">
+                                                        <option><?php echo $name;?></option>
+                                                        <option value=""><?php echo do_shortcode('[usercreditwoocommerce]');?>  <?php echo get_str_credit();?> </option>
+                                                        <option value="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') );?>"><?php echo get_str_profilesettings();?></option>
 												
 												
-												<?php
-													if(ICL_LANGUAGE_CODE == 'fr')
-													{
-													$uploadlink = "multiple-upload-fr";
-													$myprojectslink = "project-fr";
-													}
-													else if(ICL_LANGUAGE_CODE == 'nl')
-													{
-													$uploadlink = "multiple-upload-dutch";
-													$myprojectslink = "project-dutch";
-													}
-													else if(ICL_LANGUAGE_CODE == 'en')
-													{
-													$uploadlink = "multiple-upload-en";
-													$myprojectslink = "project-en";
-													}
-												?>
-												
-												<option value="<?php echo get_bloginfo('url');?>/<?php echo $uploadlink;?>"><?php echo get_str_uploadphoto();?></option>
-												<option value="<?php echo get_bloginfo('url');?>/<?php echo $myprojectslink;?>"><?php echo get_str_myproject();?></option>
-												<option value="<?php echo get_bloginfo('url');?>/contact-us"><?php echo get_str_contactus();?></option>
-                                                <option value="<?php echo wp_logout_url( home_url() );?>"><?php echo get_str_logout();?></option>
-                                                </select></div>
+        												<?php
+        													if(ICL_LANGUAGE_CODE == 'fr')
+        													{
+        													$uploadlink = "multiple-upload-fr";
+        													$myprojectslink = "project-fr";
+        													}
+        													else if(ICL_LANGUAGE_CODE == 'nl')
+        													{
+        													$uploadlink = "multiple-upload-dutch";
+        													$myprojectslink = "project-dutch";
+        													}
+        													else if(ICL_LANGUAGE_CODE == 'en')
+        													{
+        													$uploadlink = "multiple-upload-en";
+        													$myprojectslink = "project-en";
+        													}
+        												?>
+        												<option value="<?php echo get_bloginfo('url');?>/<?php echo $uploadlink;?>"><?php echo get_str_uploadphoto();?></option>
+        												<option value="<?php echo get_bloginfo('url');?>/<?php echo $myprojectslink;?>"><?php echo get_str_myproject();?></option>
+        												<option value="<?php echo get_bloginfo('url');?>/contact-us"><?php echo get_str_contactus();?></option>
+                                                        <option value="<?php echo wp_logout_url( home_url() );?>"><?php echo get_str_logout();?></option>
+                                                    </select>
+                                                </div>
                             				<?php } ?>
-                                        </div></div>
-										
-										
-										
-										
-                                        <?php
+                                        </div></div><?php
                                         if ( !empty( $cg_options['site_logo']['url'] ) ) {
                                             $cg_options['site_logo']['url'] = $protocol . str_replace( array( 'http:', 'https:' ), '', $cg_options['site_logo']['url'] );
                                             $cg_logo = $cg_options['site_logo']['url'];
