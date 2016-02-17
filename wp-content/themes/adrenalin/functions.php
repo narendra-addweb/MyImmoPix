@@ -2357,7 +2357,7 @@ function time_to_his ($seconds)
 	return gmdate ('H:i:s', $seconds);
 	}
 
-
+###################### CUSTOM CODE START ############################
 /**
  * Redirect users to custom URL based on their role after login
  *
@@ -2449,7 +2449,7 @@ function my_custom_checkout_field_process() {
     // Check if set, if its not set add an error.
     if (isset($_POST['billing_first_name'])){
 
-        if (!preg_match("/^[a-z]$/i", $_POST['billing_first_name'])) {
+        if (!preg_match("/^[a-zA-Z -]+$/", $_POST['billing_first_name'])) {
             // throw an Exception...
 
             //Get language specific file upload page url...
@@ -2469,7 +2469,7 @@ function my_custom_checkout_field_process() {
 
     if (isset($_POST['billing_last_name'])){
 
-        if (!preg_match("/^[a-z]$/i", $_POST['billing_last_name'])) {
+        if (!preg_match("/^[a-zA-Z -]+$/", $_POST['billing_last_name'])) {
             // throw an Exception...
 
             //Get language specific file upload page url...
@@ -2486,4 +2486,65 @@ function my_custom_checkout_field_process() {
         }
         
     }
+}
+
+add_action('user_profile_update_errors','my_custom_validate_custom_field',10,1);
+function my_custom_validate_custom_field($args)
+{
+    if (isset($_POST['account_first_name'])){
+        if (!preg_match("/^[a-zA-Z -]+$/", $_POST['account_first_name'])) {
+            // throw an Exception...
+
+            //Get language specific file upload page url...
+            if(ICL_LANGUAGE_CODE == "fr"){
+                $validation_FName = '<strong>LastName</strong>Nom permettre caract&egrave;re seulement';
+            }
+            else if(ICL_LANGUAGE_CODE == "nl"){
+                $validation_FName = "<strong>LastName</strong>Achternaam staan alleen karakter";
+            }
+            else if(ICL_LANGUAGE_CODE == "en"){
+                $validation_FName = "<strong>LastName</strong>Last name allow character only";
+            }
+            wc_add_notice( __( $validation_FName ), 'error' );
+        }
+    }
+
+    if (isset($_POST['account_last_name'])){
+        if (!preg_match("/^[a-zA-Z -]+$/", $_POST['account_last_name'])) {
+            // throw an Exception...
+
+            //Get language specific file upload page url...
+            if(ICL_LANGUAGE_CODE == "fr"){
+                $validation_FName = '<strong>LastName</strong>Nom permettre caract&egrave;re seulement';
+            }
+            else if(ICL_LANGUAGE_CODE == "nl"){
+                $validation_FName = "<strong>LastName</strong>Achternaam staan alleen karakter";
+            }
+            else if(ICL_LANGUAGE_CODE == "en"){
+                $validation_FName = "<strong>LastName</strong>Last name allow character only";
+            }
+            wc_add_notice( __( $validation_FName ), 'error' );
+        }
+    }
+}
+
+
+
+//This function will return slogan for display under logo on every pages...
+function get_str_logo_slogan(){
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Meilleures photos de l'immobilier";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Beter vastgoed foto's";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Better real estate photos";
+    }
+    
+    return $str;
 }

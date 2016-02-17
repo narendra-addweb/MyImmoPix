@@ -256,7 +256,13 @@ if ( isset( $cg_options['cg_logo_position'] ) ) {
                                        <div class="col-lg-8 col-md-8">     
 									  		<div class="logo image">
                                                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                                                    <span class="helper"></span><img src="<?php echo $cg_logo; ?>" style="max-width: <?php echo $cg_logo_max_width; ?>px;" alt="<?php bloginfo( 'name' ); ?>"/></a>
+                                                    <span class="helper"></span>
+                                                    <img src="<?php echo $cg_logo; ?>" style="max-width: <?php echo $cg_logo_max_width; ?>px;" alt="<?php bloginfo( 'name' ); ?>"/>
+                                                </a>
+                                                <div class="logotxt">
+                                                    <!--------better photos better sale ---------------->
+                                                    <div class="logoslogan"><?php echo get_str_slogan();?></div>
+                                                </div>
                                             </div>
 											
 											
