@@ -7,8 +7,6 @@
 
 $assets-path: '../..';
 /* Import to basic elements created for site */
-@import '../components/fonts';
-@import 'variable';
 
 
 /**
@@ -23,7 +21,7 @@ $assets-path: '../..';
   .logo.image {
     height: auto;
     img {
-      padding-top: 10px;
+      padding-top: 5px;
       padding-bottom: 5px;
     }
   }
@@ -33,7 +31,7 @@ $assets-path: '../..';
 }
 .cg-header-search {
   .login-area {
-    margin-top: 33px;
+    margin-top: 35px;
     .fleft {
       margin-top: -17px;
       margin-right: 20px;
