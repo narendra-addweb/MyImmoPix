@@ -20,8 +20,8 @@ input[type='password']:focus,
 input[type='number']:focus,
 input[type='tel']:focus,
 textarea:focus {
-  border-color: $gray;
-  @include box-shadow(0 0 5px #999);
+  /*border-color: $gray;*/
+  /*@include box-shadow(0 0 5px #999);*/
 }
 
 .checkbox label {
@@ -57,3 +57,61 @@ textarea:focus {
   }
 }
 /* End */
+
+/* Login form */
+form.login,
+.register {
+  max-width: 330px;
+  margin-top: 0;
+  padding: 5px 12px;
+  border: 1px solid $gray;
+  .form-row {
+    input.input-text {
+      min-height: 40px;
+      @include border-radius(3px);
+    }
+    input.button {
+      min-height: 48px;
+      width: 100% !important;
+      -moz-border-radius: 3px !important;
+      -webkit-border-radius: 3px !important;
+      border-radius: 3px !important;
+    }
+  }
+}
+/* End */
+
+/* Radio button design */
+.radiotxt {
+  margin-bottom: 30px;
+  input[type="radio"] {
+    margin-top: -10px;
+    vertical-align: top;
+    cursor: pointer;
+    opacity: 0;
+  }
+  input[type="radio"] + label {
+    &::before {
+      float: left;
+      display: inline-block;
+      height: 18px;
+      width: 19px;
+      margin: 7px 5px 0 -3px;
+      background: url('../images/radio.png');
+      background-repeat: no-repeat;
+      /*cursor: pointer;*/
+      content: '';
+    }
+  }
+  input[type="radio"]:checked + label {
+    &::before {
+      background: url('../images/radio-checked.png');
+    }
+  }
+  label {
+    width: 150px;
+    margin-top: -40px;
+    margin-left: 0;
+  }
+}
+

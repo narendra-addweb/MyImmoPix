@@ -240,7 +240,7 @@ body .wpb_button_a span:hover{ background-color:#CC6666!important;border-radius:
   text-decoration:none!important;
 }
 
-.radiotxt{ margin-bottom:10px!important;}
+.radiotxt{ margin-bottom:10px;}
 .radiotxt label {
     float: left;
     margin-left: 22px;
@@ -622,7 +622,7 @@ body .msgg2 small{font-size: 25px !important; color:#be1e2d}
 .divtxt{ margin-left:200px; margin-bottom:300px;}
 .hbtn2{ height:50px!important;}
 
-.nextclass{ margin-left:245px!important;}
+.nextclass{ margin-left: 222px!important;}
 .nextclass .btn{ background-color:#be1e2d!important; border:none!important;border-radius: 4px!important;}
 
 .nextclass .btn:hover{ background-color:#be1e2d!important; border:none!important;border-radius: 4px!important;}
@@ -987,7 +987,8 @@ ul#menu-main-menu-twoprimary  li{ float:none!important; display:inline-block}
 .cg-is-fixed .homemenu{  float: right!important;
     margin-top: -10px!important;
     overflow: hidden!important;
-    width: 60%!important;}
+    /*width: 60%!important;*/
+}
 
 .cg-is-fixed .homemenu .menu-home-menus-container ul li{margin: 0 35px 0 0;}
 .cg-is-fixed  .menu{ float:right!important}

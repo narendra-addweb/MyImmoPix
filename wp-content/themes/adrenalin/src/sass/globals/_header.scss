@@ -82,6 +82,20 @@ $assets-path: '../..';
       float: right;
     }
   }
+  .menu {
+    li {
+      &:nth-child(5),
+      &:nth-child(6) {
+        a {
+          color: #DF440B !important;
+          &:hover,
+          &:focus {
+            color: #333 !important;
+          }
+        }
+      }
+    }
+  }
 }
 
 /* Menu */
