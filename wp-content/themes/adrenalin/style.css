@@ -876,7 +876,7 @@ ul.contrast li{list-style:none!important; border:none; float:left; margin-left:5
 
 .copy-right{ overflow:hidden;}
 .flag-area{ overflow:hidden;}
-.cg-menu-below{height:103px!important;}
+.cg-menu-below{height:103px;}
 .menu-home-menus-container{ overflow:hidden}
 .menu-home-menus-container ul{ margin:0px; padding:0px;}
 .menu-home-menus-container ul li{ float:left; list-style:none; font-size:14px; margin:13px 18px 0px 0px; text-transform:uppercase;}
@@ -985,7 +985,7 @@ ul#menu-main-menu-twoprimary  li{ float:none!important; display:inline-block}
     font-size: 10px;text-align: center;}
 .tiny{ display:none;}
 .cg-is-fixed .homemenu{  float: right!important;
-    margin-top: -19px!important;
+    margin-top: -10px!important;
     overflow: hidden!important;
     width: 60%!important;}
 

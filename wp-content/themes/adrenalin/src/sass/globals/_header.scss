@@ -14,11 +14,17 @@ $assets-path: '../..';
 /**
  * Top Header
  */
+.logoslogan {
+  color: #676767;
+  font-size: 14px;
+  font-weight: bold;
+}
 .cg-logo-cart-wrap {
   .logo.image {
     height: auto;
     img {
-      padding-top: 20px;
+      padding-top: 10px;
+      padding-bottom: 5px;
     }
   }
   .homemenu {
@@ -65,7 +71,14 @@ $assets-path: '../..';
 /* End */
 
 /* Fixed header */
-.cg-header-fixed {
+.cg-header-fixed-wrapper.cg-is-fixed {
+  .logo.image {
+    height: 70px;
+    a {
+      display: inline-block;
+      padding-top: 5px;
+    }
+  }
   .homemenu {
     .menu-home-menus-container {
       float: right;
@@ -75,6 +88,7 @@ $assets-path: '../..';
 
 /* Menu */
 .cg-menu-below {
+  height: auto !important;
   .menu {
     li {
       &:nth-child(5),
