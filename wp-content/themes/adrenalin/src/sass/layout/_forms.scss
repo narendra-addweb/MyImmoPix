@@ -78,6 +78,14 @@ form.login,
       border-radius: 3px !important;
     }
   }
+  .myaccount_login_form {
+    label {
+      display: inline-block;
+    }
+    a.myaccount_form_lost_password {
+      float: right;
+    }
+  }
 }
 /* End */
 
