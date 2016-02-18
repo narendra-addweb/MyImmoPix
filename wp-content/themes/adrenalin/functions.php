@@ -2311,7 +2311,7 @@ function get_str_cartmsg()
 	}
 	else if(ICL_LANGUAGE_CODE == 'en')
 	{
-		$str = "Credit is our site currency and you use credits to order our services.For each service orderd, a certain number of credit will be deducted from your account. Unused credit are kept in your account for futer use  for exactly 12 months from purchase date.";
+		$str = "Credit is our site currency and you use credits to order our services.For each service ordered, a certain number of credit will be deducted from your account. Unused credit are kept in your account for future use for exactly 12 months from purchase date.";
 	}
 	
 	return $str;
