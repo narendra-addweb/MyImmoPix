@@ -142,8 +142,29 @@ video {
 }
 
 /* iocnlogo section  */
-.iocnlogo ul li:first-child {
-  margin-left: 0;
+.iocnlogo {
+  text-align: center;
+  .home_brand_section {
+    display: inline-block;
+    max-width: 370px;
+    width: 50%;
+    margin-right: 35px;
+    /*margin-left: 1px;*/
+    &:last-child {
+      margin-right: 0;
+      /*margin-left: -2px;*/
+    }
+    li {
+      float: left;
+      width: -moz-calc(50% - 5px);
+      width: -webkit-calc(50% - 5px);
+      width: calc(50% - 5px);
+      margin: 0 10px 10px 0;
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+    }
+  }
 }
 
 /* Checkout page */
@@ -153,6 +174,7 @@ video {
       h3 {
         margin-top: 10px;
         border-color: $red-dark;
+        color: $red-dark;
       }
     }
   }
@@ -312,4 +334,7 @@ body .exampimage .handle {
 /* Cart page */
 #text-12 {
   width: 100%;
+  .credit_sidebar_cart {
+    width: 25%;
+  }
 }
