@@ -196,9 +196,9 @@ if(isset($_POST['update'])  && $_POST['update']!='')
 		
 	}*/
 	
-	
+	$val = get_string_upload($mdate);
+
 	//-----------------------------
-	
 	
 	?>
        <?php $img =  vt_resize('',$feat_image,120, 80,true); ?>

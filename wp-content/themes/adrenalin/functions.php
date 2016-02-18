@@ -1836,15 +1836,15 @@ function get_str_credit()
 	
 	if(ICL_LANGUAGE_CODE == 'fr')
 	{
-		$str = "Crédit";
+		$str = "Cr&eacute;dits";
 	}
 	else if(ICL_LANGUAGE_CODE == 'nl')
 	{
-		$str = "Kredieten ";
+		$str = "Kredieten";
 	}
 	else if(ICL_LANGUAGE_CODE == 'en')
 	{
-		$str = "Credit";
+		$str = "Credits";
 	}
 	
 	return $str;
@@ -2610,13 +2610,17 @@ function get_string_upload($frontDate) {
     $sinceThen = $now->diff($thenDate);
     
     
-
-    
-
-    //For day differance
-    if($sinceThen->d > 0){
+    //For year differance
+    if($sinceThen->y > 0){
+       //$days = ($sinceThen->y * 30 * 12);
+       return get_string_times_ago("Y", $sinceThen->y);
+    }
+    else if($sinceThen->m > 0){//For month differance
+       $days = $days + ($sinceThen->m * 30);  
+    }
+    else if($sinceThen->d > 0){//For day differance
         $days = 0;
-        //For year differance
+        /*//For year differance
         if($sinceThen->y > 0){
            $days = ($sinceThen->y * 30 * 12);
         }
@@ -2624,7 +2628,7 @@ function get_string_upload($frontDate) {
         //For month differance
         if($sinceThen->m > 0){
            $days = $days + ($sinceThen->m * 30);  
-        }
+        }*/
         
         $days = $days + $sinceThen->d;
         return get_string_day($days);    
@@ -2644,5 +2648,38 @@ function get_string_upload($frontDate) {
     if($sinceThen->s > 0){
        return get_string_sec($sinceThen->s);    
     }
+}
+
+//This function will return navigator(Time navigator) string in multi language...
+function get_string_times_ago($navigator, $duration){
+    
+    if($navigator == "M"){//For month duration
+        if(ICL_LANGUAGE_CODE == 'fr'){
+            $str = "Chargé il y a ".$duration." mois";
+        }
+        else if(ICL_LANGUAGE_CODE == 'nl')
+        {
+            $str = "".$duration." maanden geleden opgeladen";
+        }
+        else
+        {
+            $str = "Uploaded ".$duration." months ago";
+        }
+    }
+    else if($navigator == "Y"){//For year duration
+        if(ICL_LANGUAGE_CODE == 'fr'){
+            $str = "Chargé il y a ".$duration." années";
+        }
+        else if(ICL_LANGUAGE_CODE == 'nl')
+        {
+            $str = "".$duration." jaar geleden opgeladen";
+        }
+        else
+        {
+            $str = "Uploaded ".$duration." years ago";
+        }
+    }
+
+    return $str;
 }
 

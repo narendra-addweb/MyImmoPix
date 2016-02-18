@@ -53,11 +53,12 @@
 	
 		$date = date_i18n('Y-m-d H:i:s');
 		$mdate = $post_date.' '.$post_time;
-	    $seconds = strtotime($date)- strtotime($mdate);
-		$time = time_to_his($seconds);
+	  
+	  /*$seconds = strtotime($date)- strtotime($mdate);
+		$time = time_to_his($seconds);*/
 	
 	//-----------------------------
-	
+	$strTimeAgo = get_string_upload($mdate);
 	
 	$args2 = array(
 						'post_status' => 'any',
@@ -80,7 +81,7 @@
        <div class="row topmargin">  <div class="col-lg-12 col-md-12">
             <div class="col-lg-3 col-md-3"><strong><?php echo '#'.$pid;?></strong></div>
             <div class="col-lg-3 col-md-3"><strong><?php echo $count2;?> Photos</strong></div>
-            <div class="col-lg-4 col-md-4"><strong><?php echo $time;?>  <?php echo get_string_ago();?></strong></div>
+            <div class="col-lg-4 col-md-4"><strong><?php echo $strTimeAgo;?></strong></div>
            
 		   <?php 
 		   if(ICL_LANGUAGE_CODE == 'fr')
