@@ -125,33 +125,26 @@ $( document ).ready(function() {
 
 
 //on image click
-
-	$("img").click(function() {
+$("img").click(function() {
 	var id = this.id;	
 	
 	$('#div'+id).html('<img width="32" height="32" src="<?php echo $upload_dir['baseurl']."/icon/ajax_loader.gif"?>" class=""/>');
 	
 	$.ajax({
-	type: "POST",
-	datatype: 'json',
-	url: "<?php  bloginfo( 'template_url' ); ?>/delete-image-ajax.php",
-	data: {id: id}, // serializes the form's elements.
-	success: function(data)
-	{
-	if(data == 1)
-	{
-	//$('#div'+id).html('<div class="deldiv">Deleted !</div>');
-	$('#div'+id).remove();
-	}
-	
-	
-	}
-	
+		type: "POST",
+		datatype: 'json',
+		url: "<?php  bloginfo( 'template_url' ); ?>/delete-image-ajax.php",
+		data: {id: id}, // serializes the form's elements.
+		success: function(data){
+			if(data == 1){
+				//$('#div'+id).html('<div class="deldiv">Deleted !</div>');
+				$('#div'+id).remove();
+				$('#cntPhoto').text($('#divPhoto > div').length);
+				
+			}
+		}
 	});
-	
-	
-	
-	});
+});
 
 //on image click
 

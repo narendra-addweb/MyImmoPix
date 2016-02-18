@@ -2662,3 +2662,19 @@ function get_string_times_ago($navigator, $duration){
     return $str;
 }
 
+
+//This function will return photos string.
+function get_string_photo() {
+    //Get language specific string Photos...
+    if(ICL_LANGUAGE_CODE == "fr"){
+        $strPhotos = "Photos";
+    }
+    else if(ICL_LANGUAGE_CODE == "nl"){
+        $strPhotos = "foto's";
+    }
+    else if(ICL_LANGUAGE_CODE == "en"){
+        $strPhotos = "Photos";
+    }
+    return $strPhotos;
+}
+
