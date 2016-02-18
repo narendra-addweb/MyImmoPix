@@ -2600,8 +2600,6 @@ function wc_aws_edit_billing_fname( ) {
 
 //This function will return upload string.
 function get_string_upload($frontDate) {
-    
-
     $thenDate = $frontDate;
     $thenDate = new DateTime($thenDate);
 
@@ -2612,40 +2610,21 @@ function get_string_upload($frontDate) {
     
     //For year differance
     if($sinceThen->y > 0){
-       //$days = ($sinceThen->y * 30 * 12);
        return get_string_times_ago("Y", $sinceThen->y);
     }
-    else if($sinceThen->m > 0){//For month differance
-       $days = $days + ($sinceThen->m * 30);  
+    else if($sinceThen->m > 0){//For month differance 
+       return get_string_times_ago("M", $sinceThen->m); 
     }
     else if($sinceThen->d > 0){//For day differance
-        $days = 0;
-        /*//For year differance
-        if($sinceThen->y > 0){
-           $days = ($sinceThen->y * 30 * 12);
-        }
-
-        //For month differance
-        if($sinceThen->m > 0){
-           $days = $days + ($sinceThen->m * 30);  
-        }*/
-        
-        $days = $days + $sinceThen->d;
-        return get_string_day($days);    
+        return get_string_day($sinceThen->d);    
     }
-
-    //For hour differance
-    if($sinceThen->h > 0){
+    else if($sinceThen->h > 0){//For hour differance
        return get_string_hours($sinceThen->h);    
     }
-
-    //For minute differance
-    if($sinceThen->i > 0){
+    else if($sinceThen->i > 0){//For minute differance
        return get_string_minutes($sinceThen->i);    
     }
-
-    //For second differance
-    if($sinceThen->s > 0){
+    else if($sinceThen->s > 0){ //For second differance
        return get_string_sec($sinceThen->s);    
     }
 }
