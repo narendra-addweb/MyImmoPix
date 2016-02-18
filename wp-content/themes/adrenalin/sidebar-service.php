@@ -15,7 +15,7 @@ $gotopage = '66607';
 
 ;?>
 		    
-<div class="col-lg-4 col-md-4 topmargin4">
+<div class="col-lg-5 col-md-5 topmargin4">
 
  <a href="<?php echo get_bloginfo('url').'?p='.$gotopage.'&pid='.trim($_GET['pid']).'';?>"><button type="button" name="" class="btn  hbtn btn-sm"><?php echo $ustr = get_str_morephoto();?></button></a>
 
@@ -24,7 +24,7 @@ $gotopage = '66607';
 <div class="col-lg-2 col-md-2 topmargin4"><span class="orr"><?php echo get_str_or();?></span></div>
 
 
-<div class="col-lg-5 col-md-5" style="margin-left:30px;"><div id="secondary" class="widget-area msecondary" role="complementary">
+<div class="col-lg-5 col-md-5"><div id="secondary" class="widget-area msecondary" role="complementary">
   <div class="togocls"><strong><?php echo $ustr = get_str_readytogo();?></strong></div>
   <div class="row ready">
     
@@ -34,7 +34,7 @@ $gotopage = '66607';
       </div>
   </div>
 
-  <div class="row">
+  <div class="row-link">
       <div class=""><strong><?php echo $ustr = get_str_wrong_photos();?></strong></div>
        <div class="deletlink"><a href="javascript:void(0);" class="deleteproject" id="<?php echo $_GET['pid'];?>"><?php echo $ustr = get_str_delete();?></a></div>
   </div>

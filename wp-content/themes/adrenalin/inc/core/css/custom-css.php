@@ -377,7 +377,7 @@ function cg_custom_css() {
             .cg-header-fixed .menu > li .cg-submenu-ddown .container > ul > li a:hover,
             .cg-primary-menu .menu > li .cg-submenu-ddown .container > ul > li a:hover
             {
-                color: <?php echo $cg_link_hover_color; ?> !important; 
+                color: <?php echo $cg_link_hover_color; ?> ; 
             }
         <?php } ?>
 

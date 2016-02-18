@@ -58,36 +58,6 @@ textarea:focus {
 }
 /* End */
 
-/* Login form */
-form.login,
-.register {
-  max-width: 330px;
-  margin-top: 0;
-  padding: 5px 12px;
-  border: 1px solid $gray;
-  .form-row {
-    input.input-text {
-      min-height: 40px;
-      @include border-radius(3px);
-    }
-    input.button {
-      min-height: 48px;
-      width: 100% !important;
-      -moz-border-radius: 3px !important;
-      -webkit-border-radius: 3px !important;
-      border-radius: 3px !important;
-    }
-  }
-  .myaccount_login_form {
-    label {
-      display: inline-block;
-    }
-    a.myaccount_form_lost_password {
-      float: right;
-    }
-  }
-}
-/* End */
 
 /* Radio button design */
 .radiotxt {
@@ -122,4 +92,48 @@ form.login,
     margin-left: 0;
   }
 }
+/* End */
 
+/* Login form */
+form.login,
+.register {
+  max-width: 330px;
+  margin-top: 0;
+  padding: 5px 12px;
+  border: 1px solid $gray;
+  .form-row {
+    input.input-text {
+      min-height: 40px;
+      @include border-radius(3px);
+    }
+    input.button {
+      min-height: 48px;
+      width: 100% !important;
+      -moz-border-radius: 3px !important;
+      -webkit-border-radius: 3px !important;
+      border-radius: 3px !important;
+    }
+  }
+  .myaccount_login_form {
+    label {
+      display: inline-block;
+    }
+    a.myaccount_form_lost_password {
+      float: right;
+    }
+  }
+}
+/* End */
+
+/* Login & Sign up pop up */
+.lwa-modal {
+  z-index: 99999;
+  background-color: #FFF;
+    /*@include transition (all 0s ease 0s);*/
+  .lwa-form {
+    background-color: #FFF;
+    .lwa-wp-submit {
+      background-color: $red;
+    }
+  }
+}
