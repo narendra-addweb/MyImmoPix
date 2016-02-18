@@ -2678,3 +2678,23 @@ function get_string_photo() {
     return $strPhotos;
 }
 
+
+//This function will return multi language link for credit
+function crdt_login_string(){
+
+   if(ICL_LANGUAGE_CODE == 'fr'){
+        $loginLink = get_bloginfo('url') . "/credit";
+        echo ",&nbsp;<a href='". $loginLink . "' class='btn_crdt_login'>Connexion</a> premier!";
+        
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $loginLink = get_bloginfo('url') . "/credit";
+        echo ",&nbsp;<a href='". $loginLink . "' class='btn_crdt_login'>inLoggen</a> eerste!";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $loginLink = get_bloginfo('url') . "/credit";
+        echo ",&nbsp;<a href='". $loginLink . "' class='btn_crdt_login'>Login</a> first!";
+    }
+}

@@ -1,8 +1,18 @@
-
+<?php $user_ID = get_current_user_id();?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <div class="entry-content">
         
-		<div><strong><?php echo get_str_availablecredit();?> <?php echo do_shortcode('[usercreditwoocommerce]');?></strong><br /><p class="mytext">
+		<div><strong><?php 
+        if($user_ID > 0){
+            echo get_str_availablecredit();    
+        }
+        echo '&nbsp;' . do_shortcode('[usercreditwoocommerce]');
+        //Call logi in link function.
+        if($user_ID <= 0){
+            crdt_login_string();    
+        }
+        
+        ?></strong><br /><p class="mytext">
         <?php echo get_str_cartmsg();?></p></div>
 		<?php the_content(); ?>
         <?php
