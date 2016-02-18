@@ -91,7 +91,7 @@ Tags: light, white, two-columns, three-columns, right-sidebar, custom-background
     position: relative;
     text-align: center;
     width: 200px;
-    z-index: 99999;
+    /*z-index: 99999;*/
 	min-height:185px;}
 .tile-area{ color: #BE1E2D;
     display: block;
@@ -171,7 +171,7 @@ body .hbtn:hover{
 }
 
 
-body .hbtn1 {border-radius:4px!important; color:#fff!important; background-color:#be1e2d!important; border:0px solid!important;  padding: 6px 4px; margin-top: -1px;}
+body .hbtn1 {border-radius:4px!important; color:#fff!important; background-color:#be1e2d!important; border:0px solid ;  padding: 6px 4px; margin-top: -1px;}
 body .hbtn1:hover{ background-color:#CC6666!important;border-radius:4px!important; color:#fff!important}
 
 .col-md-push-9 .woocommerce .btn{ border-radius:4px!important;}
@@ -795,7 +795,13 @@ ul.contrast li{list-style:none!important; border:none; float:left; margin-left:5
   width:auto;
   padding: 0;
 }
-.lwa-wp-submit{ background-color:#1D7CC7!important; color:#fff!important; border:#1D7CC7!important; border-radius:4px!important;  padding: 10px 18px !important;}
+.lwa-wp-submit {
+  background-color:#1D7CC7 ;
+  color:#fff;
+  border:#1D7CC7;
+  border-radius:4px;
+  padding: 10px 18px;
+}
 .lwa-register input[type='submit']{background-color:#1D7CC7!important; color:#fff!important; border:#1D7CC7!important; border-radius:4px!important;  padding: 10px 18px !important;}
 
 
