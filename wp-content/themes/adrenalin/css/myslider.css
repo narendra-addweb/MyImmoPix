@@ -16,19 +16,19 @@
 }
 .handle {
   /* Thin line seperator */
-  position: absolute;
+  /*position: absolute;
   left:47%;
   top: 0;
   bottom: 0;
   width: 2px;
   margin-left: -2px;
   background:#fff;
-  cursor: ew-resize;
+  cursor: ew-resize;*/
 }
 body .handle:after {
   /* Big orange knob  */
  
- 
+ /*
   	content: '\21d4';
  	font-size: 36px;
     font-weight: bold;
@@ -41,12 +41,12 @@ body .handle:after {
     border-radius: 50%;
     color: white;
     top: 50%;
-    width:50px!important;
+    width:50px!important;*/
  
   /* @orange */
-  border:2px solid #fff;
+  /*border:2px solid #fff;*/
   /* darken(@orange, 5%) */
-  border-radius: 50%;
+  /*border-radius: 50%;*/
   
   /* lighten(@orange, 20%)*/
 }
@@ -57,5 +57,4 @@ body .handle:after {
   line-height: 48px;
   font-size: 30px;
 }
-
 .bootstrap-select{margin-top: -35px;}

@@ -108,6 +108,9 @@ video {
 /* End */
 
 /* Price section */
+.top-blog {
+  padding-top: 60px;
+}
 .title-price {
   h6 {
     text-align: center;
@@ -124,8 +127,13 @@ video {
     text-align: center;
     li {
       display: inline-block;
+      height: auto;
+      padding: 30px 0 50px;
       &:last-child {
         margin-right: 0;
+      }
+      img {
+        margin-bottom: 40px;
       }
     }
   }
@@ -232,15 +240,42 @@ video {
     }
   }
 }
+/* End */
 
-body .handle {
-  width: 51px;
-  margin-left: -26px;
-  background-color: transparent;
-  background-image: url('../images/handler-icon.png');
-  background-repeat: no-repeat;
-  content: '';
+li.ba-slider {
+  padding-right: 0 !important;
 }
-body .handle::after {
-  display: none;
+body .handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 47%;
+  margin-left: -2px;
+  cursor: ew-resize;
+  &::after {
+    position: absolute;
+    top: 0;
+    left: -25px;
+    height: 100%;
+    width: 51px;
+    margin: 0;
+    background-image: url('../images/handler-icon.png');
+    content: '';
+  }
+}
+.home_exmple_before,
+.home_exmple_after {
+  position: absolute;
+  top: 0;
+  margin: 3px 5px;
+  color: #666;
+  font-size: 22px;
+  text-transform: capitalize;
+}
+.home_exmple_before {
+  left: 0;
+}
+.home_exmple_after {
+  right: 0;
+  margin-right: 7px;
 }
