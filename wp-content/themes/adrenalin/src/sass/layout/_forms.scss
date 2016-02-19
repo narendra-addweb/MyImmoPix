@@ -45,7 +45,6 @@ textarea:focus {
     }
   }
 }
-10px 10px 10px 45px
 /* Error message design */
 .cg-wc-messages {
   .container {
@@ -137,8 +136,50 @@ form.login,
     /*@include transition (all 0s ease 0s);*/
   .lwa-form {
     background-color: #FFF;
+    table {
+      tr {
+        margin-bottom: 10px;
+        &.lwa-password {
+          margin-bottom: -15px;
+        }
+      }
+      tr,
+      td {
+        display: inline-block;
+        width: 100%;
+        padding: 0;
+        label {
+          margin-bottom: 0;
+        }
+        input {
+          @include border-radius(4px);
+        }
+      }
+    }
     .lwa-wp-submit {
-      background-color: $red;
+      width: 100%;
+      margin-bottom: 15px;
+      background-color: $red-dark;
+      &:hover {
+        opacity: .8;
+      }
+    }
+    .lwa-links {
+      a {
+        color: $red-dark;
+        &:lwa-links-remember {
+          margin: 3px 0;
+        }
+        &:hover {
+          color: #333;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  .lwa-modal-close {
+    &:hover {
+      text-decoration: none;
     }
   }
 }

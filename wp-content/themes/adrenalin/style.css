@@ -229,8 +229,8 @@ body .wpb_button_a span:hover{ background-color:#CC6666!important;border-radius:
    
     }
 .wpb_row{ overflow:inherit!important}	
-.deletlink a{ color:#be1e2d!important;}
-.deletlink a:hover {color:#be1e2d!important; text-decoration:none!important;}	
+.deletlink a{ color:#be1e2d;}
+.deletlink a:hover {color:#be1e2d; text-decoration:none;}	
 .msecondary{ padding-bottom:20px;}
 
 .ready{ margin-top:-27px;}
@@ -809,7 +809,7 @@ ul.contrast li{list-style:none!important; border:none; float:left; margin-left:5
 
 .lwa-register a{ color:#BA676F!important;}
 
-.lwa-links a{color:#BA676F!important;}
+.lwa-links a{color:#BA676F;}
 
 .mylist li{ width:100%!important;}
 
