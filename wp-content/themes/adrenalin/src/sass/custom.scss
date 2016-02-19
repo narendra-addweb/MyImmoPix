@@ -112,6 +112,9 @@ video {
 /* Price section */
 .top-blog {
   padding-top: 60px;
+  h6 {
+    padding-left: 32px;
+  }
 }
 .title-price {
   h6 {
@@ -144,24 +147,29 @@ video {
 /* iocnlogo section  */
 .iocnlogo {
   text-align: center;
-  .home_brand_section {
+  .home_brand_parent {
     display: inline-block;
-    max-width: 370px;
-    width: 50%;
-    margin-right: 35px;
-    /*margin-left: 1px;*/
-    &:last-child {
-      margin-right: 0;
-      /*margin-left: -2px;*/
-    }
-    li {
+    width: auto;
+    .home_brand_section {
       float: left;
-      width: -moz-calc(50% - 5px);
-      width: -webkit-calc(50% - 5px);
-      width: calc(50% - 5px);
-      margin: 0 10px 10px 0;
-      &:nth-child(2n) {
+      display: inline-block;
+      max-width: 428px;
+      width: -moz-calc(50% - 17px);
+      width: -webkit-calc(50% - 17px);
+      width: calc(50% - 17px);
+      margin-right: 34px;
+      &:last-child {
         margin-right: 0;
+      }
+      li {
+        float: left;
+        width: -moz-calc(50% - 5px);
+        width: -webkit-calc(50% - 5px);
+        width: calc(50% - 5px);
+        margin: 0 10px 10px 0;
+        &:nth-child(2n) {
+          margin-right: 0;
+        }
       }
     }
   }
@@ -337,4 +345,15 @@ body .exampimage .handle {
   .credit_sidebar_cart {
     width: 25%;
   }
+  .sidebar-cart {
+    padding-top: 20px;
+    .cart-empty {
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
 }
+.site-main .page .entry-content {
+  padding-top: 0;
+}
+/* End */

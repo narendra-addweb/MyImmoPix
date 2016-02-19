@@ -45,7 +45,7 @@ textarea:focus {
     }
   }
 }
-
+10px 10px 10px 45px
 /* Error message design */
 .cg-wc-messages {
   .container {
@@ -53,6 +53,11 @@ textarea:focus {
     padding: 0;
     .woocommerce-error {
       margin: 0;
+    }
+    .woocommerce-message {
+      &::before {
+        padding: 0 5px 0 15px;
+      }
     }
   }
 }

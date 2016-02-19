@@ -41,6 +41,7 @@ $assets-path: '../..';
     }
   }
   .seactbox {
+    margin-top: 19px;
     margin-right: 0;
     .btn-group {
       .dropdown-menu {
@@ -57,6 +58,47 @@ $assets-path: '../..';
               margin-left: -15px;
               padding: 7px 15px;
               font-size: 14px;
+              &::before {
+                display: inline-block;
+                height: 13px;
+                width: 13px;
+                margin: 0 5px -2px 0;
+                background-image: url('../images/user-icon.png');
+                background-position: left center;
+                background-repeat: no-repeat;
+                background-size: 100%;
+                content: '';
+              }
+            }
+            &:nth-child(2) {
+              a::before {
+                background-image: url('../images/dollar-icon.png');
+              }
+            }
+            &:nth-child(3) {
+              a::before {
+                background-image: url('../images/setting-icon.png');
+              }
+            }
+            &:nth-child(4) {
+              a::before {
+                background-image: url('../images/upload-icon.png');
+              }
+            }
+            &:nth-child(5) {
+              a::before {
+                background-image: url('../images/file-icon.png');
+              }
+            }
+            &:nth-child(6) {
+              a::before {
+                background-image: url('../images/contact-icon.png');
+              }
+            }
+            &:nth-child(7) {
+              a::before {
+                background-image: url('../images/logout-icon.png');
+              }
             }
           }
         }
