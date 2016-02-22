@@ -124,6 +124,12 @@ form.login,
     }
     a.myaccount_form_lost_password {
       float: right;
+      font-weight: bold;
+      &:hover,
+      &:focus {
+        color: $black-light;
+        text-decoration: none;
+      }
     }
   }
 }
@@ -152,6 +158,7 @@ form.login,
           margin-bottom: 0;
         }
         input {
+          width: 100%;
           @include border-radius(4px);
         }
       }
@@ -165,11 +172,13 @@ form.login,
       }
     }
     .lwa-links {
+      input {
+        width: auto;
+      }
       a {
+        float: right;
+        margin: -25px 0 0;
         color: $red-dark;
-        &:lwa-links-remember {
-          margin: 3px 0;
-        }
         &:hover {
           color: #333;
           text-decoration: none;

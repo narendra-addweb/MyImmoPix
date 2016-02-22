@@ -31,7 +31,7 @@ $assets-path: '../..';
 }
 .cg-header-search {
   .login-area {
-    margin-top: 35px;
+    margin-top: 33px;
     .fleft {
       margin-top: -17px;
       margin-right: 20px;
@@ -51,6 +51,8 @@ $assets-path: '../..';
           li {
             &:nth-child(3),
             &:nth-child(5) {
+              margin: 0 0 5px;
+              padding: 0 0 5px;
               border-bottom: 2px solid #666;
             }
             a {
