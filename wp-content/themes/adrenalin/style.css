@@ -805,7 +805,7 @@ ul.contrast li{list-style:none!important; border:none; float:left; margin-left:5
 .lwa-register input[type='submit']{background-color:#1D7CC7!important; color:#fff!important; border:#1D7CC7!important; border-radius:4px!important;  padding: 10px 18px !important;}
 
 
-.lwa-remember input[type='submit']{background-color:#1D7CC7!important; color:#fff!important; border:#1D7CC7!important; border-radius:4px!important;  padding: 10px 18px !important;}
+.lwa-remember input[type='submit']{background-color:#1D7CC7; color:#fff; border:#1D7CC7; border-radius:4px;  padding: 10px 18px;}
 
 .lwa-register a{ color:#BA676F!important;}
 

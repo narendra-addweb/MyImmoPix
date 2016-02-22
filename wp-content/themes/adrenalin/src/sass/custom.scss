@@ -66,6 +66,7 @@ video {
 .entry-content .clsexamp {
   margin-left: 0;
   padding: 0;
+  font-size: 30px;
 }
 .entry-content .exampimage {
   margin-left: 0;
@@ -94,13 +95,13 @@ video {
     margin: 0;
     li {
       float: left;
+      width: -moz-calc(25% - 5px);
+      width: -webkit-calc(25% - 5px);
       width: calc(25% - 5px);
+      /*width: 195px;*/
       margin: 0 0 5px 5px;
       padding: 0;
       border: none;
-      /*&:nth-child(4n) {
-        margin-right: 0;
-      }*/
       &:nth-child(4n + 1) {
         clear: left;
       }
@@ -113,7 +114,8 @@ video {
 .top-blog {
   padding-top: 60px;
   h6 {
-    padding-left: 32px;
+    /*padding-left: 32px;*/
+    padding-left: 13px;
   }
 }
 .title-price {

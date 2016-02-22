@@ -98,6 +98,34 @@ textarea:focus {
 }
 /* End */
 
+/* Checkbox design */
+.input-rc {
+  display: inline-block;
+  input[type="checkbox"] {
+    display: block;
+    margin: 0 0 -15px;
+    cursor: pointer;
+    opacity: 0;
+  }
+  input[type="checkbox"] + .input-rc-span {
+    float: left;
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    margin: 0 5px -2px 0;
+    background: url('../images/black-squre.png');
+    background-repeat: no-repeat;
+    cursor: pointer;
+    content: '';
+  }
+  input[type="checkbox"]:checked + .input-rc-span {
+    background: url('../images/black-check-squre.png');
+    background-repeat: no-repeat;
+  }
+}
+
+/* End */
+
 /* Login form */
 form.login,
 .register {
@@ -140,7 +168,8 @@ form.login,
   z-index: 99999;
   background-color: #FFF;
     /*@include transition (all 0s ease 0s);*/
-  .lwa-form {
+  .lwa-form,
+  .lwa-remember {
     background-color: #FFF;
     table {
       tr {
@@ -162,8 +191,15 @@ form.login,
           @include border-radius(4px);
         }
       }
+      .lwa-remember-email {
+        label {
+          display: inline-block;
+          width: 100%;
+        }
+      }
     }
-    .lwa-wp-submit {
+    .lwa-wp-submit,
+    input[type='submit'] {
       width: 100%;
       margin-bottom: 15px;
       background-color: $red-dark;
@@ -178,11 +214,15 @@ form.login,
       a {
         float: right;
         margin: -25px 0 0;
-        color: $red-dark;
-        &:hover {
-          color: #333;
-          text-decoration: none;
-        }
+      }
+    }
+    a {
+      color: $red-dark;
+      font-weight: normal;
+      &:hover,
+      &:focus {
+        color: #333;
+        text-decoration: none;
       }
     }
   }

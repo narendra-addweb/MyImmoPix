@@ -47,6 +47,7 @@ $assets-path: '../..';
       .dropdown-menu {
         padding: 0;
         ul {
+          max-width: 200px;
           padding: 0 15px;
           li {
             &:nth-child(3),
@@ -60,6 +61,8 @@ $assets-path: '../..';
               margin-left: -15px;
               padding: 7px 15px;
               font-size: 14px;
+              word-wrap: break-word;
+              white-space: normal;
               &::before {
                 display: inline-block;
                 height: 13px;
@@ -70,6 +73,14 @@ $assets-path: '../..';
                 background-repeat: no-repeat;
                 background-size: 100%;
                 content: '';
+              }
+              span {
+                display: inline-block;
+                width: -moz-calc(100% - 20px);
+                width: -webkit-calc(100% - 20px);
+                width: calc(100% - 20px);
+                padding: 0 0 0 5px;
+                vertical-align: top;
               }
             }
             &:nth-child(2) {

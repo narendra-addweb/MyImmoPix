@@ -96,7 +96,7 @@ if ( isset( $cg_options['cg_logo_position'] ) ) {
         <title><?php wp_title( '|', true, 'right' ); ?></title>
         <link rel="profile" href="http://gmpg.org/xfn/11">
         <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">  
-		<link href='https://fonts.googleapis.com/css?family=Raleway:400,300,200,100,500,600,700,800,900' rel='stylesheet' type='text/css'>      
+		<link href='https://fonts.googleapis.com/css?family=Raleway:400,300,200,100,500,600,700,800,900' rel='stylesheet' type='text/css'>
         <link rel="shortcut icon" href="<?php
         if ( $cg_favicon ) {
             echo $cg_favicon;
@@ -126,6 +126,7 @@ if ( isset( $cg_options['cg_logo_position'] ) ) {
 			});
 		
 		</script>
+        <script src="<?php bloginfo('template_url'); ?>/js/custom.js" type="text/javascript"></script>
     </head>
 	<?php
 	if(ICL_LANGUAGE_CODE == 'fr')
@@ -684,7 +685,7 @@ if(ICL_LANGUAGE_CODE == 'fr')
 else if(ICL_LANGUAGE_CODE == 'en')
 {
 	$val1 = 'Sign Up';
-	$val2 = "Log In";
+	$val2 = "Login";
 }	
 	
 ?>
