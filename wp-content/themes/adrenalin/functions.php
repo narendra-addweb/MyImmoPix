@@ -2698,3 +2698,18 @@ function crdt_login_string(){
         echo ",&nbsp;<a href='". $loginLink . "' class='btn_crdt_login'>Login</a> first!";
     }
 }
+
+//This function will return multi language wording for my account page
+function ml_myaccount_title(){
+   $strMyaccountStr = '';
+   if(ICL_LANGUAGE_CODE == 'fr'){
+        $strMyaccountStr = "S'il vous pla&icirc;t Connexion ou inscription &agrave; commencer &agrave; transf&eacute;rer vos photos!";
+   } 
+   else if(ICL_LANGUAGE_CODE == 'nl'){
+        $strMyaccountStr = "Log in of registreer om te beginnen met het uploaden van uw foto's!";
+   }
+   else if(ICL_LANGUAGE_CODE == 'en'){
+        $strMyaccountStr = "Please login OR register to start uploading your photos!";
+   }
+   return $strMyaccountStr;
+}

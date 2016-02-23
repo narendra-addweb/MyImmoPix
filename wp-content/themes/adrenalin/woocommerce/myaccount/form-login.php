@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php if ( get_option( 'woocommerce_enable_myaccount_registration' ) === 'yes' ) : ?>
 
 <div class="col2-set" id="customer_login">
-
+	<div class="custom-myaccount-wording"><?php print ml_myaccount_title();?></div>
 	<div class="col-1">
 
 <?php endif; ?>
