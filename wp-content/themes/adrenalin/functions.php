@@ -1182,15 +1182,15 @@ function get_string_minutes($minutes)
 {
 	if(ICL_LANGUAGE_CODE == 'fr')
 	{
-		$str = "Chargé il y a ".$minutes." min";
+		$str = "Chargé il y a ".$minutes." minutes";
 	}
 	else if(ICL_LANGUAGE_CODE == 'nl')
 	{
-		$str = "".$minutes." min geleden opgeladen";
+		$str = "".$minutes." minutes geleden opgeladen";
 	}
 	else
 	{
-		$str = "Uploaded ".$minutes." min ago ";
+		$str = "Uploaded ".$minutes." minutes ago ";
 	}
 	return $str;
 }
