@@ -1836,15 +1836,15 @@ function get_str_credit()
 	
 	if(ICL_LANGUAGE_CODE == 'fr')
 	{
-		$str = "Cr&eacute;dits";
+		$str = "Cr&eacute;dit";
 	}
 	else if(ICL_LANGUAGE_CODE == 'nl')
 	{
-		$str = "Kredieten";
+		$str = "Krediet";
 	}
 	else if(ICL_LANGUAGE_CODE == 'en')
 	{
-		$str = "Credits";
+		$str = "Credit";
 	}
 	
 	return $str;
