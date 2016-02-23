@@ -199,11 +199,14 @@ form.login,
       }
     }
     .lwa-wp-submit,
-    input[type='submit'] {
+    input[type='submit'],
+    .lwa-links-remember-cancel {
+      display: inline-block;
       width: 100%;
       margin-bottom: 15px;
       background-color: $red-dark;
       &:hover {
+        text-decoration: none;
         opacity: .8;
       }
     }
@@ -214,16 +217,20 @@ form.login,
       a {
         float: right;
         margin: -25px 0 0;
+        color: $red-dark;
+        font-weight: normal;
+        &:hover,
+        &:focus {
+          color: #333;
+          text-decoration: none;
+        }
       }
     }
-    a {
-      color: $red-dark;
-      font-weight: normal;
-      &:hover,
-      &:focus {
-        color: #333;
-        text-decoration: none;
-      }
+    .lwa-links-remember-cancel {
+      padding: 10px;
+      color: $white;
+      text-align: center;
+      @include border-radius(4px);
     }
   }
   .lwa-modal-close {
