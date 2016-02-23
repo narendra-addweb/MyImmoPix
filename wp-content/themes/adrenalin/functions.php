@@ -1132,7 +1132,7 @@ function get_string_day($days)
 	}
 	else
 	{
-		$str = "Uploaded ".$days." days ago";
+		$str = "Uploaded ".$days." day(s) ago";
 	}
 	return $str;
 
@@ -1174,7 +1174,7 @@ function get_string_hours($hours)
 	}
 	else
 	{
-		$str = "Uploaded ".$hours." hours ago";
+		$str = "Uploaded ".$hours." hour(s) ago";
 	}
 	return $str;
 }
@@ -1182,11 +1182,11 @@ function get_string_minutes($minutes)
 {
 	if(ICL_LANGUAGE_CODE == 'fr')
 	{
-		$str = "Chargé il y a ".$minutes." minutes";
+		$str = "Chargé il y a ".$minutes." minute(s)";
 	}
 	else if(ICL_LANGUAGE_CODE == 'nl')
 	{
-		$str = "".$minutes." minutes geleden opgeladen";
+		$str = "".$minutes." minute(s) geleden opgeladen";
 	}
 	else
 	{
@@ -1200,7 +1200,7 @@ function get_string_sec($sec)
 	
 	if(ICL_LANGUAGE_CODE == 'fr')
 	{
-		$str = "Chargé il y a ".$sec." sec";
+		$str = "Chargé il y a ".$sec." second(s)";
 	}
 	else if(ICL_LANGUAGE_CODE == 'nl')
 	{
@@ -1208,7 +1208,7 @@ function get_string_sec($sec)
 	}
 	else
 	{
-		$str = "Uploaded ".$sec." sec ago ";
+		$str = "Uploaded ".$sec." second(s) ago ";
 	}
 	return $str;
 }
