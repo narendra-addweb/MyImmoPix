@@ -1190,7 +1190,7 @@ function get_string_minutes($minutes)
 	}
 	else
 	{
-		$str = "Uploaded ".$minutes." minutes ago ";
+		$str = "Uploaded ".$minutes." minute(s) ago ";
 	}
 	return $str;
 }
