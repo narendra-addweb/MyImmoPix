@@ -71,7 +71,13 @@ textarea:focus {
 /* Radio button design */
 .radiotxt {
   margin-bottom: 30px;
-  input[type="radio"] {
+  label {
+    width: 160px;
+    margin-top: -40px;
+    margin-left: 0;
+  }
+}
+input[type="radio"] {
     margin-top: -10px;
     vertical-align: top;
     cursor: pointer;
@@ -86,7 +92,7 @@ textarea:focus {
       margin: 7px 5px 0 -3px;
       background: url('../images/radio.png');
       background-repeat: no-repeat;
-      /*cursor: pointer;*/
+      cursor: pointer;
       content: '';
     }
   }
@@ -95,12 +101,6 @@ textarea:focus {
       background: url('../images/radio-checked.png');
     }
   }
-  label {
-    width: 160px;
-    margin-top: -40px;
-    margin-left: 0;
-  }
-}
 /* End */
 
 /* Checkbox design */

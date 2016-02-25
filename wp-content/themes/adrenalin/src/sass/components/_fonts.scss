@@ -4,3 +4,9 @@
  *
  * All fonts used in SCSS are defined in this file.
  */
+
+/* Tahoma fonts */
+@font-face {
+  font-family: $verdana-light;
+  src: $url-verdana-light;
+}

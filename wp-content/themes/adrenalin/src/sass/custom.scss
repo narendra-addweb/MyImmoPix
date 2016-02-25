@@ -19,8 +19,21 @@
  * Common code
  */
 body {
-  font-family: $verdanalight;
+  /*font-family: $verdana-light;*/
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+select,
+textarea,
+a {
+  /*font-family: $verdana-light;*/
+}
+
 a {
   /*color: $blue-font;*/
   outline: none;
@@ -365,6 +378,10 @@ body .exampimage .handle {
     text-align: center;
   }
 }
+
+.topmargin-price #secondary .border-bot3.mainlink {
+  margin-bottom: 50px;
+}
 /* End */
 
 /* Cart page */
@@ -395,3 +412,81 @@ body .exampimage .handle {
     font-weight: bold;
   }
 }
+
+/* Checkout rightsidebar */
+#order_review {
+  .payment_methods {
+    li {
+      text-align: left;
+      &.payment_method_paypal {
+        margin-bottom: 7px;
+      }
+      &.payment_method_twocheckout img {
+        margin-top: 7px;
+      }
+      input[type="radio"] {
+        display: none;
+      }
+      input[type="radio"] + label {
+        &::before {
+          margin-top: 4px;
+        }
+      }
+      .about_paypal {
+        margin-left: 7px;
+      }
+    }
+  }
+}
+
+
+/**
+ * Responsive design
+ */
+/* Large desktop monitor view */
+@media screen and (min-width:1600px) {
+  .container {
+    max-width: 1440px;
+  }
+  /* Home page example section */
+  .exampimage {
+    width: 600px;
+  }
+  .exampimage .bx-viewport {
+    width: 600px !important;
+  }
+  .mbx-pager {
+    float: right;
+    width: 830px;
+  }
+  .mbx-pager ul.bx_pager_ul li {
+    width: 195px;
+  }
+  /* End */
+}
+
+
+/* Small desktop monitor view */
+@media screen and (max-width: 1200px) {
+
+} /* 1200px */
+
+/* Tablet and i-pad landscape & portrait view */
+@media screen and (max-width: 1024px) {
+
+} /* 1024px */
+
+/* Tablet and i-pad portrait view only */
+@media screen and (max-width: 992px) {
+
+} /* 992px */
+
+/* Mobile landscape & portrait view */
+@media screen and (max-width: 767px) {
+
+} /* 767px */
+
+/* Mobile portrait view only */
+@media screen and (max-width: 480px) {
+
+} /* 480px */

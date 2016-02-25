@@ -685,7 +685,6 @@ body .msgg2 small{font-size: 25px !important; color:#be1e2d}
 .logincls{float:left; margin-left: 20px;}
 .signupcls{float:left; }
 .login-area{ float: left;
-   
     margin-top: -21px;}
 .login-area a{ text-decoration:none!important; color:#AD9D9D;}
 .login-area a:hover{color:#AD9D9D;}
@@ -821,21 +820,26 @@ ul.contrast li{list-style:none!important; border:none; float:left; margin-left:5
 	
 	
 .hprice span{ 
-  display: inline-block;font-size:37px; color:#be1e2d; font-family: 'Raleway', sans-serif; text-transform:uppercase;}	
-.hprice span small{ display: inline-block;font-size:24px; color:#3b6db4; font-family: 'Raleway', sans-serif;}	
+  display: inline-block;
+  font-size:37px;
+  color:#be1e2d;
+  /* font-family: 'Raleway', sans-serif;*/
+   text-transform:uppercase;
+ }	
+.hprice span small{ display: inline-block;font-size:24px; color:#3b6db4; /*font-family: 'Raleway', sans-serif;*/}	
 .para-area{ font-size:24px; color:#3b6db4; line-height:27px; font-weight:400; margin:20px 0px 10px 0px;}
 
 
 
 
 .hprice p{ font-size:14px; color:#5d5959; font-weight:400;} 	
-.hprice p small{font-size:14px; color:#3b6db4; font-family: 'Raleway', sans-serif;}
+.hprice p small{font-size:14px; color:#3b6db4;/* font-family: 'Raleway', sans-serif;*/}
 .site-url{ color:#3B6DB4; font-size:12px;}	
 .mbgcolr{ background:#e0ebf5; margin-bottom:20px;}
 .mbgcolr1{ background:#F4F4F4; margin-bottom:20px; overflow:hidden;}	
 .top-blog{ padding:0px 0px 30px 0px}
 .top-blog h6{ color: #3b6db4 !important;
-    font-family: "Raleway",sans-serif !important;
+    /*font-family: "Raleway",sans-serif !important;*/
     font-size: 30px !important;
     font-weight: 800 !important;
    
@@ -844,14 +848,14 @@ ul.contrast li{list-style:none!important; border:none; float:left; margin-left:5
 .cer-blog{ text-align:right; margin-right:0; margin-top:30px;}
 .hprice{ margin: 60px 0 0 0;}
 .blog-blue{ background:#3b6db4; padding:57px 0px 57px 0px}
-.tour-area h4{font-family: 'Raleway', sans-serif; font-size:30px; color:#fff; font-weight:600;}
-.tour-area h3{font-family: 'Raleway', sans-serif; font-size:31px; color:#dfdbdb; font-weight:600;}
+.tour-area h4{/*font-family: 'Raleway', sans-serif;*/ font-size:30px; color:#fff; font-weight:600;}
+.tour-area h3{/*font-family: 'Raleway', sans-serif;*/ font-size:31px; color:#dfdbdb; font-weight:600;}
 .tour-area ul{margin: 30px 0px 0px 0px; padding:0px; list-style:none!important;}
 .tour-area ul li{ font-size:20px; color:#fff; font-weight:300; overflow:hidden; margin-bottom:10px;}
 .tour-area ul li img{ float:left; margin-right:20px; }
 
 .service-area{ background:#f4f4f4; padding:53px 0px 60px 0px;}
-.service-area h4{ text-align:center; font-size:30px; color:#3b6db4;font-family: 'Raleway', sans-serif; font-weight:600;}
+.service-area h4{ text-align:center; font-size:30px; color:#3b6db4;/*font-family: 'Raleway', sans-serif;*/ font-weight:600;}
 .service-area ul{ text-align:center; margin-left:60px;}
 .service-area ul li{  
     background: #3b6db4 none repeat scroll 0 0;
@@ -919,9 +923,10 @@ ul.contrast li{list-style:none!important; border:none; float:left; margin-left:5
 }
 
 
-.login-area{ float: right;
-    
-    margin: 39px -1px 0 60px;}
+.login-area {
+  float: right;
+  margin: 39px -1px 0 0;
+}
 
 
 
