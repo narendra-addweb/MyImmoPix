@@ -1,92 +1,92 @@
 <?php
+/**
+ * This file is used to hold functions used in the admin views
+ */
+
+// Initial function called when viewing admin credits
 function woocommerceCredit()
 {
-	if(isset($_GET["tab"]) && $_GET["tab"]!=1) {
-		if($_GET["tab"]==2) {
-			woocommerceCredit_users();
-			return;
-		} else {
-			woocommerceCredit_products();
-			return;
-		}
-	}
-	
-	if(isset($_POST['action']) && $_POST['action']=='addCredits') {
-		global $wpdb;
-		$user_id = $_POST["user"];
-		$amount = $_POST["amount"];
-		$result = $wpdb->get_row("SELECT credit FROM `".$wpdb->prefix."woocredit_users` WHERE user_id=".$user_id);
-		if($result) {
-			$amount = $result->credit+$amount;
-			$sql = 'UPDATE `'.$wpdb->prefix.'woocredit_users` SET `credit` = '.$amount.' WHERE `user_id`='.$user_id.';';
-			$wpdb->query($sql);
-		} else {
-			$sql = 'INSERT INTO `'.$wpdb->prefix.'woocredit_users` (user_id,credit) VALUES ('.$user_id.','.$amount.');';
-			$wpdb->query($sql);
-		}
-		$sql = 'INSERT INTO `'.$wpdb->prefix.'woocredit_changes` (user_id,amount) VALUES ('.$user_id.','.$_POST["amount"].');';
-		$wpdb->query($sql);
-	}
-	
-	if(isset($_POST['action']) && $_POST['action']=='delete') {
-		global $wpdb;
-		$user_id = $_POST["user"];
-		$sql = 'DELETE FROM `'.$wpdb->prefix.'woocredit_users` WHERE `user_id`="'.$user_id.'";';
-		$wpdb->query($sql);
-	}
+    if(isset($_GET["tab"])) {
+        switch ($_GET["tab"]) {
+            case 2:
+                woocommerceCredit_users();
+                break;
 
-	include_once('admin/management.php');
+            default:
+                default_menu();
+                break;
+        }
+    } else {
+        default_menu();
+    }
 }
 
-function woocommerceCredit_users() {
-	global $translate;
-	global $wpdb;
-	$user = (isset($_POST["user"])) ? $_POST["user"] : null;
-	$date = (isset($_POST["date"])) ? $_POST["date"] : null;
-	$where = null;
-	if($user) {
-		$where = ' AND cp.user_id='.$user.' ';
-		$where2 = ' AND user_id='.$user.' ';
-	}
-	if($date) {
-		$where .= ' AND DATE(cp.date)="'.date("Y-m-d",strtotime($date)).'" ';
-		$where2 .= ' AND DATE(date)="'.date("Y-m-d",strtotime($date)).'" ';
-	}
+// Building default menu structure and fetching the data
+function default_menu()
+{
+    if(isset($_POST['action']) && $_POST['action']=='addCredits') {
+        global $wpdb;
+        $user_id = $_POST["user"];
+        $amount = $_POST["amount"];
+        $result = $wpdb->get_row("SELECT credit FROM `".$wpdb->prefix."woocredit_users` WHERE user_id=".$user_id);
+        if($result) {
+            $amount = $result->credit+$amount;
+            $sql = 'UPDATE `'.$wpdb->prefix.'woocredit_users` SET `credit` = '.$amount.' WHERE `user_id`='.$user_id.';';
+            $wpdb->query($sql);
+        } else {
+            $sql = 'INSERT INTO `'.$wpdb->prefix.'woocredit_users` (user_id,credit) VALUES ('.$user_id.','.$amount.');';
+            $wpdb->query($sql);
+        }
+        $sql = 'INSERT INTO `'.$wpdb->prefix.'woocredit_changes` (user_id,amount) VALUES ('.$user_id.','.$_POST["amount"].');';
+        $wpdb->query($sql);
+    }
 
-	if($where) {
-		$sql = 'SELECT cp.user_id as user, DATE(date) as date, cp.product_id as id, p.post_title as title
-		FROM `'.$wpdb->prefix.'woocredit_products` as cp LEFT JOIN '.$wpdb->prefix.'posts  as p ON cp.product_id=p.ID
-		WHERE 1 '.$where.' ORDER BY date DESC';
-		$sql2 = 'SELECT user_id as user, amount, DATE(date) as date
-		FROM `'.$wpdb->prefix.'woocredit_changes` WHERE 1 '.$where2.' ORDER BY date DESC';
-	} else {
-		$sql = 'SELECT cp.user_id as user, DATE(date) as date, cp.product_id as id, p.post_title as title
-		FROM `'.$wpdb->prefix.'woocredit_products` as cp LEFT JOIN '.$wpdb->prefix.'posts  as p ON cp.product_id=p.ID ORDER BY date DESC';
-		$sql2 = 'SELECT user_id as user, amount, DATE(date) as date
-		FROM `'.$wpdb->prefix.'woocredit_changes` ORDER BY date DESC';
-	}
-	
-	$result = $wpdb->get_results($sql);
-	$result2 = $wpdb->get_results($sql2);
-	
-	wp_enqueue_script('jquery-ui-datepicker');
-	include_once('admin/users_statistics.php');
+    if(isset($_POST['action']) && $_POST['action']=='delete') {
+        global $wpdb;
+        $user_id = $_POST["user"];
+        $sql = 'DELETE FROM `'.$wpdb->prefix.'woocredit_users` WHERE `user_id`="'.$user_id.'";';
+        $wpdb->query($sql);
+    }
+
+    include_once('admin/management.php');
 }
 
-function woocommerceCredit_products() {
-	global $translate;
-	wp_enqueue_script('creditsNumeric', plugins_url('js/jquery.numeric.js' , __FILE__ ));
-	wp_enqueue_script('creditsCharts', plugins_url('js/amcharts/amcharts.js' , __FILE__ ));
-	wp_enqueue_script('creditsChartsSerial', plugins_url('js/amcharts/serial.js' , __FILE__ ));
+// Building the view and data for users page
+function woocommerceCredit_users()
+{
+    global $translate;
+    global $wpdb;
+    $user = (isset($_POST["user"])) ? $_POST["user"] : null;
+    $date = (isset($_POST["date"])) ? $_POST["date"] : null;
+    $where = null;
+    if($user) {
+        $where = ' AND cp.user_id='.$user.' ';
+        $where2 = ' AND user_id='.$user.' ';
+    }
+    if($date) {
+        $where .= ' AND DATE(cp.date)="'.date("Y-m-d",strtotime($date)).'" ';
+        $where2 .= ' AND DATE(date)="'.date("Y-m-d",strtotime($date)).'" ';
+    }
 
-	$data1 = getBoughtProducts();
-	$data2 = getBoughtProducts(30);
-	$lang = array("credits"=>$translate->wooTranslate('Credits amount', get_bloginfo('language')),"count"=>$translate->wooTranslate('Quantity of products sold', get_bloginfo('language')));
-	$params = json_encode(array('data1'=>$data1,'data2'=>$data2,'lang'=>$lang,'siteurl'=>get_site_url()));
+    if($where) {
+        $sql = 'SELECT cp.user_id as user, DATE(date) as date, cp.product_id as id, p.post_title as title
+        FROM `'.$wpdb->prefix.'woocredit_products` as cp LEFT JOIN '.$wpdb->prefix.'posts  as p ON cp.product_id=p.ID
+        WHERE 1 '.$where.' ORDER BY date DESC';
+        $sql2 = 'SELECT user_id as user, amount, DATE(date) as date
+        FROM `'.$wpdb->prefix.'woocredit_changes` WHERE 1 '.$where2.' ORDER BY date DESC';
+    } else {
+        $sql = 'SELECT cp.user_id as user, DATE(date) as date, cp.product_id as id, p.post_title as title
+        FROM `'.$wpdb->prefix.'woocredit_products` as cp LEFT JOIN '.$wpdb->prefix.'posts  as p ON cp.product_id=p.ID ORDER BY date DESC';
+        $sql2 = 'SELECT user_id as user, amount, DATE(date) as date
+        FROM `'.$wpdb->prefix.'woocredit_changes` ORDER BY date DESC';
+    }
 
-	wp_register_script('creditsAdmin', plugins_url('js/creditsAdmin.js' , __FILE__ ));
-	wp_localize_script('creditsAdmin', 'params', $params); //pass any php settings to javascript
-	wp_enqueue_script('creditsAdmin'); //load the JavaScript file
-	include_once('admin/products_statistics.php');
+    $result = $wpdb->get_results($sql);
+    $result2 = $wpdb->get_results($sql2);
+
+    wp_enqueue_script('jquery-ui-datepicker');
+    wp_enqueue_style('jquery-style', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css');
+
+    include_once('admin/users_statistics.php');
 }
 ?>

@@ -1,11 +1,10 @@
-<?php 
+<?php
 	global $translate;
 	global $wpdb;
 ?>
 <h2 class="nav-tab-wrapper">
 	<a class="nav-tab" href="<?php echo get_site_url(); ?>/wp-admin/edit.php?post_type=product&page=woocommerceCredit&tab=1"><?php echo $translate->wooTranslate('User credits', get_bloginfo('language')); ?></a>
 	<a class="nav-tab nav-tab-active" href="<?php echo get_site_url(); ?>/wp-admin/edit.php?post_type=product&page=woocommerceCredit&tab=2"><?php echo $translate->wooTranslate('User statistics', get_bloginfo('language')); ?></a>
-	<a class="nav-tab" href="<?php echo get_site_url(); ?>/wp-admin/edit.php?post_type=product&page=woocommerceCredit&tab=3"><?php echo $translate->wooTranslate('Products statistics', get_bloginfo('language')); ?></a>
 </h2>
 <div id="col-container">
 	<div class="col-wrap">
@@ -18,7 +17,7 @@
 						</td>
 						<td>
 							<select name='user'>
-							<?php 
+							<?php
 							echo '<option value="">';
 							foreach(get_users() as $user) {
 								$selected = false;
@@ -65,7 +64,7 @@
 <h2><?php echo $translate->wooTranslate('Recent Product Purchases',get_bloginfo('language')); ?>:</h2>
 <div id="col-container">
 	<div class="col-wrap">
-		<?php			
+		<?php
 		$myListTable = new Credits_Table();
 		$myListTable->hidden[] = 'price';
 		$myListTable->hidden[] = 'amount';
@@ -79,7 +78,7 @@
 <h2><?php echo $translate->wooTranslate('Added credits',get_bloginfo('language')); ?>:</h2>
 <div id="col-container">
 	<div class="col-wrap">
-		<?php			
+		<?php
 		$myListTable = new Credits_Table();
 		$myListTable->hidden[] = 'price';
 		$myListTable->hidden[] = 'title';
