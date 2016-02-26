@@ -2460,7 +2460,7 @@ function wc_aws_checkout_field_process() {
                 $validation_FName = "<strong>First Name</strong>&nbsp;Voornaam staan alleen karakter";
             }
             else if(ICL_LANGUAGE_CODE == "en"){
-                $validation_FName = "<strong>First Name</strong>&nbsp;First name allow character only";
+                $validation_FName = "<strong>First Name</strong>&nbsp;First name allow characters only";
             }
             wc_add_notice( __( $validation_FName ), 'error' );
         }
@@ -2480,7 +2480,7 @@ function wc_aws_checkout_field_process() {
                 $validation_LName = "<strong>Last Name</strong>&nbsp;Achternaam staan alleen karakter";
             }
             else if(ICL_LANGUAGE_CODE == "en"){
-                $validation_LName = "<strong>Last Name</strong>&nbsp;Last name allow character only";
+                $validation_LName = "<strong>Last Name</strong>&nbsp;Last name allow characters only";
             }
             wc_add_notice( __( $validation_LName ), 'error' );
         }
@@ -2524,7 +2524,7 @@ function wc_aws_validate_extra_register_fields( ) {
                 $validation_FName = "<strong>First Name</strong>&nbsp;Voornaam staan alleen karakter";
             }
             else if(ICL_LANGUAGE_CODE == "en"){
-                $validation_FName = "<strong>First Name</strong>&nbsp;First name allow character only";
+                $validation_FName = "<strong>First Name</strong>&nbsp;First name allow characters only";
             }
             wc_add_notice( __( $validation_FName ), 'error' );
         }
@@ -2542,7 +2542,7 @@ function wc_aws_validate_extra_register_fields( ) {
                 $validation_LName = "<strong>Last Name</strong>&nbsp;Achternaam staan alleen karakter";
             }
             else if(ICL_LANGUAGE_CODE == "en"){
-                $validation_LName = "<strong>Last Name</strong>&nbsp;Last name allow character only";
+                $validation_LName = "<strong>Last Name</strong>&nbsp;Last name allow characters only";
             }
             wc_add_notice( __( $validation_LName ), 'error' );
         }
@@ -2683,18 +2683,18 @@ function get_string_photo() {
 function crdt_login_string(){
 
    if(ICL_LANGUAGE_CODE == 'fr'){
-        $loginLink = get_bloginfo('url') . "/credit";
+        $loginLink = get_bloginfo('url') . "/my-account";
         echo ",&nbsp;<a href='". $loginLink . "' class='btn_crdt_login'>Connexion</a> premier!";
         
     }
     else if(ICL_LANGUAGE_CODE == 'nl')
     {
-        $loginLink = get_bloginfo('url') . "/credit";
+        $loginLink = get_bloginfo('url') . "/my-account";
         echo ",&nbsp;<a href='". $loginLink . "' class='btn_crdt_login'>inLoggen</a> eerste!";
     }
     else if(ICL_LANGUAGE_CODE == 'en')
     {
-        $loginLink = get_bloginfo('url') . "/credit";
+        $loginLink = get_bloginfo('url') . "/my-account";
         echo ",&nbsp;<a href='". $loginLink . "' class='btn_crdt_login'>Login</a> first!";
     }
 }

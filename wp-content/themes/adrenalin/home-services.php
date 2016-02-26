@@ -10,7 +10,7 @@
 	</li>
 	
 	<li><img src="<?php echo $upload_dir['baseurl']; ?>/icon/satting.jpg" />
-	<p>Your images will undergo in a series of adjusments in order to optimize their esthaetic quality. The result will make the property you are  renting or selling more appealing to potential clients ! </p>
+	<p>Your images will undergo in a series of adjustments in order to optimize their esthetic quality. The result will make the property you are  renting or selling more appealing to potential clients ! </p>
 	
 	</li>
 	
