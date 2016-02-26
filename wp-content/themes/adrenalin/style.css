@@ -888,10 +888,24 @@ ul.contrast li{list-style:none!important; border:none; float:left; margin-left:5
 .copy-right{ overflow:hidden;}
 .flag-area{ overflow:hidden;}
 .cg-menu-below{height:103px;}
-.menu-home-menus-container{ overflow:hidden}
-.menu-home-menus-container ul{ margin:0px; padding:0px;}
-.menu-home-menus-container ul li{ float:left; list-style:none; font-size:14px; margin:13px 18px 0px 0px; text-transform:uppercase;}
-.menu-home-menus-container ul li a{ color:#3b6db4; text-decoration:none;}
+.menu-home-menus-container,
+.menu-home-menus-for-inner-pages-container {
+  overflow:hidden;
+}
+.menu-home-menus-container ul,
+.menu-home-menus-for-inner-pages-container ul {
+  margin:0px;
+  padding:0px;
+}
+.menu-home-menus-container ul li,
+.menu-home-menus-for-inner-pages-container ul li {
+  float:left; list-style:none; font-size:14px; margin:13px 18px 0px 0px; text-transform:uppercase;
+}
+.menu-home-menus-container ul li a,
+.menu-home-menus-for-inner-pages-container ul li a {
+  color:#3b6db4;
+  text-decoration:none;
+}
 
 .bettersale{margin-top:42px;font-size:14px;}
 .menu-menu-daccueil-container{ overflow:hidden}
@@ -948,15 +962,23 @@ ul.contrast li{list-style:none!important; border:none; float:left; margin-left:5
   padding: 0 !important;
 }
 
-.menu-home-menus-container{float:left;
-    margin-top: 15px;
-    overflow: hidden;}
+.menu-home-menus-container,
+.menu-home-menus-for-inner-pages-container {
+  float:left;
+  margin-top: 15px;
+  overflow: hidden;
+}
 
-.homemenu{ margin-top: 10px;
-   
-    overflow: hidden;}	
-body ul#menu-home-menus{line-height:44px!important;}	
-	
+.homemenu{
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+body ul#menu-home-menus,
+body ul#menu-home-menus-for-inner-pages {
+  line-height:44px!important;
+}
+
 ul#menu-main-menu-twoprimary{ text-align:center;}
 ul#menu-main-menu-twoprimary  li{ float:none!important; display:inline-block}	
 .seactbox{    margin-top: 40px;}	
@@ -1002,7 +1024,10 @@ ul#menu-main-menu-twoprimary  li{ float:none!important; display:inline-block}
     /*width: 60%!important;*/
 }
 
-.cg-is-fixed .homemenu .menu-home-menus-container ul li{margin: 0 35px 0 0;}
+.cg-is-fixed .homemenu .menu-home-menus-container ul li,
+.cg-is-fixed .homemenu .menu-home-menus-for-inner-pages-container ul li {
+  margin: 0 35px 0 0;
+}
 .cg-is-fixed  .menu{ float:right!important}
 
 
