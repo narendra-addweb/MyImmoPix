@@ -717,13 +717,14 @@ body .msgg2 small{font-size: 25px !important; color:#be1e2d}
 .bx-controls-direction{ display:none;}
 
 
-.content-area .menu-home-menus-container ul li {
-    border-right: 2px solid #1976bd;
-	margin-left: 40px !important;
-    padding-right: 10px;
-    text-align: center;
-    width: 156px;
-	display: inline-block;
+.content-area .menu-home-menus-container ul li,
+.content-area .menu-home-menus-for-inner-pages-container ul li {
+  border-right: 2px solid #1976bd;
+  margin-left: 40px !important;
+  padding-right: 10px;
+  text-align: center;
+  width: 156px;
+  display: inline-block;
 
 }
 
