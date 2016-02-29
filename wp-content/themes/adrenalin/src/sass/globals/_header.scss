@@ -116,6 +116,12 @@ $assets-path: '../..';
           }
         }
       }
+      .dropdown-toggle {
+        .filter-option {
+          padding-right: 5px;
+          text-overflow: ellipsis;
+        }
+      }
     }
   }
 }
