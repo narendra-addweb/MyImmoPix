@@ -32,6 +32,7 @@ select,
 textarea,
 a {
   /*font-family: $verdana-light;*/
+  font-family: Verdana,Geneva,sans-serif;
 }
 
 a {
@@ -438,6 +439,22 @@ body .exampimage .handle {
       }
     }
   }
+}
+/**
+ * Change font family
+ */
+h1.cg-page-title,
+.content-area table.shop_table thead tr th,
+.yith-wcwl-add-to-wishlist a,
+.woocommerce-tabs .tabs li a {
+  font-family: Verdana,Geneva,sans-serif;
+}
+.ls-slide,
+.qq-upload-button input[type="file"] {
+  font-family: Verdana, Geneva ,sans-serif !important;
+}
+body.single-product .product-title-wrapper {
+  background-color: #1D76BD !important;
 }
 
 
