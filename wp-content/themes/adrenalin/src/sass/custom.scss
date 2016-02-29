@@ -179,7 +179,7 @@ body .exampimage .handle {
   padding-top: 60px;
   h6 {
     /*padding-left: 32px;*/
-    padding-left: 13px;
+    padding-left: 5px;
   }
 }
 .title-price {
@@ -440,6 +440,27 @@ body .exampimage .handle {
     }
   }
 }
+
+
+
+/**
+ * Customer detail
+ */
+.customer_details {
+  tbody {
+    tr {
+      border-bottom: 2px solid #E2E2E2;
+      th {
+        border-bottom: none;
+      }
+      td {
+        float: right;
+      }
+    }
+  }
+}
+
+
 /**
  * Change font family
  */
@@ -450,9 +471,14 @@ h1.cg-page-title,
   font-family: Verdana,Geneva,sans-serif;
 }
 .ls-slide,
-.qq-upload-button input[type="file"] {
+.ls-slide h1,
+.qq-upload-button input[type="file"],
+.cg-primary-menu .menu > li > a,
+.cart_subtotal .amount {
   font-family: Verdana, Geneva ,sans-serif !important;
 }
+.product-title-wrapper,
+.product-page-title,
 body.single-product .product-title-wrapper {
   background-color: #1D76BD !important;
 }
