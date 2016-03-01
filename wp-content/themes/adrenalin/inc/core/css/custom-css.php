@@ -209,7 +209,7 @@ function cg_custom_css() {
             .page-numbers li a:hover
 
             {
-                background-color: <?php echo $cg_primary_color; ?> !important; 
+                background-color: <?php echo $cg_primary_color; ?> ;
             }
 
             /* non !important overrides */ 

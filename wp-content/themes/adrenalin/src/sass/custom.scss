@@ -305,9 +305,10 @@ body .exampimage .handle {
 /* Upload photo page */
 .topmargin-upload {
   .nextclass {
+    margin-left: 221px;
     .btn {
       min-height: 42px;
-      min-width: 156px;
+      min-width: 176px;
       margin-top: 13px;
       font-size: 15px;
       font-weight: 700;
@@ -340,6 +341,11 @@ body .exampimage .handle {
       .orr {
         padding: 0;
       }
+      a {
+        .btn {
+          white-space: normal;
+        }
+      }
     }
   }
   #secondary {
@@ -356,6 +362,7 @@ body .exampimage .handle {
         .btn {
           padding: 5px 10px;
           border: 1px solid $red-dark;
+          white-space: normal;
         }
       }
     }
@@ -469,7 +476,8 @@ body .exampimage .handle {
 h1.cg-page-title,
 .content-area table.shop_table thead tr th,
 .yith-wcwl-add-to-wishlist a,
-.woocommerce-tabs .tabs li a {
+.woocommerce-tabs .tabs li a,
+.woocommerce-page .content-area form fieldset legend {
   font-family: Verdana,Geneva,sans-serif;
 }
 .ls-slide,
