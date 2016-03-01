@@ -198,8 +198,10 @@ body .exampimage .handle {
     text-align: center;
     li {
       display: inline-block;
+      min-height: 325px;
       height: auto;
       padding: 30px 0 50px;
+      vertical-align: top;
       &:last-child {
         margin-right: 0;
       }
