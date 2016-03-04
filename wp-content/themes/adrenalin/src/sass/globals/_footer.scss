@@ -172,9 +172,12 @@ $assets-path: '../..';
       width: auto;
     }
     h4 {
+      position: relative;
+      right: -89px;
       margin: 0 0 16px;
       color: #FFF;
       font-size: 15px;
+
     }
   }
   .custom-footer-bottom {
