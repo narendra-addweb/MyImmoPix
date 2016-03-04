@@ -127,6 +127,7 @@ $assets-path: '../..';
         @include appearance(none);
         @include box-shadow(0 0 0);
         option {
+          padding: 0 0 0 30px;
           border: none;
           background-position: left 10px center;
         }
@@ -178,7 +179,7 @@ $assets-path: '../..';
       .container {
         padding-top: 20px;
         border-top: 1px solid #CCC;
-        #text-13 {
+        .widget_text {
           display: inline-block;
           width: 100%;
           .textwidget {
@@ -198,6 +199,9 @@ $assets-path: '../..';
               &:nth-last-child(2) {
                 margin-right: 0;
               }
+            }
+            h4 {
+              text-transform: capitalize;
             }
           }
         }
