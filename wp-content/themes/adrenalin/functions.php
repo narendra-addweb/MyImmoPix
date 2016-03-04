@@ -2713,3 +2713,55 @@ function ml_myaccount_title(){
    }
    return $strMyaccountStr;
 }
+
+
+//Used to generate list li structure for language
+function languages_list_footer(){
+    
+    global $sitepress;
+    $defLang = $sitepress->get_default_language();
+    
+    $languages = icl_get_languages('skip_missing=0&orderby=code');
+    
+    if(!empty($languages)){
+        echo '<div id="footer_language_list"><div class="custom_drop_arrow"></div><ul>';
+        foreach($languages as $l){
+            if($l['active']) { echo '<li class="active">';} else {echo '<li>';}
+                if(!$l['active']) echo '<a href="'.$l['url'].'">';
+                if($l['country_flag_url']){
+                    echo '<img src="'.$l['country_flag_url'].'" height="12" alt="'.$l['language_code'].'" width="18" />';
+                }
+                
+                echo '&nbsp;'. icl_disp_language($l['native_name'], $l['translated_name']);
+                if(!$l['active']) echo '</a>';
+            echo '</li>';
+        }
+        echo '</ul></div>';
+    }
+}
+
+
+//Used to generate select dropdoen for language
+function languages_select_footer(){
+    
+    global $sitepress;
+    $defLang = $sitepress->get_default_language();
+    
+    $languages = icl_get_languages('skip_missing=0&orderby=code');
+    
+    if(!empty($languages)){
+        echo '<select class="footer_language_list" onchange="location = this.options[this.selectedIndex].value;" name="footer_language" id="footer_language">';
+        foreach($languages as $l){
+            
+            $selected = '';
+            if($l['active']) $selected = 'selected="selected"';
+            echo '<option value="'. $l['url'] .'" '. $selected .' style="background-image:url('.$l['country_flag_url'].'); background-repeat:no-repeat;">';
+            if($l['country_flag_url']){
+                echo '<img src="'.$l['country_flag_url'].'" alt="'.$l['language_code'].'" />';
+            }
+            echo '&nbsp;'. icl_disp_language($l['native_name'], $l['translated_name']);
+            echo '</option>';
+        }
+        echo '</select>';  
+    }
+}
