@@ -14,7 +14,8 @@ $assets-path: '../..';
 /**
  * Footer design
  */
-.footer {
+
+/*.footer {
   .foote-nav {
     ul {
       li {
@@ -28,4 +29,188 @@ $assets-path: '../..';
       }
     }
   }
+}*/
+.footer {
+  padding: 50px 0;
+  background-color: #2D2D2D;
+  .container {
+    width: 900px;
+  }
+  ul {
+    li {
+      display: inline-block;
+      width: 100%;
+      border: none;
+      a {
+        display: inline-block;
+        width: auto;
+        border: none;
+        background-color: transparent;
+        color: $white;
+        font-size: 13px;
+        font-weight: normal;
+        opacity: .7;
+        @include border-radius(0);
+        &:hover {
+          background-color: transparent;
+          text-decoration: none;
+          opacity: 1;
+        }
+      }
+    }
+    &:hover,
+    &:focus {
+      li {
+        a {
+          background: transparent;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+.custom-fotter-main {
+  background-color: #2D2D2D;
+  .custom-footer-top,
+  .custom-footer-bottom {
+    display: inline-block;
+    width: 100%;
+  }
+  .custom-footer-top {
+    .custom-lang-logo {
+      float: left;
+      width: 30%;
+      margin-right: 18%;
+      padding: 0;
+      .custom-lang {
+        float: right;
+        margin-top: 5px;
+        .custom-lang-select {
+          position: relative;
+          display: inline-block;
+          width: auto;
+          margin-top: 0;
+          &::after {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            bottom: 0;
+            left: auto;
+            height: 4px;
+            width: 9px;
+            border: none;
+            background: url('../images/white-dropdown-icon.png');
+            background-position: center center;
+            background-repeat: no-repeat;
+            content: '';
+          }
+        }
+        .custom-footer-logo {
+          img {
+            max-width: 300px;
+          }
+        }
+      }
+      .custom-footer-logo {
+        float: right;
+      }
+      .footer_language_list {
+        display: inline-block;
+        padding: 10px 15px;
+        border: none;
+        background-color: #595959;
+        color: #FFF;
+        font-size: 16px;
+        cursor: pointer;
+        @include border-radius(0);
+        @include appearance(none);
+        @include box-shadow(0 0 0);
+        option {
+          border: none;
+          background-position: left 10px center;
+        }
+      }
+      .custom-footer-logo {
+        img {
+          max-width: 300px;
+        }
+      }
+    }
+    .custom-menu-links {
+      float: left;
+      width: 40%;
+      margin-right: 2%;
+      .subfooter {
+        padding: 0;
+        .widget_nav_menu {
+          width: 50%;
+          li {
+            padding: 0;
+          }
+          h4 {
+            margin: 0 0 13px;
+            text-transform: capitalize;
+          }
+        }
+      }
+    }
+    .custom-credit-cards {
+      float: left;
+      width: 10%;
+      margin: 0;
+      .cg-card {
+        float: right;
+        width: 100%;
+        text-align: right;
+      }
+    }
+  }
+  .footer-credit-cards {
+    img {
+      width: auto;
+    }
+  }
+  .custom-footer-bottom {
+    text-align: center;
+    .subfooter {
+      padding: 0;
+      .container {
+        padding-top: 20px;
+        border-top: 1px solid #CCC;
+        #text-13 {
+          display: inline-block;
+          width: 100%;
+          .textwidget {
+            a {
+              height: 32px;
+              width: 32px;
+              margin-right: 15px;
+              border: 1px solid #5D5D5D;
+              background: #282828;
+              color: #FFF;
+              &:hover,
+              &:focus {
+                color: #FFF;
+                text-decoration: none;
+                opacity: .8;
+              }
+              &:nth-last-child(2) {
+                margin-right: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+    .footer-copyright {
+      float: none;
+      p {
+        color: #FFF;
+      }
+    }
+  }
+}
+.lwa {
+  margin-bottom: 0;
 }
