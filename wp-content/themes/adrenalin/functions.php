@@ -2765,3 +2765,18 @@ function languages_select_footer(){
         echo '</select>';  
     }
 }
+
+//This function will return footer card title
+function get_card_title(){
+    $strReturn = '';
+    if(ICL_LANGUAGE_CODE == 'fr'){
+        $strReturn = "Paiements S&eacute;curis&eacute;s";
+    } 
+    else if(ICL_LANGUAGE_CODE == 'nl'){
+        $strReturn = "Veilig Betalen";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en'){
+        $strReturn = "Secured Payments";
+    }
+    return $strReturn;
+}
