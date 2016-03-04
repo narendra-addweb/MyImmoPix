@@ -72,6 +72,7 @@ function display_card( $card, $status ) {
                             if ( class_exists( 'CGToolKit' ) ) {
                                 if ( $cg_footer_cards_display == 'show' ) {
                                     echo '<div class="footer-credit-cards">';
+                                    print '<h4>'. get_card_title() .'</h4>';
                                     $cg_card_array = ($cg_options['cg_show_credit_card_values']);
                                     foreach ( $cg_card_array as $card => $status ) {
                                         display_card( $card, $status );
