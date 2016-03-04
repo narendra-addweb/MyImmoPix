@@ -197,7 +197,7 @@ if ( isset( $cg_options['cg_logo_position'] ) ) {
                                                 <div class="seactbox">
                                                     <select class="selectpicker" name="userbox" id="userid" onChange="location = this.options[this.selectedIndex].value;">
                                                         <option><?php echo $name;?></option>
-                                                        <option value=""><?php echo do_shortcode('[usercreditwoocommerce]');?>  <?php echo get_str_credit();?> </option>
+                                                        <option value="<?php echo get_bloginfo('url').'/credit/';?>"><?php echo do_shortcode('[usercreditwoocommerce]');?>  <?php echo get_str_credit();?> </option>
                                                         <option value="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') );?>"><?php echo get_str_profilesettings();?></option>
 												
 												
