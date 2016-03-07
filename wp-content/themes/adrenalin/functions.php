@@ -621,30 +621,38 @@ function ST4_columns_book_content($column_name, $post_ID) {
 function updatcredit($postid,$mode='outer')
 {
 
-global $wpdb;
-$user_id = get_current_user_id();
-if($mode=="inner")
-{
-update_post_meta($postid,'credits',0);
-return;
-}
+    global $wpdb;
+    $user_id = get_current_user_id();
+    if($mode=="inner")
+    {
+    update_post_meta($postid,'credits',0);
+    return;
+    }
 
-$sql ="select * from wp_woocredit_users where user_id='$user_id'";
-$result  = mysql_query($sql);
-$row =  mysql_fetch_array($result);
-$total = $row['credit']-1;
-if($total>0)
-{
-update_post_meta($postid,'credits',1);
-$sql ="update  wp_woocredit_users set credit='$total' where user_id='$user_id'";
-mysql_query($sql);
-
-}
-else
-{
-update_post_meta($postid,'credits',0);
-}
-
+    $sql ="select * from wp_woocredit_users where user_id='$user_id'";
+    $result = $wpdb->get_results( 'SELECT * FROM '. $wpdb->prefix . 'woocredit_users WHERE user_id = ' .$user_id);
+    $credit = 0;
+    foreach ($result as $columnsVal) {
+           $credit = $columnsVal->credit;
+    }
+    $total = $credit;
+    if($total > 0){
+        $total = $total - 1;
+        update_post_meta($postid,'credits',1);
+        //$sql ="update  wp_woocredit_users set credit='$total' where user_id='$user_id'";
+        //mysql_query($sql);
+        $wpdb->update( 
+            $wpdb->prefix . 'woocredit_users', 
+            array( 
+                'credit' => $total//Deduct credit
+            ), 
+            array('user_id' => $user_id)
+        );
+    }
+    else
+    {
+        update_post_meta($postid,'credits',0);
+    }
 }
 
 
