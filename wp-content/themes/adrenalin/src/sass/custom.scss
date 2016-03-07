@@ -412,6 +412,18 @@ body .exampimage .handle {
 .site-main .page .entry-content {
   padding-top: 0;
 }
+.entry-content {
+  .loop-area {
+    .btnclass.mybtncls {
+      left: 50%;
+      margin-left: -61px;
+      input {
+        width: 125px;
+        white-space: normal;
+      }
+    }
+  }
+}
 /* End */
 
 /* My account page */
@@ -450,6 +462,17 @@ body .exampimage .handle {
   }
 }
 
+
+/**
+ * Search page
+ */
+#secondary {
+  .topmargin {
+    .msearchbtn {
+      margin-bottom: 20px;
+    }
+  }
+}
 
 
 /**
@@ -500,7 +523,7 @@ body.single-product .product-title-wrapper {
 /* Large desktop monitor view */
 @media screen and (min-width:1600px) {
   .container {
-    max-width: 1440px;
+    max-width: 1470px;
   }
   /* Home page example section */
   .exampimage {

@@ -72,7 +72,7 @@ textarea:focus {
 .radiotxt {
   margin-bottom: 30px;
   label {
-    width: 160px;
+    width: 165px;
     margin-top: -40px;
     margin-left: 0;
   }
@@ -242,5 +242,12 @@ form.login,
     &:hover {
       text-decoration: none;
     }
+  }
+}
+
+/* ordered succesfully popup */
+.modal-header {
+  button.close {
+    margin-top: -10px;
   }
 }

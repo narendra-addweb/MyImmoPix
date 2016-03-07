@@ -105,6 +105,23 @@ $assets-path: '../..';
             background-repeat: no-repeat;
             content: '';
           }
+          select {
+            outline: none;
+          }
+          /*select {
+            option {
+                background-image: url('http://myimmopix.addwebprojects.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/nl.png');
+              &:nth-child(1) {
+                background-image: url('http://myimmopix.addwebprojects.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/nl.png');
+              }
+              &:nth-child(2) {
+
+              }
+              &:nth-child(3) {
+
+              }
+            }
+          }*/
         }
         .custom-footer-logo {
           img {
@@ -114,6 +131,7 @@ $assets-path: '../..';
       }
       .custom-footer-logo {
         float: right;
+        margin: 30px 0 0;
       }
       .footer_language_list {
         display: inline-block;
@@ -195,9 +213,11 @@ $assets-path: '../..';
               height: 32px;
               width: 32px;
               margin-right: 15px;
+              padding: 1px 9px;
               border: 1px solid #5D5D5D;
               background: #282828;
               color: #FFF;
+              line-height: normal;
               &:hover,
               &:focus {
                 color: #FFF;
