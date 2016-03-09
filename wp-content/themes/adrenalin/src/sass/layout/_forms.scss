@@ -72,7 +72,7 @@ textarea:focus {
 .radiotxt {
   margin-bottom: 30px;
   label {
-    width: 165px;
+    width: 170px;
     margin-top: -40px;
     margin-left: 0;
   }
@@ -171,8 +171,8 @@ form.login,
 /* Login & Sign up pop up */
 .lwa-modal {
   z-index: 99999;
+  width: 450px;
   background-color: #FFF;
-    /*@include transition (all 0s ease 0s);*/
   .lwa-form,
   .lwa-remember {
     background-color: #FFF;
@@ -223,7 +223,7 @@ form.login,
         float: right;
         margin: -25px 0 0;
         color: $red-dark;
-        font-size: 13px;
+        /*font-size: 13px;*/
         font-weight: normal;
         &:hover,
         &:focus {
@@ -232,7 +232,7 @@ form.login,
         }
       }
       label {
-        font-size: 13px;
+        /*font-size: 13px;*/
       }
     }
     .lwa-links-remember-cancel {

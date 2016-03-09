@@ -527,9 +527,11 @@ body.single-product .product-title-wrapper {
   }
   /* Home page example section */
   .exampimage {
+    height: 400px;
     width: 600px;
   }
   .exampimage .bx-viewport {
+    height: 400px !important;
     width: 600px !important;
   }
   .mbx-pager {
@@ -537,7 +539,14 @@ body.single-product .product-title-wrapper {
     width: 830px;
   }
   .mbx-pager ul.bx_pager_ul li {
+    height: 130px;
     width: 195px;
+  }
+  .mbx-pager ul.bx_pager_ul li img {
+    height: 100%;
+  }
+  .mbx-pager ul.bx_pager_ul li .resize img {
+    height: auto;
   }
   /* End */
 }
