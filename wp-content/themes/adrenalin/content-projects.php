@@ -164,7 +164,7 @@ if(isset($_POST['update'])  && $_POST['update']!='')
 	$time = time_to_his($seconds);
 	
 	//-----------------------------
-	
+	$strTimeAgo = get_string_upload($mdate);
 	
 	?>
        <?php $img =  vt_resize('',$feat_image,120, 80,true); ?>
@@ -197,7 +197,7 @@ if(isset($_POST['update'])  && $_POST['update']!='')
         
        <div class="col-lg-10 col-md-10 color-bg"> 
             <div class="col-lg-3 col-md-3 mainlink"><a href="<?php echo get_bloginfo('url').'/editing-project-detail/?pid='.$pid.'';?>"><strong><?php echo '#'.$pid;?></strong></a></div>
-            <div class="col-lg-3 col-md-3 pull-right"><strong><?php echo $time;?>  <?php echo get_string_ago();?></strong></div>
+            <div class="col-lg-3 col-md-3 pull-right"><strong><?php echo $strTimeAgo;?></strong></div>
         </div>
        </div>
        <?php } else {?>
@@ -216,7 +216,7 @@ if(isset($_POST['update'])  && $_POST['update']!='')
             <div class="col-lg-1 col-md-1"><button type="submit" name="update" value="update" class="btn btn-primary msearchbtn"><?php echo $ustr = get_str_updatetxt();?></button></div>
             </form>
             
-            <div class="col-lg-3 col-md-3 pull-right myfont"><strong><?php echo $time;?>		<?php echo get_string_ago();?></strong></div>
+            <div class="col-lg-3 col-md-3 pull-right myfont"><strong><?php echo $strTimeAgo;?></strong></div>
         </div>
        </div>
        
