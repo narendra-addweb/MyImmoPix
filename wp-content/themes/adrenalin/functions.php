@@ -1967,11 +1967,11 @@ function get_str_ordersuccessfully()
 	}
 	else if(ICL_LANGUAGE_CODE == 'nl')
 	{
-		$str = "Bestelde dienst succesvol ";
+		$str = "Bestelde dienst succesvol";
 	}
 	else if(ICL_LANGUAGE_CODE == 'en')
 	{
-		$str = "Service ordered succesfully";
+		$str = "Service ordered successfully";
 	}
 	
 	return $str;
