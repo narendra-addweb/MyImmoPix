@@ -77,12 +77,13 @@ get_header();
 <?php
 if($_GET['action'] == 'done'){?>
 	<script>
-	$( document ).ready(function() {
-   		$(".sucessbtn").trigger("click");
-	});
-	
-	
-    </script>
+  	$( document ).ready(function() {
+     		$(".sucessbtn").trigger("click");
+  	});
+  	
+    //For GIT-124
+  	var onlyUrl = window.location.href.replace('&action=done','');
+  </script>
 <?php }?>
 <!-- popp model window-->
 <div class="modal fade <?php if($place=='home'){echo 'homenewpopup'; }?>" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -93,7 +94,7 @@ if($_GET['action'] == 'done'){?>
 
       <div class="modal-header">
 
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="javascript:location.href = onlyUrl;"><span aria-hidden="true">&times;</span></button>
 
         <h4 class="modal-title" id="myModalLabel"></h4>
 
@@ -116,7 +117,7 @@ if($_GET['action'] == 'done'){?>
 
       <div class="modal-footer mfooter">
 
-        <button type="button" class="btn btn-defaul mbtn" data-dismiss="modal"><?php echo $ustr = get_str_closetxt();?></button>
+        <button type="button" class="btn btn-defaul mbtn" data-dismiss="modal" onclick="javascript:location.href = onlyUrl;"><?php echo $ustr = get_str_closetxt();?></button>
 
         <!--<button type="button" class="btn btn-primary">Save changes</button>-->
 
