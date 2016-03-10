@@ -291,7 +291,7 @@ if ( isset( $cg_options['cg_logo_position'] ) ) {
                                                     'theme_location'  => '',
                                                     'menu'            => 'Home Menus for inner pages',
                                                     'container'       => 'div',
-                                                    'container_class' => '',
+                                                    'container_class' => 'menu-home-menus-for-inner-pages-container',
                                                     'container_id'    => '',
                                                     'menu_class'      => 'menu',
                                                     'menu_id'         => '',

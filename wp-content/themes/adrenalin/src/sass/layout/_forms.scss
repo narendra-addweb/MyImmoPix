@@ -146,9 +146,12 @@ form.login,
     input.button {
       min-height: 48px;
       width: 100% !important;
+      border: none;
       -moz-border-radius: 3px !important;
       -webkit-border-radius: 3px !important;
       border-radius: 3px !important;
+      background-color: $red-dark;
+      color: $white;
     }
   }
   .myaccount_login_form {
@@ -251,7 +254,25 @@ form.login,
 
 /* ordered succesfully popup */
 .modal-header {
+  min-height: 40px;
   button.close {
     margin-top: -10px;
+    color: #AAA;
+    font-size: 30px;
+    opacity: 1;
+    &:hover ,
+    &:focus {
+      color: #AAA;
+      opacity: 1;
+    }
+  }
+}
+.modal-footer {
+  .btn {
+    background-color: #1B75BB;
+    &:hover {
+      background-color: #1B75BB;
+      color: $white;
+    }
   }
 }

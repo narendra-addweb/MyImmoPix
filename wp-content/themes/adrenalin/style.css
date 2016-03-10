@@ -193,7 +193,8 @@ body .dftbtn:hover{border-radius:4px!important;background-color:#666!important; 
 .msgg small{ color:#F60; font-size:18px;}
 .mainpop span{ text-align:center;}
 .mbtn{ background-color:#1b75bb; color:#FFF}
-.mbtn:hover{ background-color:#6699CC!important; border-radius:4px!important;}
+/*.mbtn:hover{ background-color:#6699CC!important; border-radius:4px!important;}*/
+.mbtn:hover { background-color: #6699CC; border-radius: 4px!important; }
 .mfooter{text-align:center!important;}
 .mainpop2 { text-align:center;}
 .mainpop2 textarea{ border:#999 solid 1px; width:200px; height:150px;}
