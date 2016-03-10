@@ -180,7 +180,12 @@ body .hbtn1:hover{ background-color:#CC6666!important;border-radius:4px!importan
 body .dftbtn:hover{border-radius:4px!important;background-color:#666!important; }
 .imgid{ text-align:center;}
 
-.topmarginorder{ margin-top:50px!important;padding-left: 40px;}
+/*.topmarginorder{ margin-top:50px!important;padding-left: 40px;}*/
+.topmarginorder {
+    margin-top:50px!important;
+    padding-left: 15px;
+}
+
 .errorsmsg{margin-left:200px;border:#666 solid 1px; width:200px; height:70px; background-color:#FFF; font-size:14px; color:#BE1E2D;}
 
 .mainpop{ text-align:center;}
@@ -1007,8 +1012,11 @@ ul#menu-main-menu-twoprimary  li{ float:none!important; display:inline-block}
     margin-bottom: 0 !important;
     margin-top:23px;
     padding-bottom: 0 !important;float: right!important;}
-.topmargin4{ margin-top:30px;}		
-.margleft{ margin-left:40px;}
+.topmargin4{ margin-top:30px;}
+
+/*.margleft{ margin-left:40px;}*/
+.margleft{ margin-left: 15px;}
+
 .padingleft{ padding-left:20px;}
 .orr{ padding:0px 0px 0px 45px;}	
 .displaynone{ display:none;}	

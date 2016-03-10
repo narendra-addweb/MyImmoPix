@@ -392,6 +392,7 @@ body .exampimage .handle {
 
 .topmargin-price #secondary .border-bot3.mainlink {
   margin-bottom: 50px;
+  margin-left: 0;
 }
 /* End */
 
@@ -527,7 +528,7 @@ body.single-product .product-title-wrapper {
   }
   /* Home page example section */
   .exampimage {
-    height: 400px;
+    height: 400px !important;
     width: 600px;
   }
   .exampimage .bx-viewport {
