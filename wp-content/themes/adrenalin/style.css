@@ -657,7 +657,7 @@ body .msgg2 small{font-size: 25px !important; color:#be1e2d}
 .content-area ul li::before{ display:none;}
 
 .page-id-69199 .nextclass {
-    margin-left: 229px !important;
+    /*margin-left: 229px !important;*/
 }
 
 
@@ -1058,7 +1058,7 @@ ul#menu-main-menu-twoprimary  li{ float:none!important; display:inline-block}
 .cg-header-fixed-wrapper.cg-is-fixed  #menu-main-menu-twoprimary{ display:none;}
 .menu-home-menu-container ul li{margin: 40px 19px 0 0!important;}
 .menu-menu-daccueil-container ul li{margin: 40px 19px 0 0!important;}
-.frcls .logincls{ margin-left:7px!important;}
+/*.frcls .logincls{ margin-left:7px!important;}*/
 .frcls .cg-logo-inner-cart-wrap .col-md-8{width: 58.3333%!important;}
 .frcls .cg-logo-inner-cart-wrap .col-md-4{width: 41.6667%!important;}
 .frcls .menu-menu-daccueil-container ul li{ margin: 40px 14px 0 0 !important;}
