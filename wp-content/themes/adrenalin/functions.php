@@ -1307,7 +1307,7 @@ function get_str_upload()
 	
 	if(ICL_LANGUAGE_CODE == 'fr')
 	{
-		$str = "Projets chargés";
+		$str = "Projets chargés ";
 	}
 	else if(ICL_LANGUAGE_CODE == 'nl')
 	{
@@ -1424,15 +1424,15 @@ function get_str_searchtxt()
 	
 	if(ICL_LANGUAGE_CODE == 'fr')
 	{
-		$str = "recherche";
+		$str = "Recherche";
 	}
 	else if(ICL_LANGUAGE_CODE == 'nl')
 	{
-		$str = "zoeken ";
+		$str = "Zoeken ";
 	}
 	else if(ICL_LANGUAGE_CODE == 'en')
 	{
-		$str = "search ";
+		$str = "Search ";
 	}
 	
 	return $str;
@@ -1446,11 +1446,11 @@ function get_str_updatetxt()
 	}
 	else if(ICL_LANGUAGE_CODE == 'nl')
 	{
-		$str = "bijwerken ";
+		$str = "Update ";
 	}
 	else if(ICL_LANGUAGE_CODE == 'en')
 	{
-		$str = "update ";
+		$str = "Update ";
 	}
 	
 	return $str;
@@ -2114,7 +2114,7 @@ function get_str_checkout()
 	
 	if(ICL_LANGUAGE_CODE == 'fr')
 	{
-		$str = "CHECK-OUT";
+		$str = "Commande";
 	}
 	else if(ICL_LANGUAGE_CODE == 'nl')
 	{

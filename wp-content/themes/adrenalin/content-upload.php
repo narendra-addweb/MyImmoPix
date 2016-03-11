@@ -3,7 +3,7 @@
 if(ICL_LANGUAGE_CODE == 'fr')
 {
 $gotopage = '69217';
-$next = "Etape suivante >>";
+$next = "Étape suivante >>";
 $morephoto = "Ou charger plus de photos";
 }
 else if(ICL_LANGUAGE_CODE == 'nl')
@@ -15,8 +15,8 @@ $morephoto = "Of meer foto's opladen";
 else if(ICL_LANGUAGE_CODE == 'en')
 {
 $gotopage = '67546';
-$next = "Next step >>";
-$morephoto = "or upload more photos";
+$next = "Next Step >>";
+$morephoto = "Or upload more photos";
 
 }
 ?>
@@ -32,7 +32,7 @@ $morephoto = "or upload more photos";
 	
 		
 		
-       <div class="nextclass"><a href="<?php echo get_bloginfo("url");?>/?p=<?php echo $gotopage; ?>"><button type="button" class="btn btn-primary"><?php echo $next;?></button></a><br /><span class="topmargin"> <?php echo $morephoto; ?> . </span></div>
+       <div class="nextclass"><a href="<?php echo get_bloginfo("url");?>/?p=<?php echo $gotopage; ?>"><button type="button" class="btn btn-primary"><?php echo $next;?></button></a><br /><span class="topmargin"> <?php echo $morephoto; ?> </span></div>
 		
 			
 	<div class="mythumb">

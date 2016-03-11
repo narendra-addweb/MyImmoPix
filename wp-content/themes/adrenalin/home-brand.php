@@ -44,7 +44,7 @@
 <ul class="home_brand_section">
 <li><img src="<?php echo $upload_dir['baseurl']; ?>/icon/brand_logo1.jpg" /><span>Am&eacute;lioration de la luminosit&eacute;</span></li>
 <li><img src="<?php echo $upload_dir['baseurl']; ?>/icon/brand_logo2.jpg" /><span>Ajustement du contraste</span></li>
-<li><img src="<?php echo $upload_dir['baseurl']; ?>/icon/brand_logo5.jpg" /><span>Nettoyage des poussi&eacute;res</span></li>
+<li><img src="<?php echo $upload_dir['baseurl']; ?>/icon/brand_logo5.jpg" /><span>Suppression des défauts</span></li>
 <li><img src="<?php echo $upload_dir['baseurl']; ?>/icon/brand_logo6.jpg" /><span>R&eacute;duction du flou et du bruit</span></li>
 
 

@@ -45,10 +45,10 @@ class WoocreditTranslate{
                 'de-DE' => 'Preis'
         ),
         'Purchase More Credits' => array(
-                'en-US' => 'Acheter des crédits supplémentaires',
+                'en-US' => 'Purchase credit',
                 'de-DE' => 'Koop meer kredieten',
                 'nl-NL' => 'Koop meer kredieten',
-                'fr-FR' => 'Acheter des crédits'
+                'fr-FR' => 'Acheter des crédits supplémentaires'
         ),
         'Buy Credits' => array(
                 'en-US' => 'Buy Credits',

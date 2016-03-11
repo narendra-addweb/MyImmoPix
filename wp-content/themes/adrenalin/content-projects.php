@@ -28,17 +28,17 @@ else
 
 	if(ICL_LANGUAGE_CODE == 'fr')
 	{
-	$head = "Projets : Projets chargés";
+	$head = "Projets: Chargés";
 	}
 	
 	else if(ICL_LANGUAGE_CODE == 'nl')
 	{
-	$head = "Projecten : Opgeladen";
+	$head = "Projecten: Opgeladen";
 	}
 	
 	else
 	{
-	$head = "Projects : Uploaded ";
+	$head = "Projects: Uploaded";
 	
 	
 	}
