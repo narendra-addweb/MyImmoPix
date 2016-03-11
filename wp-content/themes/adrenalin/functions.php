@@ -2805,3 +2805,20 @@ function get_credit_ordersummery_text(){
         echo "Your available credits is not enough  for this service .  Your available credits is ". do_shortcode('[usercreditwoocommerce]') .". Please purchase credits By click here <a href=" .  get_bloginfo('url').'/credit/' . "> Purchase credit</a>";
     }
 }
+
+
+//This function will return multi language page/post url based on inputed pageid and type
+function getWPMU_url($pageId, $registerType = 'post'){
+
+    /*
+    icl_object_id(ID, type, return_original_if_missing,language_code)
+
+    ID – the ID of the post, page, tag or category
+    type – ‘post’, ‘page’, ‘post_tag’, ‘category’ or ‘attachment’
+    return_original_if_missing – true if WPML should return the ID of the original language element if the translation is missing or false if WPML should return a NULL if translation is missing.
+    language_code (optional) – if set, forces the language of the returned object and can be different than the displayed language.
+    */
+
+    $icl_object_id = icl_object_id($pageId, $registerType, true);
+    return get_permalink($icl_object_id);
+}
