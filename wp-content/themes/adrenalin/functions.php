@@ -2788,3 +2788,20 @@ function get_card_title(){
     }
     return $strReturn;
 }
+
+
+//This function will return credit text for order summery page
+function get_credit_ordersummery_text(){
+    
+    if(ICL_LANGUAGE_CODE == 'fr'){
+        echo "Vos crédits disponibles ne suffisent pas pour ce service. Vos crédits disponibles est ". do_shortcode('[usercreditwoocommerce]') .". S'il vous plaît acheter des crédits par cliquer ici <a href=" . get_bloginfo('url').'/credit/' . "> crédit d'achat</a>";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        echo "Uw beschikbare kredieten is niet genoeg voor deze service. Uw beschikbare kredieten is ". do_shortcode('[usercreditwoocommerce]') .". Schaf credits Door klik hier <a href=" .  get_bloginfo('url').'/credit/' . "> aankoop credit</a>";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        echo "Your available credits is not enough  for this service .  Your available credits is ". do_shortcode('[usercreditwoocommerce]') .". Please purchase credits By click here <a href=" .  get_bloginfo('url').'/credit/' . "> Purchase credit</a>";
+    }
+}

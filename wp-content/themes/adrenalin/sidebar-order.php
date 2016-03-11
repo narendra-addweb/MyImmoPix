@@ -11,15 +11,15 @@
 						'posts_per_page'=>-1,
 						'author'=> $user_ID,
 						'meta_query' => array(
-						array(
-						'key'     => 'group_id',
-						'value'   => $pid,
-						'compare' => '=',
-						'type'    => 'numeric',
-						),
-						),
+							array(
+								'key'     => 'group_id',
+								'value'   => $pid,
+								'compare' => '=',
+								'type'    => 'numeric',
+								),
+							),
 						);
-	
+ 
  $count3 = count(query_posts( $args1 ));
  while(have_posts()) : the_post();
  $imgstr[] = get_the_id();
@@ -75,7 +75,7 @@ $upload_dir = wp_upload_dir();
   <?php } else {?>
   
   <div class="row topmargin border-bot3 mainlink">
-      <div class="col-lg-12 col-md-12">Your available credits is not enough  for this service .  Your available credits is <?php echo do_shortcode('[usercreditwoocommerce]');?> . Please purchase credits By click here  <a href="<?php echo get_bloginfo('url').'/credit/';?>"> Purchase credit</a> </div>
+      <div class="col-lg-12 col-md-12"><?php get_credit_ordersummery_text();?></div>
      
   </div>
   
