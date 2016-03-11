@@ -148,7 +148,13 @@ do_action( 'woocommerce_before_cart' );
     <?php $checkoutstr = get_str_checkout();?>
 
                     <input type="submit" class="button update-button" name="update_cart" value="<?php _e( $updatestr, 'commercegurus' ); ?>" /> 
-    				<input type="submit" class="button checkout-button cart-check " name="proceed" value="<?php _e( $checkoutstr, 'commercegurus' ); ?>" />
+    				<!--<input type="submit" class="button checkout-button cart-check " name="proceed" value="<?php //_e( $checkoutstr, 'commercegurus' ); ?>" />-->
+                    <!--
+                        Change CHECKOUT button link for multi language support...
+                    -->
+                    <a href="<?php echo esc_url( getWPMU_url(icl_object_id(get_option('woocommerce_checkout_page_id'), 'page', true))) ;?>" class="checkout-button button alt wc-forward">
+                        <?php echo _e( $checkoutstr, 'commercegurus' ); ?>
+                    </a>
 
                     <?php //do_action( 'woocommerce_proceed_to_checkout' ); ?>
 
