@@ -108,20 +108,38 @@ $assets-path: '../..';
           select {
             outline: none;
           }
-          /*select {
-            option {
-                background-image: url('http://myimmopix.addwebprojects.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/nl.png');
-              &:nth-child(1) {
-                background-image: url('http://myimmopix.addwebprojects.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/nl.png');
+          .select-list {
+            li {
+              display: none;
+              &.active {
+                display: inline-block;
               }
-              &:nth-child(2) {
-
-              }
-              &:nth-child(3) {
-
+              a {
+                display: inline-block;
+                width: 100%;
+                padding: 0 15px;
+                background-color: #595959;
+                font-size: 16px;
+                text-align: left;
               }
             }
-          }*/
+            a.select-list-link {
+              position: absolute;
+              top: 60px;
+              right: 25px;
+              bottom: 0;
+              left: auto;
+              z-index: 1;
+              height: 4px;
+              width: 9px;
+              border: none;
+              background: url('../images/white-dropdown-icon.png');
+              background-position: center center;
+              background-repeat: no-repeat;
+              text-indent: -9999px;
+              content: '';
+            }
+          }
         }
         .custom-footer-logo {
           img {
