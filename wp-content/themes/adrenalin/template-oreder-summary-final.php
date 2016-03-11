@@ -42,21 +42,23 @@ get_header();
 	
         <div class="row">
         <div class="col-lg-3 col-md-3 col-md-push-9 col-lg-push-9">
-                <?php get_sidebar('finalorder'); ?>
-            </div>
-            <div class="col-lg-9 col-md-9 col-md-pull-3 col-lg-pull-3">
-                <div id="primary" class="content-area">
-                    <main id="main" class="site-main" role="main">
+          <div class="mbgcolr1 topmarginorder">
+            <?php get_sidebar('finalorder'); ?>
+          </div>
+        </div>
+        <div class="col-lg-9 col-md-9 col-md-pull-3 col-lg-pull-3">
+            <div id="primary" class="content-area mbgcolr topmarginorder ">
+                <main id="main" class="site-main" role="main">
 
-                        <?php while ( have_posts() ) : the_post(); ?>
+                    <?php while ( have_posts() ) : the_post(); ?>
 
-                            <?php get_template_part( 'content', 'finalorder' ); ?>
+                        <?php get_template_part( 'content', 'finalorder' ); ?>
 
-                         <?php endwhile; // end of the loop.  ?>
+                     <?php endwhile; // end of the loop.  ?>
 
-                    </main><!-- #main -->
-                </div><!-- #primary -->
-            </div>
+                </main><!-- #main -->
+            </div><!-- #primary -->
+        </div>
             
         </div><!--/row -->
     </div><!--/content -->

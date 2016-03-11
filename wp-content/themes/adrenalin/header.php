@@ -741,4 +741,4 @@ jQuery( ".menu-item-70636 a" ).click(function() {
 </script> 
 <!--<script type="text/javascript" src="<?php //bloginfo('template_url'); ?>/js/example/application.js"></script>-->
 <!--<script type="text/javascript" src="<?php //bloginfo('template_url'); ?>/js/example/typekit.js"></script>-->
-<link rel="stylesheet" href="<?php bloginfo('url'); ?>/css/example/application.css" type="text/css" />
+<!-- <link rel="stylesheet" href="<?php bloginfo('url'); ?>/css/example/application.css" type="text/css" /> -->

@@ -1,5 +1,5 @@
 
-<div id="secondary" class="widget-area topmarginorder" role="complementary">
+<div id="secondary" class="widget-area" role="complementary">
   
   <div class="row topmargin">
       <div class="col-lg-8 col-md-8"><strong><?php echo $ustr = get_str_ordersummary();?></strong></div>
