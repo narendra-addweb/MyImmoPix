@@ -910,6 +910,7 @@ ul.contrast li{list-style:none!important; border:none; float:left; margin-left:5
   font-size: 14px;
   margin: 13px 15px 0px 0px;
   text-transform: capitalize;
+  line-height: 44px;
 }
 .menu-home-menus-container ul li:last-child,
 .menu-home-menus-for-inner-pages-container ul li:last-child {
