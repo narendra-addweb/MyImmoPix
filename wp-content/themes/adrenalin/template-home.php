@@ -101,7 +101,8 @@ function drags(dragElement, resizeElement, container) {
 
 <div class="content-area">
     <div class="col-lg-12 col-md-12">
-   <?php echo do_shortcode( '[vc_row][vc_column width="1/1"][vc_column_text][layerslider id="1"]'.'[/vc_column_text][/vc_column][/vc_row]' ); ?>
+   
+   <?php the_content(); ?>
    </div>
    
    
