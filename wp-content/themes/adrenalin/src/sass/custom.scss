@@ -96,6 +96,21 @@ video {
   margin-top: 0;
 }
 
+/* Home page */
+.btnLogin {
+  display: none;
+}
+.logged-in {
+  .btnLogout {
+    display: none;
+  }
+  .btnLogin {
+    display: block;
+  }
+}
+
+/* End */
+
 /* example blog */
 .entry-content {
   .bxslider {
@@ -240,6 +255,28 @@ body .exampimage .handle {
         }
       }
     }
+  }
+}
+
+/* readmore (Home page) */
+#readmore {
+  float: left;
+  width: 100%;
+  color: $white;
+  font-weight: normal;
+  h3 {
+    margin: 0 0 30px;
+    color: $white;
+    font-size: 30px;
+    font-weight: normal;
+  }
+  .readmore-left,
+  .readmore-right {
+    float: left;
+    width: 50%;
+    padding: 0 15px;
+    font-size: 14px;
+    font-weight: normal;
   }
 }
 
@@ -444,6 +481,9 @@ body .exampimage .handle {
       }
     }
   }
+}
+.product-remove {
+  width: 20px;
 }
 /* End */
 

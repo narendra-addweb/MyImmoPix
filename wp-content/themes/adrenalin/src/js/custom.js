@@ -31,20 +31,24 @@ jQuery(document).ready(function() {
   });
 
   // Custom select design
+  jQuery('.custom-lang-select').append('<div class="button"></div>');
   jQuery('.custom-lang-select').append('<ul class="select-list"></ul>');
-  jQuery('.custom-lang-select .select-list').append('<a href="javascript:void(0);" class="select-list-link">Arrow</a>');
+  //jQuery('.custom-lang-select .button').append('<a href="javascript:void(0);" class="select-list-link">Arrow</a>');
   jQuery('.custom-lang-select select option').each(function() {
     //alert('option');
-    jQuery('.select-list').append('<li><a href="'+jQuery(this).val()+'">'+jQuery(this).text()+'</a></li>');
+    var bg = jQuery(this).css('background-image');
+    //alert(bg);
+    jQuery('.select-list').append('<li><a href="'+jQuery(this).val()+'" style=background-image:' + bg + '>'+jQuery(this).text()+'</a></li>');
   });
+  jQuery('.custom-lang-select .button').html(jQuery('.custom-lang-select select').find(':selected').text() + '<a href="javascript:void(0);" class="select-list-link">Arrow</a>');
   jQuery('.custom-lang-select ul li').each(function() {
     if (jQuery(this).find('a').text() == jQuery('.custom-lang-select select').find(':selected').text()) {
       jQuery(this).addClass('active');
     }
   });
 
-  jQuery('.custom-lang-select ul a.select-list-link').click(function(){
-    jQuery('.custom-lang-select ul li').show();
+  jQuery('.custom-lang-select a.select-list-link').click(function(){
+    jQuery('.custom-lang-select ul li').slideToggle();
   });
 
   if(jQuery('.custom-lang-select select option').attr('selected') == 'selected') {

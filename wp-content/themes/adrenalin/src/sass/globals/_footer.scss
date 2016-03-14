@@ -40,6 +40,7 @@ $assets-path: '../..';
     li {
       display: inline-block;
       width: 100%;
+      margin: 0;
       border: none;
       a {
         display: inline-block;
@@ -91,36 +92,27 @@ $assets-path: '../..';
           display: inline-block;
           width: auto;
           margin-top: 0;
-          /*&::after {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            bottom: 0;
-            left: auto;
-            height: 4px;
-            width: 9px;
-            border: none;
-            background: url('../images/white-dropdown-icon.png');
-            background-position: center center;
-            background-repeat: no-repeat;
-            content: '';
-          }*/
           select {
             display: none;
           }
           .select-list {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            margin-top: 40px;
+            background-color: #595959;
             li {
               display: none;
-              &.active {
-                display: inline-block;
-              }
               a {
                 display: inline-block;
                 min-height: 40px;
-                min-width: 270px;
+                min-width: 280px;
                 width: 100%;
                 padding: 5px 15px 5px 35px;
                 background-color: #595959;
+                background-position: left 10px center;
+                background-repeat: no-repeat;
                 font-size: 16px;
                 text-align: left;
                 &:hover,
@@ -128,45 +120,41 @@ $assets-path: '../..';
                   text-decoration: none;
                 }
               }
-              &:nth-child(2) {
-                a {
-                  background-image: url('http://myimmopix.addwebprojects.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/nl.png');
-                  background-position: left 10px center;
-                  background-repeat: no-repeat;
-                }
-              }
-              &:nth-child(3) {
-                a {
-                  background-image: url('http://myimmopix.addwebprojects.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/fr.png');
-                  background-position: left 10px center;
-                  background-repeat: no-repeat;
-                }
-              }
-              &:nth-child(4) {
-                a {
-                  background-image: url('http://myimmopix.addwebprojects.com/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png');
-                  background-position: left 10px center;
-                  background-repeat: no-repeat;
-                }
-              }
             }
-            a.select-list-link {
-              position: absolute;
-              top: 13px;
-              right: 0;
-              bottom: 0;
-              left: auto;
-              z-index: 1;
-              height: 20px;
-              width: 30px;
-              border: none;
-              background: url('../images/white-dropdown-icon.png');
-              background-position: center center;
-              background-repeat: no-repeat;
-              background-size: 9px 4px;
-              text-indent: -9999px;
-              content: '';
+          }
+          .button {
+            display: inline-block;
+            min-height: 40px;
+            min-width: 280px;
+            width: 100%;
+            padding: 8px 15px 8px 35px;
+            background-color: #595959;
+            background-position: left 10px center;
+            background-repeat: no-repeat;
+            color: $white;
+            font-size: 16px;
+            text-align: left;
+            &:hover,
+            &:focus {
+              text-decoration: none;
             }
+          }
+          a.select-list-link {
+            position: absolute;
+            top: 13px;
+            right: 0;
+            bottom: 0;
+            left: auto;
+            z-index: 1;
+            height: 20px;
+            width: 30px;
+            border: none;
+            background: url('../images/white-dropdown-icon.png');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: 9px 4px;
+            text-indent: -9999px;
+            content: '';
           }
         }
         .custom-footer-logo {
