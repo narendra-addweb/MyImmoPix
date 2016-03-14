@@ -100,28 +100,28 @@ function drags(dragElement, resizeElement, container) {
 
 
 <div class="content-area">
-    <div class="col-lg-12 col-md-12">
-   
-   <?php the_content(); ?>
-   </div>
-   
-   
-   <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-    <?php //cg_get_page_title(); ?>
-	
-	
-	 <div  class="entry-content">
-	 
-		<div id="example" class="col-lg-12 col-md-12 clsexamp"><?php echo get_string_example();?>  </div>
-		
-		
-		<div class="container">
-		<div class="row"> <?php get_template_part('home','example');?></div>
-		</div> 
-		
-		</div>
-	
-	</div><!-- #primary -->
+  <div class="col-lg-12 col-md-12">
+    <?php the_content(); ?>
+  </div>
+
+
+  <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+  <?php //cg_get_page_title(); ?>
+
+
+  <div class="entry-content">
+    <div id="example" class="col-lg-12 col-md-12 clsexamp"><?php echo get_string_example();?>  </div>
+    <div class="container">
+      <div class="row"> <?php get_template_part('home','example');?></div>
+    </div> 
+  </div>
+
+</div><!-- #primary -->
+
+<!-- #Read more-->
+<div class="blog-blue" id="readmore">
+  <?php include('home-readmore.php');?>
+</div>
 
 <div class="top-blog topmargin-price" id="price">
 	<div class="container">
