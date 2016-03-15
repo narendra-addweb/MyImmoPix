@@ -38,7 +38,7 @@ jQuery(document).ready(function() {
     //alert('option');
     var bg = jQuery(this).css('background-image');
     //alert(bg);
-    jQuery('.select-list').append('<li class="clsAnchor"><a href="'+jQuery(this).val()+'" style=background-image:' + bg + '>'+jQuery(this).text()+'</a></li>');
+    jQuery('.select-list').append('<li class="clsAnchor"><a href="'+jQuery(this).val()+'" class="'+ jQuery(this).attr('class') +'" style=background-image:' + bg + '>'+jQuery(this).text()+'</a></li>');
   });
   jQuery('.custom-lang-select .button').html(jQuery('.custom-lang-select select').find(':selected').text() + '<a href="javascript:void(0);" class="select-list-link">Arrow</a>');
   jQuery('.custom-lang-select ul li').each(function() {
