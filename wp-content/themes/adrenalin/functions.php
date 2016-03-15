@@ -1208,7 +1208,7 @@ function get_string_sec($sec)
 	
 	if(ICL_LANGUAGE_CODE == 'fr')
 	{
-		$str = "Chargé il y a ".$sec." second(s)";
+		$str = "Chargé il y a ".$sec." seconde(s)";
 	}
 	else if(ICL_LANGUAGE_CODE == 'nl')
 	{
@@ -2750,7 +2750,7 @@ function languages_list_footer(){
 
 
 //Used to generate select dropdoen for language
-function languages_select_footer(){
+/*function languages_select_footer(){
     
     global $sitepress;
     $defLang = $sitepress->get_default_language();
@@ -2758,7 +2758,72 @@ function languages_select_footer(){
     $languages = icl_get_languages('skip_missing=0&orderby=code');
     
     if(!empty($languages)){
-        echo '<select class="footer_language_list" onchange="location = this.options[this.selectedIndex].value;" name="footer_language" id="footer_language">';
+        
+        //Initialize languange specific project count array...
+        $arrLangProject = array();
+        $checkForCartExist = FALSE; 
+        if (function_exists('icl_get_languages')) {
+            //get list of used languages from WPML
+            $langs = icl_get_languages('skip_missing=N&orderby=KEY&order=DIR&link_empty_to=str');
+            //Set current language for language based variables in theme.
+            
+            global $sitepress;
+            $current_lang = $sitepress->get_current_language(); //save current language
+
+            $user_ID = get_current_user_id();
+            if($user_ID > 0){
+                foreach ($langs AS $langKey => $language) {
+                
+                    $sitepress->switch_lang($langKey);
+                    //...run query here; if you use WP_Query or get_posts make sure you set suppress_filters=0 ... 
+                    
+                    $existProjects = 0;
+                    $argsProjects = array(
+                        'post_type'   => 'projects',
+                        'posts_per_page'=>-1,
+                        'author'=> $user_ID,
+                        'meta_query' => array(
+                            array(
+                                'key'     => 'image_project_status',
+                                'value'   => 1,
+                                'compare' => '=',
+                                'type'    => 'numeric',
+                            ),
+                        ),
+                    );
+                    $existProjects = count(query_posts( $argsProjects ));
+                    while(have_posts()) : the_post();
+
+                    endwhile;
+                    wp_reset_query();
+                   // print $langKey . ' >> ' . $existProjects . ' :: '; 
+                   $arrLangProject[$langKey] = $existProjects;   
+                }
+                $sitepress->switch_lang($current_lang); //restore previous language
+            }
+
+            //Build checkout page name array for restict language changer
+            $arrChkoutPageName = array('manage-projects', 'project-detail', 'order-summary', 'order-summary-final');
+
+            //Get current page unique name
+            $pagename = get_query_var('pagename');
+            if ( !$pagename && $id > 0 ) {
+                // If a static page is set as the front page, $pagename will not be set. Retrieve it from the queried object
+                $post = $wp_query->get_queried_object();
+                $pagename = $post->post_name;
+            }
+            
+
+            //Check for current page is one of the checkout page and newly selected language has cart builded OR not?
+            if(in_array($pagename, $arrChkoutPageName)){
+               $checkForCartExist = TRUE;
+            }
+        }
+
+
+
+
+        /*echo '<select class="footer_language_list" onchange="javascript:checkORRedirect(this);" name="footer_language" id="footer_language">';
         foreach($languages as $l){
             
             $selected = '';
@@ -2770,8 +2835,50 @@ function languages_select_footer(){
             echo '&nbsp;'. icl_disp_language($l['native_name'], $l['translated_name']);
             echo '</option>';
         }
-        echo '</select>';  
+        echo '</select>';*/
+
+        
+        //echo '<select class="footer_language_list" onchange="javascript:checkORRedirect(this);" name="footer_language" id="footer_language">';
+        /*?><div class="button">&nbsp;<?php echo $languages[$defLang]['native_name'];?><a href="javascript:void(0);" class="select-list-link">Arrow</a></div>
+            <ul class="select-list hbyhkb"><?php
+            foreach($languages AS $langKey){
+                
+                $selected = '';
+                //if($l['active']) $selected = 'selected="selected"';
+                //echo '<option value="'. $l['url'] .'" '. $selected .' style="background-image:url('.$l['country_flag_url'].'); background-repeat:no-repeat;">';
+                //if($l['country_flag_url']){
+                   // echo '<img src="'.$l['country_flag_url'].'" alt="'.$l['language_code'].'" />';
+                //}
+                //echo '&nbsp;'. icl_disp_language($l['native_name'], $l['translated_name']);
+                //echo '</option>';
+                $imageUrl = $langKey['country_flag_url'];
+                ?><li style="display: inline-block;"><a href="http://192.168.0.130/MyImmoPix/nl/" class="clsAnchor" style="background-image:url(<?php echo $imageUrl; ?>)"><?php echo '&nbsp;'. icl_disp_language($langKey['native_name'], $langKey['translated_name']); ?></a></li><?php
+            }
+        echo '</ul>';
     }
+}*/
+
+//Used to generate select dropdoen for language
+function languages_select_footer(){
+
+    global $sitepress;
+    $defLang = $sitepress->get_default_language();
+    
+    $languages = icl_get_languages('skip_missing=0&orderby=code');
+
+    echo '<select class="footer_language_list" onchange="javascript:checkORRedirect(this);" name="footer_language" id="footer_language">';
+    foreach($languages as $l){
+        
+        $selected = '';
+        if($l['active']) $selected = 'selected="selected"';
+        echo '<option class="'.$l['language_code'].'" value="'. $l['url'] .'" '. $selected .' style="background-image:url('.$l['country_flag_url'].'); background-repeat:no-repeat;">';
+        if($l['country_flag_url']){
+            echo '<img src="'.$l['country_flag_url'].'" alt="'.$l['language_code'].'" />';
+        }
+        echo '&nbsp;'. icl_disp_language($l['native_name'], $l['translated_name']);
+        echo '</option>';
+    }
+    echo '</select>';
 }
 
 //This function will return footer card title
@@ -2821,4 +2928,34 @@ function getWPMU_url($pageId, $registerType = 'post'){
 
     $icl_object_id = icl_object_id($pageId, $registerType, true);
     return get_permalink($icl_object_id);
+}
+
+function getWPMU_ConfirmMessage($selectedLngName = null, $langCode = 'en'){
+    if($langCode == 'fr'){
+         echo "Il n'y a pas de projet disponible builded dans la langue sélectionnée ". $selectedLngName .". Voulez-vous créer?";
+    }
+    else if($langCode == 'nl')
+    {
+        echo "Er is geen project beschikbaar is gebouwd in geselecteerde ". $selectedLngName ." taal. Heeft u wilt maken?";
+    }
+    else if($langCode == 'en')
+    {
+        echo "There is no project available builded into selected ". $selectedLngName ." language. Do you want to create ?";
+    }
+}
+
+
+function display_card( $card, $status ) {
+    if ( $card == '1' and $status == '1' ) {
+        echo do_shortcode( '[cg_card type="visa"]' );
+    }
+    if ( $card == '2' and $status == '1' ) {
+        echo do_shortcode( '[cg_card type="mastercard"]' );
+    }
+    if ( $card == '3' and $status == '1' ) {
+        echo do_shortcode( '[cg_card type="paypal"]' );
+    }
+    if ( $card == '4' and $status == '1' ) {
+        echo do_shortcode( '[cg_card type="amex"]' );
+    }
 }
