@@ -260,14 +260,17 @@ body .exampimage .handle {
 
 /* readmore (Home page) */
 #readmore {
-  float: left;
+  display: inline-block;
   width: 100%;
+  margin-top: 30px;
   color: $white;
   font-weight: normal;
   h3 {
+    min-height: 110px;
     margin: 0 0 30px;
     color: $white;
     font-size: 30px;
+    line-height: 35px;
     font-weight: normal;
   }
   .readmore-left,
@@ -277,6 +280,9 @@ body .exampimage .handle {
     padding: 0 15px;
     font-size: 14px;
     font-weight: normal;
+    p {
+      margin-bottom: 15px;
+    }
   }
 }
 
@@ -385,7 +391,7 @@ body .exampimage .handle {
   }
 }
 .topmargin-price {
-  margin-top: 30px;
+  /*margin-top: 30px;*/
   .mbgcolr1 {
     .topmargin4 {
       margin-top: 52px;
