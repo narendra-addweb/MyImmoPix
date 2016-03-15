@@ -7,7 +7,7 @@
  
  */
  
-get_header('faq');
+get_header();
 ?>
 <?php cg_get_page_title(); ?>
 
