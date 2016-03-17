@@ -61,9 +61,9 @@
                        <div class="col-lg-3 col-md-3"><img src="<?php echo $img['url'] ?>"  /> <span class="imgid" ><strong><?php echo '#'.get_the_id();?></strong></span></div>
                        
                          <div class="col-lg-9 col-md-9 radiotxt"> 
-                        <span><input type="radio" name="editstatus<?php echo $i;?>" value="1" id="<?php echo get_the_id();?>" checked="checked" />&nbsp;<label><?php echo $ustr = get_str_editings();?> (1 <?php echo $ustr = get_str_credit();?>)</label></span>
-                        <span><input type="radio" name="editstatus<?php echo $i;?>" value="0" id="<?php echo get_the_id();?>" />&nbsp;
-                        <label><?php echo $ustr = get_str_noediting();?></label></span>
+                        <span><label><input type="radio" name="editstatus<?php echo $i;?>" value="1" id="<?php echo get_the_id();?>" checked="checked" />&nbsp;<?php echo $ustr = get_str_editings();?> (1 <?php echo $ustr = get_str_credit();?>)</label></span>
+                        <span><label><input type="radio" name="editstatus<?php echo $i;?>" value="0" id="<?php echo get_the_id();?>" />&nbsp;
+                        <?php echo $ustr = get_str_noediting();?></label></span>
                         </div>
                         
                         </div>
