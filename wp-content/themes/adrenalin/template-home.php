@@ -159,7 +159,7 @@ function drags(dragElement, resizeElement, container) {
     	<?php }else if(ICL_LANGUAGE_CODE == 'fr'){?>
     	
     	<video width="450" height="340" controls>
-    		<source src="<?php echo $upload_dir['baseurl']; ?>/video/maxrevised.mp4" type="video/mp4">
+    		<source src="<?php echo $upload_dir['baseurl']; ?>/video/frenchrendered.mp4" type="video/mp4">
     		Your browser does not support the video tag.
     	</video>
     	<?php }?>
