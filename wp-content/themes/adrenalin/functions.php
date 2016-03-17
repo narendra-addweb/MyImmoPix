@@ -3054,3 +3054,88 @@ function selectLang_from_ip(){
 }
 
 add_action('template_redirect', 'selectLang_from_ip');
+
+
+//Override woo-commerce status filter for support multi language...
+function aws_order_statuses( ) {
+    if(ICL_LANGUAGE_CODE == 'fr'){
+        $pending = 'En attente de paiement';
+        $processing = 'En traitement';
+        $hold = 'En attente';
+        $completed = 'Terminé';
+        $cancelled = 'Annulé';
+        $refunded = 'Remboursé';
+        $failed = 'Échoué';    
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl') {
+        $pending = 'In afwachting van betaling';
+        $processing = 'verwerking';
+        $hold = 'In de wacht';
+        $completed = 'Voltooid';
+        $cancelled = 'Geannuleerd';
+        $refunded = 'terugbetaald';
+        $failed = 'Mislukt';       
+    }
+    else if(ICL_LANGUAGE_CODE == 'en') {
+        $pending = 'Pending Payment';
+        $processing = 'Processing';
+        $hold = 'On Hold';
+        $completed = 'Completed';
+        $cancelled = 'Cancelled';
+        $refunded = 'Refunded';
+        $failed = 'Failed';  
+    }
+
+    $order_statuses = array(
+        'wc-pending'    => _x( $pending, 'Order status', 'woocommerce' ),
+        'wc-processing' => _x( $processing, 'Order status', 'woocommerce' ),
+        'wc-on-hold'    => _x( $hold, 'Order status', 'woocommerce' ),
+        'wc-completed'  => _x( $completed, 'Order status', 'woocommerce' ),
+        'wc-cancelled'  => _x( $cancelled, 'Order status', 'woocommerce' ),
+        'wc-refunded'   => _x( $refunded, 'Order status', 'woocommerce' ),
+        'wc-failed'     => _x( $failed, 'Order status', 'woocommerce' ),
+    );
+    return $order_statuses;
+}
+//Apply override process for 'wc_order_statuses'...
+add_filter( 'wc_order_statuses','aws_order_statuses');
+
+
+//This function will return order page translated text...
+function aws_order_text_translated($forWhich = 'Print'){
+    $retrnTxt = $forWhich;
+    if($forWhich == 'Print'){
+        if(ICL_LANGUAGE_CODE == 'fr'){
+            $retrnTxt = "Impression";
+        }
+        else if(ICL_LANGUAGE_CODE == 'nl') {
+            $retrnTxt = "Afdrukken";
+        }
+        else if(ICL_LANGUAGE_CODE == 'en') {
+            $retrnTxt = "Print";
+        }
+    }
+    else if($forWhich == 'item'){
+        if(ICL_LANGUAGE_CODE == 'fr'){
+            $retrnTxt = "article";
+        }
+        else if(ICL_LANGUAGE_CODE == 'nl') {
+            $retrnTxt = "item";
+        }
+        else if(ICL_LANGUAGE_CODE == 'en') {
+            $retrnTxt = "item";
+        }
+    }
+    else if($forWhich == 'items'){
+        if(ICL_LANGUAGE_CODE == 'fr'){
+            $retrnTxt = "articles";
+        }
+        else if(ICL_LANGUAGE_CODE == 'nl') {
+            $retrnTxt = "items";
+        }
+        else if(ICL_LANGUAGE_CODE == 'en') {
+            $retrnTxt = "items";
+        }
+    }
+    return $retrnTxt;
+}
