@@ -140,10 +140,10 @@ body .loop-area:hover{background:#e0ebf5!important}
 	
 	
 
-.border-bot1 span{ display: block;
+.border-bot1 span.imgid{ 
+    display: block;
     margin: 10px 0 0;
-     }
-	
+}
 .border-bot3
 { 	
 	display: block;
@@ -248,10 +248,10 @@ body .wpb_button_a span:hover{ background-color:#CC6666!important;border-radius:
 
 .radiotxt{ margin-bottom:10px;}
 .radiotxt label {
-    float: left;
+    /*float: left;
     margin-left: 22px;
     margin-top: -25px;
-    width: 130px;
+    width: 130px;*/
 }
 .radiotxt span{ float:left;}
 
