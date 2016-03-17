@@ -2864,14 +2864,18 @@ function languages_select_footer(){
     global $sitepress;
     $defLang = $sitepress->get_default_language();
     
-    $languages = icl_get_languages('skip_missing=0&orderby=code');
+    $languages = icl_get_languages('skip_missing=0&orderby=code&link_empty_to=str');
 
     echo '<select class="footer_language_list" onchange="javascript:checkORRedirect(this);" name="footer_language" id="footer_language">';
     foreach($languages as $l){
         
+        //Append language changer...
+        $urlLink = $l['url'];
+        $urlLink .= (parse_url($urlLink, PHP_URL_QUERY) ? '&' : '?') . 'utm_lang=selector';
+
         $selected = '';
         if($l['active']) $selected = 'selected="selected"';
-        echo '<option class="'.$l['language_code'].'" value="'. $l['url'] .'" '. $selected .' style="background-image:url('.$l['country_flag_url'].'); background-repeat:no-repeat;">';
+        echo '<option class="'.$l['language_code'].'" value="'. $urlLink .'" '. $selected .' style="background-image:url('.$l['country_flag_url'].'); background-repeat:no-repeat;">';
         if($l['country_flag_url']){
             echo '<img src="'.$l['country_flag_url'].'" alt="'.$l['language_code'].'" />';
         }
@@ -2959,3 +2963,94 @@ function display_card( $card, $status ) {
         echo do_shortcode( '[cg_card type="amex"]' );
     }
 }
+
+
+/*
+    This function will check for ip is from which country and that country language. If that country 
+    language code will match with this site available language then set that language.
+
+    Used coockie: aws_current_lang_code
+    Refferance: https://wpml.org/forums/topic/autoselect-native-language/#post-127839
+*/
+function selectLang_from_ip(){
+
+    global $wpdb, $post, $sitepress;
+    $cookieName = 'aws_current_lang_code';//Cookie name
+    $cookiePath = '/';//Cookie path
+    
+    if(isset($post) && !$_COOKIE[$cookieName]){//If first time and not created cookie
+    
+        $ip = $_SERVER['REMOTE_ADDR'];
+
+        //IP - UK
+        //$ip = '195.195.237.39';
+
+        //IP - Netherlands
+        //$ip = '5.79.68.161';
+        //$ip  =  '23.3.3.0';
+        //$ip  ='217.212.253.0';
+
+        //IP - France
+        //$ip = '79.93.164.80';
+
+        //IP - IN
+        //$ip = '115.117.163.251';
+
+        $ip_data = @json_decode(file_get_contents("http://www.geoplugin.net/json.gp?ip=".$ip));
+
+        // now we have the language code from the IP e.g. de
+        $redirectLang = $defLang = $sitepress->get_default_language();
+        $lang_code_from_ip = '';
+        if($ip_data && $ip_data->geoplugin_countryCode != null){
+            $lang_code_from_ip = strtolower($ip_data->geoplugin_countryCode);
+        }
+        
+
+        //Check IP based language code is avail for this site...
+        $languages = icl_get_languages('skip_missing=0&orderby=code');
+        if(!empty($lang_code_from_ip)){
+            foreach($languages AS $langKey => $langVal){
+                if($langKey == $lang_code_from_ip) $redirectLang = $lang_code_from_ip;            
+            }
+        }
+
+        // if they are different redirect by language code from ip
+        if($sitepress->get_current_language() != $redirectLang){
+            $url = $sitepress->convert_url(get_permalink($post->ID), $redirectLang);
+        }      
+               
+        //Now lets set a browser cookie and do the redirect
+        setcookie($cookieName, $redirectLang, strtotime('+30 days'), $cookiePath);//Create cookie for 30 day's
+        wp_safe_redirect( $url );
+    }
+    else {
+        $aws_current_lang_code = $_COOKIE[$cookieName];
+        $current_language = $sitepress->get_current_language();
+        
+        //prev. selected and current selected language(s) are different...      
+        if(isset($_REQUEST['utm_lang']) && $_REQUEST['utm_lang'] == 'selector' && $aws_current_lang_code != $current_language){
+            //Unset old cookie first...    
+            unset($_COOKIE[$cookieName]);
+            setcookie($cookieName, '', time() - 3600, $cookiePath);
+            
+            //Create new cookie for new selected language...
+            setcookie($cookieName, $current_language, strtotime('+30 days'), $cookiePath);
+        }
+        else {//prev. selected and current manualy inputed(From URL) language(s) are different...
+            if($aws_current_lang_code != $current_language){//If prev. selected and current selected language(s) are different...
+                //Unset old cookie first...
+                unset($_COOKIE[$cookieName]);
+                setcookie($cookieName, '', time() - 3600, $cookiePath);
+
+                //Create new cookie for new selected language...
+                $url = $sitepress->convert_url(get_permalink($post->ID), $aws_current_lang_code);
+                setcookie($cookieName, $aws_current_lang_code, strtotime('+30 days'), $cookiePath);
+                
+                //Redirect for newly selected laguage page...
+                wp_safe_redirect( $url );
+            }
+        }                 
+    }          
+}
+
+add_action('template_redirect', 'selectLang_from_ip');
