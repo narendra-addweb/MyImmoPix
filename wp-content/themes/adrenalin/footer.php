@@ -186,9 +186,14 @@ if (function_exists('icl_get_languages')) {
                         <div class="custom-menu-links">
                             <?php if ( $cg_footer_bottom_active == 'yes' ) { ?>
                                 <?php if ( is_active_sidebar( 'first-footer' ) ) : ?>
-                                    <div class="subfooter">
-                                        <?php dynamic_sidebar( 'first-footer' ); ?>
-                                    </div><!-- /.subfooter -->
+                                    <div class="subfooter"><?php 
+                                        if(is_front_page() || is_home()){//For home/front page only...
+                                            dynamic_sidebar( 'first-footer' ); 
+                                        }
+                                        else {//For inner pages...
+                                            dynamic_sidebar( 'first-footer-inner-pages' );
+                                        }
+                                    ?></div><!-- /.subfooter -->
                                 <?php endif; ?>
                             <?php } ?>
                         </div>
