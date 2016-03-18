@@ -113,22 +113,22 @@ if(!isset($_GET['pid']) && empty($_GET['pid']) && $_GET['pid'] == '' )
 
 
 <script>
-$( document ).ready(function() {
+jQuery( document ).ready(function() {
 
 // on button click
-	$( "input[name = 'mybutton']" ).click(function() {
+	jQuery( "input[name = 'mybutton']" ).click(function() {
 	var id = this.id;	
-	$(".dftbtn").trigger("click");
+	jQuery(".dftbtn").trigger("click");
 	});
 
 
 //on image click
-$("img").click(function() {
+jQuery("img").click(function() {
 	var id = this.id;	
 	
-	$('#div'+id).html('<img width="32" height="32" src="<?php echo $upload_dir['baseurl']."/icon/ajax_loader.gif"?>" class=""/>');
+	jQuery('#div'+id).html('<img width="32" height="32" src="<?php echo $upload_dir['baseurl']."/icon/ajax_loader.gif"?>" class=""/>');
 	
-	$.ajax({
+	jQuery.ajax({
 		type: "POST",
 		datatype: 'json',
 		url: "<?php  bloginfo( 'template_url' ); ?>/delete-image-ajax.php",
@@ -136,8 +136,8 @@ $("img").click(function() {
 		success: function(data){
 			if(data == 1){
 				//$('#div'+id).html('<div class="deldiv">Deleted !</div>');
-				$('#div'+id).remove();
-				$('#cntPhoto').text($('#divPhoto > div').length);
+				jQuery('#div'+id).remove();
+				jQuery('#cntPhoto').text(jQuery('#divPhoto > div').length);
 				
 			}
 		}
