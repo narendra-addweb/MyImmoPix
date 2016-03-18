@@ -4,23 +4,29 @@ if(ICL_LANGUAGE_CODE == 'fr')
 {
 $gotopage = '69217';
 $next = "Étape suivante >>";
-$morephoto = "Ou charger plus de photos";
+$morephoto = "Ou <a href='#' class='lnkUploader'>charger plus de photos</a>";
 }
 else if(ICL_LANGUAGE_CODE == 'nl')
 {
 $gotopage = '69216';
 $next = "volgende stap >>";
-$morephoto = "Of meer foto's opladen";
+$morephoto = "Of <a href='#' class='lnkUploader'>meer foto's opladen</a>";
 }
 else if(ICL_LANGUAGE_CODE == 'en')
 {
 $gotopage = '67546';
 $next = "Next Step >>";
-$morephoto = "Or upload more photos";
+$morephoto = "Or <a href='#' class='lnkUploader'>upload more photos</a>";
 
 }
-?>
-	
+?><script type="text/javascript">
+	//For open uploader on anchor click...
+	jQuery('.lnkUploader').live('click', function(e){
+	    jQuery('input[type="file"]').click();
+	    e.preventDefault();
+	});
+</script>
+
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     
 	
