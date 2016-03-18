@@ -256,7 +256,7 @@ body .wpb_button_a span:hover{ background-color:#CC6666!important;border-radius:
 .radiotxt span{ float:left;}
 
 .qq-upload-list{
-    margin: 58px 0 2px 0 !important;
+    margin: 58px 0 2px -50px !important;
 	/*margin: 58px 0 2px -231px !important;*/
 	padding: 0;
 	list-style: none!important;
