@@ -50,6 +50,7 @@ $assets-path: '../..';
         color: $white;
         font-size: 13px;
         font-weight: normal;
+        text-align: left;
         opacity: .7;
         @include border-radius(0);
         &:hover {
@@ -141,7 +142,7 @@ $assets-path: '../..';
           }
           a.select-list-link {
             position: absolute;
-            top: 13px;
+            top: 9px;
             right: 0;
             bottom: 0;
             left: auto;
@@ -202,7 +203,7 @@ $assets-path: '../..';
             padding: 0;
           }
           h4 {
-            margin: 0 0 13px;
+            margin: 0 0 12px;
             text-transform: capitalize;
           }
         }
@@ -226,7 +227,7 @@ $assets-path: '../..';
     h4 {
       position: relative;
       right: -89px;
-      margin: 0 0 16px;
+      margin: 0 0 14px;
       color: #FFF;
       font-size: 15px;
 
