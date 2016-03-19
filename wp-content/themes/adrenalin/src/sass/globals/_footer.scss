@@ -198,7 +198,10 @@ $assets-path: '../..';
       .subfooter {
         padding: 0;
         .widget_nav_menu {
-          width: 50%;
+          width: 60%;
+          &:nth-child(2) {
+            width: 40%;
+          }
           li {
             padding: 0;
           }

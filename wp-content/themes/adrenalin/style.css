@@ -103,8 +103,8 @@ Tags: light, white, two-columns, three-columns, right-sidebar, custom-background
     display: block;
     margin: 10px 0 16px;}
 
-.amount{    display: block;
-    margin-top: 12px !important;}
+/*.amount{    display: block;
+    margin-top: 12px !important;}*/
 .loop-area:hover{ border:2px solid #ccc}
 
 .creditshead{ float:left; margin-right:10px; margin-bottom:20px;}
@@ -277,20 +277,17 @@ ul.qq-upload-list  li::before{ content:"0"!important;display: none;}
 .col-md-push-9 .woocommerce .checkout{ background-color:#1b75bb!important; border:none!important;}
 .viewcardcls{ border:1px solid #1b75bb!important; color:#1b75bb!important;}
 .col-md-push-9 .woocommerce .product-thumbnail a img{ width:50px; height:50px;}
-.col-md-push-9 .woocommerce .product-quantity{ width:100px;}
- 
+/*.col-md-push-9 .woocommerce .product-quantity{ width:100px;}*/
 
-
-
-
-
-.col-md-push-9 .woocommerce .mycartcredits{  border: 1px solid #ccc;
+.col-md-push-9 .woocommerce .mycartcredits{ 
+    /*border: 1px solid #ccc;
     color: #03c;
     height: 45px;
     margin-top: -7px;
     padding: 13px 5px 5px;
     text-align: center;
-    width: 50px;}
+    width: 50px;*/
+}
 .mtotalcredits{ margin-left:92px;}	
 
 .page-id-7 .tile-area{ border:1px solid #000;}
@@ -494,26 +491,28 @@ html .page-id-66771 .mybtncls .btn-danger:hover{ background:#6699CC!important;}
 .msearchbtn{ background-color:#1b75bb!important;}
 .msearchbtn:hover{ background-color:#6699CC!important;}
 .myinputtxt{ width:150px;}
-.col-md-push-9 .woocommerce .product-subtotal .amount{ display: block;
+.col-md-push-9 .woocommerce .product-subtotal .amount{ 
+    /*display: block;
     margin-left: -85px;color: #03c!important;
-    margin-top: 64px !important; }
-.col-md-push-9 .woocommerce .product-price .amount {
+    margin-top: 64px !important; */
+}
+/*.col-md-push-9 .woocommerce .product-price .amount {
    margin-left: -11px;
     margin-right: 39px;
     margin-top: -25px !important;
-}
+}*/
 .col-md-push-9 .woocommerce .product-name{ display: none;}
 .col-md-push-9 .woocommerce .quantity input{ float:left; margin-left:2px;}
 
-.col-md-push-9 .woocommerce .cart .quantity input.plus {
+/*.col-md-push-9 .woocommerce .cart .quantity input.plus {
     margin-left: 73px!important;
     margin-top: -45px!important;
-}
+}*/
 
-.col-md-push-9 .woocommerce .cart .quantity input.qty {
+/*.col-md-push-9 .woocommerce .cart .quantity input.qty {
     left: 5px!important;
-}
-.col-md-push-9 .woocommerce .quantity { margin-left:-32px !important;}
+}*/
+/*.col-md-push-9 .woocommerce .quantity { margin-left:-32px !important;}*/
 .col-md-push-9 .woocommerce .cart_totals h2{ display:none!important}   
 .col-md-push-9 .woocommerce .mtotalcredits{ display:none;}
 
@@ -532,8 +531,8 @@ html .page-id-66771 .mybtncls .btn-danger:hover{ background:#6699CC!important;}
     width: 149px !important;}
 .col-md-push-9 .woocommerce .cart-subtotal{ margin-bottom:10px;}
 
-.col-md-push-9 .woocommerce .shop_table th { margin-left:5px!important; min-width: 49px!important;} 
-.col-md-push-9 .woocommerce .shop_table th.product-quantity{ min-width:80px!important;}
+/*.col-md-push-9 .woocommerce .shop_table th { margin-left:5px!important; min-width: 49px!important;} */
+/*.col-md-push-9 .woocommerce .shop_table th.product-quantity{ min-width:80px!important;}*/
 /*.col-md-push-9 .woocommerce .shop_table th.product-subtotal{ min-width:49px!important; margin-left:10px!important;}*/
 
 .col-md-push-9 .woocommerce .mycredit{ border-bottom:1px solid #C00;}

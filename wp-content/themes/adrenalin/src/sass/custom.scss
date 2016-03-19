@@ -487,9 +487,6 @@ body .exampimage .handle {
     }
   }
 }
-.product-remove {
-  width: 20px;
-}
 /* End */
 
 /* My account page */
@@ -557,6 +554,59 @@ body .exampimage .handle {
     }
   }
 }
+
+
+/**
+ * Credit page
+ */
+.credit_sidebar_cart {
+  .shop_table.cart {
+    .title-name {
+      display: none;
+    }
+    th {
+      padding: 0 3px;
+      &.product-quantity {
+        display: block;
+        margin-left: -13px;
+      }
+    }
+    .cart_item {
+      td {
+        padding: 10px 10px 10px 0;
+      }
+      .mycartcredits {
+        height: 27px;
+        padding: 1px 3px;
+        border: 1px solid #CCC;
+        color: #03C;
+        text-align: center;
+      }
+      .product-quantity {
+        input,
+        .qty {
+          float: left !important;
+          display: inline-block;
+          height: 27px;
+          width: 15px;
+          margin: 0 2px 0 0;
+          padding: 1px;
+          border: none;
+          line-height: normal;
+        }
+        .quantity buttons_added {
+          padding: 0;
+        }
+      }
+      .product-subtotal {
+        padding-right: 0;
+        color: #03C;
+      }
+    }
+  }
+}
+
+/* End */
 
 
 /**
