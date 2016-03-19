@@ -549,8 +549,8 @@ body .exampimage .handle {
     th {
       padding: 5px;
       border: 1px solid #CCC;
-      &.product-quantity {
-      }
+      /*&.product-quantity {
+      }*/
     }
     .cart_item {
       td {
@@ -562,7 +562,7 @@ body .exampimage .handle {
         padding: 1px 3px;
         color: #03C;
         text-align: center;
-      } 
+      }
       .product-quantity {
         input,
         .qty {
@@ -605,6 +605,25 @@ body .exampimage .handle {
 }
 /* End */
 
+/**
+ * Photo upload page
+ */
+/*.page-template-template-upload {
+  .content {
+    .row {
+      > div {
+        position: relative;
+        left: 0;
+        display: inline-block;
+        width: 100%;
+        clear: both;
+        .qq-uploader {
+          margin: 0;
+        }
+      }
+    }
+  }
+}*/
 
 /**
  * Change font family

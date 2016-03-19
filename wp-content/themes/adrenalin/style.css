@@ -541,7 +541,11 @@ html .page-id-66771 .mybtncls .btn-danger:hover{ background:#6699CC!important;}
     padding-bottom: 5px;
     width: 300px;}
 	
-html body .col-md-push-9 .woocommerce	.checkout-button{ width: 200px !important; background:#1b75bb!important} 
+html body .col-md-push-9 .woocommerce .checkout-button {
+    width: 200px !important;
+    background:#1b75bb!important
+    text-align: center;
+}
 
 .col-md-push-9 .woocommerce .mycredit1{ margin-bottom:50px;}
 .col-md-push-9 .woocommerce .loop-area .btn { border:none!important;}
