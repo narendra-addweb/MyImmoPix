@@ -84,15 +84,15 @@ get_header();
 </div><!--/container -->
 
 <?php get_footer(); ?>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
 <script>
 
-	$("input[type='radio']").change(function () {
-	var selection=$(this).val();
+	jQuery("input[type='radio']").change(function () {
+	var selection=jQuery(this).val();
 	var k =0;
 	var j = ',' ;
-	$('input:radio').each(function() {
-	if($(this).is(':checked') && $(this).val()==1) {
+	jQuery('input:radio').each(function() {
+	if(jQuery(this).is(':checked') && jQuery(this).val()==1) {
 	j = j + this.id + ',';
 	k++; 
 	
@@ -101,13 +101,13 @@ get_header();
 	}
 	});
 	
-	$('#servicetxt').html(k);
-	$('#servicetxt2').html(k);
-	$('.orderfor').html(k);
+	jQuery('#servicetxt').html(k);
+	jQuery('#servicetxt2').html(k);
+	jQuery('.orderfor').html(k);
 	
-	$('#service-credit-val').val(k);
-	$('#service-order').val(k);
-	$('#mymedia').val(j);
+	jQuery('#service-credit-val').val(k);
+	jQuery('#service-order').val(k);
+	jQuery('#mymedia').val(j);
 	});
 
 

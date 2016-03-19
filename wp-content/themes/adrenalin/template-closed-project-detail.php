@@ -55,15 +55,15 @@ exit;
 
 <?php get_footer(); ?>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
 <script>
-$( document ).ready(function() {
+jQuery( document ).ready(function() {
 	
 	<?php
 	
 	$mylink = get_bloginfo('url').'/project-detail/?pid='.$pid;
 	?>
 	 
-   $(".wpb_button_a").attr("href", "<?php echo $mylink;?>")
+   jQuery(".wpb_button_a").attr("href", "<?php echo $mylink;?>")
 });
 </script>

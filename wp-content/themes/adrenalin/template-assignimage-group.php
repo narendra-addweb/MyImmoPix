@@ -242,21 +242,21 @@ if ( !empty( $page_banner ) ) {
 </div><!--/container -->
 
 <?php get_footer(); ?>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
 <script>
-	$("#project").change(function(){
-	var val = $('#project').val();
+	jQuery("#project").change(function(){
+	var val = jQuery('#project').val();
 	if(val == 'other')
 	{
-	$('#hidtext').show();
-	$('#myproject').removeAttr("required");
-	$('#myproject').attr("required", "true");
+	jQuery('#hidtext').show();
+	jQuery('#myproject').removeAttr("required");
+	jQuery('#myproject').attr("required", "true");
 	
 	}
 	else
 	{
-	$('#hidtext').hide();
-	$('#myproject').removeAttr("required");	
+	jQuery('#hidtext').hide();
+	jQuery('#myproject').removeAttr("required");	
 	}
 	});
 </script>

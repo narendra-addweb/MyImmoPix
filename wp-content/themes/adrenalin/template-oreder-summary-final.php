@@ -75,12 +75,12 @@ get_header();
 
 <?php get_footer(); ?>
 <?php echo $_GET['action'];?>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
 <?php
 if($_GET['action'] == 'done'){?>
 	<script>
-  	$( document ).ready(function() {
-     		$(".sucessbtn").trigger("click");
+  	jQuery( document ).ready(function() {
+     		jQuery(".sucessbtn").trigger("click");
   	});
   	
     //For GIT-124
