@@ -453,42 +453,6 @@ body .exampimage .handle {
 }
 /* End */
 
-/* Cart page */
-#text-12 {
-  width: 100%;
-  .credit_sidebar_cart {
-    width: 25%;
-  }
-  .sidebar-cart {
-    padding-top: 20px;
-    .cart-empty {
-      font-size: 16px;
-      font-weight: bold;
-    }
-  }
-}
-.credit_sidebar_cart {
-  .checkout-button {
-    text-align: center;
-  }
-}
-.site-main .page .entry-content {
-  padding-top: 0;
-}
-.entry-content {
-  .loop-area {
-    .btnclass.mybtncls {
-      left: 50%;
-      margin-left: -65px;
-      input {
-        width: 130px;
-        white-space: normal;
-      }
-    }
-  }
-}
-/* End */
-
 /* My account page */
 #customer_login {
   .custom-myaccount-wording {
@@ -556,6 +520,24 @@ body .exampimage .handle {
 }
 
 
+/* Cart page */
+.site-main .page .entry-content {
+  padding-top: 0;
+}
+.entry-content {
+  .loop-area {
+    .btnclass.mybtncls {
+      left: 50%;
+      margin-left: -65px;
+      input {
+        width: 130px;
+        white-space: normal;
+      }
+    }
+  }
+}
+/* End */
+
 /**
  * Credit page
  */
@@ -565,47 +547,62 @@ body .exampimage .handle {
       display: none;
     }
     th {
-      padding: 0 3px;
+      padding: 5px;
+      border: 1px solid #CCC;
       &.product-quantity {
-        display: block;
-        margin-left: -13px;
       }
     }
     .cart_item {
       td {
-        padding: 10px 10px 10px 0;
+        padding: 5px;
+        border: 1px solid #CCC;
       }
       .mycartcredits {
-        height: 27px;
+        height: auto;
         padding: 1px 3px;
-        border: 1px solid #CCC;
         color: #03C;
         text-align: center;
-      }
+      } 
       .product-quantity {
         input,
         .qty {
           float: left !important;
           display: inline-block;
-          height: 27px;
+          height: auto;
           width: 15px;
           margin: 0 2px 0 0;
           padding: 1px;
           border: none;
           line-height: normal;
         }
-        .quantity buttons_added {
-          padding: 0;
-        }
       }
       .product-subtotal {
-        padding-right: 0;
         color: #03C;
+      }
+    }
+    .checkout-button {
+      text-align: center;
+    }
+  }
+  .main-cart-wrap {
+    overflow-x: auto;
+  }
+}
+#text-12 {
+  width: 100%;
+  .sidebar-cart {
+    padding-top: 20px;
+    .cart-empty {
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .row {
+      > div {
+        width: 100%;
       }
     }
   }
 }
-
 /* End */
 
 
