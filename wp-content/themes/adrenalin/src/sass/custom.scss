@@ -347,7 +347,7 @@ body .exampimage .handle {
 /* Upload photo page */
 .topmargin-upload {
   .nextclass {
-    margin-left: 221px;
+    margin-left: 0;
     .btn {
       min-height: 42px;
       min-width: 176px;
@@ -366,6 +366,7 @@ body .exampimage .handle {
     .mythumb_cls {
       display: inline-block;
       width: 100%;
+      margin-left: 0;
       li {
         img {
           max-width: 150px;
@@ -608,22 +609,86 @@ body .exampimage .handle {
 /**
  * Photo upload page
  */
-/*.page-template-template-upload {
+.page-template-template-upload {
+  .tunnelicon,
+  .tunnel {
+    display: inline-block;
+    width: 100%;
+  }
   .content {
     .row {
       > div {
         position: relative;
+        clear: both;
         left: 0;
         display: inline-block;
         width: 100%;
-        clear: both;
+        text-align: center;
+        #wp_multi_file_uploader {
+          margin-left: 0;
+        }
         .qq-uploader {
           margin: 0;
+          .qq-upload-button {
+            float: none;
+            display: inline-block;
+            width: 100%;
+            margin-left: 0;
+            border: none;
+            background-color: transparent;
+            &:hover,
+            &:focus {
+              outline: none;
+              .mytext {
+                opacity: .8;
+              }
+            }
+            .mytext {
+              display: inline-block;
+              padding: 10px 15px;
+              border: none;
+              @include border-radius(4px);
+              background-color: #1B75BB;
+              color: #FFF;
+              &:hover {
+                opacity: .8;
+              }
+            }
+          }
+          .qq-upload-list {
+            float: none;
+            clear: both;
+            display: inline-block;
+            text-align: center;
+            li {
+              clear: both;
+              display: block;
+              margin-left: 0;
+            }
+          }
+        }
+        .qq-upload-button-focus {
+          outline: none;
+        }
+        ul.mythumb_cls {
+          float: none;
+          display: inline-block;
+          margin-left: 0;
+          li {
+            float: none;
+            display: inline-block;
+          }
+        }
+        .lnkUploader {
+          &:focus {
+            text-decoration: none;
+            outline: none;
+          }
         }
       }
     }
   }
-}*/
+}
 
 /**
  * Change font family

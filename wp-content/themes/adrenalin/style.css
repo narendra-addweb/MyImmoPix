@@ -212,8 +212,10 @@ body .dftbtn:hover{border-radius:4px!important;background-color:#666!important; 
 .prjtitle{ font-size:16px; color:#be1e2d; margin-bottom:20px;}
 
 
-.page-id-66607 .qq-upload-button{ margin-left:200px; background-color:#1b75bb!important; color:#fff; border-radius:4px; border:none;}
-.page-id-66607 .qq-upload-button:hover{ background-color:#6699CC!important; color:#fff;border:none;}
+.page-id-66607 .qq-upload-button{ 
+    margin-left:200px; background-color:#1b75bb; color:#fff; border-radius:4px; border:none;
+}
+/*.page-id-66607 .qq-upload-button:hover{ background-color:#6699CC; color:#fff;border:none;}*/
 
 body .wpb_button_a{  background-color: #be1e2d !important;
     border-radius: 5px !important;
@@ -256,8 +258,7 @@ body .wpb_button_a span:hover{ background-color:#CC6666!important;border-radius:
 .radiotxt span{ float:left;}
 
 .qq-upload-list{
-    margin: 58px 0 2px -50px !important;
-	/*margin: 58px 0 2px -231px !important;*/
+	margin: 58px 0 2px -231px;
 	padding: 0;
 	list-style: none!important;
 	float: left;
@@ -561,21 +562,21 @@ html .col-md-push-9  #wrapper .woocommerce .checkout-button{ width:200px!importa
     position: relative !important;
 }
 
-.page-id-69198 .qq-upload-button {
+/*.page-id-69198 .qq-upload-button {
     background-color: #1b75bb !important;
     border: medium none;
     border-radius: 4px;
     color: #fff;
     margin-left: 200px;
-}
+}*/
 
-.page-id-69199 .qq-upload-button {
+/*.page-id-69199 .qq-upload-button {
     background-color: #1b75bb !important;
     border: medium none;
     border-radius: 4px;
     color: #fff;
     margin-left: 200px;
-}
+}*/
 
 .page-id-68073 .divimage {
     margin-bottom: 10px;
@@ -757,10 +758,10 @@ body .msgg2 small{font-size: 25px !important; color:#be1e2d}
     text-align: center;
 
 }
-.mythumb .mythumb_cls li{list-style:none!important; float:left!important;}
+.mythumb .mythumb_cls li{list-style:none!important; float:left; }
 
 
-ul.mythumb_cls{ margin: 16px 0 0 -117px !important;
+ul.mythumb_cls{ margin: 16px 0 0 -117px;
     padding: 0 !important;
    }
 ul.mythumb_cls li{  margin: 0 0 7px 6px !important;
