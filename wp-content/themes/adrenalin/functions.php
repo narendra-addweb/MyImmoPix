@@ -1593,7 +1593,7 @@ function get_str_uploadphoto1()
 	
 	if(ICL_LANGUAGE_CODE == 'fr')
 	{
-		$str = "Selectionners des photos";
+		$str = "Sélectionner des photos";
 	}
 	else if(ICL_LANGUAGE_CODE == 'nl')
 	{
