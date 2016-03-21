@@ -588,6 +588,12 @@ body .exampimage .handle {
   .main-cart-wrap {
     overflow-x: auto;
   }
+  .cart-collaterals {
+    padding-left: 0;
+    .update-button {
+      width: 100%;
+    }
+  }
 }
 #text-12 {
   width: 100%;
