@@ -90,17 +90,24 @@ if ( $customer_orders ) : ?>
 
 							<?php elseif ( 'order-actions' === $column_id ) : ?>
 								<?php
+									
+									//Convert URL into current language...
+									$checkout_payment_url = convertURLTOWPML($order->get_checkout_payment_url());
+									$view_order_url = convertURLTOWPML($order->get_view_order_url());
+									$cancel_order_url = convertURLTOWPML($order->get_cancel_order_url( wc_get_page_permalink( 'myaccount' )));
+								
+
 									$actions = array(
 										'pay'    => array(
-											'url'  => $order->get_checkout_payment_url(),
+											'url'  => $checkout_payment_url,
 											'name' => __( 'Pay', 'woocommerce' )
 										),
 										'view'   => array(
-											'url'  => $order->get_view_order_url(),
+											'url'  => $view_order_url,
 											'name' => __( 'View', 'woocommerce' )
 										),
 										'cancel' => array(
-											'url'  => $order->get_cancel_order_url( wc_get_page_permalink( 'myaccount' ) ),
+											'url'  => $cancel_order_url,
 											'name' => __( 'Cancel', 'woocommerce' )
 										)
 									);

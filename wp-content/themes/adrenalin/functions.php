@@ -3139,3 +3139,13 @@ function aws_order_text_translated($forWhich = 'Print'){
     }
     return $retrnTxt;
 }
+
+
+//This function will return multi language page/post url based on inputed pageid and type
+function convertURLTOWPML($url = ''){
+     global $sitepress;
+
+     $current_language = $sitepress->get_current_language();
+     return $sitepress->convert_url($url, $current_language);
+
+}
