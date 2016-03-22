@@ -202,7 +202,15 @@ body .dftbtn:hover{border-radius:4px!important;background-color:#666!important; 
 
 
 .mbtn1:hover{ background-color:#D9534F!important; border-radius:4px!important;}
-.uploaddiv{ padding-top:20px; width:200px; height:100px; border:i px solid #666; border-radius:4px; background-color:#1C76BC; font-size:18px; color:#FFF; text-align:center; margin-top:100px; }
+.uploaddiv{ /*padding-top:20px;*/ width:200px; padding: 20px;
+    border:i px solid #666;
+    border-radius:4px;
+    background-color:#1C76BC;
+    font-size:18px;
+    color:#FFF;
+    text-align:center;
+    margin-top:100px;
+}
 .crossimage{ position:absolute; left:173px;top:-21px!important;}
 .crossimage :hover{ cursor:pointer}
 .divimage{ position:relative!important; padding:0px 0 0px 0; margin-bottom:5px; min-height:200px!important;}
@@ -599,7 +607,12 @@ body .cg-main-menu{float: right !important;
     padding: 8px;
 	 width:202px;}
 
-.woocommerce-page .container .cart-collaterals input.update-button, .woocommerce .update-button{border:1px solid #1b75bb!important; width: 200px;}
+.woocommerce-page .container .cart-collaterals input.update-button, .woocommerce .update-button{
+    border:1px solid #1b75bb!important; 
+    /*width: 200px;*/
+    font-size: 13px !important;
+    line-height: 16px !important;
+}
 
 ul.cg-show-announcements li{ display:block!important;}
 .cg-logo-inner-cart-wrap { display: inline-block!important; position: relative!important; width: 100%!important;}
@@ -725,7 +738,7 @@ body .msgg2 small{font-size: 25px !important; color:#be1e2d}
 .tunnelicon{ margin-top:30px;}
 .tunnelicon span{ float:right; margin-left:2px;}
 .tunnel-iconimg{ width:275px!important; min-height:200px;}
-.myupload{ margin-right:183px!important;}
+/*.myupload{ margin-right:183px!important;}*/
 .bx-controls-direction{ display:none;}
 
 
