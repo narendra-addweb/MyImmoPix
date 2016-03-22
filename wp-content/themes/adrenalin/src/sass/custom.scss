@@ -616,6 +616,15 @@ body .exampimage .handle {
       line-height: 16px !important;
     }
   }
+  .product-remove {
+    a {
+      text-decoration: none;
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
+    }
+  }
 }
 #text-12 {
   width: 100%;
