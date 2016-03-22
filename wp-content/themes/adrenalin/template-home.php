@@ -140,28 +140,15 @@ function drags(dragElement, resizeElement, container) {
 	</div>
 </div>
 
-
 <div class="blog-blue" id="tour">
   <div class="container"><div class="row">
   	<div class="col-lg-5 col-ms-5 col-md-5">
     	<?php if(ICL_LANGUAGE_CODE == 'en'){?>
-    	<video width="450" height="340" controls>
-    		<source src="<?php echo $upload_dir['baseurl']; ?>/video/maxrevised.mp4" type="video/mp4">
-    		Your browser does not support the video tag.
-    	</video>
-    	<?php }else if(ICL_LANGUAGE_CODE == 'nl'){?>
-    	
-    	<video width="450" height="340" controls>
-    		<source src="<?php echo $upload_dir['baseurl']; ?>/video/maxrevised.mp4" type="video/mp4">
-    		Your browser does not support the video tag.
-    	</video>
-    	
-    	<?php }else if(ICL_LANGUAGE_CODE == 'fr'){?>
-    	
-    	<video width="450" height="340" controls>
-    		<source src="<?php echo $upload_dir['baseurl']; ?>/video/frenchrendered.mp4" type="video/mp4">
-    		Your browser does not support the video tag.
-    	</video>
+      	<iframe width="450" height="340" src="https://www.youtube.com/embed/EZNL-fOlYWE?wmode=opaque&rel=0&autohide=1&showinfo=0&wmode=transparent&modestbranding=1&cc_load_policy=0" frameborder="0"></iframe>        
+    	<?php }else if(ICL_LANGUAGE_CODE == 'nl'){?>    	
+      	<iframe width="450" height="340" src="https://www.youtube.com/embed/EZNL-fOlYWE?wmode=opaque&rel=0&autohide=1&showinfo=0&wmode=transparent&modestbranding=1&cc_load_policy=0" frameborder="0"></iframe>    	
+    	<?php }else if(ICL_LANGUAGE_CODE == 'fr'){?>    	
+      	<iframe width="450" height="340" src="https://www.youtube.com/embed/S30PlMheqj8?wmode=opaque&rel=0&autohide=1&showinfo=0&wmode=transparent&modestbranding=1&cc_load_policy=0" frameborder="0"></iframe>
     	<?php }?>
     </div>
     <?php include('home-tour.php');?>
