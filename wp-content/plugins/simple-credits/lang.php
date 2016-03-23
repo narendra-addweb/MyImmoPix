@@ -164,7 +164,12 @@ class WoocreditTranslate{
         'url404' => array(
             'en-US' => 'This link has been expired',
             'de-DE' => 'Dieser Link ist nicht mehr gültig'
-        )
+        ),
+        'percredit' => array(
+                'en-US' => 'per credits',
+                'nl-NL' => 'per credit',
+                'fr-FR' => 'par crédit'
+        ),
     );
 
     // Translate a string

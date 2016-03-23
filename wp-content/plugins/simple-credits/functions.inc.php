@@ -179,11 +179,13 @@ function creditwoocommerceshortcode()
         
         $output .="<div class='mcreditamt'>".$credits_amount." </div>";
         
-        
-        
         if(!empty($saving)){
         $output .= "<div class='msaving'><label>Save&nbsp;</label><span>".$saving."</span><label>&nbsp;%</label></div>";
         }
+        
+        //Display per credit wordings...
+        $output .= "<div class='mpercredit'><span>".$product->get_price_html()."</span>&nbsp;".$translate->wooTranslate('percredit', get_bloginfo('language'))."</div>";
+
         if (is_user_logged_in()) {
             
             
