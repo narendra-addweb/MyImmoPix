@@ -171,7 +171,14 @@ function creditwoocommerceshortcode()
         $credits_amount =  get_post_meta(get_the_ID() ,'_credits_amount' , true );
         $output .="<div class='loop-area'>";
         
-        
+        //Get per credit price...
+        $regular_price = get_post_meta(get_the_ID() ,'_regular_price' , true );
+        $credit_per_price = $product->get_price_html();
+        if($credits_amount > 1){
+            $credit_per_price = floor($regular_price / $credits_amount);
+        }
+        $currSymbol = get_woocommerce_currency_symbol();
+
         $output .="<div>";
         $output .="<div class='tile-area'>".$loop->post->post_title."</div>";
         
@@ -184,7 +191,7 @@ function creditwoocommerceshortcode()
         }
         
         //Display per credit wordings...
-        $output .= "<div class='mpercredit'><span>".$product->get_price_html()."</span>&nbsp;".$translate->wooTranslate('percredit', get_bloginfo('language'))."</div>";
+        $output .= "<div class='mpercredit'><span>". $currSymbol . $credit_per_price."</span>&nbsp;".$translate->wooTranslate('percredit', get_bloginfo('language'))."</div>";
 
         if (is_user_logged_in()) {
             
