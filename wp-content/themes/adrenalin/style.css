@@ -92,7 +92,7 @@ Tags: light, white, two-columns, three-columns, right-sidebar, custom-background
     text-align: center;
     width: 200px;
     /*z-index: 99999;*/
-	min-height:185px;}
+	min-height: 215px;}
 .tile-area{ color: #BE1E2D;
     display: block;
     font-size: 23px;
@@ -182,7 +182,7 @@ body .dftbtn:hover{border-radius:4px!important;background-color:#666!important; 
 
 /*.topmarginorder{ margin-top:50px!important;padding-left: 40px;}*/
 .topmarginorder {
-    margin-top:50px!important;
+    /*margin-top:50px!important;*/
     padding-left: 15px;
 }
 
