@@ -164,8 +164,8 @@ body .hbtn {
   background-color:#1b75bb!important;
 }
 body .hbtn:hover{
-  /*background-color:#6699CC!important;*/
-  opacity: 0.7;
+  background-color:#6699CC!important;
+  /*opacity: 0.7;*/
   border-radius:4px!important;
   color:#fff!important;
 }
@@ -193,7 +193,7 @@ body .dftbtn:hover{border-radius:4px!important;background-color:#666!important; 
 .msgg small{ color:#F60; font-size:18px;}
 .mainpop span{ text-align:center;}
 .mbtn{ background-color:#1b75bb; color:#FFF}
-/*.mbtn:hover{ background-color:#6699CC!important; border-radius:4px!important;}*/
+.mbtn:hover{ background-color:#6699CC!important; /*border-radius:4px!important;*/}
 .mbtn:hover { background-color: #6699CC; border-radius: 4px!important; }
 .mfooter{text-align:center!important;}
 .mainpop2 { text-align:center;}
@@ -205,7 +205,7 @@ body .dftbtn:hover{border-radius:4px!important;background-color:#666!important; 
 .uploaddiv{ /*padding-top:20px;*/ width:200px; padding: 20px;
     border:i px solid #666;
     border-radius:4px;
-    background-color:#1C76BC;
+    background-color:#1B75BB;
     font-size:18px;
     color:#FFF;
     text-align:center;
@@ -223,6 +223,7 @@ body .dftbtn:hover{border-radius:4px!important;background-color:#666!important; 
 .page-id-66607 .qq-upload-button{ 
     margin-left:200px; background-color:#1b75bb; color:#fff; border-radius:4px; border:none;
 }
+.page-id-66607 .qq-upload-button:hover{ background-color:#6699CC;}
 /*.page-id-66607 .qq-upload-button:hover{ background-color:#6699CC; color:#fff;border:none;}*/
 
 body .wpb_button_a{  background-color: #be1e2d !important;
