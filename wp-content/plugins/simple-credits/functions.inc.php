@@ -177,9 +177,7 @@ function creditwoocommerceshortcode()
 
         $currSymbol = get_woocommerce_currency_symbol();
         if($credits_amount > 1){
-            print $credit_per_price = $regular_price / $credits_amount;
-
-            //$credit_per_price = $currSymbol . number_format($credit_per_price, 2, ',', '');
+            $credit_per_price = $regular_price / $credits_amount;
         }
         else {
             $credit_per_price = $regular_price;      
