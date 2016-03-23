@@ -51,7 +51,6 @@ a {
 .blue-text { color: $blue-font; }
 /* End */
 
-
 /**
  * video
  */
@@ -686,7 +685,7 @@ body .exampimage .handle {
             &:focus {
               outline: none;
               .mytext {
-                opacity: .8;
+                background-color: $red-hover;
               }
             }
             .mytext {
@@ -694,10 +693,10 @@ body .exampimage .handle {
               padding: 10px 15px;
               border: none;
               @include border-radius(4px);
-              background-color: #1B75BB;
+              background-color: $blue;
               color: #FFF;
               &:hover {
-                opacity: .8;
+                background-color: $blue-hover;
               }
             }
           }
@@ -759,7 +758,10 @@ h1.cg-page-title,
 .product-title-wrapper,
 .product-page-title,
 body.single-product .product-title-wrapper {
-  background-color: #1D76BD !important;
+  background-color: $blue !important;
+  &:hover {
+    background-color: $blue-hover !important;
+  }
 }
 .cg-primary-menu .menu > li > a {
   font-size: 15px !important;

@@ -27,14 +27,21 @@ textarea:focus {
 .checkbox label {
   padding: 0;
 }
-
-.btn,
+/* Button design */
+.btn-danger {
+  background-color: $red;
+  &:hover,
+  &:focus {
+    background-color: $red-hover;
+  }
+}
+/*.btn,
 .button {
   &:hover,
   &:focus {
-    opacity: .7;
   }
-}
+}*/
+/* End */
 /* Link hover effect */
 .mainlink {
   a {
@@ -223,8 +230,8 @@ form.login,
       margin-bottom: 15px;
       background-color: $red-dark;
       &:hover {
+        background-color: $red-hover;
         text-decoration: none;
-        opacity: .8;
       }
     }
     .lwa-links {
@@ -278,9 +285,9 @@ form.login,
 }
 .modal-footer {
   .btn {
-    background-color: #1B75BB;
+    background-color: $blue;
     &:hover {
-      background-color: #1B75BB;
+      background-color: $blue-hover;
       color: $white;
     }
   }

@@ -38,14 +38,14 @@ jQuery(document).ready(function() {
   /* End */
 
    /* Scrolling effect in home page*/
-  jQuery( "#menu-home-menus li a" ).live( "click", function() {
+  jQuery( ".homemenu .menu li a" ).live( "click", function() {
     var target = jQuery(this).attr("href");
       jQuery('html, body').animate({
       scrollTop:jQuery(target).offset().top - 150
       }, 1000);
   });
 
-  jQuery( "#menu-home-menus-1 li a" ).live( "click", function() {
+  jQuery( ".cg-header-fixed .homemenu .menu li a" ).live( "click", function() {
     var target = jQuery(this).attr("href");
       jQuery('html, body').animate({
       scrollTop:jQuery(target).offset().top - 50
