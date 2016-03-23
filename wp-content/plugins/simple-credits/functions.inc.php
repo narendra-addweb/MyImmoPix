@@ -174,10 +174,28 @@ function creditwoocommerceshortcode()
         //Get per credit price...
         $regular_price = get_post_meta(get_the_ID() ,'_regular_price' , true );
         $credit_per_price = $product->get_price_html();
-        if($credits_amount > 1){
-            $credit_per_price = floor($regular_price / $credits_amount);
-        }
+
         $currSymbol = get_woocommerce_currency_symbol();
+        if($credits_amount > 1){
+            print $credit_per_price = $regular_price / $credits_amount;
+
+            //$credit_per_price = $currSymbol . number_format($credit_per_price, 2, ',', '');
+        }
+        else {
+            $credit_per_price = $regular_price;      
+        }
+        
+        // Are we negative?
+        $precision = 2;
+        $negative = $credit_per_price / abs($credit_per_price);
+        // Cast the number to a positive to solve rounding
+        $number = abs($credit_per_price);
+        // Calculate precision number for dividing / multiplying
+        $precision = pow(10, $precision);
+        // Run the math, re-applying the negative value to ensure returns correctly negative / positive
+        $credit_per_price = floor( $credit_per_price * $precision ) / $precision * $negative;
+
+        $credit_per_price = str_replace('.', ',', $credit_per_price);
 
         $output .="<div>";
         $output .="<div class='tile-area'>".$loop->post->post_title."</div>";
