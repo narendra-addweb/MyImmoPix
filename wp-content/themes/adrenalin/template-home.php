@@ -128,11 +128,11 @@ function drags(dragElement, resizeElement, container) {
     <div class="row">
     		<div class="col-lg-5 col-sm-5 col-md-5">
       		<?php if(ICL_LANGUAGE_CODE == 'en'){?>
-      		<div class="cer-blog"> <img src="<?php echo $upload_dir['baseurl']; ?>/icon/price1.jpg" /></div>
+      		<div class="cer-blog"> <img src="<?php echo $upload_dir['baseurl']; ?>/icon/Discount_ENG.jpg" /></div>
       		<?php }else if(ICL_LANGUAGE_CODE == 'nl'){?>
-      		<div class="cer-blog"> <img src="<?php echo $upload_dir['baseurl']; ?>/icon/price-new.jpg" /></div>
+      		<div class="cer-blog"> <img src="<?php echo $upload_dir['baseurl']; ?>/icon/Discount_FR_NL.jpg" /></div>
       		<?php }else if(ICL_LANGUAGE_CODE == 'fr'){?>
-      		<div class="cer-blog"> <img src="<?php echo $upload_dir['baseurl']; ?>/icon/price-new.jpg" /></div>
+      		<div class="cer-blog"> <img src="<?php echo $upload_dir['baseurl']; ?>/icon/Discount_FR_NL.jpg" /></div>
       		<?php }?>
     		</div>
 		    <?php include('home-price.php');?>
