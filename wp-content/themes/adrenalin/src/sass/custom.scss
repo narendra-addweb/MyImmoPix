@@ -569,8 +569,9 @@ body .exampimage .handle {
     th {
       padding: 5px;
       border: 1px solid #CCC;
-      /*&.product-quantity {
-      }*/
+      &.product-quantity {
+        padding-right: 10px;
+      }
     }
     .cart_item {
       td {
@@ -584,16 +585,23 @@ body .exampimage .handle {
         text-align: center;
       }
       .product-quantity {
+        .quantity {
+          display: inline;
+          padding: 0;
+        }
         input,
         .qty {
           float: left !important;
           display: inline-block;
-          height: auto;
+          height: 25px;
           width: 15px;
           margin: 0 2px 0 0;
           padding: 1px;
           border: none;
           line-height: normal;
+        }
+        .qty {
+          width: 40px;
         }
       }
       .product-subtotal {
@@ -793,7 +801,10 @@ body.single-product .product-title-wrapper {
 
 /* Small desktop monitor view */
 @media screen and (max-width: 1200px) {
-
+  /* Home page example section */
+  .mbx-pager ul.bx_pager_ul li {
+    height: 89px;
+  }
 } /* 1200px */
 
 /* Tablet and i-pad landscape & portrait view */
@@ -803,15 +814,36 @@ body.single-product .product-title-wrapper {
 
 /* Tablet and i-pad portrait view only */
 @media screen and (max-width: 992px) {
-
+   /* Home page example section */
+  .entry-content .exampimage,
+  .entry-content #bx-pager {
+    width: 50%;
+  }
+  .mbx-pager ul.bx_pager_ul li {
+    height: 82px;
+  }
 } /* 992px */
 
 /* Mobile landscape & portrait view */
 @media screen and (max-width: 767px) {
-
+   /* Home page example section */
+  .entry-content .exampimage,
+  .entry-content #bx-pager {
+    width: 100%;
+  }
+  .mbx-pager ul.bx_pager_ul li {
+    height: auto;
+  }
 } /* 767px */
 
 /* Mobile portrait view only */
 @media screen and (max-width: 480px) {
-
+  .mbx-pager ul.bx_pager_ul li {
+    width: -moz-calc(50% - 5px);
+    width: -webkit-calc(50% - 5px);
+    width: calc(50% - 5px);
+  }
+  .mbx-pager ul.bx_pager_ul li:nth-child(2n + 1) {
+    clear: left;
+  }
 } /* 480px */
