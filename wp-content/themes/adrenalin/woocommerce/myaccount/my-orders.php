@@ -85,8 +85,9 @@ if ( $customer_orders ) : ?>
 									$strItems = aws_order_text_translated('items');
 									$strItem = aws_order_text_translated('item');
 									$strPrint = aws_order_text_translated('Print');
+									$strFor = aws_order_text_translated('for');
 								?>
-								<?php echo sprintf( _n( '%s for %s ' . $strItem, '%s for %s ' . $strItems, $item_count, 'woocommerce' ), $order->get_formatted_order_total(), $item_count ); ?>
+								<?php echo sprintf( _n( '%s '. $strFor .' %s ' . $strItem, '%s '. $strFor .' %s ' . $strItems, $item_count, 'woocommerce' ), $order->get_formatted_order_total(), $item_count ); ?>
 
 							<?php elseif ( 'order-actions' === $column_id ) : ?>
 								<?php

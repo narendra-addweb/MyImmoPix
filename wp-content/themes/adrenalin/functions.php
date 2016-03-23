@@ -3137,6 +3137,17 @@ function aws_order_text_translated($forWhich = 'Print'){
             $retrnTxt = "items";
         }
     }
+    else if($forWhich == 'for'){
+        if(ICL_LANGUAGE_CODE == 'fr'){
+            $retrnTxt = "pour";
+        }
+        else if(ICL_LANGUAGE_CODE == 'nl') {
+            $retrnTxt = "voor";
+        }
+        else if(ICL_LANGUAGE_CODE == 'en') {
+            $retrnTxt = "for";
+        }
+    }
     return $retrnTxt;
 }
 
