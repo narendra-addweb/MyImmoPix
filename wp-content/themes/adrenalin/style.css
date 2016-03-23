@@ -570,6 +570,9 @@ html .col-md-push-9  #wrapper .woocommerce .checkout-button{ width:200px!importa
     min-height: 0 !important;
     position: relative !important;
 }
+.page-id-67546 .divimage:nth-child(3n + 1) {
+    clear: left;
+}
 
 /*.page-id-69198 .qq-upload-button {
     background-color: #1b75bb !important;
