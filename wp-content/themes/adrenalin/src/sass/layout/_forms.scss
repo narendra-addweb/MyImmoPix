@@ -27,7 +27,16 @@ textarea:focus {
 .checkbox label {
   padding: 0;
 }
+
 /* Button design */
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}
+.widget ul.product_list_widget li a:hover {
+  text-decoration: none;
+}
 .btn-danger {
   background-color: $red;
   &:hover,
@@ -35,13 +44,15 @@ textarea:focus {
     background-color: $red-hover;
   }
 }
-/*.btn,
-.button {
-  &:hover,
-  &:focus {
+.order-actions {
+  .button {
+    &:hover {
+      background-color: $red-hover !important;
+    }
   }
-}*/
+}
 /* End */
+
 /* Link hover effect */
 .mainlink {
   a {
@@ -168,6 +179,10 @@ form.login,
       border-radius: 3px !important;
       background-color: $red-dark;
       color: $white;
+      &:hover,
+      &:focus {
+        background-color: $red-hover;
+      }
     }
   }
   .myaccount_login_form {
