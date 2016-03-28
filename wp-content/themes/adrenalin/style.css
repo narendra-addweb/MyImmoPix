@@ -532,7 +532,7 @@ html .page-id-66771 .mybtncls .btn-danger:hover{ background:#6699CC!important;}
     margin-top: 3px !important;
 }
 
-.col-md-push-9 .woocommerce .checkout-button{ background:#1b75bb!important; border:none!important; margin-bottom:50px;}
+.col-md-push-9 .woocommerce .checkout-button{ background:#1b75bb; border:none!important; margin-bottom:50px;}
 /*.col-md-push-9 .woocommerce .update-button{ width:146px!important;}*/
 .col-md-push-9 .woocommerce .cart_totals{ margin-top:20px!important;}
 .col-md-push-9 .woocommerce .cart_item{ border-bottom:1px solid #ccc;}
@@ -547,17 +547,20 @@ html .page-id-66771 .mybtncls .btn-danger:hover{ background:#6699CC!important;}
 
 .col-md-push-9 .woocommerce .mycredit{ border-bottom:1px solid #C00;}
 .col-md-push-9 .woocommerce .mycredit{ margin-bottom: 4px;
-    margin-top: 19px;
-    padding-bottom: 5px;
-    width: 300px;}
+  margin-top: 19px;
+  padding-bottom: 5px;
+  width: 300px;
+}
 	
 html body .col-md-push-9 .woocommerce .checkout-button {
-    /*width: 200px !important;*/
-    width: 100%;
-    background:#1b75bb!important;
-    text-align: center;
+  /*width: 200px !important;*/
+  width: 100%;
+  background: #1b75bb;
+  text-align: center;
 }
-
+html body .col-md-push-9 .woocommerce .checkout-button:hover {
+  background: #6699CC;
+}
 .col-md-push-9 .woocommerce .mycredit1{ margin-bottom:50px;}
 .col-md-push-9 .woocommerce .loop-area .btn { border:none!important;}
 html .col-md-push-9  #wrapper .woocommerce .checkout-button{ width:200px!important; background:#1b75bb!important}
@@ -605,11 +608,13 @@ html .col-md-push-9  #wrapper .woocommerce .checkout-button{ width:200px!importa
 
 body .cg-main-menu{float: right !important;
     margin-top: -4px; padding-left:301px!important; width:81%!important;}
-.woocommerce-page .container .cart-collaterals input.checkout-button, .woocommerce .checkout-button {background: #1b75bb none repeat scroll 0 0 !important;
-    border: medium none !important;
-    margin-top: 5px;
-    padding: 8px;
-	 width:202px;}
+.woocommerce-page .container .cart-collaterals input.checkout-button, .woocommerce .checkout-button {
+  background: #1b75bb;
+  border: medium none !important;
+  margin-top: 5px;
+  padding: 8px;
+  width:202px;
+}
 
 .woocommerce-page .container .cart-collaterals input.update-button, .woocommerce .update-button{
     border:1px solid #1b75bb!important; 
