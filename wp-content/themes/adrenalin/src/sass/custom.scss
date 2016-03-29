@@ -111,6 +111,16 @@ video {
 
 /* End */
 
+/* slider */
+/*.wpb_layerslider_element {
+  a {
+    &:hover {
+      background-color: $red-hover;
+    }
+  }
+}*/
+/* End */
+
 /* example blog */
 /* Home page example section */
 .exampimage {
@@ -315,6 +325,13 @@ body .exampimage .handle {
   }
   .order-wrap {
     margin-top: 10px;
+    #order_review {
+      #place_order {
+        &:hover {
+          background-color: $red-hover;
+        }
+      }
+    }
   }
 }
 
@@ -372,6 +389,10 @@ body .exampimage .handle {
       font-size: 15px;
       font-weight: 700;
       text-transform: uppercase;
+      &:hover,
+      &:focus {
+        background-color: $red-hover;
+      }
     }
   }
   .container {
@@ -690,7 +711,7 @@ body .exampimage .handle {
             &:focus {
               outline: none;
               .mytext {
-                background-color: $red-hover;
+                background-color: $blue-hover;
               }
             }
             .mytext {

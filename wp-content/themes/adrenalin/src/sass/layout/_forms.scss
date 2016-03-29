@@ -41,7 +41,22 @@ a {
   background-color: $red;
   &:hover,
   &:focus {
+    border-color: $red-hover;
     background-color: $red-hover;
+  }
+}
+.btn-primary {
+  &:hover,
+  &:focus {
+    border-color: $blue-hover;
+    background-color: $blue-hover;
+  }
+}
+.btn-warning {
+  &:hover,
+  &:focus {
+    border-color: $red-hover !important;
+    background-color: $red-hover !important;
   }
 }
 .order-actions {
@@ -51,6 +66,40 @@ a {
     }
   }
 }
+.woocommerce-page .container input.button {
+  &:hover {
+    background-color: $red-hover !important;
+  }
+}
+/* Contact us page send button */
+.wpcf7-form {
+  p {
+    input.wpcf7-submit {
+      border: 1px solid $blue;
+      color: $blue !important;
+      &:hover,
+      &:focus {
+        border-color: $blue !important;
+        color: $black !important;
+      }
+    }
+  }
+}
+/* End */
+/* Order page print button */
+.order-print {
+  a {
+    border: 1px solid $blue !important;
+    color: $blue !important;
+    &:hover,
+    &:focus {
+      border-color: $blue !important;
+      color: $black !important;
+    }
+  }
+}
+/* End */
+
 /* End */
 
 /* Link hover effect */
