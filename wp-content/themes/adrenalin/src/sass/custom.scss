@@ -115,9 +115,11 @@ video {
 .wpb_layerslider_element {
   a.ls-l {
     &:hover {
+      border-radius: 5px;
       background-color: $red-hover !important;
       p {
         &:hover {
+          border-radius: 5px;
           background-color: $red-hover !important;
         }
       }
