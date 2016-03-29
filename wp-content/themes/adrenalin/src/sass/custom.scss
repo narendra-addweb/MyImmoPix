@@ -113,9 +113,14 @@ video {
 
 /* slider */
 .wpb_layerslider_element {
-  a {
+  a.ls-l {
     &:hover {
       background-color: $red-hover !important;
+      p {
+        &:hover {
+          background-color: $red-hover !important;
+        }
+      }
     }
   }
 }
