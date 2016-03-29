@@ -112,13 +112,13 @@ video {
 /* End */
 
 /* slider */
-/*.wpb_layerslider_element {
+.wpb_layerslider_element {
   a {
     &:hover {
-      background-color: $red-hover;
+      background-color: $red-hover !important;
     }
   }
-}*/
+}
 /* End */
 
 /* example blog */
