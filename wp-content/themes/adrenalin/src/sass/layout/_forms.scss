@@ -86,6 +86,22 @@ a {
   }
 }
 /* End */
+
+/* Myaccount Bestel opnieuw button*/
+.woocommerce {
+  .order-again {
+    a {
+      border: 1px solid $blue;
+      color: $blue !important;
+      &:hover,
+      &:focus {
+        border-color: $blue !important;
+        color: $black !important;
+      }
+    }
+  }
+}
+/* End */
 /* Order page print button */
 .order-print {
   a {
