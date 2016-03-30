@@ -35,7 +35,6 @@ do_action( 'woocommerce_before_cart' );
                                     
                                     <!-- REMOVE PRODUCT -->
                                     <div class="product-remove cart-row">
-                                        <label></label>
                                         <div class="product-remove"><?php
                                         echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf( '<a href="%s" class="remove" title="%s">&times;</a>', esc_url( WC()->cart->get_remove_url( $cart_item_key ) ), __( 'Remove this item', 'woocommerce' ) ), $cart_item_key );
                                         ?></div>
@@ -59,7 +58,6 @@ do_action( 'woocommerce_before_cart' );
                                             if ( $_product->backorders_require_notification() && $_product->is_on_backorder( $cart_item['quantity'] ) )
                                                 echo '<p class="backorder_notification">' . __( 'Available on backorder', 'woocommerce' ) . '</p>';
                                         ?></label>
-                                        <div></div>
                                     </div>
                                     
                                     <!-- PRODUCT PRICE-->
