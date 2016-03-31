@@ -675,7 +675,7 @@ body .exampimage .handle {
     width: 100%;
     margin-bottom: 4px;
     padding: 5px;
-    border-top: 1px solid #CCC;
+    /*border-top: 1px solid #CCC;*/
     .product-remove {
       float: right;
     }
@@ -710,11 +710,12 @@ body .exampimage .handle {
     .product-name {
       float: left;
       width: auto;
+      label,
       a {
         color: $red;
-        &:hover {
+        /*&:hover {
           color: #444;
-        }
+        }*/
       }
     }
     .product-remove {
