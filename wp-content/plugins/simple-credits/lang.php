@@ -167,7 +167,7 @@ class WoocreditTranslate{
         ),
         'percredit' => array(
                 'en-US' => 'per credit',
-                'nl-NL' => 'per credit',
+                'nl-NL' => 'per krediet',
                 'fr-FR' => 'par crédit'
         ),
     );
