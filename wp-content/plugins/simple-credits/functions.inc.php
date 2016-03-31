@@ -76,7 +76,7 @@ function userCreditBalance()
         $getUserCredit = getUserCredit($current_user->ID);
         if(!$getUserCredit)
             $getUserCredit = 0;
-        return $getUserCredit;
+        return (int) $getUserCredit;
     } else {
         return $translate->wooTranslate('loginPlease', get_bloginfo('language'));
     }
@@ -183,6 +183,9 @@ function creditwoocommerceshortcode()
             $credit_per_price = $regular_price;      
         }
         
+        //Display price
+        $dispPrice = $regular_price;
+        
         // Are we negative?
         $precision = 2;
         $negative = $credit_per_price / abs($credit_per_price);
@@ -198,7 +201,7 @@ function creditwoocommerceshortcode()
         $output .="<div>";
         $output .="<div class='tile-area'>".$loop->post->post_title."</div>";
         
-        $output .="<div class='price'>".$product->get_price_html()." </div>";
+        $output .="<div class='price'><span class='amount'>".$currSymbol.$dispPrice."</span></div>";
         
         $output .="<div class='mcreditamt'>".$credits_amount." </div>";
         

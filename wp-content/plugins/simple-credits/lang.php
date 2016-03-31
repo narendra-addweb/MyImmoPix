@@ -166,7 +166,7 @@ class WoocreditTranslate{
             'de-DE' => 'Dieser Link ist nicht mehr gültig'
         ),
         'percredit' => array(
-                'en-US' => 'per credits',
+                'en-US' => 'per credit',
                 'nl-NL' => 'per credit',
                 'fr-FR' => 'par crédit'
         ),
