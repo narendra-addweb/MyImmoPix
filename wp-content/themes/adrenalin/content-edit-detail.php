@@ -50,7 +50,7 @@
 	 $seconds = strtotime($date)- strtotime($mdate);
 	 $time = time_to_his($seconds);
 	
-	
+		$strTimeAgo = get_string_upload($mdate);
 	
 	
 	
@@ -78,7 +78,7 @@
        <div class="row topmargin">  <div class="col-lg-12 col-md-12">
             <div class="col-lg-3 col-md-3"><strong><?php echo '#'.$pid;?></strong></div>
             <div class="col-lg-3 col-md-3"><strong><?php echo $count2;?> Photos</strong></div>
-            <div class="col-lg-3 col-md-3"><strong><?php echo  $time;?> <?php echo get_string_ago();?></strong></div>
+            <div class="col-lg-3 col-md-3"><strong><?php echo  $strTimeAgo;?></strong></div>
             <div class="col-lg-3 col-md-3"></div>
         </div></div>
         
