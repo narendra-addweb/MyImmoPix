@@ -2502,7 +2502,7 @@ function get_str_logo_slogan(){
     
     if(ICL_LANGUAGE_CODE == 'fr')
     {
-        $str = "Meilleures photos de l'immobilier";
+        $str = "De meilleures photos immobilières";
     }
     else if(ICL_LANGUAGE_CODE == 'nl')
     {
