@@ -5,7 +5,7 @@ jQuery(document).ready(function() {
   jQuery('.input-rc').append('<span class="input-rc-span"></span>');
   /* End */
 
-  /* Custom select design */
+  /* Custom select design (Footer language select) */
   jQuery('.custom-lang-select').append('<div class="button"></div>');
   jQuery('.custom-lang-select').append('<ul class="select-list"></ul>');
   //jQuery('.custom-lang-select .button').append('<a href="javascript:void(0);" class="select-list-link">Arrow</a>');
@@ -22,9 +22,16 @@ jQuery(document).ready(function() {
     }
   });
 
-  jQuery('.custom-lang-select a.select-list-link').click(function(){
+  jQuery('body').click(function(){
+    jQuery('.custom-lang-select ul li').hide();
+  });
+
+  jQuery('.custom-lang-select a.select-list-link').on("click", function(event) {
+    event.stopPropagation();
     jQuery('.custom-lang-select ul li').slideToggle();
   });
+
+
   /* End */
 
   /* Login Popup */
