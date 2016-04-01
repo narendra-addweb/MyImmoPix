@@ -1,5 +1,4 @@
 <?php
-
 if(!empty($_GET['img'])) 
 { 
     $filename = basename($_GET['img']); // don't accept other directories 
@@ -16,7 +15,19 @@ if(!empty($_GET['img']))
       fpassthru($fp); 
       exit; 
    } 
-} 
+}
+
+if(!empty($_GET['zip'])) 
+{ 
+
+  # send the file to the browser as a download
+  header('Content-disposition: attachment; filename='.basename($_GET['zip']));
+  header('Content-type: application/zip');
+  header("Content-Transfer-Encoding: Binary");
+  header("Content-Length: ".filesize($_GET['zip']));
+  readfile(basename($_GET['zip']));
+  exit;
+}  
 header("HTTP/1.0 404 Not Found"); 
 ?>
 
