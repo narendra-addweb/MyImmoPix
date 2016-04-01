@@ -36,7 +36,7 @@ if (!file_exists('wp-content/uploads/final-edited-images/')) {
   umask($oldmask);
 }
 
-			
+
 //Initialize general variables...
 $arrProjectsImg = array();
 $arrProjectsImgPathNew = array();
@@ -209,7 +209,7 @@ sendProjectMail('74793', $arrProjAuthorInfo);
 * This function will check and set requested attachement category and update it.
 */
 function check_and_update_attachment($parent_post_id, $file_path, $attachement_id, $post_author){
-	$category_id = 100;
+	$category_id = 98;
 	$wp_upload_dir = wp_upload_dir();
 	
 	$filename = str_replace( $wp_upload_dir['url'] . '/', '', $file_path);
