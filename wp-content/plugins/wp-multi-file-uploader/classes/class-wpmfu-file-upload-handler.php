@@ -230,3 +230,20 @@ updatcredit($attach_id,"inner");
 } // class WPFMU_FileUploadHandler
 
 $wpmfu_file_upload_handler = new WPFMU_FileUploadHandler();
+
+
+/** Handle default category of attachments without category */
+function aws_set_attachment_category( $post_ID ) {
+	
+	// if attachment already have categories, stop here
+	if ( wp_get_object_terms( $post_ID, $taxonomy ) )
+		return;
+	
+	// no, then get the default one
+	$post_category = array('97');//Get custom category 'Inprocess'
+
+	// then set category if default category is set on writting page
+	if ( $post_category )
+		wp_set_post_categories( $post_ID, $post_category );
+}
+add_action( 'add_attachment', 'aws_set_attachment_category' );
