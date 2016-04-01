@@ -113,12 +113,14 @@ while ( $q->have_posts() ) : $q->the_post();
 			//If image processed and uploaded into 'uploads/final-edited-images/' and matched with inprocess image
 			if (file_exists($inprocess_image_path)) {
 			    $arrProjectsImg[$pid] = $arrProjectsImg[$pid] + 1;
-			    $arrProjectsImgPathNew[$pid][get_the_ID()] = $feat_image;
+			    $newFilePath = str_replace('uploads/','uploads/final-edited-images/',$feat_image);
+			    $arrProjectsImgPathNew[$pid][get_the_ID()] = $newFilePath;
 
 
 			    //Get user data for completed project...
 			    $author_data = get_userdata( $post_author_id );
 					$arrProjAuthorInfo[$pid] = array();
+					$arrProjAuthorInfo[$pid]['user_id'] = $post_author_id;
 					$arrProjAuthorInfo[$pid]['user_name'] = $author_data->user_login;
 					$arrProjAuthorInfo[$pid]['user_email'] = $author_data->user_email;
 					$arrProjAuthorInfo[$pid]['display_name'] = $author_data->display_name;
@@ -159,7 +161,7 @@ foreach($arrProjectsImgTotal AS $projId => $cntProjImg){
 		print('<pre style="color:red;">');
 		print_r("Newly update image list");
 		foreach($arrProjectsImgPathNew[$projId] AS $postId => $filePath){
-			if(check_and_update_attachment($projId, $filePath, $postId)){
+			if(check_and_update_attachment($projId, $filePath, $postId, $arrProjAuthorInfo[$projId]['user_id'])){
 				print($filePath . '<br />');
 			}
 		}
@@ -198,7 +200,7 @@ sendProjectMail('74793', $arrProjAuthorInfo);
 /*
 * This function will check and set requested attachement category and update it.
 */
-function check_and_update_attachment($parent_post_id, $file_path, $attachement_id){
+function check_and_update_attachment($parent_post_id, $file_path, $attachement_id, $post_author){
 	$category_id = 100;
 	$wp_upload_dir = wp_upload_dir();
 	
@@ -241,16 +243,20 @@ function check_and_update_attachment($parent_post_id, $file_path, $attachement_i
 			 'post_mime_type' => $wp_filetype['type'],
 			 'post_title' => preg_replace('/\.[^.]+$/', '', basename($filename)),
 			 'post_content' => '',
-			 'post_status' => 'inherit'
+			 'post_status' => 'inherit',
+			 'post_author' => $post_author,
 		);
-		$attach_id = wp_insert_attachment( $attachment, $file_path, $parent_post_id);
+		$path = parse_url($file_path, PHP_URL_PATH);
+		$inprocess_image_path = $_SERVER['DOCUMENT_ROOT'] . $path;
+		$attach_id = wp_insert_attachment( $attachment, $inprocess_image_path, $parent_post_id);
 
 		include_once( ABSPATH . 'wp-admin/includes/image.php' );
 		require_once(ABSPATH . 'wp-blog-header.php');
+		require_once(ABSPATH . 'wp-admin/includes/image.php');
 		// Generate the metadata for the attachment, and update the database record.
-		//$attach_data = wp_generate_attachment_metadata( $attach_id, $file_path );
-		//wp_update_attachment_metadata( $attach_id, $attach_data );
-		//set_post_thumbnail( $parent_post_id, $attach_id );
+		$attach_data = wp_generate_attachment_metadata( $attach_id, $inprocess_image_path );
+		wp_update_attachment_metadata( $attach_id, $attach_data );
+		set_post_thumbnail( $parent_post_id, $attach_id );
 
 		
 		add_post_meta($attach_id, 'image_status', '3');
