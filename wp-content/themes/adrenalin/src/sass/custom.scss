@@ -916,6 +916,47 @@ body.single-product .product-title-wrapper {
   /* End */
 }
 
+/* editing project detail page */
+.before_img,
+.after_img {
+  display: inline-block;
+  width: 100%;
+  background-color: #E0EBF5;
+  .label_div {
+    padding: 15px;
+    color: $red;
+    font-size: 20px;
+    line-height: 23px;
+    font-style: normal;
+    font-weight: bold;
+  }
+  .divimage {
+    min-height: 150px !important;
+  }
+  .imgid {
+    display: inline-block;
+    margin-top: 10px;
+  }
+}
+/* End */
+
+/* closed project detail */
+.download-zip {
+  padding-left: 14px;
+}
+.close-sidebar {
+  margin-right: 0;
+  margin-bottom: 20px;
+  margin-left: 0;
+}
+.divimage {
+  img {
+    margin-left: -10px !important;
+    padding-top: 0 !important;
+  }
+}
+
+/* End */
 
 /* Small desktop monitor view */
 @media screen and (max-width: 1200px) {
@@ -965,3 +1006,4 @@ body.single-product .product-title-wrapper {
     clear: left;
   }
 } /* 480px */
+

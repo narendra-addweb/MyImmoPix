@@ -71,10 +71,10 @@ $zip->close();*/
 @header("Content-Disposition: attachment; filename='".$zipname."'");
 @header('Content-Length: ' . filesize($zipname));
 @header("Location: http://www.myimmopix.com/".$zipname."");
-?><div id="secondary" class="widget-area" role="complementary">
-	<div class="row topmargin mainlink">
+?><div id="secondary" class="widget-area mbgcolr1" role="complementary">
+	<div class="row topmargin mainlink close-sidebar">
 	  <div class="col-lg-12 col-md-12"><strong><?php echo get_str_projectstatus()?> &nbsp; <?php echo get_str_closetxt()?></strong></div>
-	  <div> <a href="<?php echo get_bloginfo("url") ?>/downloadimg.php?zip=<?php echo str_replace(get_bloginfo("url") . '/',"",'wp-content/uploads/uploadedzip/'.$zipname); ?>"><?php echo get_str_downloadzip()?></a></div>
+	  <div class="download-zip"> <a href="<?php echo get_bloginfo("url") ?>/downloadimg.php?zip=<?php echo str_replace(get_bloginfo("url") . '/',"",'wp-content/uploads/uploadedzip/'.$zipname); ?>"><?php echo get_str_downloadzip()?></a></div>
 	</div>
 </div>
 
@@ -83,13 +83,6 @@ $zip->close();*/
 /* creates a compressed zip file */
 function create_zip($files = array(), $destination = '',$overwrite = false) {
     
-    //Create folder if not exits...
-    if (!file_exists('wp-content/uploads/uploadedzip/')) {
-		  $oldmask = umask(0);
-		  mkdir('wp-content/uploads/uploadedzip/', 0777, true);
-		  umask($oldmask);
-		}
-
 		//if the zip file already exists and overwrite is false, return false
     if(file_exists($destination) && !$overwrite) { return false; }
     //vars
