@@ -81,15 +81,18 @@
 
 
 
-			<div class="row topmargin">  <div class="col-lg-12 col-md-12">
+			<div class="row topmargin">  
+				<div class="col-lg-12 col-md-12">
 			    <div class="col-lg-3 col-md-3"><strong><?php echo '#'.$pid;?></strong></div>
-			    <div class="col-lg-3 col-md-3"><strong><?php echo $count2;?> Photos</strong></div>
+			    <div class="col-lg-3 col-md-3"><strong><?php echo $count2;?> <?php print(get_string_photo());?></strong></div>
 			    <div class="col-lg-3 col-md-3"><strong><?php echo  $strTimeAgo;?></strong></div>
 			    <div class="col-lg-3 col-md-3"></div>
-			</div></div>
-
-			<div class="row topmargin"><div class="col-lg-12 col-md-12">
-				<div class="before_img"><?php
+				</div>
+			</div>
+			<div class="row topmargin">
+				<div class="col-lg-12 col-md-12">
+					<div class="before_img">
+						<div class="label_div"><?php print get_str_before_after_example('B');?></div><?php
 	        while($q->have_posts()) : $q->the_post();
 	        
 		        $feat_image =  wp_get_attachment_url( get_the_ID() );
@@ -166,7 +169,7 @@
 			?> 
        
       <div class="row topmargin"><div class="col-lg-12 col-md-12">
-				<div class="after_img"><?php
+				<div class="after_img"><div class="label_div"><?php print get_str_before_after_example('A');?></div><?php
 	        while($q->have_posts()) : $q->the_post();
 	        
 		        $feat_image =  wp_get_attachment_url( get_the_ID() );
