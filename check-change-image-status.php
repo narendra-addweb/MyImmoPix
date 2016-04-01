@@ -29,6 +29,14 @@ if ( !isset($wp_did_header) ) {
 *upload into 'uploads/final-edited-images/' folder. 
 **/
 
+//Create folder if not exits...
+if (!file_exists('wp-content/uploads/final-edited-images/')) {
+  $oldmask = umask(0);
+  mkdir('wp-content/uploads/final-edited-images/', 0777, true);
+  umask($oldmask);
+}
+
+			
 //Initialize general variables...
 $arrProjectsImg = array();
 $arrProjectsImgPathNew = array();

@@ -83,6 +83,13 @@ $zip->close();*/
 /* creates a compressed zip file */
 function create_zip($files = array(), $destination = '',$overwrite = false) {
     
+    //Create folder if not exits...
+    if (!file_exists('wp-content/uploads/uploadedzip/')) {
+		  $oldmask = umask(0);
+		  mkdir('wp-content/uploads/uploadedzip/', 0777, true);
+		  umask($oldmask);
+		}
+
 		//if the zip file already exists and overwrite is false, return false
     if(file_exists($destination) && !$overwrite) { return false; }
     //vars
