@@ -139,27 +139,31 @@ if(isset($_POST['update'])  && $_POST['update']!='')
 						'posts_per_page'=>-1,
 						'author'=> $user_ID,
 						'meta_query' => array(
-						array(
-						'key'     => 'group_id',
-						'value'   => get_the_ID(),
-						'compare' => '=',
-						'type'    => 'numeric',
-						),
-						),
+								array(
+								'key'     => 'group_id',
+								'value'   => get_the_ID(),
+								'compare' => '=',
+								'type'    => 'numeric',
+								),
+								array(
+								'key'     => 'image_status',
+								'value'   => $val,
+								'compare' => '=',
+								'type'    => 'numeric',
+								),
+							),
 						);
 						
 						
 	$count2 = count(query_posts( $args2 ));
 	$feat_image='';
 	while(have_posts()) : the_post();
-	$feat_image =  wp_get_attachment_url( get_the_ID() );
+		$feat_image =  wp_get_attachment_url( get_the_ID() );
 	endwhile;
 	wp_reset_query();	
-	?>
-    
-    <?php
+	
 	$date = date_i18n('Y-m-d H:i:s');
-    $mdate = $post_date.' '.$post_time;
+  $mdate = $post_date.' '.$post_time;
 	$seconds = strtotime($date) - strtotime($mdate);
 	$time = time_to_his($seconds);
 	
