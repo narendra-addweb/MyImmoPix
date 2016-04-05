@@ -949,8 +949,11 @@ body.single-product .product-title-wrapper {
   margin-bottom: 20px;
   margin-left: 0;
 }
-.divimage {
+.custom-close-divimage {
   img {
+    max-height: 300px;
+    max-width: 100%;
+    width: auto;
     margin-left: -10px !important;
     padding-top: 0 !important;
   }

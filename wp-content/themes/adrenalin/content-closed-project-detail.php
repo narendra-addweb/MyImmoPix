@@ -99,7 +99,7 @@
              		<img src="<?php echo $beforeImg['url'] ?>"  />
              		<span class="imgid" ><strong><?php echo '#'.get_the_id();?></strong></span><span>&nbsp;&nbsp;<strong><?php print(get_str_originaltxt());?></strong></span>
              	</div>
-              <div class="col-lg-6 col-md-6 divimage mainlink" id="">
+              <div class="col-lg-6 col-md-6 divimage mainlink custom-close-divimage" id="">
              		<a href="<?php echo get_bloginfo("url") ?>/downloadimg.php?img=<?php echo str_replace(get_bloginfo("url") . '/',"",$new_feat_image); ?>"><img src="<?php echo $img['url'] ?>" style="padding:10px 10px 2px 10px"  /><?php echo get_str_downloadimg()?></a>
               </div>
       			</div>
