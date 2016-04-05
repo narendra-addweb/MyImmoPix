@@ -167,7 +167,7 @@ foreach($arrProjectsImgTotal AS $projId => $cntProjImg){
 
 		//Check and update every file status...
 		print('<pre style="color:red;">');
-		print_r("Newly update image list");
+		print_r("Newly update image list <br />");
 		foreach($arrProjectsImgPathNew[$projId] AS $postId => $filePath){
 			if(check_and_update_attachment($projId, $filePath, $postId, $arrProjAuthorInfo[$projId]['user_id'])){
 				print($filePath . '<br />');
@@ -211,7 +211,7 @@ sendProjectMail('74793', $arrProjAuthorInfo);
 function check_and_update_attachment($parent_post_id, $file_path, $attachement_id, $post_author){
 	$category_id = 98;
 	$wp_upload_dir = wp_upload_dir();
-	
+		
 	$filename = str_replace( $wp_upload_dir['url'] . '/', '', $file_path);
 	$wp_filetype = wp_check_filetype( basename($filename), null );
 	
@@ -264,7 +264,7 @@ function check_and_update_attachment($parent_post_id, $file_path, $attachement_i
 		// Generate the metadata for the attachment, and update the database record.
 		$attach_data = wp_generate_attachment_metadata( $attach_id, $inprocess_image_path );
 		wp_update_attachment_metadata( $attach_id, $attach_data );
-		set_post_thumbnail( $parent_post_id, $attach_id );
+		//set_post_thumbnail( $parent_post_id, $attach_id );
 
 		
 		add_post_meta($attach_id, 'image_status', '3');
@@ -331,10 +331,10 @@ function sendProjectMail($project_id, $arrPojectUserDetail = array()) {
   $message = 'Dear Admin' . $arrPojectUserDetail['display_name'] .',<br /><br />Your project #' . $project_id . ' has been processed. Please check <a href="'. $lang_page_url .'">Manage project</a><br /><br />Thanks!';
 
  	if(!wp_mail( $to, $subject, $message, $headers)){
-    echo('The e-mail could not be sent to user.');
+    echo('The e-mail could not be sent to user. <br />');
  	}
   else{
-    echo("Message sent to user.");
+    echo("Message sent to user. <br />");
   }
 }
 
