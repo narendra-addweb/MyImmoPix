@@ -171,8 +171,8 @@ if(isset($_POST['update'])  && $_POST['update']!='')
 	$strTimeAgo = get_string_upload($mdate);
 	
 	?>
-       <?php $img =  vt_resize('',$feat_image,120, 80,true); ?>
-        <div class="col-lg-12 col-md-12">
+       <?php $img =  vt_resize('',$feat_image,120, 80,false); //Proportionally resize
+       ?><div class="col-lg-12 col-md-12">
         
         <?php
 					if(ICL_LANGUAGE_CODE == 'fr')

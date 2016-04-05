@@ -118,7 +118,7 @@ if ( !empty( $page_banner ) ) {
 
                            <article id="post-<?php the_ID(); ?>" <?php post_class('col-lg-4 col-md-4'); ?>>
     <div class="entry-content">
-       <?php $img =  vt_resize('',$feat_image,350, 250,true);
+       <?php $img =  vt_resize('',$feat_image,350, 250,false);//Proportionally resize
 		 ?>
         
         <a href="<?php echo $feat_image; ?>" target="_blank">
@@ -183,7 +183,7 @@ if ( !empty( $page_banner ) ) {
 
                            <article id="post-<?php the_ID(); ?>" <?php post_class('col-lg-4 col-md-4'); ?>>
     <div class="entry-content">
-        <?php $img =  vt_resize('',$feat_image,350, 250,true);
+        <?php $img =  vt_resize('',$feat_image,350, 250,false);//Proportionally resize
 		 ?>
         
         <a href="<?php echo $feat_image; ?>" target="_blank">
@@ -236,7 +236,7 @@ if ( !empty( $page_banner ) ) {
 
                            <article id="post-<?php the_ID(); ?>" <?php post_class('col-lg-4 col-md-4'); ?>>
     <div class="entry-content" style="text-align:center">
-        <?php $img =  vt_resize('',$feat_image,350, 250,true);
+        <?php $img =  vt_resize('',$feat_image,350, 250,false);//Proportionally resize
 		 ?>
         
         <a href="<?php echo get_bloginfo("url") ?>downloadimg.php?img=<?php echo str_replace(get_bloginfo("url"),"",$feat_image); ?>">

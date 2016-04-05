@@ -200,9 +200,8 @@ if ( !empty( $page_banner ) ) {
 
                            <article id="post-<?php the_ID(); ?>" <?php post_class('col-lg-4 col-md-4'); ?>>
     <div class="entry-content">
-       <?php $img =  vt_resize('',$feat_image,350, 250,true); ?>
-        
-        <a href="<?php echo $feat_image; ?>" target="_blank">
+       <?php $img =  vt_resize('',$feat_image,350, 250,false); //Proportionally resize
+       ?><a href="<?php echo $feat_image; ?>" target="_blank">
       <img src="<?php echo $img['url'] ?>" style="padding:10px"  /></a>
         <input type="checkbox" name="mediid[]" value="<?php echo get_the_ID() ?>"  /> 
         <?php  $projt = get_post_meta(get_the_ID() , 'group_id' ,true);?>

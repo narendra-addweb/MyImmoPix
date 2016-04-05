@@ -96,7 +96,7 @@
 	        while($q->have_posts()) : $q->the_post();
 	        
 		        $feat_image =  wp_get_attachment_url( get_the_ID() );
-		        $img =  vt_resize('',$feat_image,350, 200,true);
+		        $img =  vt_resize('',$feat_image,350, 200,false); //Proportionally resize
 						$image_notes = get_post_meta( get_the_id() , 'image_notes'  , true); 
 		        ?><!-- popp model window-->
 
@@ -173,7 +173,7 @@
 	        while($q->have_posts()) : $q->the_post();
 	        
 		        $feat_image =  wp_get_attachment_url( get_the_ID() );
-		        $img =  vt_resize('',$feat_image,350, 200,true);
+		        $img =  vt_resize('',$feat_image,350, 200,false);//Proportionally resize
 						$image_notes = get_post_meta( get_the_id() , 'image_notes'  , true); 
 		        ?><!-- popp model window-->
 

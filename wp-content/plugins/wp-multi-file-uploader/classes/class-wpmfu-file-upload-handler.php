@@ -34,6 +34,13 @@ class WPFMU_FileUploadHandler extends WPMFU_Plugin
 		// Get size and name
 		if ( ! function_exists( 'wp_handle_upload' ) ) require_once( ABSPATH . 'wp-admin/includes/file.php' );
 		$uploadedfile = $_FILES['qqfile'];
+		
+		//Change file name for prevent redundunt same name file...
+		$tempName = explode(".", $uploadedfile["name"]);
+		$fileNameSlug = str_replace(end($tempName), '', $uploadedfile["name"]);
+		$newfilename = round(microtime(true)) . '-' . $fileNameSlug . end($tempName);
+		$uploadedfile['name'] = $newfilename;
+		
 		$upload_overrides = array( 'test_form' => false );
 		$movefile = wp_handle_upload( $uploadedfile, $upload_overrides );
 		if ( $movefile ) {
@@ -41,7 +48,7 @@ class WPFMU_FileUploadHandler extends WPMFU_Plugin
 			$filename = str_replace( $wp_upload_dir['url'] . '/', '', $movefile['url'] );
 			$attachment = $this->add_attachment( $movefile['url'], $movefile['file'] );
 			$feat_image = wp_get_attachment_url( $attachment );
-			$img =  vt_resize('',$feat_image,200, 150,true);
+			$img =  vt_resize('',$feat_image,200, 150,false);//Proportionally resize
 			return array(
 				'success' 		=> $movefile,
 				'attachmentId'	=> $attachment,

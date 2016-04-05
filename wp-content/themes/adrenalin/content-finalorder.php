@@ -65,7 +65,7 @@
           $i=0;
 		      while(have_posts()) : the_post();
 			      $feat_image =  wp_get_attachment_url( get_the_ID() );
-			      $img =  vt_resize('',$feat_image,200, 120,true); 
+			      $img =  vt_resize('',$feat_image,200, 120,false); //Proportionally resize
 			      $i++;
 			      $image_notes = get_post_meta( get_the_id() , 'image_notes'  , true); 
 

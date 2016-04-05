@@ -52,7 +52,7 @@
                     $i=0;
                     while(have_posts()) : the_post();
                     $feat_image =  wp_get_attachment_url( get_the_ID() );
-                    $img =  vt_resize('',$feat_image,200, 120,true); 
+                    $img =  vt_resize('',$feat_image,200, 120,false); //Proportionally resize
                     ?>
                    
                     <div class="col-lg-6 col-md-6">

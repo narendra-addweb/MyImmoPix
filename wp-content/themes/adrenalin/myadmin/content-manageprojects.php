@@ -201,7 +201,7 @@ if(isset($_POST['update'])  && $_POST['update']!='')
 	//-----------------------------
 	
 	?>
-       <?php $img =  vt_resize('',$feat_image,120, 80,true); ?>
+       <?php $img =  vt_resize('',$feat_image,120, 80,false); ?>
         <div class="col-lg-12 col-md-12">
         
         <?php

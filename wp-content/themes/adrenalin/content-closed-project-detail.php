@@ -42,7 +42,7 @@
 			$newimageid='';
       while(have_posts()) : the_post();
         $feat_image =  wp_get_attachment_url( get_the_ID() );
-				$img =  vt_resize('',$feat_image,350, 200,true);
+				$img =  vt_resize('',$feat_image,350, 200,false);//Proportionally resize
 			 	
 				$newimageid = get_the_ID();
 				if(!empty($newimageid)){
