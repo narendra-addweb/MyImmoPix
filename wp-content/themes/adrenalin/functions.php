@@ -2014,6 +2014,26 @@ function get_str_closetxt()
 	
 	return $str;
 }
+
+function get_str_clstxt()
+{
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Fermer";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Dicht ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Close ";
+    }
+    
+    return $str;
+}
+
 function get_str_projectstatus()
 {
 	

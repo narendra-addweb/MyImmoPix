@@ -25,7 +25,7 @@ $args2 = array(
 	),
 );
 $count2 = count(query_posts( $args2 ));
-
+$filelist = array();
 while(have_posts()) : the_post();
 	$newimageid = get_field('upload_image');
 	

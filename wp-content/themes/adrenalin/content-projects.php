@@ -144,13 +144,7 @@ if(isset($_POST['update'])  && $_POST['update']!='')
 								'value'   => get_the_ID(),
 								'compare' => '=',
 								'type'    => 'numeric',
-								),
-								array(
-								'key'     => 'image_status',
-								'value'   => $val,
-								'compare' => '=',
-								'type'    => 'numeric',
-								),
+								)
 							),
 						);
 						

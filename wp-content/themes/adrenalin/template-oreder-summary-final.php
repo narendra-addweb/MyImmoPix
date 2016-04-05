@@ -119,7 +119,7 @@ if($_GET['action'] == 'done'){?>
 
       <div class="modal-footer mfooter">
 
-        <button type="button" class="btn btn-defaul mbtn" data-dismiss="modal" onclick="javascript:location.href = onlyUrl;"><?php echo $ustr = get_str_closetxt();?></button>
+        <button type="button" class="btn btn-defaul mbtn" data-dismiss="modal" onclick="javascript:location.href = onlyUrl;"><?php echo $ustr = get_str_clstxt();?></button>
 
         <!--<button type="button" class="btn btn-primary">Save changes</button>-->
 
