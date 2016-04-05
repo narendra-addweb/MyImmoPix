@@ -2009,7 +2009,7 @@ function get_str_closetxt()
 	}
 	else if(ICL_LANGUAGE_CODE == 'en')
 	{
-		$str = "Close ";
+		$str = "Closed ";
 	}
 	
 	return $str;
@@ -3173,4 +3173,25 @@ function custom_woocommerce_auto_complete_order( $order_id ) {
 
     $order = wc_get_order( $order_id );
     $order->update_status( 'completed' );
+}
+
+/**
+* This function will return language specific text...
+**/
+function get_str_originaltxt() {
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Original";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Origineel ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Original ";
+    }
+    
+    return $str;
 }

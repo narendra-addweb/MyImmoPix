@@ -59,7 +59,7 @@
     $img =  vt_resize('',$feat_image,120, 80,false); //Proportionally resize
     ?><div class="col-lg-12 col-md-12">
 	    <div class="row border-bot mainlink">
-	    	<div class="col-lg-2 col-md-2"><a href="<?php echo get_bloginfo('url').'/closed-project-detail/?pid='.$pid.'';?>"><img src="<?php echo $img['url'] ?>"  /></a><span><strong><a href="<?php echo get_bloginfo('url').'/closed-project-detail/?pid='.$pid.'';?>"><?php echo $count2;?> Photos</a></strong></span>
+	    	<div class="col-lg-2 col-md-2"><a href="<?php echo get_bloginfo('url').'/closed-project-detail/?pid='.$pid.'';?>"><img src="<?php echo $img['url'] ?>"  /></a><span><strong><a href="<?php echo get_bloginfo('url').'/closed-project-detail/?pid='.$pid.'';?>"><?php echo $count2;?> <?php echo get_string_photos();?></a></strong></span>
 	    	</div>
 	    
 		   <div class="col-lg-10 col-md-10 color-bg"> 
