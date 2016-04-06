@@ -45,6 +45,8 @@ foreach ($filelist as $file) {
 	$inprocess_image_path = $_SERVER['DOCUMENT_ROOT'] . $path;
 	$files_to_zip[] = $inprocess_image_path;
 }
+$upload_dir = wp_upload_dir(); 
+chmod($upload_dir['basedir'].'/uploadedzip/', 0755);
 //if true, good; if false, zip creation failed
 $result = create_zip($files_to_zip,'wp-content/uploads/uploadedzip/'.$zipname);
 
