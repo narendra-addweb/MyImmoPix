@@ -1,0 +1,2 @@
+12 octobre 2015 - Version 1.0
+Version initiale de la passerelle de paiement. Passerelle adapatée et améliorée de la passerelle CMCIC suite au changement d'identité vers Monetico Paiement.
