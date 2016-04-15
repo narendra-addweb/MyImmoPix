@@ -1,3 +1,35 @@
+#2.1.20
+
+##Fixes
+* [wpmlmedia-81] Fixed language filter issue in Media Library section.
+
+#2.1.19
+
+##Fixes
+* [wpmlmedia-76] Resolved "Not Found" errors in front-end for attachments in secondary languages
+* [wpmlmedia-75] Improved upload process in WP-Admin for images uploaded in secondary languages 
+
+##Performances
+* [wpmlcore-2528] Cached calls to `glob()` function when auto loading classes
+
+##Cleanup
+* [wpmlcore-2541] Removal of "icon-32" usage
+
+# 2.1.17
+
+##Fixes
+* Added backward compatibility for `__DIR__` magic constant not being supported before PHP 5.3.
+
+# 2.1.16
+
+## Fixes
+* [wpmlga-96] WordPress 4.4 compatibility: pulled all html headings by one (e.g. h2 -> h1, he -> h2, etc.)
+
+# 2.1.15
+
+## Fixes
+* [wpmlmedia-72] Fixed a potential issue which may happen when third party plugins tries to duplicate an attachment which doesn't exists
+
 # 2.1.14
 
 ## New

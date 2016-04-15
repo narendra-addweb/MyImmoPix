@@ -8,7 +8,6 @@
 
 <div class="wrap">
 
-	<div id="icon-wpml" class="icon32"><br/></div>
 	<h2><?php echo __('Media translation', 'wpml-media') ?></h2>
 
 	<?php if ($orphan_attachments): ?>
@@ -39,7 +38,7 @@
 			</tr>
 
 			<tr>
-				<td><a href="https://wpml.org/documentation/getting-started-guide/media-translation/"><?php _e('Media Translation Documentation', 'wpml-media') ?></a></td>
+				<td><a href="https://wpml.org/documentation/getting-started-guide/media-translation/" target="_blank"><?php _e('Media Translation Documentation', 'wpml-media') ?></a></td>
 				<td align="right">
 					<input class="button-primary" name="start" type="submit" value="<?php esc_attr_e('Start', 'wpml-media'); ?> &raquo;"/>
 				</td>
