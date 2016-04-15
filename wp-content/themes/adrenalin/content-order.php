@@ -62,7 +62,7 @@
                        
                          <div class="col-lg-9 col-md-9 radiotxt"> 
                         <span><label><input type="radio" name="editstatus<?php echo $i;?>" value="1" id="<?php echo get_the_id();?>" checked="checked" />&nbsp;<?php echo $ustr = get_str_editings();?> (1 <?php echo $ustr = get_str_credit();?>)</label></span>
-                        <span><label><input type="radio" name="editstatus<?php echo $i;?>" value="0" id="<?php echo get_the_id();?>" />&nbsp;
+                        <span><label><input type="radio" name="editstatus<?php echo $i;?>" value="0" id="<?php echo get_the_id();?>" />
                         <?php echo $ustr = get_str_noediting();?></label></span>
                         </div>
                         
