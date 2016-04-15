@@ -55,10 +55,8 @@ class WCML_Multi_Currency_Support{
         }else{
             if(is_ajax() && $this->get_client_currency() != get_option('woocommerce_currency')){
 
-                $ajax_actions = apply_filters('wcml_multi_currency_is_ajax', array('woocommerce_get_refreshed_fragments', 'woocommerce_update_order_review', 'woocommerce-checkout', 'woocommerce_checkout', 'woocommerce_add_to_cart'));
-                if(version_compare($GLOBALS['woocommerce']->version, '2.1', '>=')){
-                    $ajax_actions[] = 'woocommerce_update_shipping_method';
-                }
+                $ajax_actions = apply_filters('wcml_multi_currency_is_ajax', array('woocommerce_get_refreshed_fragments', 'woocommerce_update_order_review', 'woocommerce-checkout', 'woocommerce_checkout', 'woocommerce_add_to_cart', 'woocommerce_update_shipping_method'));
+
                 if( ( isset( $_POST['action'] ) && in_array( $_POST['action'], $ajax_actions ) ) || (  isset( $_GET['action'] ) && in_array( $_GET['action'], $ajax_actions ) ) ){
                     $load = true;
                 }
@@ -76,7 +74,7 @@ class WCML_Multi_Currency_Support{
             add_filter('woocommerce_currency', array($this, 'currency_filter'));
             //add_filter('option_woocommerce_currency', array($this, 'currency_filter'));
             
-            add_filter('get_post_metadata', array($this, 'product_price_filter'), 10, 4);            
+            add_filter('get_post_metadata', array($this, 'product_price_filter'), 10, 4);
             add_filter('get_post_metadata', array($this, 'variation_prices_filter'), 12, 4); // second
 
             add_filter('woocommerce_package_rates', array($this, 'shipping_taxes_filter'));
@@ -105,7 +103,6 @@ class WCML_Multi_Currency_Support{
 
 
         add_filter('option_woocommerce_currency_pos', array($this, 'filter_currency_position_option'));
-        add_filter( 'woocommerce_get_formatted_order_total', array( $this, 'filter_get_formatted_order_total' ), 10, 2 );
         add_action( 'woocommerce_view_order', array( $this, 'filter_view_order' ), 9 );
 
         add_action('currency_switcher', array($this, 'currency_switcher'));        
@@ -611,17 +608,6 @@ class WCML_Multi_Currency_Support{
             $value = $this->currencies[$currency_code]['position'];
         }
         return $value;
-    }
-    
-    function filter_get_formatted_order_total($formatted_total, $object ){
-        $client_currency_buff = $this->client_currency;
-        $this->client_currency = $object->get_order_currency();
-
-        $formatted_total = wc_price( $object->order_total , array('currency' => $object->get_order_currency()));
-
-        $this->client_currency = $client_currency_buff;
-
-        return $formatted_total;
     }
     
     function filter_view_order( $order_id ){
@@ -1465,11 +1451,14 @@ class WCML_Multi_Currency_Support{
             $woocommerce_wpml->settings['display_custom_prices'] ){
 
             foreach( $children as $key => $child ){
-                if( !get_post_meta( $child, '_wcml_custom_prices_status', true ) ){
+
+                $orig_lang = $woocommerce_wpml->products->get_original_product_language( $child );
+                $orig_child_id = apply_filters( 'translate_object_id', $child, get_post_type( $child ), true, $orig_lang );
+
+                if( !get_post_meta( $orig_child_id, '_wcml_custom_prices_status', true ) ){
                     unset( $children[ $key ] );
                 }
             }
-
 
         }
 

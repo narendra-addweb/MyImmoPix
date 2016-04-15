@@ -30,6 +30,11 @@ class WCML_Compatibility {
         if(class_exists('WC_Subscriptions')){
             $this->wp_subscriptions = new WCML_WC_Subscriptions();
         }
+
+        //WooCommerce Name Your Price
+        if(class_exists('WC_Name_Your_Price')){
+            $this->name_your_price = new WCML_WC_Name_Your_Price();
+        }
         
         //Product Bundle
         if(class_exists('WC_Product_Bundle')){
@@ -78,6 +83,11 @@ class WCML_Compatibility {
         // WooCommerce Bookings
         if(defined( 'WC_BOOKINGS_VERSION' ) && version_compare(WC_BOOKINGS_VERSION, '1.7.8', '>=') ){
             $this->bookings = new WCML_Bookings();
+
+            // WooCommerce Accommodation Bookings
+            if( defined( 'WC_ACCOMMODATION_BOOKINGS_VERSION' ) ){
+                $this->bookings = new WCML_Accommodation_Bookings();
+            }
         }
 
         // WooCommerce Checkout Field Editor
@@ -109,14 +119,10 @@ class WCML_Compatibility {
         if ( wp_get_theme() == 'Flatsome' ) {
             $this->flatsome = new WCML_Flatsome();
         }
-        
-        // WooCommerce - Gravity Forms Product Add-Ons
-        if (class_exists('woocommerce_gravityforms')) {
-            $this->gravityforms_product_addons = new WCML_Gravityforms_Product_Addons();
+
+        if (class_exists('WC_Mix_and_Match')) {
+            $this->mix_and_match_products = new WCML_Mix_and_Match_Products();
         }
-       
-
-
     }
 
     function autoload( $class ){

@@ -75,7 +75,7 @@ class WCML_Products{
         add_action( 'woocommerce_email', array( $this, 'woocommerce_email_refresh_text_domain' ) );
         add_action( 'wp_ajax_woocommerce_update_shipping_method', array( $this, 'wcml_refresh_text_domain' ), 9 );
         add_action( 'wp_ajax_nopriv_woocommerce_update_shipping_method', array( $this, 'wcml_refresh_text_domain' ), 9 );
-        add_filter( 'wpml_link_to_translation', array( $this, '_filter_link_to_translation' ), 100, 2 );
+        add_filter( 'wpml_link_to_translation', array( $this, '_filter_link_to_translation' ), 100, 3 );
 
         add_filter( 'woocommerce_upsell_crosssell_search_products', array( $this, 'filter_woocommerce_upsell_crosssell_posts_by_language' ) );
 
@@ -233,6 +233,10 @@ class WCML_Products{
                     }
                     unset($children_products[$product_id]);
                 }
+            }else{
+                if ( isset( $children_products[$product_id] ) ){
+                    $count += count( $children_products[ $product_id ] );
+                }
             }
 
             $count++;
@@ -296,7 +300,7 @@ class WCML_Products{
     }
 
     function create_product_translation_package($product_id,$trid,$language,$status){
-        global $sitepress,$wpdb,$current_user,$iclTranslationManagement;
+        global $sitepress,$wpdb,$iclTranslationManagement;
         //create translation package
         $translation_id = $wpdb->get_var($wpdb->prepare("
                                 SELECT translation_id FROM {$wpdb->prefix}icl_translations WHERE trid=%d AND language_code='%s'
@@ -305,7 +309,7 @@ class WCML_Products{
         $md5 = $iclTranslationManagement->post_md5(get_post($product_id));
         $translation_package = $iclTranslationManagement->create_translation_package($product_id);
 
-        get_currentuserinfo();
+        $current_user = wp_get_current_user();
         $user_id = $current_user->ID;
 
         list($rid, $update) = $iclTranslationManagement->update_translation_status(array(
@@ -794,7 +798,7 @@ class WCML_Products{
 
     //duplicate product post meta
     function duplicate_product_post_meta($original_product_id, $trnsl_product_id, $data = false , $add = false ){
-        global $sitepress;
+        global $sitepress, $woocommerce_wpml;
         $settings = $sitepress->get_settings();
         $lang = $sitepress->get_language_for_element($trnsl_product_id,'post_product');
 
@@ -815,21 +819,25 @@ class WCML_Products{
                 if($data){
                     if(isset($data[$key.'_'.$lang]) && isset($settings['translation-management']['custom_fields_translation'][$key]) && $settings['translation-management']['custom_fields_translation'][$key] == 2){
                         if($key == '_file_paths'){
-                            $file_paths = explode("\n",$data[$key.'_'.$lang]);
-                            $file_paths_array = array();
-                            foreach($file_paths as $file_path){
-                                $file_paths_array[md5($file_path)] = $file_path;
+                            if( !$woocommerce_wpml->settings['file_path_sync'] ){
+                                $file_paths = explode("\n",$data[$key.'_'.$lang]);
+                                $file_paths_array = array();
+                                foreach($file_paths as $file_path){
+                                    $file_paths_array[md5($file_path)] = $file_path;
+                                }
+                                $meta_value = $file_paths_array;
                             }
-                            $meta_value = $file_paths_array;
-                        }elseif($key == '_downloadable_files'){
-                            $file_paths_array = array();
-                            foreach($data[$key.'_'.$lang] as $file_path){
-                                $key_file = md5($file_path['file'].$file_path['name']);
-                                $file_paths_array[$key_file]['name'] = $file_path['name'];
-                                $file_paths_array[$key_file]['file'] = $file_path['file'];
-                            }
-                            $meta_value = $file_paths_array;
 
+                        }elseif($key == '_downloadable_files'){
+                            if( !$woocommerce_wpml->settings['file_path_sync'] ) {
+                                $file_paths_array = array();
+                                    foreach ($data[$key . '_' . $lang] as $file_path) {
+                                        $key_file = md5($file_path['file'] . $file_path['name']);
+                                    $file_paths_array[$key_file]['name'] = $file_path['name'];
+                                    $file_paths_array[$key_file]['file'] = $file_path['file'];
+                                }
+                                $meta_value = $file_paths_array;
+                            }
                         }else{
                             $meta_value = $data[$key.'_'.$lang];
                         }
@@ -895,7 +903,7 @@ class WCML_Products{
                         update_post_meta($trnsl_product_id,$key,$meta_value);
                     }
                 }else{
-                    if(isset($settings['translation-management']['custom_fields_translation'][$key]) && $settings['translation-management']['custom_fields_translation'][$key] == 1){
+                    if( in_array( $key ,array( '_file_paths', '_downloadable_files' )) || ( isset($settings['translation-management']['custom_fields_translation'][$key]) && $settings['translation-management']['custom_fields_translation'][$key] == 1 ) ){
                         $meta_value = apply_filters('wcml_meta_value_before_add',$meta_value,$key);
                         update_post_meta($trnsl_product_id, $key, $meta_value);
                     }
@@ -991,7 +999,7 @@ class WCML_Products{
      * */
 
     //sync product variations
-    function sync_product_variations($product_id,$tr_product_id,$lang,$data = false,$trbl = false){
+    function sync_product_variations( $product_id, $tr_product_id, $lang, $data = false, $trbl = false, $add_new = true, $sync_existing = true ){
         global $wpdb,$sitepress,$sitepress_settings, $woocommerce_wpml,$woocommerce, $wpml_post_translations;
         remove_action ( 'save_post', array( $wpml_post_translations, 'save_post_actions' ), 100, 2 );
 
@@ -1020,6 +1028,9 @@ class WCML_Products{
                                     WHERE tr.element_type = 'post_product_variation' AND tr.language_code = %s AND pm.meta_key = '_wcml_duplicate_of_variation' AND pm.meta_value = %d",$lang,$post_data->ID));
                 $trid = $sitepress->get_element_trid($post_data->ID, 'post_product_variation');
                 if (!empty($variation_id) && !is_null($variation_id)) {
+                    if( !$sync_existing ){
+                        return;
+                    }
                     // Update variation
                     wp_update_post(array(
                         'ID' => $variation_id,
@@ -1045,6 +1056,9 @@ class WCML_Products{
                         'comment_count' => $post_data->comment_count
                     ));
                 } else {
+                    if( !$add_new ){
+                        return;
+                    }
                     // Add new variation
                     $guid = $post_data->guid;
                     $replaced_guid = str_replace($product_id, $tr_product_id, $guid);
@@ -1084,30 +1098,16 @@ class WCML_Products{
                 //sync file_paths
                 if(!$woocommerce_wpml->settings['file_path_sync']  && isset($data['variations_file_paths'][$variation_id])){
                     $file_paths_array = array();
-                    if(version_compare(preg_replace('#-(.+)$#', '', $woocommerce->version), '2.1', '<')){
-                        $file_paths = explode("\n",$data['variations_file_paths'][$variation_id]);
-                        foreach($file_paths as $file_path){
-                            $file_paths_array[md5($file_path)] = $file_path;
-                        }
-                        update_post_meta($variation_id,'_file_paths',$file_paths_array);
-                    }else{
-
-                        foreach($data['variations_file_paths'][$variation_id] as $file_path){
-                            $key = md5($file_path['file'].$file_path['name']);
-                            $file_paths_array[$key]['name'] = $file_path['name'];
-                            $file_paths_array[$key]['file'] = $file_path['file'];
-                        }
-                        update_post_meta($variation_id,'_downloadable_files',$file_paths_array);
-
+                    foreach($data['variations_file_paths'][$variation_id] as $file_path){
+                        $key = md5($file_path['file'].$file_path['name']);
+                        $file_paths_array[$key]['name'] = $file_path['name'];
+                        $file_paths_array[$key]['file'] = $file_path['file'];
                     }
+                    update_post_meta($variation_id,'_downloadable_files',$file_paths_array);
+
                 }elseif($woocommerce_wpml->settings['file_path_sync']){
-                    if(version_compare(preg_replace('#-(.+)$#', '', $woocommerce->version), '2.1', '<')){
-                        $orig_file_path = maybe_unserialize(get_post_meta($post_data->ID,'_file_paths',true));
-                        update_post_meta($variation_id,'_file_paths',$orig_file_path);
-                    }else{
-                        $orig_file_path = maybe_unserialize(get_post_meta($post_data->ID,'_downloadable_files',true));
-                        update_post_meta($variation_id,'_downloadable_files',$orig_file_path);
-                    }
+                    $orig_file_path = maybe_unserialize(get_post_meta($post_data->ID,'_downloadable_files',true));
+                    update_post_meta($variation_id,'_downloadable_files',$orig_file_path);
                 }
 
                 // sync taxonomies
@@ -1154,8 +1154,11 @@ class WCML_Products{
             foreach($get_current_post_variations as $k => $post_data){
                 $current_post_variation_ids[] = $post_data->ID;
             }
-            //update product variations option
-            update_option('_transient_wc_product_children_ids_'.$tr_product_id,$current_post_variation_ids);
+
+            // refresh parent-children transients
+            delete_transient( 'wc_product_children_' . $tr_product_id );
+            delete_transient( '_transient_wc_product_children_ids_' . $tr_product_id );
+
 
             $original_product_attr = get_post_meta($product_id,'_product_attributes',true);
             $tr_product_attr = get_post_meta($tr_product_id,'_product_attributes',true);
@@ -1306,7 +1309,7 @@ class WCML_Products{
     }
 
 
-    function _filter_link_to_translation( $link, $post_id ){
+    function _filter_link_to_translation( $link, $post_id, $lang ){
         global $woocommerce_wpml;
 
         if( $woocommerce_wpml->settings[ 'trnsl_interface' ] &&
@@ -1318,9 +1321,13 @@ class WCML_Products{
 
             if( empty( $post_id ) && isset( $_GET['post'] ) ){
                 $post_id = $_GET['post'];
+                $is_original_post = $this->is_original_product( $post_id );
+            }else{
+                $post_language = wpml_get_language_information($post_id);
+                $is_original_post = $post_language['language_code'] == $lang;
             }
 
-            if( isset( $_GET[ 'post' ] ) || !$this->is_original_product( $post_id ) ){
+            if( isset( $_GET[ 'post' ] ) || !$is_original_post ){
                 $link = admin_url( 'admin.php?page=wpml-wcml&tab=products&prid='.$post_id );
             }
 
@@ -1701,10 +1708,10 @@ class WCML_Products{
 
         $nonce = filter_input( INPUT_POST, '_wcml_custom_prices_nonce', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
 
-        if( isset( $_POST[ '_wcml_custom_prices' ] ) && isset( $nonce ) && wp_verify_nonce( $nonce, 'wcml_save_custom_prices' )){
+        if( isset( $_POST[ '_wcml_custom_prices' ] ) && isset( $nonce ) && wp_verify_nonce( $nonce, 'wcml_save_custom_prices' ) && !$this->is_variable_product( $post_id ) ){
 
-            if( isset( $_POST[ '_wcml_custom_prices' ][ $post_id ] ) ) {
-                $wcml_custom_prices_option = $_POST[ '_wcml_custom_prices' ][ $post_id ];
+            if( isset( $_POST[ '_wcml_custom_prices' ][ $post_id ] ) || isset( $_POST[ '_wcml_custom_prices' ][ 'new' ] ) ) {
+                $wcml_custom_prices_option = isset( $_POST[ '_wcml_custom_prices' ][ $post_id ] ) ? $_POST[ '_wcml_custom_prices' ][ $post_id ] : isset( $_POST[ '_wcml_custom_prices' ][ 'new' ] );
             }else{
                 $current_option = get_post_meta( $post_id, '_wcml_custom_prices_status', true );
                 $wcml_custom_prices_option = $current_option ? $current_option : 0;
@@ -1717,8 +1724,8 @@ class WCML_Products{
                 $currencies = $woocommerce_wpml->multi_currency_support->get_currencies();
 
                 foreach( $currencies as $code => $currency ){
-                    $sale_price = $_POST[ '_custom_sale_price' ][ $code ];
-                    $regular_price = $_POST[ '_custom_regular_price' ][ $code ];
+                    $sale_price = wc_format_decimal( $_POST[ '_custom_sale_price' ][ $code ] );
+                    $regular_price = wc_format_decimal( $_POST[ '_custom_regular_price' ][ $code ] );
 
                     $date_from = strtotime( $_POST[ '_custom_sale_price_dates_from' ][ $code ] );
                     $date_to = strtotime( $_POST[ '_custom_sale_price_dates_to' ][ $code ] );
@@ -2212,24 +2219,22 @@ class WCML_Products{
             $is_downloable = $wpdb->get_results($wpdb->prepare("SELECT pm.meta_value FROM $wpdb->posts AS p LEFT JOIN $wpdb->postmeta AS pm ON p.id=pm.post_id WHERE p.post_parent = %d AND p.post_type = 'product_variation' AND pm.meta_key='_downloadable' AND pm.meta_value = 'yes'", $product_id));
             $template_data['all_file_paths'] = $this->get_product_content_translation($product_id, 'variations_file_paths', $lang);
 
-            if(version_compare(preg_replace('#-(.+)$#', '', $woocommerce->version), '2.1', '>')){
-                $variations = $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->posts WHERE post_parent = %d AND post_type = 'product_variation'",is_null($trn_product_id)?$product_id:$trn_product_id));
+            $variations = $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->posts WHERE post_parent = %d AND post_type = 'product_variation'",is_null($trn_product_id)?$product_id:$trn_product_id));
 
-                foreach($variations as $variation){
-                    $files = maybe_unserialize(get_post_meta($variation->ID,'_downloadable_files',true));
+            foreach($variations as $variation){
+                $files = maybe_unserialize(get_post_meta($variation->ID,'_downloadable_files',true));
 
-                    if($files){
-                        if(is_null($trn_product_id)){
-                            $template_data['all_file_paths']['count'] = count($files);
-                        }else{
-                            $template_data['all_file_paths']['count'] = count(maybe_unserialize(get_post_meta(apply_filters( 'translate_object_id',$variation->ID, 'product_variation', false, $original_language),'_downloadable_files',true)));
-                        }
-                        foreach($files as $file){
-                            $variables = array();
-                            $variables['value'] = $file['file'];
-                            $variables['label'] = $file['name'];
-                            $template_data['all_file_paths'][$variation->ID][] = $variables;
-                        }
+                if($files){
+                    if(is_null($trn_product_id)){
+                        $template_data['all_file_paths']['count'] = count($files);
+                    }else{
+                        $template_data['all_file_paths']['count'] = count(maybe_unserialize(get_post_meta(apply_filters( 'translate_object_id',$variation->ID, 'product_variation', false, $original_language),'_downloadable_files',true)));
+                    }
+                    foreach($files as $file){
+                        $variables = array();
+                        $variables['value'] = $file['file'];
+                        $variables['label'] = $file['name'];
+                        $template_data['all_file_paths'][$variation->ID][] = $variables;
                     }
                 }
             }
@@ -2733,10 +2738,8 @@ class WCML_Products{
     function get_cart_attribute_translation( $attr_key, $attribute, $variation_id, $current_language, $product_id, $tr_product_id ){
         global $woocommerce;
 
-        if( version_compare( preg_replace( '#-(.+)$#', '', $woocommerce->version ), '2.1', '>=' ) ){
-            //delete 'attribute_' at the beginning
-            $taxonomy = substr( $attr_key, 10, strlen( $attr_key ) - 1 );
-        }
+        //delete 'attribute_' at the beginning
+        $taxonomy = substr( $attr_key, 10, strlen( $attr_key ) - 1 );
 
         if( taxonomy_exists( $taxonomy ) ){
 
@@ -2858,7 +2861,7 @@ class WCML_Products{
         $all_products_taxonomies = get_taxonomies( array( 'object_type' => array( 'product' ) ), 'objects' );
 
         foreach($all_products_taxonomies as $tax_key => $tax) {
-            if($tax_key == 'product_type' ) continue;
+            if( substr( $tax_key, 0 , 3 ) != 'pa_' || !in_array( $tax_key, array( 'product_cat', 'product_tag', 'product_shipping_class' ) ) ) continue;
 
             $found = false;
 
@@ -2982,7 +2985,14 @@ class WCML_Products{
 
                         $new_id_obj = get_post( $new_id );
                         $new_slug = wp_unique_post_slug( sanitize_title( $new_id_obj->post_title ), $new_id, $post_to_duplicate->post_status, $post_to_duplicate->post_type, $new_id_obj->post_parent );
-                        $wpdb->update( $wpdb->posts, array( 'post_name' => $new_slug, 'post_status' => $post_to_duplicate->post_status ), array( 'ID' => $new_id ) );
+                        $wpdb->update(
+                            $wpdb->posts,
+                            array(
+                                'post_name' => $new_slug,
+                                'post_status' => 'draft'
+                            ),
+                            array( 'ID' => $new_id )
+                        );
 
                         do_action( 'wcml_after_duplicate_product' , $new_id, $post_to_duplicate );
 
