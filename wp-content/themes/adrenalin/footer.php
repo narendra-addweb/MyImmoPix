@@ -120,6 +120,7 @@ if (function_exists('icl_get_languages')) {
             var arrUploadUrl = <?php echo json_encode($arrUploadUrl); ?>;
             //While click on <a>, act for load into another language OR redirect on upload page...
             jQuery('.clsAnchor').click(function(event) {
+                return;
                 var dropDownURL = jQuery(this).find('a:first').attr('href');
                 var selectedClass = jQuery(this).find('a:first').attr('class');
                 var selectedLngName = jQuery(this).find('a:first').text();
