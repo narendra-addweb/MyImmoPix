@@ -2,7 +2,7 @@
 /*
 Plugin Name: Hide My Site
 Description: Choose a single password to protect your entire wordpress site. Only visitors who know the password will be able to access your wordpress site. This is a great tool for someone setting up a development version of a wordpress site or anyone else looking to hide their site from the public, search engines, etc...Set your site-wide password by going to <strong>Settings > Hide My Site > Set Your Password</strong>. If you want to disable password protection uncheck the box at <strong>Settings > Hide My Site > Enable Password Protection</strong>.
-Version: 1.6.2
+Version: 1.6.3
 Author: Justin Saad
 Author URI: http://www.clevelandwebdeveloper.com
 License: GPL2
@@ -157,7 +157,7 @@ class hide_my_site{
 			$cookie_just_set = 1;
 			$this->security->remove_ip();
 		}
-		if( (empty($_COOKIE[$this->get_cookie_name()])) AND (empty($_COOKIE[$this->get_cookie2_name()])) AND (empty($cookie_just_set)) AND ($this->no_admin_bypass()) or (isset($_GET['hmspreview']) && ($_GET['hmspreview'] == 'true')) ) {
+		if( (empty($_COOKIE[$this->get_cookie2_name()])) AND (empty($cookie_just_set)) AND ($this->no_admin_bypass()) or (isset($_GET['hmspreview']) && ($_GET['hmspreview'] == 'true')) ) {
 				// This is the login page for the public
 				$current_hint = get_option($this->plugin_slug.'_password_hint');
 				if(!empty($current_hint)) { //there is a password hint, set the hint html
