@@ -267,7 +267,7 @@ a.yith-wcan-price-link.active:before {
     border-radius: 50%;
 }
 
-.woocommerce .widget_price_filter .price_slider_amount button {
+.yith-wcan-pro.woocommerce .widget_price_filter .price_slider_amount button {
     display: none;
 }
 

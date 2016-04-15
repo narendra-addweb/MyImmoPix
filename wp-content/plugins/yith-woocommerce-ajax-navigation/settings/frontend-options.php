@@ -53,6 +53,14 @@ $frontend = array(
                 'std'  => '.woocommerce-result-count'
             ),
 
+            array(
+                'name' => __( 'Scroll top anchor', 'yith-woocommerce-ajax-navigation' ),
+                'desc' => __( 'Put here the HTML tag for the scroll top in mobile', 'yith-woocommerce-ajax-navigation' ) . ' (Default: <strong>.yit-wcan-container</strong>)',
+                'id'   => 'yith_wcan_ajax_scroll_top_class',
+                'type' => 'text',
+                'std'  => '.yit-wcan-container'
+            ),
+
             array( 'type' => 'close' ),
         ),
     )

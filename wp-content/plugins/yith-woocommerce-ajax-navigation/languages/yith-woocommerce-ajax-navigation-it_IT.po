@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: YITH WooCommerce Ajax Product Filter\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-27 11:00+0100\n"
-"PO-Revision-Date: 2016-01-27 11:00+0100\n"
+"POT-Creation-Date: 2016-03-10 17:25+0100\n"
+"PO-Revision-Date: 2016-03-10 17:25+0100\n"
 "Last-Translator: Your Inspiration Themes <plugins@yithemes.com>\n"
 "Language-Team: \n"
 "Language: it_IT\n"
@@ -58,7 +58,7 @@ msgstr "Proprietà"
 
 # @ yit
 #: includes/functions.yith-wcan.php:57
-#: widgets/class.yith-wcan-navigation-widget.php:861
+#: widgets/class.yith-wcan-navigation-widget.php:864
 msgid "Color"
 msgstr "Colore"
 
@@ -148,6 +148,14 @@ msgid "Put here the CSS class or id for the result count container"
 msgstr ""
 "Inserisci qui la classe CSS o l'ID per il contenitore del conteggio dei "
 "prodotti"
+
+#: settings/frontend-options.php:57
+msgid "Scroll top anchor"
+msgstr ""
+
+#: settings/frontend-options.php:58
+msgid "Put here the HTML tag for the scroll top in mobile"
+msgstr ""
 
 #: templates/admin/premium.php:203 templates/admin/premium.php:377
 #, php-format
@@ -329,68 +337,68 @@ msgctxt "Admin: Widget Title"
 msgid "YITH WooCommerce Ajax Product Filter"
 msgstr "YITH WooCommerce Filtro Prodotti Ajax"
 
-#: widgets/class.yith-wcan-navigation-widget.php:297
+#: widgets/class.yith-wcan-navigation-widget.php:300
 msgid "Filters:"
 msgstr "Filtri:"
 
 # @ yit
-#: widgets/class.yith-wcan-navigation-widget.php:860
+#: widgets/class.yith-wcan-navigation-widget.php:863
 msgid "List"
 msgstr "Lista"
 
 # @ yit
-#: widgets/class.yith-wcan-navigation-widget.php:862
+#: widgets/class.yith-wcan-navigation-widget.php:865
 msgid "Label"
 msgstr "Etichetta"
 
-#: widgets/class.yith-wcan-navigation-widget.php:863
+#: widgets/class.yith-wcan-navigation-widget.php:866
 msgid "Dropdown"
 msgstr "Menu a tendina"
 
 # @ yit
-#: widgets/class.yith-wcan-navigation-widget.php:870
+#: widgets/class.yith-wcan-navigation-widget.php:873
 #: widgets/class.yith-wcan-reset-navigation-widget.php:100
 msgid "Title"
 msgstr "Titolo"
 
 # @ yit
-#: widgets/class.yith-wcan-navigation-widget.php:876
+#: widgets/class.yith-wcan-navigation-widget.php:879
 msgid "Type:"
 msgstr "Tipo:"
 
 # @ yit
-#: widgets/class.yith-wcan-navigation-widget.php:887
+#: widgets/class.yith-wcan-navigation-widget.php:890
 msgid "Query Type:"
 msgstr "Tipo Query:"
 
 # @ yit
-#: widgets/class.yith-wcan-navigation-widget.php:889
+#: widgets/class.yith-wcan-navigation-widget.php:892
 msgid "AND"
 msgstr "E"
 
 # @ yit
-#: widgets/class.yith-wcan-navigation-widget.php:890
+#: widgets/class.yith-wcan-navigation-widget.php:893
 msgid "OR"
 msgstr "O"
 
 # @ yit
-#: widgets/class.yith-wcan-navigation-widget.php:896
+#: widgets/class.yith-wcan-navigation-widget.php:899
 msgid "Attribute:"
 msgstr "Attributo:"
 
-#: widgets/class.yith-wcan-navigation-widget.php:903
+#: widgets/class.yith-wcan-navigation-widget.php:906
 msgid "Display (default All):"
 msgstr "Visualizza (default Tutti)"
 
-#: widgets/class.yith-wcan-navigation-widget.php:905
+#: widgets/class.yith-wcan-navigation-widget.php:908
 msgid "All (no hierarchical)"
 msgstr "Tutti (non gerarchico)"
 
-#: widgets/class.yith-wcan-navigation-widget.php:906
+#: widgets/class.yith-wcan-navigation-widget.php:909
 msgid "All (hierarchical)"
 msgstr "Tutti (gerarchico)"
 
-#: widgets/class.yith-wcan-navigation-widget.php:907
+#: widgets/class.yith-wcan-navigation-widget.php:910
 msgid "Only Parent"
 msgstr "Solo Principali"
 

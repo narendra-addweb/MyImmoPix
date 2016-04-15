@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: YITH WooCommerce Ajax Product filter\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-27 11:00+0100\n"
-"PO-Revision-Date: 2016-01-27 11:00+0100\n"
+"POT-Creation-Date: 2016-03-10 17:25+0100\n"
+"PO-Revision-Date: 2016-03-10 17:25+0100\n"
 "Last-Translator: Caner Öncel <caneroncel@gmail.com>\n"
 "Language-Team: Caner Öncel <caneroncel@gmail.com>\n"
 "Language: tr\n"
@@ -58,7 +58,7 @@ msgstr "Terim"
 
 # @ yit
 #: includes/functions.yith-wcan.php:57
-#: widgets/class.yith-wcan-navigation-widget.php:861
+#: widgets/class.yith-wcan-navigation-widget.php:864
 msgid "Color"
 msgstr "Renk"
 
@@ -311,73 +311,77 @@ msgstr ""
 msgid "Plugin Settings"
 msgstr ""
 
-#: plugin-fw/lib/yit-plugin-panel.php:99
+#: plugin-fw/lib/yit-plugin-panel.php:101
 #: plugin-fw/lib/yit-plugin-subpanel.php:103
-msgid "YIT Plugins"
+msgid "YITH Plugins"
 msgstr ""
 
-#: plugin-fw/lib/yit-plugin-panel.php:297
+#: plugin-fw/lib/yit-plugin-panel.php:270
+msgid "Premium version upgrade"
+msgstr ""
+
+#: plugin-fw/lib/yit-plugin-panel.php:316
 #: plugin-fw/lib/yit-plugin-subpanel.php:146
 #: plugin-fw/templates/panel/woocommerce/woocommerce-form.php:5
 msgid "Save Changes"
 msgstr ""
 
-#: plugin-fw/lib/yit-plugin-panel.php:300
+#: plugin-fw/lib/yit-plugin-panel.php:319
 #: plugin-fw/templates/panel/woocommerce/woocommerce-form.php:8
 msgid ""
 "If you continue with this action, you will reset all options in this page."
 msgstr ""
 
-#: plugin-fw/lib/yit-plugin-panel.php:302
+#: plugin-fw/lib/yit-plugin-panel.php:321
 #: plugin-fw/lib/yit-plugin-subpanel.php:151
 msgid "Reset to default"
 msgstr ""
 
-#: plugin-fw/lib/yit-plugin-panel.php:302
+#: plugin-fw/lib/yit-plugin-panel.php:321
 #: plugin-fw/lib/yit-plugin-subpanel.php:151
 #: plugin-fw/templates/panel/woocommerce/woocommerce-form.php:11
 msgid "Are you sure?"
 msgstr ""
 
-#: plugin-fw/lib/yit-plugin-panel.php:436
+#: plugin-fw/lib/yit-plugin-panel.php:455
 msgid ""
 "The element you have entered already exists. Please, enter another name."
 msgstr ""
 
-#: plugin-fw/lib/yit-plugin-panel.php:437
+#: plugin-fw/lib/yit-plugin-panel.php:456
 msgid "Settings saved"
 msgstr ""
 
-#: plugin-fw/lib/yit-plugin-panel.php:438
+#: plugin-fw/lib/yit-plugin-panel.php:457
 msgid "Settings reset"
 msgstr ""
 
-#: plugin-fw/lib/yit-plugin-panel.php:439
+#: plugin-fw/lib/yit-plugin-panel.php:458
 msgid "Element deleted correctly."
 msgstr ""
 
-#: plugin-fw/lib/yit-plugin-panel.php:440
-#: plugin-fw/lib/yit-plugin-panel.php:441
+#: plugin-fw/lib/yit-plugin-panel.php:459
+#: plugin-fw/lib/yit-plugin-panel.php:460
 msgid "Element updated correctly."
 msgstr ""
 
-#: plugin-fw/lib/yit-plugin-panel.php:442
+#: plugin-fw/lib/yit-plugin-panel.php:461
 msgid "Database imported correctly."
 msgstr ""
 
-#: plugin-fw/lib/yit-plugin-panel.php:443
+#: plugin-fw/lib/yit-plugin-panel.php:462
 msgid "An error has occurred during import. Please try again."
 msgstr ""
 
-#: plugin-fw/lib/yit-plugin-panel.php:444
+#: plugin-fw/lib/yit-plugin-panel.php:463
 msgid "The added file is not valid."
 msgstr ""
 
-#: plugin-fw/lib/yit-plugin-panel.php:445
+#: plugin-fw/lib/yit-plugin-panel.php:464
 msgid "Sorry, import is disabled."
 msgstr ""
 
-#: plugin-fw/lib/yit-plugin-panel.php:446
+#: plugin-fw/lib/yit-plugin-panel.php:465
 msgid "Sorting successful."
 msgstr ""
 
@@ -517,18 +521,18 @@ msgid "Unable to contact the remote server, please try again later. Thanks!"
 msgstr ""
 
 #: plugin-fw/licence/lib/yit-licence.php:185
-#: plugin-fw/licence/templates/panel/activation/activation-panel.php:90
-#: plugin-fw/licence/templates/panel/activation/activation-panel.php:168
-#: plugin-fw/licence/templates/panel/activation/activation-panel.php:199
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:88
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:166
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:197
 #: plugin-fw/templates/metaboxes/types/contactform.php:148
 #: plugin-fw/templates/metaboxes/types/contactform.php:340
 msgid "Email"
 msgstr ""
 
 #: plugin-fw/licence/lib/yit-licence.php:186
-#: plugin-fw/licence/templates/panel/activation/activation-panel.php:91
-#: plugin-fw/licence/templates/panel/activation/activation-panel.php:169
-#: plugin-fw/licence/templates/panel/activation/activation-panel.php:200
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:89
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:167
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:198
 msgid "License Key"
 msgstr ""
 
@@ -623,80 +627,80 @@ msgstr ""
 msgid "Yithemes License Activation"
 msgstr ""
 
-#: plugin-fw/licence/templates/panel/activation/activation-panel.php:29
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:27
 msgid ""
 "Have you updated your licenses? Have you asked for an extension? Update "
 "information concerning your products."
 msgstr ""
 
-#: plugin-fw/licence/templates/panel/activation/activation-panel.php:31
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:29
 msgid "Update license information"
 msgstr ""
 
-#: plugin-fw/licence/templates/panel/activation/activation-panel.php:44
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:42
 msgid "Product to activate"
 msgid_plural "Products to activate"
 msgstr[0] ""
 msgstr[1] ""
 
-#: plugin-fw/licence/templates/panel/activation/activation-panel.php:63
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:61
 msgid "Activate"
 msgstr ""
 
-#: plugin-fw/licence/templates/panel/activation/activation-panel.php:82
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:80
 msgid "Activated"
 msgstr ""
 
-#: plugin-fw/licence/templates/panel/activation/activation-panel.php:88
-#: plugin-fw/licence/templates/panel/activation/activation-panel.php:166
-#: plugin-fw/licence/templates/panel/activation/activation-panel.php:196
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:86
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:164
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:194
 msgid "Product Name"
 msgstr ""
 
-#: plugin-fw/licence/templates/panel/activation/activation-panel.php:94
-#: plugin-fw/licence/templates/panel/activation/activation-panel.php:203
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:92
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:201
 msgid "Expires"
 msgstr ""
 
-#: plugin-fw/licence/templates/panel/activation/activation-panel.php:97
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:95
 msgid "Remaining"
 msgstr ""
 
-#: plugin-fw/licence/templates/panel/activation/activation-panel.php:99
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:97
 msgid "Membership"
 msgstr ""
 
-#: plugin-fw/licence/templates/panel/activation/activation-panel.php:103
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:101
 msgid "License Actions"
 msgstr ""
 
-#: plugin-fw/licence/templates/panel/activation/activation-panel.php:128
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:126
 #, php-format
 msgid "%1s out of %2s"
 msgstr ""
 
-#: plugin-fw/licence/templates/panel/activation/activation-panel.php:144
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:142
 msgid "Deactivate"
 msgstr ""
 
-#: plugin-fw/licence/templates/panel/activation/activation-panel.php:149
-#: plugin-fw/licence/templates/panel/activation/activation-panel.php:206
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:147
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:204
 msgid "Renew"
 msgstr ""
 
-#: plugin-fw/licence/templates/panel/activation/activation-panel.php:162
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:160
 msgid "Banned"
 msgstr ""
 
-#: plugin-fw/licence/templates/panel/activation/activation-panel.php:192
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:190
 msgid "Expired"
 msgstr ""
 
-#: plugin-fw/licence/templates/panel/activation/activation-panel.php:228
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:226
 msgid "Order again"
 msgstr ""
 
-#: plugin-fw/licence/templates/panel/activation/activation-panel.php:230
+#: plugin-fw/licence/templates/panel/activation/activation-panel.php:228
 msgid "Renew license"
 msgstr ""
 
@@ -1077,6 +1081,95 @@ msgstr ""
 msgid "Reset Defaults"
 msgstr ""
 
+#: plugin-fw/templates/upgrade/upgrade-to-pro-version.php:5
+msgid "Upgrade to Premium Version"
+msgstr ""
+
+#: plugin-fw/templates/upgrade/upgrade-to-pro-version.php:6
+msgid ""
+"Hai comprato la versione premium di un plugin ? Dopo l'acquisto non trovi "
+"dove attivare la licenza del tuo plugin premium ?"
+msgstr ""
+
+#: plugin-fw/templates/upgrade/upgrade-to-pro-version.php:8
+msgid ""
+"Per passare da un plugin FREE ad uno PREMIUM non basta semplicemnete "
+"inserire la chiave di licenza che ti è stata fornita dopo aver completato "
+"l'acquisto.\n"
+"        Questo perchè fisicamente si tratta di due prodotti diversi, con "
+"differenze sostanziali sia nelle opzioni disponibili sia sul numero di file "
+"presenti all'interno del pacchetto del plugin stesso.\n"
+"        Per iniziare ad usare il plugin PREMIUM che hai appena acquistato "
+"devi semplicemente scaricare il pacchetto PREMIUM ed installarlo sul tuo "
+"sito."
+msgstr ""
+
+#: plugin-fw/templates/upgrade/upgrade-to-pro-version.php:12
+msgid ""
+"Non sai come fare ? Non è un problema, segui i passi elencati qui sotto ed "
+"in pochi minuti avrai il plugin acquistato correttamente installato sul tuo "
+"sito."
+msgstr ""
+
+#: plugin-fw/templates/upgrade/upgrade-to-pro-version.php:15
+msgid "Vai su yithemes.com ed effettua il login alla sezione My Account "
+msgstr ""
+
+#: plugin-fw/templates/upgrade/upgrade-to-pro-version.php:18
+msgid ""
+"Dal menù di sinistra clicca su \"My Downloads\" e cerca tra i download "
+"disponibili il plugin che vuoi installare, e clicca su \"Download\""
+msgstr ""
+
+#: plugin-fw/templates/upgrade/upgrade-to-pro-version.php:21
+msgid ""
+"Non appena il download del pacchetto sarà completato recati sul tuo sito web "
+"ed effettua il login all'area amministrazione di WordPress."
+msgstr ""
+
+#: plugin-fw/templates/upgrade/upgrade-to-pro-version.php:24
+msgid ""
+"Dal menù di sinistra clicca sulla voce Plugins. Verrai indirizzato su una "
+"pagina con la lista dei plugin disponibili sul tuo sito. Clicca sul pulsante "
+"\"Add New\" che trovi in alto a sinistra vicino al titolo della pagina."
+msgstr ""
+
+#: plugin-fw/templates/upgrade/upgrade-to-pro-version.php:27
+msgid ""
+"Verrai indirizzato su una nuova pagina dove trovi, in alto a sinistra vicino "
+"al titolo della pagina, il pulsante \"Upload Plugin\"."
+msgstr ""
+
+#: plugin-fw/templates/upgrade/upgrade-to-pro-version.php:30
+msgid ""
+"Cliccando su \"Upload Plugins\", ti troverai in una pagina dove poter "
+"effettuare l'upload del pacchetto del plugin PREMIUM da te precedentemente "
+"scaricato. Clicca quindi su \"Scegli File\", cerca la cartella di download "
+"dove hai scaricato il plugin ed effettua il caricamneto del pacchetto. A "
+"questo punto ti basta attendere qualche minuto che il pacchetto venga "
+"caricato ed installato sul tuo sito."
+msgstr ""
+
+#: plugin-fw/templates/upgrade/upgrade-to-pro-version.php:33
+msgid "Al termine della procedura di installazione clicca su \"Attiva\""
+msgstr ""
+
+#: plugin-fw/templates/upgrade/upgrade-to-pro-version.php:36
+msgid ""
+"Se tutto è andato per il meglio il tuo plugin è correttamente installato sul "
+"tuo sito web. Enjoy it :-)"
+msgstr ""
+
+#: plugin-fw/templates/upgrade/upgrade-to-pro-version.php:39
+msgid ""
+"Ultimo step è attivare il plugin con la chiave di licenza che hai ricevuto "
+"dopo l'acquisto. Clicca quindi sul link \"License Activation\" che trovi "
+"sotto \"YITH Plugins\" ed inserisci la license key in tuo possesso ed email "
+"utilizzata in fase di acquisto. Se non trovi l'email che ti abbiamo inviato "
+"contenete la license key puoi facilmente recuperarla dalla sezione \"My "
+"Licenses\" all'interno della sezione My Account del nostro sito yithemes.com."
+msgstr ""
+
 #: settings/custom-style-options.php:24
 msgid "Put here your custom CSS rules:"
 msgstr ""
@@ -1123,6 +1216,14 @@ msgstr ""
 
 #: settings/frontend-options.php:50
 msgid "Put here the CSS class or id for the result count container"
+msgstr ""
+
+#: settings/frontend-options.php:57
+msgid "Scroll top anchor"
+msgstr ""
+
+#: settings/frontend-options.php:58
+msgid "Put here the HTML tag for the scroll top in mobile"
 msgstr ""
 
 #: templates/admin/premium.php:203 templates/admin/premium.php:377
@@ -1277,68 +1378,68 @@ msgctxt "Admin: Widget Title"
 msgid "YITH WooCommerce Ajax Product Filter"
 msgstr ""
 
-#: widgets/class.yith-wcan-navigation-widget.php:297
+#: widgets/class.yith-wcan-navigation-widget.php:300
 msgid "Filters:"
 msgstr ""
 
 # @ yit
-#: widgets/class.yith-wcan-navigation-widget.php:860
+#: widgets/class.yith-wcan-navigation-widget.php:863
 msgid "List"
 msgstr "Liste"
 
 # @ yit
-#: widgets/class.yith-wcan-navigation-widget.php:862
+#: widgets/class.yith-wcan-navigation-widget.php:865
 msgid "Label"
 msgstr "Etiket"
 
-#: widgets/class.yith-wcan-navigation-widget.php:863
+#: widgets/class.yith-wcan-navigation-widget.php:866
 msgid "Dropdown"
 msgstr "Açılır Menü"
 
 # @ yit
-#: widgets/class.yith-wcan-navigation-widget.php:870
+#: widgets/class.yith-wcan-navigation-widget.php:873
 #: widgets/class.yith-wcan-reset-navigation-widget.php:100
 msgid "Title"
 msgstr "Başlık"
 
 # @ yit
-#: widgets/class.yith-wcan-navigation-widget.php:876
+#: widgets/class.yith-wcan-navigation-widget.php:879
 msgid "Type:"
 msgstr "Tür:"
 
 # @ yit
-#: widgets/class.yith-wcan-navigation-widget.php:887
+#: widgets/class.yith-wcan-navigation-widget.php:890
 msgid "Query Type:"
 msgstr "Sorgu Tipi:"
 
 # @ yit
-#: widgets/class.yith-wcan-navigation-widget.php:889
+#: widgets/class.yith-wcan-navigation-widget.php:892
 msgid "AND"
 msgstr "VE"
 
 # @ yit
-#: widgets/class.yith-wcan-navigation-widget.php:890
+#: widgets/class.yith-wcan-navigation-widget.php:893
 msgid "OR"
 msgstr "VEYA"
 
 # @ yit
-#: widgets/class.yith-wcan-navigation-widget.php:896
+#: widgets/class.yith-wcan-navigation-widget.php:899
 msgid "Attribute:"
 msgstr "Özellikler:"
 
-#: widgets/class.yith-wcan-navigation-widget.php:903
+#: widgets/class.yith-wcan-navigation-widget.php:906
 msgid "Display (default All):"
 msgstr "Görüntüleme (Varsayılan tümü):"
 
-#: widgets/class.yith-wcan-navigation-widget.php:905
+#: widgets/class.yith-wcan-navigation-widget.php:908
 msgid "All (no hierarchical)"
 msgstr "Tümü"
 
-#: widgets/class.yith-wcan-navigation-widget.php:906
+#: widgets/class.yith-wcan-navigation-widget.php:909
 msgid "All (hierarchical)"
 msgstr ""
 
-#: widgets/class.yith-wcan-navigation-widget.php:907
+#: widgets/class.yith-wcan-navigation-widget.php:910
 msgid "Only Parent"
 msgstr "Sadece Ebeveyn"
 

@@ -143,11 +143,15 @@ jQuery(function ($) {
         }
 
         //loading
-        $(yith_wcan.container).html('').addClass('yith-wcan-loading');
+        $(yith_wcan.container).not('.ywcps-products').html('').addClass('yith-wcan-loading');
         $(document).trigger("yith-wcan-ajax-loading");
 
         if (typeof yith_wcan_frontend != 'undefined') {
-            $(yith_wcan.container).css('backgroundImage', 'url(' + yith_wcan_frontend.loader_url + ')');
+            $(yith_wcan.container).not('.ywcps-products').css('backgroundImage', 'url(' + yith_wcan_frontend.loader_url + ')');
+        }
+
+        if( yith_wcan.is_mobile == 1 ){
+            $('body').scrollTop( $(yith_wcan.scroll_top).offset().top );
         }
 
         $(yith_wcan.pagination).hide();
@@ -162,11 +166,11 @@ jQuery(function ($) {
             url    : href,
             success: function (response) {
                 ajax_call = false;
-                $(yith_wcan.container).removeClass('yith-wcan-loading');
+                $(yith_wcan.container).not('.ywcps-products').removeClass('yith-wcan-loading');
 
                 //container
-                if ($(response).find(yith_wcan.container).length > 0) {
-                    $('.yit-wcan-container').html($(response).find(yith_wcan.container));
+                if ($(response).find(yith_wcan.container).not('.ywcps-products').length > 0) {
+                    $('.yit-wcan-container').html($(response).find(yith_wcan.container).not('.ywcps-products'));
                 } else {
                     $('.yit-wcan-container').html($(response).find('.woocommerce-info'));
                 }
@@ -175,7 +179,7 @@ jQuery(function ($) {
                 if ($(response).find(yith_wcan.pagination).length > 0) {
                     //se non esiste lo creo
                     if ($(yith_wcan.pagination).length == 0) {
-                        $.jseldom(yith_wcan.pagination).insertAfter($(yith_wcan.container));
+                        $.jseldom(yith_wcan.pagination).insertAfter($(yith_wcan.container).not('.ywcps-products'));
                     }
 
                     $(yith_wcan.pagination)
@@ -186,6 +190,9 @@ jQuery(function ($) {
                 else {
                     $(yith_wcan.pagination).empty();
                 }
+
+                // quantity fields
+                $('div.quantity:not(.buttons_added), td.quantity:not(.buttons_added)').addClass('buttons_added').append('<input type="button" value="+" class="plus" />').prepend('<input type="button" value="-" class="minus" />');
 
                 //result count
                 if ($(response).find(yith_wcan.result_count).length > 0) {
@@ -218,11 +225,14 @@ jQuery(function ($) {
                 //trigger ready event
                 $(document).trigger("ready");
                 $(document).trigger("yith-wcan-ajax-filtered");
+                $(window).trigger("scroll");
                 if( is_reset ){
-                    var min_price = parseInt( $( yith_wcan.wc_price_slider.min_price ).data( 'min' ) ),
-                        max_price = parseInt( $( yith_wcan.wc_price_slider.max_price ).data( 'max' ) );
-                    $( yith_wcan.wc_price_slider.wrapper ).slider( 'values', [ min_price, max_price ] );
-                    $( document.body ).trigger( 'price_slider_slide', [ min_price, max_price ] );
+                    if( typeof $.fn.slider != 'undefined' ){
+                        var min_price = parseInt( $( yith_wcan.wc_price_slider.min_price ).data( 'min' ) ),
+                            max_price = parseInt( $( yith_wcan.wc_price_slider.max_price ).data( 'max' ) );
+                        $( yith_wcan.wc_price_slider.wrapper ).slider( 'values', [ min_price, max_price ] );
+                        $( document.body ).trigger( 'price_slider_slide', [ min_price, max_price ] );
+                    }
                     $(document).trigger("yith-wcan-ajax-reset-filtered");
                 }
             }
@@ -230,15 +240,14 @@ jQuery(function ($) {
     };
 
     //wrap the container
-    $(yith_wcan.container).wrap('<div class="yit-wcan-container"></div>');
-    $('.woocommerce-info').wrap('<div class="yit-wcan-container"></div>');
+    $(yith_wcan.container).not('.ywcps-products').wrap('<div class="yit-wcan-container"></div>');
+    $(yith_wcan.container).not('.ywcps-products').wrap('<div class="yit-wcan-container"></div>');
 
     $(document).trigger( 'yith-wcan-wrapped' );
 
     $(document).on('click', '.yith-wcan a', function (e) {
         $(this).yith_wcan_ajax_filters(e, this);
     });
-
 
     /*AJAX NAVIGATION DROPDOWN STYLE*/
 

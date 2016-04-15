@@ -41,6 +41,8 @@ if ( ! class_exists( 'YITH_WCAN_Frontend' ) ) {
 
             add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles_scripts' ) );
 
+            add_action( 'body_class', array( $this, 'body_class' ) );
+
             // YITH WCAN Loaded
             do_action( 'yith_wcan_loaded' );
         }
@@ -64,14 +66,16 @@ if ( ! class_exists( 'YITH_WCAN_Frontend' ) ) {
                 ! empty( $custom_style ) && wp_add_inline_style( 'yith-wcan-frontend', sanitize_text_field( $custom_style ) );
 
                 $args = apply_filters( 'yith_wcan_ajax_frontend_classes', array(
-                        'container'             => yith_wcan_get_option( 'yith_wcan_ajax_shop_container', '.products' ),
-                        'pagination'            => yith_wcan_get_option( 'yith_wcan_ajax_shop_pagination', 'nav.woocommerce-pagination' ),
-                        'result_count'          => yith_wcan_get_option( 'yith_wcan_ajax_shop_result_container', '.woocommerce-result-count' ),
-                        'wc_price_slider'       => array(
+                        'container'       => yith_wcan_get_option( 'yith_wcan_ajax_shop_container', '.products' ),
+                        'pagination'      => yith_wcan_get_option( 'yith_wcan_ajax_shop_pagination', 'nav.woocommerce-pagination' ),
+                        'result_count'    => yith_wcan_get_option( 'yith_wcan_ajax_shop_result_container', '.woocommerce-result-count' ),
+                        'wc_price_slider' => array(
                             'wrapper'   => '.price_slider',
                             'min_price' => '.price_slider_amount #min_price',
                             'max_price' => '.price_slider_amount #max_price',
-                        )
+                        ),
+                        'is_mobile'       => wp_is_mobile(),
+                        'scroll_top'      => yith_wcan_get_option( 'yith_wcan_ajax_scroll_top_class', '.yit-wcan-container' ),
                     )
                 );
 
@@ -138,6 +142,18 @@ if ( ! class_exists( 'YITH_WCAN_Frontend' ) ) {
             }
         }
 
-
+        /**
+         * Add a body class(es)
+         *
+         * @param $classes The classes array
+         *
+         * @author Andrea Grillo <andrea.grillo@yithemes.com>
+         * @since  1.0
+         * @return array
+         */
+        public function body_class( $classes ) {
+            $classes[] = apply_filters( 'yith_wcan_body_class',  'yith-wcan-free' );
+            return $classes;
+        }
     }
 }

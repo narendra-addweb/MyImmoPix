@@ -189,8 +189,15 @@ input#yit_wcan_options_yith_wcan_ajax_shop_pagination,
 input#yit_wcan_options_yith_wcan_ajax_shop_container,
 input#yit_wcan_options_yith_wcan_ajax_shop_result_container,
 input#yit_wcan_options_yith_wcan_ajax_widget_title_class,
+input#yit_wcan_options_yith_wcan_ajax_scroll_top_class,
+input#yit_wcan_options_yith_wcan_ajax_shop_pagination_anchor_class,
 input#yit_wcan_options_yith_wcan_ajax_widget_title_tag {
     width: 230px;
+}
+
+#yit_wcan_options_yith_wcan_ajax_shop_terms_order-container .select_wrapper,
+#yit_wcan_options_yith_wcan_ajax_shop_filter_style-container .select_wrapper {
+    width: 235px;
 }
 
 div#yit_wcan_options_yith_wcan_custom_style-container .option {

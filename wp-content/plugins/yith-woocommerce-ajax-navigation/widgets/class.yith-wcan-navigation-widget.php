@@ -65,7 +65,9 @@ if ( ! class_exists( 'YITH_WCAN_Navigation_Widget' ) ) {
             $display_type    = isset( $instance['type'] ) ? $instance['type'] : 'list';
             $is_child_class  = 'yit-wcan-child-terms';
             $is_chosen_class = 'chosen';
-            $terms_type_list = ( isset( $instance['display'] ) && ( $display_type == 'list' || $display_type == 'select' ) ) ? $instance['display'] : 'all';
+            //TODO: Filtrare da premium
+            //$terms_type_list = ( isset( $instance['display'] ) && ( $display_type == 'list' || $display_type == 'select' ) ) ? $instance['display'] : 'all';
+            $terms_type_list = ( isset( $instance['display'] ) ) ? $instance['display'] : 'all';
 
             $instance['attribute'] = empty( $instance['attribute'] ) ? '' : $instance['attribute'];
 
@@ -85,6 +87,7 @@ if ( ! class_exists( 'YITH_WCAN_Navigation_Widget' ) ) {
             }
 
             $terms = yit_get_terms( $terms_type_list, $taxonomy, $instance );
+
 
             if ( count( $terms ) > 0 ) {
                 ob_start();

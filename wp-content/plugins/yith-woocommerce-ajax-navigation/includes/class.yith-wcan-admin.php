@@ -157,7 +157,7 @@ if ( ! class_exists( 'YITH_WCAN_Admin' ) ) {
 
             /* === Fixed: not updated theme  === */
             if ( ! class_exists( 'YIT_Plugin_Panel_WooCommerce' ) ) {
-                require_once( YITH_WCAN_DIR . 'plugin-fw/lib/yit-plugin-panel-wc.php' );
+                require_once( 'plugin-fw/lib/yit-plugin-panel-wc.php' );
             }
 
             $this->_panel = new YIT_Plugin_Panel( $args );
