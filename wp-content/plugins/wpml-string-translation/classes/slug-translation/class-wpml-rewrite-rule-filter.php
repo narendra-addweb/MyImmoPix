@@ -3,6 +3,10 @@
 class WPML_Rewrite_Rule_Filter extends WPML_WPDB_And_SP_User {
 
 	function rewrite_rules_filter( $value ) {
+		if ( empty( $value ) ) {
+			return $value;
+		}
+		
 		$current_language               = $this->sitepress->get_current_language();
 		$queryable_post_types           = get_post_types( array( 'publicly_queryable' => true ) );
 		$post_slug_translation_settings = $this->sitepress->get_setting( 'posts_slug_translation', array() );
@@ -101,7 +105,7 @@ class WPML_Rewrite_Rule_Filter extends WPML_WPDB_And_SP_User {
 		if ( (bool) $slug_translation === true && preg_match( '#^[^/]*/?' . preg_quote( $slug ) . '/#',
 				$k ) && $slug != $slug_translation
 		) {
-			$k = str_replace( $slug . '/', $slug_translation . '/', $k );
+			$k = preg_replace( '#^' . addslashes($slug) . '/#', $slug_translation . '/', $k );
 		}
 
 		return $k;

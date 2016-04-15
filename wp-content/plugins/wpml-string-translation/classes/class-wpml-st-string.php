@@ -13,6 +13,12 @@ class WPML_ST_String extends WPML_WPDB_User {
 
 	private $string_id;
 
+	/** @var  string $language */
+	private $language;
+
+	/** @var  int $status */
+	private $status;
+
 	/**
 	 * @param int $string_id
 	 * @param wpdb $wpdb
@@ -24,11 +30,23 @@ class WPML_ST_String extends WPML_WPDB_User {
 	}
 
 	/**
+	 * @return int
+	 */
+	public function string_id() {
+
+		return $this->string_id;
+	}
+
+	/**
 	 * @return string|null
 	 */
 	public function get_language() {
+		$this->language = $this->language
+			? $this->language
+			: $this->wpdb->get_var(
+				"SELECT language " . $this->from_where_snippet() . " LIMIT 1" );
 
-		return $this->wpdb->get_var( "SELECT language " . $this->from_where_snippet() . " LIMIT 1" );
+		return $this->language;
 	}
 
 	/**
@@ -36,14 +54,23 @@ class WPML_ST_String extends WPML_WPDB_User {
 	 */
 	public function get_status() {
 
-		return (int) $this->wpdb->get_var( "SELECT status " . $this->from_where_snippet() . " LIMIT 1" );
+		$this->status = $this->status !== null
+			? $this->status
+			: (int) $this->wpdb->get_var(
+				"SELECT status " . $this->from_where_snippet() . " LIMIT 1" );
+
+		return $this->status;
 	}
 
 	/**
 	 * @param string $language
 	 */
 	public function set_language( $language ) {
+		if ( $language !== $this->get_language() ) {
+			$this->language = $language;
 		$this->set_property( 'language', $language );
+			$this->update_status();
+		}
 	}
 
 	/**
@@ -98,7 +125,10 @@ class WPML_ST_String extends WPML_WPDB_User {
 		} else {
 			$status = ICL_TM_NOT_TRANSLATED;
 		}
+		if ( $status !== $this->get_status() ) {
+			$this->status = $status;
 		$this->set_property( 'status', $status );
+		}
 
 		return $status;
 	}
@@ -172,7 +202,11 @@ class WPML_ST_String extends WPML_WPDB_User {
 		return $st_id;
 	}
 
-	private function set_property( $property, $value ) {
+	/**
+	 * @param string $property
+	 * @param mixed  $value
+	 */
+	protected function set_property( $property, $value ) {
 		$this->wpdb->update( $this->wpdb->prefix . 'icl_strings', array( $property => $value ), array( 'id' => $this->string_id ) );
 	}
 
@@ -181,7 +215,7 @@ class WPML_ST_String extends WPML_WPDB_User {
 	 *
 	 * @return string
 	 */
-	private function from_where_snippet( $translations = false ) {
+	protected function from_where_snippet( $translations = false ) {
 
 		if ( $translations ) {
 			$id_column = 'string_id';

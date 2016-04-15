@@ -4,14 +4,19 @@ class WPML_Admin_String_Filter extends WPML_Displayed_String_Filter {
 
 	private $registered_string_cache = array();
 	
+	/** @var  WPML_ST_String_Factory $string_factory */
+	private $string_factory;
+
 	/**
 	 * @param wpdb                         $wpdb
 	 * @param SitePress                    $sitepress
 	 * @param string                       $language
+	 * @param WPML_ST_String_Factory       $string_factory
 	 * @param WPML_Displayed_String_Filter $existing_filter
 	 */
-	public function __construct( &$wpdb, &$sitepress, $language, $existing_filter = null ) {
+	public function __construct( &$wpdb, &$sitepress, $language, &$string_factory, $existing_filter = null ) {
 		parent::__construct( $wpdb, $sitepress, $language, $existing_filter );
+		$this->string_factory = &$string_factory;
 	}
 
 	public function translate_by_name_and_context( $untranslated_text, $name, $context = "", &$has_translation = null ) {
@@ -56,7 +61,8 @@ class WPML_Admin_String_Filter extends WPML_Displayed_String_Filter {
 			$source_lang    = $domain_lang ? $domain_lang
 				: ( strpos( $domain, 'admin_texts_' ) === 0
 				    || $name === 'Tagline' || $name === 'Blog Title'
-					? $this->sitepress->get_user_admin_language(get_current_user_id()) : 'en' );
+					? $this->sitepress->get_user_admin_language( get_current_user_id() ) : 'en' );
+			$source_lang    = $source_lang ? $source_lang : 'en';
 		}
 
 		$res = $this->get_registered_string( $domain, $context, $name );
@@ -83,8 +89,7 @@ class WPML_Admin_String_Filter extends WPML_Displayed_String_Filter {
 			if ( $value != $res['value'] ) {
 				$update_string['value'] = $value;
 			}
-			$string_object = new WPML_ST_String( $res['id'], $this->wpdb );
-			$existing_lang = $string_object->get_language();
+			$existing_lang = $this->string_factory->find_by_id($res['id'])->get_language();
 			if ( ! empty( $update_string ) ) {
 				if ( $existing_lang == $source_lang ) {
 					$this->wpdb->update( $this->wpdb->prefix . 'icl_strings', $update_string, array( 'id' => $string_id ) );
@@ -156,12 +161,8 @@ class WPML_Admin_String_Filter extends WPML_Displayed_String_Filter {
 	
 
 	private function save_string( $value, $allow_empty_value, $language, $domain, $context, $name ) {
-		if ( ( $name || $value )
-		     && ( ! empty( $value )
-		          && is_scalar( $value ) && trim( $value ) || $allow_empty_value )
-		) {
-			$name   = trim( $name ) ? $name : md5( $value );
-			$string = array(
+		if ( $allow_empty_value || 0 !== strlen( $value ) ) {
+			$this->wpdb->insert( $this->wpdb->prefix . 'icl_strings', array(
 				'language'                => $language,
 				'context'                 => $domain,
 				'gettext_context'         => $context,
@@ -169,10 +170,11 @@ class WPML_Admin_String_Filter extends WPML_Displayed_String_Filter {
 				'name'                    => $name,
 				'value'                   => $value,
 				'status'                  => ICL_TM_NOT_TRANSLATED,
-			);
-
-			$this->wpdb->insert( $this->wpdb->prefix . 'icl_strings', $string );
+			) );
 			$string_id = $this->wpdb->insert_id;
+			if ( $string_id === 0 ) {
+				throw new Exception( 'Count not add String with arguments: value: ' . $value . ' allow_empty_value:' . $allow_empty_value . ' language: ' . $language );
+			}
 
 			icl_update_string_status( $string_id );
 			

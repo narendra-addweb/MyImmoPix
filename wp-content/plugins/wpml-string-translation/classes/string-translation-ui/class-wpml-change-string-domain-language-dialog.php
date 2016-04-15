@@ -5,9 +5,13 @@ class WPML_Change_String_Domain_Language_Dialog extends WPML_WPDB_And_SP_User {
 	/** @var  WPML_Language_Of_Domain $language_of_domain */
 	private $language_of_domain;
 
-	public function __construct( &$wpdb, &$sitepress) {
+	/** @var  WPML_ST_String_Factory $string_factory */
+	private $string_factory;
+
+	public function __construct( &$wpdb, &$sitepress, &$string_factory ) {
 		parent::__construct( $wpdb, $sitepress );
 
+		$this->string_factory     = &$string_factory;
 		$this->language_of_domain = new WPML_Language_Of_Domain( $sitepress );
 	}
 
@@ -92,9 +96,10 @@ class WPML_Change_String_Domain_Language_Dialog extends WPML_WPDB_And_SP_User {
 				$lang = "'" . $lang . "'";
 			}
 			$langs = implode( ',', $langs );
-			$update_query   = "UPDATE {$this->wpdb->prefix}icl_strings SET language=%s WHERE context=%s AND language IN ($langs)";
-			$update_prepare = $this->wpdb->prepare( $update_query, $to_lang, $domain );
-			$this->wpdb->query( $update_prepare );
+			$string_ids = $this->wpdb->get_col( $this->wpdb->prepare( "SELECT id FROM {$this->wpdb->prefix}icl_strings WHERE context=%s AND language IN ($langs)", $domain ) );
+			foreach ( $string_ids as $str_id ) {
+				$this->string_factory->find_by_id( $str_id )->set_language( $to_lang );
+			}
 		}
 		if ( $set_as_default ) {
 			$lang_of_domain = new WPML_Language_Of_Domain( $this->sitepress );
@@ -105,8 +110,7 @@ class WPML_Change_String_Domain_Language_Dialog extends WPML_WPDB_And_SP_User {
 			$this->wpdb->prepare( "SELECT id FROM {$this->wpdb->prefix}icl_strings WHERE context = %s", $domain )
 		);
 		foreach ( $string_ids as $strid ) {
-			$string = new WPML_ST_String( $strid, $this->wpdb );
-			$string->update_status();
+			$this->string_factory->find_by_id( $strid )->update_status();
 		}
 
 		return array( 'success' => true );
