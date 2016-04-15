@@ -50,9 +50,8 @@ if(!$user_ID)
     
         <?php if(isset($_GET['pid']) &&  !empty($_GET['pid'])){?>
         <div class="row myupload">
-        
-       	<?php  update_post_meta($user_ID, 'my_temp_field', trim($_GET['pid']) );?>
-                <div class="col-lg-9 col-md-9 col-md-push-3 col-lg-push-3 uploaddiv"><?php echo  get_str_oruploadmorephoto();?>[<?php echo '#'. trim($_GET['pid']);?>]</div>
+            <?php  update_post_meta($user_ID, 'my_temp_field', trim($_GET['pid']) );?>
+            <!--<div class="col-lg-9 col-md-9 col-md-push-3 col-lg-push-3 uploaddiv"><?php echo  get_str_oruploadmorephoto();?>[<?php echo '#'. trim($_GET['pid']);?>]</div>-->
         </div>
     	<?php }?>
     

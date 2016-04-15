@@ -1752,7 +1752,7 @@ function get_str_servisecredit()
 	
 	if(ICL_LANGUAGE_CODE == 'fr')
 	{
-		$str = "Créditsnécessaires";
+		$str = "Crédits nécessaires";
 	}
 	else if(ICL_LANGUAGE_CODE == 'nl')
 	{
@@ -1770,7 +1770,7 @@ function get_str_availablecredit()
 	
 	if(ICL_LANGUAGE_CODE == 'fr')
 	{
-		$str = "Voscréditsdisponibles";
+		$str = "Vos crédits disponibles";
 	}
 	else if(ICL_LANGUAGE_CODE == 'nl')
 	{
@@ -1844,15 +1844,15 @@ function get_str_credit()
 	
 	if(ICL_LANGUAGE_CODE == 'fr')
 	{
-		$str = "Cr&eacute;dit";
+		$str = "Cr&eacute;dits";
 	}
 	else if(ICL_LANGUAGE_CODE == 'nl')
 	{
-		$str = "Krediet";
+		$str = "Kredieten";
 	}
 	else if(ICL_LANGUAGE_CODE == 'en')
 	{
-		$str = "Credit";
+		$str = "Credits";
 	}
 	
 	return $str;
