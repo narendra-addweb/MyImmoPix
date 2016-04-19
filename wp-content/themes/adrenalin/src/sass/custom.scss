@@ -883,6 +883,21 @@ body.single-product .product-title-wrapper {
   font-size: 15px !important;
 }
 
+/* Checkout page */
+.woocommerce-checkout-payment,
+.checkout-confirmed-payment {
+  ul {
+    li {
+      border-right: none;
+    }
+  }
+}
+/* End */
+
+
+
+
+
 /**
  * Responsive design
  */
