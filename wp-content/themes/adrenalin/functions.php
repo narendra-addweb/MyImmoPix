@@ -3183,17 +3183,21 @@ function convertURLTOWPML($url = ''){
 
 
 /**
- * Auto Complete all WooCommerce orders.
- */
-add_action( 'woocommerce_thankyou', 'custom_woocommerce_auto_complete_order' );
-function custom_woocommerce_auto_complete_order( $order_id ) { 
-    if ( ! $order_id ) {
-        return;
+* Auto Complete all WooCommerce orders.
+* Before call thankyou page at that time move current order into complete status...
+*/
+add_action( 'template_redirect', 'aws_woocommerce_auto_complete_order' ); 
+function aws_woocommerce_auto_complete_order() {
+    global $wp;
+    //Check for thankyou page...
+    if ( is_checkout() && ! empty( $wp->query_vars['order-received'] ) ) {
+        $order_id = $wp->query_vars['order-received'];
+        $order = wc_get_order( $order_id );
+        //Move order pending to complete status...
+        $order->update_status( 'completed' );
     }
-
-    $order = wc_get_order( $order_id );
-    $order->update_status( 'completed' );
 }
+
 
 /**
 * This function will return language specific text...
