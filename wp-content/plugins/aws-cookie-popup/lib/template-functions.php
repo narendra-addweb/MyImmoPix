@@ -31,19 +31,23 @@ function cookie_popup() {
 				} else {
 					$position = 'bottom';
 				}
-
+				$flagLangCompare = false;
 				foreach ($languages as $l) {
+					//If already set language specigic message then skip for other language...
+					if($flagLangCompare) continue;
+
 					//Get the language code id
           $id = $l['language_code'];
 
           //Get default language message...
           $message = $AWSCookies->get_option( 'message' );
           	
-
           //Get current language message...
-          if(ICL_LANGUAGE_CODE == $id){
+          if(ICL_LANGUAGE_CODE == $id && !$flagLangCompare){
+          	$flagLangCompare = true;
           	$message = stripslashes($AWSCookies->get_option( 'message_lang_' .$id ));
           }
+          
 				}
 				//Display message belt...
 				?><div id="eu-cookie" class="<?php echo $position; ?>">
