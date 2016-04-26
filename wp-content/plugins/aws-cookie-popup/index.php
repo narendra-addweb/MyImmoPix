@@ -14,7 +14,7 @@ require_once( dirname( __FILE__ ) . '/lib/constants.php' );
 
 class AWSCookies {
     var $namespace = "aws-cookies";
-    var $friendly_name = "Cookie Notification";
+    var $friendly_name = "Cookie Popup";
     var $version = COOKIES_VERSION;
     
     // Default plugin options
