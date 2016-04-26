@@ -14,6 +14,9 @@ This plugin displays a simple popup notification message to new visitors that yo
 
 Also its notification only to new visitors to your site with multi language message.
 
+= Cookie lifetime=
+Set cookie life time for 15 day. After 15 from cookie create cookie will auto delete. After delete this cookie(Name 'aws_visited') again notification popup will show for same as open at first time.
+
 == Installation ==
 
 Addweb Cookies Popup is simple to install:

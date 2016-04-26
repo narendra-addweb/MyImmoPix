@@ -10,7 +10,7 @@ if( !defined( 'COOKIES_VERSION' ) ) define( 'COOKIES_VERSION', '1.0' );
 if( !defined( 'COOKIES_PATH' ) ) define( 'COOKIES_PATH', dirname ( dirname( __FILE__ ) ) );
 
 /* The directory name of the plugin */
-if( !defined( 'COOKIES_DIRNAME' ) ) define( 'COOKIES_DIRNAME', basename(WPCOOKIES_PATH) );
+if( !defined( 'COOKIES_DIRNAME' ) ) define( 'COOKIES_DIRNAME', basename(COOKIES_PATH) );
 
 /* The URL path of this plugin */
 if( !defined( 'COOKIES_URLPATH' ) ) define( 'COOKIES_URLPATH', plugins_url() .'/'. COOKIES_DIRNAME );
