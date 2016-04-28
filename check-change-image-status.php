@@ -307,14 +307,18 @@ function sendProjectMail($project_id, $arrPojectUserDetail = array()) {
 	$original_url = get_permalink('70162');
 	$lang_page_url = get_url_for_language($original_url, $post_lang_code);
 
-
 	$to = $arrPojectUserDetail['user_email'];
 	$admin_email = get_option('admin_email');
 	$subject = 'MyImmoPix - Your Project completed';
 	$message = 'Dear ' . $arrPojectUserDetail['display_name'] .',<br /><br />Your project #' . $project_id . ' has been processed. Please check <a href="'. $lang_page_url .'">Manage project</a><br /><br />Thanks!';
 	
 
-	$headers[]= "From: MyImmoPix <". $admin_email .">";
+	$headers  = "MIME-Version: 1.0" . "\n";
+    $headers .= "Content-type: text/html; charset=iso-8859-1" . "\n";
+    $headers .= "X-Priority: 1 (Higuest)\n";
+    $headers .= "X-MSMail-Priority: High\n";
+    $headers .= "Importance: High\n";
+	$headers .= "From: MyImmoPix <". $admin_email ."> \r\n";
 
 	//Send mail to user...
  	if(!wp_mail( $to, $subject, $message, $headers)){
@@ -328,7 +332,7 @@ function sendProjectMail($project_id, $arrPojectUserDetail = array()) {
 
   //Send mail to site admin...
   $to = $admin_email;
-  $message = 'Dear Admin' . $arrPojectUserDetail['display_name'] .',<br /><br />Your project #' . $project_id . ' has been processed. Please check <a href="'. $lang_page_url .'">Manage project</a><br /><br />Thanks!';
+  $message = 'Dear Admin,<br /><br />Your project #' . $project_id . ' has been processed. Please check <a href="'. $lang_page_url .'">Manage project</a><br /><br />Thanks!';
 
  	if(!wp_mail( $to, $subject, $message, $headers)){
     echo('The e-mail could not be sent to user. <br />');
