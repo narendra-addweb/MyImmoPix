@@ -990,6 +990,54 @@ body.single-product .product-title-wrapper {
 
 /* End */
 
+/* Coupon Section*/
+.credit_sidebar_cart {
+  .coupon {
+    input {
+      /*height: 30px !important;
+      margin-bottom: 10px;
+      padding: 0;
+      font-size: 13px;*/
+    }
+    /*input.button {
+      width: 100%;
+      background-color: #BE1E2D none repeat scroll 0 0 !important;
+      &:hover {
+        background-color: #C66;
+        border-color: #C66;
+      }
+    }*/
+    h3 {
+      color: #444;
+      font-size: 20px;
+    }
+  }
+}
+.woocommerce-page {
+  .container {
+    .cart-collaterals {
+      input {
+        height: 30px !important;
+        margin-bottom: 10px;
+        padding: 0 0 0 5px;
+        font-size: 13px;
+      }
+      .coupon {
+        input.button {
+          width: 100%;
+          background-color: #BE1E2D !important;
+          &:hover,
+          &:hover {
+            border-color: #C66 !important;
+            background-color: #C66 !important;
+          }
+        }
+      }
+    }
+  }
+}
+/* End */
+
 /* Small desktop monitor view */
 @media screen and (max-width: 1200px) {
   /* Home page example section */
