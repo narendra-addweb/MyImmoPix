@@ -114,14 +114,14 @@ function create_zip($files = array(), $destination = '',$overwrite = false) {
         }
         //add the files
         foreach($valid_files as $file) {
-            $zip->addFile($file,$file);
+            $zip->addFile($file, basename($file));
         }
         //debug
         //echo 'The zip archive contains ',$zip-&gt;numFiles,' files with a status of ',$zip-&gt;status;
  
         //close the zip -- done!
         $zip->close();
- 
+ 		
         //check to make sure the file exists
         return file_exists($destination);
     }
