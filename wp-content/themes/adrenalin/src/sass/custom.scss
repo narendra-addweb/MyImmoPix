@@ -991,39 +991,18 @@ body.single-product .product-title-wrapper {
 /* End */
 
 /* Coupon Section*/
-.credit_sidebar_cart {
-  .coupon {
-    input {
-      /*height: 30px !important;
-      margin-bottom: 10px;
-      padding: 0;
-      font-size: 13px;*/
-    }
-    /*input.button {
-      width: 100%;
-      background-color: #BE1E2D none repeat scroll 0 0 !important;
-      &:hover {
-        background-color: #C66;
-        border-color: #C66;
-      }
-    }*/
-    h3 {
-      color: #444;
-      font-size: 20px;
-    }
-  }
-}
 .woocommerce-page {
   .container {
     .cart-collaterals {
       input {
-        height: 30px !important;
+        height: 35px !important;
         margin-bottom: 10px;
-        padding: 0 0 0 5px;
-        font-size: 13px;
+        padding: 0 0 0 8px;
+        font-size: 15px;
       }
       .coupon {
         input.button {
+          height: 35px;
           width: 100%;
           background-color: #BE1E2D !important;
           &:hover,
@@ -1032,8 +1011,60 @@ body.single-product .product-title-wrapper {
             background-color: #C66 !important;
           }
         }
+        h3 {
+          color: #BE1E2D;
+          font-size: 20px;
+        }
+      }
+      .checkout-button {
+        margin-bottom: 0;
       }
     }
+    form.checkout_coupon {
+      input.button {
+        height: 35px;
+        width: 100%;
+        background-color: #BE1E2D !important;
+        font-size: 13px !important;
+        line-height: 10px !important;
+        &:hover,
+        &:hover {
+          border-color: #C66 !important;
+          background-color: #C66 !important;
+        }
+      }
+    }
+  }
+}
+/* End */
+
+/* Coupon Section Checkout page*/
+.woocommerce {
+  .checkout_coupon {
+    display: block !important;
+    > p {
+      display: inline-block;
+    }
+    > p.form-row-first {
+      width: 30%;
+      margin-right: 10px;
+    }
+    #coupon_code {
+      height: 35px !important;
+      margin-bottom: 10px;
+      padding: 0 0 0 8px;
+      font-size: 15px;
+    }
+  }
+  .woocommerce-info {
+    color: #BE1E2D;
+    font-size: 20px;
+  }
+}
+body.woocommerce-checkout {
+  .woocommerce-info {
+    color: #BE1E2D;
+    font-size: 20px;
   }
 }
 /* End */
