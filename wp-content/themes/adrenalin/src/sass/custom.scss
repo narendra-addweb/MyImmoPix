@@ -1081,6 +1081,12 @@ body.woocommerce-checkout {
     font-size: 20px;
     a.showcoupon {
       border-bottom: none;
+      color: #333;
+      opacity: 1;
+      &:hover,
+      &:focus {
+        color: #BE1E2D;
+      }
     }
   }
 }
