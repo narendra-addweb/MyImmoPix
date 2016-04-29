@@ -3219,3 +3219,65 @@ function get_str_originaltxt() {
     
     return $str;
 }
+
+/*
+*Rename the "Have a Coupon?" to "Got a coupon ?"message on the checkout page...
+*/
+function woocommerce_rename_coupon_message_on_checkout() {
+    $lblCoupon = 'Got a coupon ';
+    if(ICL_LANGUAGE_CODE == 'fr'){
+        $lblCoupon = "Vous avez un coupon";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $lblCoupon = "Kreeg een coupon ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $lblCoupon = "Got a coupon ";
+    }
+    return $lblCoupon . '?' . ' <a href="#" class="showcoupon">' . __( 'Click here to enter your code', 'woocommerce' ) . '</a>';
+}
+add_filter( 'woocommerce_checkout_coupon_message', 'woocommerce_rename_coupon_message_on_checkout' );
+
+
+/*
+*Rename the coupon field on the checkout page...
+*/
+function woocommerce_rename_coupon_field_on_checkout( $translated_text, $text, $text_domain ) {
+    // bail if not modifying frontend woocommerce text
+    if ( is_admin() || 'woocommerce' !== $text_domain ) {
+        return $translated_text;
+    }
+
+    $lblApply = 'Apply';
+    if(ICL_LANGUAGE_CODE == 'fr'){
+        $lblApply = "Appliquer";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $lblApply = "Brengen";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $lblApply = "Apply";
+    }
+
+    //Apply button rename...
+    if ( 'Apply Coupon' === $text ) {
+        $translated_text = $lblApply;
+    }
+    return $translated_text;
+}
+add_filter( 'gettext', 'woocommerce_rename_coupon_field_on_checkout', 10, 3 );
+
+/*
+*Hide coupon field on cart page...
+*/
+function hide_coupon_field_on_cart($enabled) {
+    if ( is_cart() ) {
+        $enabled = false;
+    }
+    return $enabled;
+}
+add_filter( 'woocommerce_coupons_enabled', 'hide_coupon_field_on_cart' );
