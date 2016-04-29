@@ -1063,16 +1063,24 @@ body.single-product .product-title-wrapper {
       color: #BE1E2D;
     }
   }
+  .woocommerce-message {
+    padding: 15px;
+    border-color: #D6E9C6;
+    background-color: #DFF0D8;
+    color: #3C763D;
+  }
+  ul.woocommerce-error {
+    li {
+      border-right: none !important;
+    }
+  }
 }
 body.woocommerce-checkout {
   .woocommerce-info {
     color: #BE1E2D;
     font-size: 20px;
-    .woocommerce-message {
-      padding: 15px;
-      border-color: #D6E9C6;
-      background-color: #DFF0D8;
-      color: #3C763D;
+    a.showcoupon {
+      border-bottom: none;
     }
   }
 }
