@@ -1041,12 +1041,12 @@ body.single-product .product-title-wrapper {
 /* Coupon Section Checkout page*/
 .woocommerce {
   .checkout_coupon {
-    display: block !important;
+    /*display: block !important;*/
     > p {
       display: inline-block;
     }
     > p.form-row-first {
-      width: 30%;
+      width: 37%;
       margin-right: 10px;
     }
     #coupon_code {
@@ -1059,12 +1059,21 @@ body.single-product .product-title-wrapper {
   .woocommerce-info {
     color: #BE1E2D;
     font-size: 20px;
+    a.showcoupon {
+      color: #BE1E2D;
+    }
   }
 }
 body.woocommerce-checkout {
   .woocommerce-info {
     color: #BE1E2D;
     font-size: 20px;
+    .woocommerce-message {
+      padding: 15px;
+      border-color: #D6E9C6;
+      background-color: #DFF0D8;
+      color: #3C763D;
+    }
   }
 }
 /* End */
