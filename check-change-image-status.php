@@ -1,4 +1,4 @@
-	<?php
+<?php
 
 
 /**
@@ -18,7 +18,12 @@ if ( !isset($wp_did_header) ) {
 
     require_once( dirname(__FILE__) . '/wp-load.php' );
 
-    wp();
+    //wp();
+    require(dirname(__FILE__) . '/wp-config.php');
+		$wp->init();
+		$wp->parse_request();
+		$wp->query_posts();
+		$wp->register_globals();
 
     require_once( ABSPATH . WPINC . '/template-loader.php' );
 
