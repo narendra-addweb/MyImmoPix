@@ -144,11 +144,11 @@ function drags(dragElement, resizeElement, container) {
   <div class="container"><div class="row">
   	<div class="col-lg-5 col-ms-5 col-md-5">
     	<?php if(ICL_LANGUAGE_CODE == 'en'){?>
-      	<iframe width="450" height="340" src="https://www.youtube.com/embed/EZNL-fOlYWE?wmode=opaque&rel=0&autohide=1&showinfo=0&wmode=transparent&modestbranding=1&cc_load_policy=0" frameborder="0"></iframe>        
+      	<iframe width="450" height="340" src="https://www.youtube.com/embed/lu_cekugWj8?wmode=opaque&rel=0&autohide=1&showinfo=0&wmode=transparent&modestbranding=1&cc_load_policy=0" frameborder="0"></iframe>        
     	<?php }else if(ICL_LANGUAGE_CODE == 'nl'){?>    	
-      	<iframe width="450" height="340" src="https://www.youtube.com/embed/EZNL-fOlYWE?wmode=opaque&rel=0&autohide=1&showinfo=0&wmode=transparent&modestbranding=1&cc_load_policy=0" frameborder="0"></iframe>    	
+      	<iframe width="450" height="340" src="https://www.youtube.com/embed/lu_cekugWj8?wmode=opaque&rel=0&autohide=1&showinfo=0&wmode=transparent&modestbranding=1&cc_load_policy=0" frameborder="0"></iframe>    	
     	<?php }else if(ICL_LANGUAGE_CODE == 'fr'){?>    	
-      	<iframe width="450" height="340" src="https://www.youtube.com/embed/S30PlMheqj8?wmode=opaque&rel=0&autohide=1&showinfo=0&wmode=transparent&modestbranding=1&cc_load_policy=0" frameborder="0"></iframe>
+      	<iframe width="450" height="340" src="https://www.youtube.com/embed/rknkp_Ja2R8?wmode=opaque&rel=0&autohide=1&showinfo=0&wmode=transparent&modestbranding=1&cc_load_policy=0" frameborder="0"></iframe>
     	<?php }?>
     </div>
     <?php include('home-tour.php');?>
