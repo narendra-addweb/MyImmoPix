@@ -10,12 +10,12 @@ get_header();
     <div class="content">
         <div class="row">
         
-        <div class="col-lg-3 col-md-3 col-md-push-9 col-lg-push-9">
+        <div class="col-lg-3 col-md-3 col-sm-4 col-sm-push-8 col-md-push-9 col-lg-push-9">
                 <?php //get_sidebar(); ?>
                 <?php dynamic_sidebar('sidebarcart'); ?>
                 
             </div>
-            <div class="col-lg-9 col-md-9 col-md-pull-3 col-lg-pull-3">
+            <div class="col-lg-9 col-md-9 col-sm-8 col-sm-pull-4 col-md-pull-3 col-lg-pull-3">
                 <div id="primary" class="content-area">
                     <main id="main" class="site-main" role="main">
 

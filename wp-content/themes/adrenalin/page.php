@@ -49,7 +49,7 @@ $page_id = get_the_id();
     <div class="content">
     
        <div class="row">
-            <div class="col-lg-9 col-md-9 col-md-push-3 col-lg-push-3">
+            <div class="col-lg-9 col-md-9 col-sm-8 col-sm-push-4 col-md-push-3 col-lg-push-3">
                 <div id="primary" class="content-area">
                     <main id="main" class="site-main" role="main">
 
@@ -72,7 +72,7 @@ $page_id = get_the_id();
                     </main><!-- #main -->
                 </div><!-- #primary -->
             </div>
-            <div class="col-lg-3 col-md-3 col-md-pull-9 col-lg-pull-9">
+            <div class="col-lg-3 col-md-3 col-sm-4 col-sm-pull-8 col-md-pull-9 col-lg-pull-9">
                 <?php get_sidebar(); ?>
             </div>
         </div><!--/row -->

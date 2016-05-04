@@ -1,6 +1,6 @@
 
 <?php if(ICL_LANGUAGE_CODE == 'en'){?>
-<div class="col-lg-7 col-ms-7 col-md-7" >
+<div class="col-lg-7 col-md-6 col-sm-12" >
 	
 	<div class="tour-area" ><h4>TOUR</h4>
 	

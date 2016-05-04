@@ -177,7 +177,7 @@ if ( isset( $cg_options['cg_logo_position'] ) ) {
                                         </div>
                                         <?php } ?>
                                         
-                                        <div class="col-lg-4 col-md-4 pull-right"><div class="cg-header-search visible-lg">
+                                        <div class="col-lg-4 col-md-4 pull-right"><div class="cg-header-search">
                                         
                                             
 											<?php if(empty($user_ID)){?>

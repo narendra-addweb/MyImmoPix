@@ -35,6 +35,9 @@ $assets-path: '../..';
   background-color: #2D2D2D;
   .container {
     width: 900px;
+    @media screen and (max-width: $mobile) {
+      width: 100%;
+    }
   }
   ul {
     li {
@@ -120,6 +123,9 @@ $assets-path: '../..';
                 &:focus {
                   text-decoration: none;
                 }
+                @media screen and (max-width: $small-desktop) {
+                  min-width: 240px;
+                }
               }
             }
           }
@@ -138,6 +144,9 @@ $assets-path: '../..';
             &:hover,
             &:focus {
               text-decoration: none;
+            }
+            @media screen and (max-width: $small-desktop) {
+              min-width: 240px;
             }
           }
           a.select-list-link {
@@ -158,15 +167,13 @@ $assets-path: '../..';
             content: '';
           }
         }
-        .custom-footer-logo {
-          img {
-            max-width: 300px;
-          }
-        }
       }
       .custom-footer-logo {
         float: right;
         margin: 40px 0 0;
+        img {
+          max-width: 300px;
+        }
       }
       .footer_language_list {
         display: inline-block;
@@ -185,9 +192,28 @@ $assets-path: '../..';
           background-position: left 10px center;
         }
       }
-      .custom-footer-logo {
-        img {
-          max-width: 300px;
+      @media screen and (max-width: $small-desktop) {
+        width: 35%;
+        margin-right: 10%;
+        .custom-footer-logo {
+          img {
+            max-width: 240px;
+          }
+        }
+      }
+      @media screen and (max-width: $ipad-portrait) {
+        margin-right: 7%;
+      }
+      @media screen and (max-width: $mobile) {
+        width: 100%;
+        margin: 0;
+        text-align: center;
+        .custom-lang {
+          float: none;
+          display: inline-block;
+        }
+        .custom-footer-logo {
+          float: none;
         }
       }
     }
@@ -198,6 +224,7 @@ $assets-path: '../..';
       .subfooter {
         padding: 0;
         .widget_nav_menu {
+          float: left;
           width: 60%;
           &:nth-child(2) {
             width: 40%;
@@ -222,6 +249,23 @@ $assets-path: '../..';
         text-align: right;
       }
     }
+    @media screen and (max-width: $mobile) {
+      .custom-menu-links {
+        width: 60%;
+        .subfooter {
+          padding-left: 50px;
+          .widget_nav_menu {
+            width: 40%;
+            &:nth-child(2) {
+              width: 60%;
+            }
+          }
+        }
+      }
+      .custom-credit-cards {
+        width: 40%;
+      }
+    }
   }
   .footer-credit-cards {
     img {
@@ -234,7 +278,9 @@ $assets-path: '../..';
       color: #FFF;
       font-size: 15px;
       white-space: nowrap;
-
+      @media screen and (max-width: $ipad-portrait) {
+        right: -32px;
+      }
     }
   }
   .custom-footer-bottom {

@@ -142,7 +142,7 @@ function drags(dragElement, resizeElement, container) {
 
 <div class="blog-blue" id="tour">
   <div class="container"><div class="row">
-  	<div class="col-lg-5 col-ms-5 col-md-5">
+  	<div class="col-lg-5 col-md-6 col-sm-12">
     	<?php if(ICL_LANGUAGE_CODE == 'en'){?>
       	<iframe width="450" height="340" src="https://www.youtube.com/embed/EZNL-fOlYWE?wmode=opaque&rel=0&autohide=1&showinfo=0&wmode=transparent&modestbranding=1&cc_load_policy=0" frameborder="0"></iframe>        
     	<?php }else if(ICL_LANGUAGE_CODE == 'nl'){?>    	

@@ -92,8 +92,19 @@ video {
   margin-right: 0;
   padding-right: 0;
 }
-.tour-area h4 {
-  margin-top: 0;
+.tour-area {
+  h4 {
+    margin-top: 0;
+  }
+  @media screen and (max-width: $ipad-portrait) {
+    padding-top: 30px;
+  }
+}
+.cer-blog {
+  @media screen and (max-width: $mobile) {
+    padding-bottom: 30px;
+    text-align: center;
+  }
 }
 
 /* Home page */
@@ -257,6 +268,16 @@ body .exampimage .handle {
       img {
         margin-bottom: 40px;
       }
+      @media screen and (max-width: $ipad-portrait) {
+        max-width: 370px;
+        width: -moz-calc(50% - 30px);
+        width: -webkit-calc(50% - 30px);
+        width: calc(50% - 30px);
+      }
+      @media screen and (max-width: $mobile-landscape) {
+        width: 100%;
+        margin-right: 0;
+      }
     }
   }
 }
@@ -277,6 +298,10 @@ body .exampimage .handle {
       margin-right: 34px;
       &:last-child {
         margin-right: 0;
+      }
+      @media screen and (max-width: $mobile-landscape) {
+        max-width: 100%;
+        width: 100%;
       }
       li {
         float: left;
@@ -305,6 +330,10 @@ body .exampimage .handle {
     font-size: 30px;
     line-height: 35px;
     font-weight: normal;
+    @media screen and (max-width: $small-desktop) {
+      font-size: 24px;
+      line-height: 30px;
+    }
   }
   .readmore-left,
   .readmore-right {
@@ -315,6 +344,9 @@ body .exampimage .handle {
     font-weight: normal;
     p {
       margin-bottom: 15px;
+    }
+    @media screen and (max-width: $mobile) {
+      width: 100%;
     }
   }
 }
@@ -595,79 +627,6 @@ body .exampimage .handle {
 /**
  * Credit page
  */
-/*.credit_sidebar_cart {
-  .shop_table.cart {
-    .title-name {
-      display: none;
-    }
-    th {
-      padding: 5px;
-      border: 1px solid #CCC;
-      &.product-quantity {
-        padding-right: 10px;
-      }
-    }
-    .cart_item {
-      td {
-        padding: 5px;
-        border: 1px solid #CCC;
-      }
-      .mycartcredits {
-        height: auto;
-        padding: 1px 3px;
-        color: #03C;
-        text-align: center;
-      }
-      .product-quantity {
-        .quantity {
-          display: inline;
-          padding: 0;
-        }
-        input,
-        .qty {
-          float: left !important;
-          display: inline-block;
-          height: 25px;
-          width: 15px;
-          margin: 0 2px 0 0;
-          padding: 1px;
-          border: none;
-          line-height: normal;
-        }
-        .qty {
-          width: 40px;
-        }
-      }
-      .product-subtotal {
-        color: #03C;
-      }
-    }
-    .checkout-button {
-      text-align: center;
-    }
-  }
-  .main-cart-wrap {
-    overflow-x: auto;
-  }
-  .cart-collaterals {
-    padding-left: 0;
-    .update-button {
-      width: 100% !important;
-      padding: 8px 14px !important;
-      font-size: 13px !important;
-      line-height: 16px !important;
-    }
-  }
-  .product-remove {
-    a {
-      text-decoration: none;
-      &:hover,
-      &:focus {
-        text-decoration: none;
-      }
-    }
-  }
-}*/
 
 /* New cart design */
 .custom-cart-main-wrap {
@@ -733,6 +692,48 @@ body .exampimage .handle {
   .product-subtotal {
     .amount {
       color: $blue;
+    }
+  }
+}
+@media screen and (max-width: $small-desktop) {
+  .custom-cart-main-wrap {
+    .custom-cart-wrap {
+      .cart-row {
+        label {
+          min-width: 90px;
+        }
+        input {
+          width: 17px;
+        }
+      }
+    }
+  }
+  .creditsTable {
+    width: 100%;
+    text-align: center;
+    .loop-area {
+      margin-bottom: 30px;
+    }
+  }
+}
+@media screen and (max-width: $ipad-portrait) {
+  .creditsTable {
+    .loop-area {
+      float: none;
+      display: inline-block;
+      width: 47%;
+      margin: 0 6% 30px 0;
+      &:nth-child(2n + 1) {
+        margin-right: 0;
+      }
+    }
+  }
+}
+@media screen and (max-width: $mobile-portrait) {
+  .creditsTable {
+    .loop-area {
+      width: 100%;
+      margin-right: 0;
     }
   }
 }
@@ -853,6 +854,12 @@ body .exampimage .handle {
     }
   }
 }
+.crossimage {
+  @media screen and (max-width: $small-desktop) {
+    left: 135px;
+  }
+}
+/* End */
 
 /**
  * Change font family
