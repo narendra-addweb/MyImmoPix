@@ -1,6 +1,5 @@
 <?php
 
-
 /**
 * Here project status worked like below
 *	1 = Uploaded projects
