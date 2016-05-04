@@ -305,19 +305,28 @@ function closeProjectStatus($project_id){
 **/
 function sendProjectMail($project_id, $arrPojectUserDetail = array()) {
 	global $sitepress;
+	
+	//Create zip before send mail.
+	$zipname = createZIPOfClosedProject($project_id);
+
 	/*SEND MAIL TO USER*/
 	$post_lang_code = langcode_post_id($project_id);
 	
 	//Get manage project page link based on selected language at time of order...
-	$original_url = get_permalink('70162');
+	//$original_url = get_permalink('70162');//Manage project
+
+	//Set close projetc url by GIT-158 changes...
+	$original_url = get_permalink('68076');//Close project
 	$lang_page_url = get_url_for_language($original_url, $post_lang_code);
 
 	$to = $arrPojectUserDetail['user_email'];
 	$admin_email = get_option('admin_email');
 	$subject = 'MyImmoPix - Your Project completed';
-	$message = 'Dear ' . $arrPojectUserDetail['display_name'] .',<br /><br />Your project #' . $project_id . ' has been processed. Please check <a href="'. $lang_page_url .'">Manage project</a><br /><br />Thanks!';
-	
+	$blog_url = get_bloginfo("url");
+	$download_url = str_replace(get_bloginfo("url") . '/',"",'wp-content/uploads/uploadedzip/'.$zipname);
 
+	$message = 'Dear ' . $arrPojectUserDetail['display_name'] .',<br /><br />Your project #' . $project_id . ' has been processed. Please check <a href="'. $lang_page_url .'">Close project</a><br /><br />Click <a href="'. $blog_url .'/downloadimg.php?zip='. $download_url .'">Download zip</a> to download your project files in ZIP format<br /><br />Thanks!';
+	
 	$headers  = "MIME-Version: 1.0" . "\n";
     $headers .= "Content-type: text/html; charset=iso-8859-1" . "\n";
     $headers .= "X-Priority: 1 (Higuest)\n";
@@ -327,20 +336,20 @@ function sendProjectMail($project_id, $arrPojectUserDetail = array()) {
 
 	//Send mail to user...
  	if(!wp_mail( $to, $subject, $message, $headers)){
-    echo('The e-mail could not be sent to user.');
+    echo('The e-mail could not be sent to user.<br/>');
  	}
   else{
-    echo("Message sent to user.");
+    echo("Message sent to user.<br/>");
   }
 
 
 
   //Send mail to site admin...
   $to = $admin_email;
-  $message = 'Dear Admin,<br /><br />Your project #' . $project_id . ' has been processed. Please check <a href="'. $lang_page_url .'">Manage project</a><br /><br />Thanks!';
+  $message = 'Dear Admin,<br /><br />Your project #' . $project_id . ' has been processed. Please check <a href="'. $lang_page_url .'">Close project</a><br /><br />Click <a href="'. $blog_url .'/downloadimg.php?zip='. $download_url .'">Download zip</a> to download project files in ZIP format<br /><br />Thanks!';
 
  	if(!wp_mail( $to, $subject, $message, $headers)){
-    echo('The e-mail could not be sent to user. <br />');
+    echo('The e-mail could not be sent to site admin. <br />');
  	}
   else{
     echo("Message sent to user. <br />");
