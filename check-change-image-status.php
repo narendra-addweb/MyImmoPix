@@ -61,6 +61,7 @@ $args = array(
 		'orderby' => 'date',
 		/*'author'=> 29,*/
 		'order' => 'DESC',
+		'suppress_filters' => true,
 		'meta_query' => array(
 						array(
 							'key'     => 'image_project_status',
@@ -82,6 +83,7 @@ while ( $q->have_posts() ) : $q->the_post();
 					'post_status' => 'any',
 					'post_type'   => 'attachment',
 					'posts_per_page'=>-1,
+					'suppress_filters' => true,
 					/*'author'=> $post_author_id,*/
 					'meta_query' => array(
 							array(
@@ -321,7 +323,7 @@ function sendProjectMail($project_id, $arrPojectUserDetail = array()) {
 	$to = $arrPojectUserDetail['user_email'];
 	$admin_email = get_option('admin_email');
 	$subject = 'MyImmoPix - Your Project completed';
-	$blog_url = get_bloginfo("url");
+	$blog_url = str_replace('/' . ICL_LANGUAGE_CODE, '',get_bloginfo("url"));
 	$download_url = str_replace(get_bloginfo("url") . '/',"",'wp-content/uploads/uploadedzip/'.$zipname);
 
 	$message = 'Dear ' . $arrPojectUserDetail['display_name'] .',<br /><br />Your project #' . $project_id . ' has been processed. Please check <a href="'. $lang_page_url .'">Close project</a><br /><br />Click <a href="'. $blog_url .'/downloadimg.php?zip='. $download_url .'">Download zip</a> to download your project files in ZIP format<br /><br />Thanks!';
@@ -340,7 +342,6 @@ function sendProjectMail($project_id, $arrPojectUserDetail = array()) {
   else{
     echo("Message sent to user.<br/>");
   }
-
 
 
   //Send mail to site admin...
