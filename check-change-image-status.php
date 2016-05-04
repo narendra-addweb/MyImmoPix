@@ -1,5 +1,4 @@
-	<?php
-
+<?php
 
 /**
 * Here project status worked like below
@@ -18,7 +17,12 @@ if ( !isset($wp_did_header) ) {
 
     require_once( dirname(__FILE__) . '/wp-load.php' );
 
-    wp();
+    //wp();
+    require(dirname(__FILE__) . '/wp-config.php');
+		$wp->init();
+		$wp->parse_request();
+		$wp->query_posts();
+		$wp->register_globals();
 
     require_once( ABSPATH . WPINC . '/template-loader.php' );
 
@@ -57,6 +61,7 @@ $args = array(
 		'orderby' => 'date',
 		/*'author'=> 29,*/
 		'order' => 'DESC',
+		'suppress_filters' => true,
 		'meta_query' => array(
 						array(
 							'key'     => 'image_project_status',
@@ -78,6 +83,7 @@ while ( $q->have_posts() ) : $q->the_post();
 					'post_status' => 'any',
 					'post_type'   => 'attachment',
 					'posts_per_page'=>-1,
+					'suppress_filters' => true,
 					/*'author'=> $post_author_id,*/
 					'meta_query' => array(
 							array(
@@ -300,38 +306,50 @@ function closeProjectStatus($project_id){
 **/
 function sendProjectMail($project_id, $arrPojectUserDetail = array()) {
 	global $sitepress;
+	
+	//Create zip before send mail.
+	$zipname = createZIPOfClosedProject($project_id);
+
 	/*SEND MAIL TO USER*/
 	$post_lang_code = langcode_post_id($project_id);
 	
 	//Get manage project page link based on selected language at time of order...
-	$original_url = get_permalink('70162');
-	$lang_page_url = get_url_for_language($original_url, $post_lang_code);
+	//$original_url = get_permalink('70162');//Manage project
 
+	//Set close projetc url by GIT-158 changes...
+	$original_url = get_permalink('68076');//Close project
+	$lang_page_url = get_url_for_language($original_url, $post_lang_code);
 
 	$to = $arrPojectUserDetail['user_email'];
 	$admin_email = get_option('admin_email');
 	$subject = 'MyImmoPix - Your Project completed';
-	$message = 'Dear ' . $arrPojectUserDetail['display_name'] .',<br /><br />Your project #' . $project_id . ' has been processed. Please check <a href="'. $lang_page_url .'">Manage project</a><br /><br />Thanks!';
-	
+	$blog_url = str_replace('/' . ICL_LANGUAGE_CODE, '',get_bloginfo("url"));
+	$download_url = str_replace(get_bloginfo("url") . '/',"",'wp-content/uploads/uploadedzip/'.$zipname);
 
-	$headers[]= "From: MyImmoPix <". $admin_email .">";
+	$message = 'Dear ' . $arrPojectUserDetail['display_name'] .',<br /><br />Your project #' . $project_id . ' has been processed. Please check <a href="'. $lang_page_url .'">Close project</a><br /><br />Click <a href="'. $blog_url .'/downloadimg.php?zip='. $download_url .'">Download zip</a> to download your project files in ZIP format<br /><br />Thanks!';
+	
+	$headers  = "MIME-Version: 1.0" . "\n";
+    $headers .= "Content-type: text/html; charset=iso-8859-1" . "\n";
+    $headers .= "X-Priority: 1 (Higuest)\n";
+    $headers .= "X-MSMail-Priority: High\n";
+    $headers .= "Importance: High\n";
+	$headers .= "From: MyImmoPix <". $admin_email ."> \r\n";
 
 	//Send mail to user...
  	if(!wp_mail( $to, $subject, $message, $headers)){
-    echo('The e-mail could not be sent to user.');
+    echo('The e-mail could not be sent to user.<br/>');
  	}
   else{
-    echo("Message sent to user.");
+    echo("Message sent to user.<br/>");
   }
-
 
 
   //Send mail to site admin...
   $to = $admin_email;
-  $message = 'Dear Admin' . $arrPojectUserDetail['display_name'] .',<br /><br />Your project #' . $project_id . ' has been processed. Please check <a href="'. $lang_page_url .'">Manage project</a><br /><br />Thanks!';
+  $message = 'Dear Admin,<br /><br />Your project #' . $project_id . ' has been processed. Please check <a href="'. $lang_page_url .'">Close project</a><br /><br />Click <a href="'. $blog_url .'/downloadimg.php?zip='. $download_url .'">Download zip</a> to download project files in ZIP format<br /><br />Thanks!';
 
  	if(!wp_mail( $to, $subject, $message, $headers)){
-    echo('The e-mail could not be sent to user. <br />');
+    echo('The e-mail could not be sent to site admin. <br />');
  	}
   else{
     echo("Message sent to user. <br />");

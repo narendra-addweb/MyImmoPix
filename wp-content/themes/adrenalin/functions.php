@@ -506,8 +506,8 @@ function cg_widgets_init() {
         'before_title' => '<h4 class="widget-title">',
         'after_title' => '</h4>',
     ) );
-	
-	register_sidebar( array(
+    
+    register_sidebar( array(
         'name' => __( 'Multi Language' ),
         'id' => 'multilanguage',
         'before_widget' => '<div id="%1$s" class="col-lg-3 col-md-3 col-sm-6 col-xs-12 col-nr-3 %2$s">',
@@ -515,8 +515,8 @@ function cg_widgets_init() {
         'before_title' => '<h4 class="widget-title">',
         'after_title' => '</h4>',
     ) );
-	
-	register_sidebar( array(
+    
+    register_sidebar( array(
         'name' => __( 'Sidebar Cart' ),
         'id' => 'sidebarcart',
         'before_widget' => '<div id="%1$s" class="col-lg-3 col-md-3 col-sm-6 col-xs-12 col-nr-3 %2$s">',
@@ -524,8 +524,8 @@ function cg_widgets_init() {
         'before_title' => '<h4 class="widget-title">',
         'after_title' => '</h4>',
     ) );
-	
-	register_sidebar( array(
+    
+    register_sidebar( array(
         'name' => __( 'Home Login' ),
         'id' => 'homelogin',
         'before_widget' => '<div id="%1$s" class="col-lg-3 col-md-3 col-sm-6 col-xs-12 col-nr-3 %2$s">',
@@ -533,8 +533,8 @@ function cg_widgets_init() {
         'before_title' => '<h4 class="widget-title">',
         'after_title' => '</h4>',
     ) );
-	
-	register_sidebar( array(
+    
+    register_sidebar( array(
         'name' => __( 'Home Signup' ),
         'id' => 'homesignup',
         'before_widget' => '<div id="%1$s" class="col-lg-3 col-md-3 col-sm-6 col-xs-12 col-nr-3 %2$s">',
@@ -542,8 +542,8 @@ function cg_widgets_init() {
         'before_title' => '<h4 class="widget-title">',
         'after_title' => '</h4>',
     ) );
-	
-	register_sidebar( array(
+    
+    register_sidebar( array(
         'name' => __( 'Home Start' ),
         'id' => 'homestart',
         'before_widget' => '<div id="%1$s" class="col-lg-3 col-md-3 col-sm-6 col-xs-12 col-nr-3 %2$s">',
@@ -551,7 +551,7 @@ function cg_widgets_init() {
         'before_title' => '<h4 class="widget-title">',
         'after_title' => '</h4>',
     ) );
-	
+    
 }
 
 add_action( 'widgets_init', 'cg_widgets_init' );
@@ -603,7 +603,7 @@ add_action('manage_media_custom_column', 'ST4_columns_book_content', 10, 2);
 // ADD TWO NEW COLUMNS
 function ST4_columns_book_head($defaults) {
     $defaults['first_column']  = 'Credit';
-	$defaults['admin_approve']  = 'Admin Approve/ Reuplaod Image';
+    $defaults['admin_approve']  = 'Admin Approve/ Reuplaod Image';
     return $defaults;
 }
  
@@ -1012,23 +1012,23 @@ die();
 //get user role
 function get_user_role() 
 {
-	global $current_user;
-	$user_roles = $current_user->roles;
-	$user_role = array_shift($user_roles);
-	return $user_role;
+    global $current_user;
+    $user_roles = $current_user->roles;
+    $user_role = array_shift($user_roles);
+    return $user_role;
 }
 
 //get user first_name
 function get_user_fname($uid) 
 {
-	$user_info = get_userdata($uid);
+    $user_info = get_userdata($uid);
     return $user_info->first_name;
 }
 
 // get user last name
 function get_user_lname($uid) 
 {
-	$user_info = get_userdata($uid);
+    $user_info = get_userdata($uid);
     return $user_info->last_name;
 }
 
@@ -1049,14 +1049,14 @@ function get_user_name_string($uid){
 // get user phone
 function get_user_phone($uid) 
 {
-	$phone = get_user_meta($uid, 'your_phone', true); 
+    $phone = get_user_meta($uid, 'your_phone', true); 
     return $phone;
 }
 
 // get user email
 function get_user_email($uid) 
 {
-	$user_info = get_userdata($uid);
+    $user_info = get_userdata($uid);
     return $user_info->user_email;
 }
 
@@ -1068,28 +1068,28 @@ add_filter( 'wp_nav_menu_items', 'add_loginout_link', 10, 2 );
 
 function add_loginout_link( $items, $args ) {
 
-  	if (!is_user_logged_in() && $args->theme_location == 'primary') {
+    if (!is_user_logged_in() && $args->theme_location == 'primary') {
 
-		$items .= '<li><a href="'.get_permalink( get_option('woocommerce_myaccount_page_id') ).'">Sign UP</a></li>';
+        $items .= '<li><a href="'.get_permalink( get_option('woocommerce_myaccount_page_id') ).'">Sign UP</a></li>';
 
     }
 
     return $items;
 }
 function my_login_redirect( $redirect_to, $request, $user ) {
-	//is there a user to check?
-	global $user;
-	if ( isset( $user->roles ) && is_array( $user->roles ) ) {
-		//check for admins
-		if ( in_array( 'administrator', $user->roles ) ) {
-			// redirect them to the default place
-			return $redirect_to;
-		} else {
-			return home_url();
-		}
-	} else {
-		return $redirect_to;
-	}
+    //is there a user to check?
+    global $user;
+    if ( isset( $user->roles ) && is_array( $user->roles ) ) {
+        //check for admins
+        if ( in_array( 'administrator', $user->roles ) ) {
+            // redirect them to the default place
+            return $redirect_to;
+        } else {
+            return home_url();
+        }
+    } else {
+        return $redirect_to;
+    }
 }
 
 /*add_filter( 'login_redirect', 'my_login_redirect', 10, 3 );
@@ -1130,19 +1130,19 @@ return $custom_field;
 
 function get_string_day($days)
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr'){
-		$str = "Chargé il y a ".$days." jours";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "".$days." dagen geleden opgeladen";
-	}
-	else
-	{
-		$str = "Uploaded ".$days." day(s) ago";
-	}
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr'){
+        $str = "Chargé il y a ".$days." jours";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "".$days." dagen geleden opgeladen";
+    }
+    else
+    {
+        $str = "Uploaded ".$days." day(s) ago";
+    }
+    return $str;
 
 
 }
@@ -1153,249 +1153,249 @@ function get_string_day($days)
 
 function get_string_ago()
 {
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "depuis";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = " geleden ";
-	}
-	else
-	{
-		$str = "ago ";
-	}
-	return $str;
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "depuis";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = " geleden ";
+    }
+    else
+    {
+        $str = "ago ";
+    }
+    return $str;
 }
 
 
 function get_string_hours($hours)
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Chargé il y a ".$hours." heures";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "".$hours." uren geleden opgeladen";
-	}
-	else
-	{
-		$str = "Uploaded ".$hours." hour(s) ago";
-	}
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Chargé il y a ".$hours." heures";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "".$hours." uren geleden opgeladen";
+    }
+    else
+    {
+        $str = "Uploaded ".$hours." hour(s) ago";
+    }
+    return $str;
 }
 function get_string_minutes($minutes)
 {
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Chargé il y a ".$minutes." minute(s)";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "".$minutes." minute(s) geleden opgeladen";
-	}
-	else
-	{
-		$str = "Uploaded ".$minutes." minute(s) ago ";
-	}
-	return $str;
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Chargé il y a ".$minutes." minute(s)";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "".$minutes." minute(s) geleden opgeladen";
+    }
+    else
+    {
+        $str = "Uploaded ".$minutes." minute(s) ago ";
+    }
+    return $str;
 }
 
 function get_string_sec($sec)
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Chargé il y a ".$sec." seconde(s)";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "".$sec." seconden geleden opgeladen";
-	}
-	else
-	{
-		$str = "Uploaded ".$sec." second(s) ago ";
-	}
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Chargé il y a ".$sec." seconde(s)";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "".$sec." seconden geleden opgeladen";
+    }
+    else
+    {
+        $str = "Uploaded ".$sec." second(s) ago ";
+    }
+    return $str;
 }
 
 function get_string_photos()
 {
-	
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Photos ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "Photos ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Photos  ";
-	}
-	return $str;
-	
+    
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Photos ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Photos ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Photos  ";
+    }
+    return $str;
+    
 }
 
 function get_string_example()
 {
-	
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "EXEMPLE ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "VOORBEELD";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "EXAMPLE  ";
-	}
-	return $str;
-	
+    
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "EXEMPLE ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "VOORBEELD";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "EXAMPLE  ";
+    }
+    return $str;
+    
 }
 
 function get_string_pricing()
 {
-	
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "TARIFICATION";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "PRIJZEN";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "PRICING";
-	}
-	return $str;
-	
+    
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "TARIFICATION";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "PRIJZEN";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "PRICING";
+    }
+    return $str;
+    
 }
 
 
 function get_string_tour()
 {
-	
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "VISITE";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "OVERZICHT";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "TOUR";
-	}
-	return $str;
-	
+    
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "VISITE";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "OVERZICHT";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "TOUR";
+    }
+    return $str;
+    
 }
 
 function get_str_upload()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Projets chargés ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "Opgeladen ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Uploaded ";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Projets chargés ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Opgeladen ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Uploaded ";
+    }
+    
+    return $str;
 }
 function get_str_editing()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Projets en retouche";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "Onder bewerking";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "In Editing Process ";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Projets en retouche";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Onder bewerking";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "In Editing Process ";
+    }
+    
+    return $str;
 }
 function get_str_closed()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Projets clotûrés";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "Afgewerkt";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Closed Project ";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Projets clotûrés";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Afgewerkt";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Closed Project ";
+    }
+    
+    return $str;
 }
 
 
 function get_str_newname()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Nouveau nom";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "Nieuwe titel";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "New Name ";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Nouveau nom";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Nieuwe titel";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "New Name ";
+    }
+    
+    return $str;
 }
 
 
 
 function get_str_search()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Recherche projet";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "project zoeken ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Project Search ";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Recherche projet";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "project zoeken ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Project Search ";
+    }
+    
+    return $str;
 }
 
 
@@ -1403,208 +1403,208 @@ function get_str_search()
 
 function get_str_placeholder_title()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Titre du projet";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "Project titel ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Project Title ";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Titre du projet";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Project titel ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Project Title ";
+    }
+    
+    return $str;
 }
 function get_str_searchtxt()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Recherche";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "Zoeken ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Search ";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Recherche";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Zoeken ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Search ";
+    }
+    
+    return $str;
 }
 function get_str_updatetxt()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Mettre à jour";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "Update ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Update ";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Mettre à jour";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Update ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Update ";
+    }
+    
+    return $str;
 }
 function get_str_readytogo()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Prêt à partir ?";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "Klaar om te gaan ? ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Ready To Go ? ";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Prêt à partir ?";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Klaar om te gaan ? ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Ready To Go ? ";
+    }
+    
+    return $str;
 }
 
 function get_str_readytostart()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Prêt à démarrer ?";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "Klaar om te starten? ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Ready To start ? ";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Prêt à démarrer ?";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Klaar om te starten? ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Ready To start ? ";
+    }
+    
+    return $str;
 }
 function get_str_orderservice()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "COMMANDER LE SERVICE ?";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "BESTEL  DE DIENST ? ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "ORDER SERVICE? ";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "COMMANDER LE SERVICE ?";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "BESTEL  DE DIENST ? ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "ORDER SERVICE? ";
+    }
+    
+    return $str;
 }
 function get_str_wrong_photos()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Photos incorrectes ?";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "Verkeerde foto ? ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Wrong Photos ? ";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Photos incorrectes ?";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Verkeerde foto ? ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Wrong Photos ? ";
+    }
+    
+    return $str;
 }
 function get_str_delete()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Supprimer ce projet";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "Verwijder dit project ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Delete this project";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Supprimer ce projet";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Verwijder dit project ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Delete this project";
+    }
+    
+    return $str;
 }
 
 
 
 function get_str_or()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "OU";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "OR";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "OR";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "OU";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "OR";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "OR";
+    }
+    
+    return $str;
 }
 
 
 function get_str_uploadphoto()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "SELECTIONNER DES PHOTOS";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "PHOTOS UPLOADEN";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "UPLOAD PHOTOS";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "SELECTIONNER DES PHOTOS";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "PHOTOS UPLOADEN";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "UPLOAD PHOTOS";
+    }
+    
+    return $str;
 }
 
 function get_str_uploadphoto1()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Sélectionner des photos";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "Photos Uploaden";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Upload Photos";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Sélectionner des photos";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Photos Uploaden";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Upload Photos";
+    }
+    
+    return $str;
 }
 
 
@@ -1612,407 +1612,407 @@ function get_str_uploadphoto1()
 
 function get_str_review_project()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Examen des projets";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "Beoordeling Project";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Review Project";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Examen des projets";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Beoordeling Project";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Review Project";
+    }
+    
+    return $str;
 }
 
 function get_str_myproject()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "MES PROJETS";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "MIJN PROJECTEN";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "MY PROJECTS";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "MES PROJETS";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "MIJN PROJECTEN";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "MY PROJECTS";
+    }
+    
+    return $str;
 }
 
 
 function get_str_morephoto()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "CHARGER D'AUTRES PHOTOS";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "MEER FOTO'S OPLADEN";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "UPLOAD MORE PHOTOS";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "CHARGER D'AUTRES PHOTOS";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "MEER FOTO'S OPLADEN";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "UPLOAD MORE PHOTOS";
+    }
+    
+    return $str;
 }
 
 
 function get_str_createanaccount()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "CRÉER UN COMPTE";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "MAAK EEN ACCOUNT ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "CREATE AN ACCOUNT";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "CRÉER UN COMPTE";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "MAAK EEN ACCOUNT ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "CREATE AN ACCOUNT";
+    }
+    
+    return $str;
 }
 
 
 function get_str_ordersummary()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Résumé de la commande";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "Samenvatting van de bestelling ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Order Summary";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Résumé de la commande";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Samenvatting van de bestelling ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Order Summary";
+    }
+    
+    return $str;
 }
 
 
 function get_str_order_complete()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Commande terminée";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "Om voltooid";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Order Completed";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Commande terminée";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Om voltooid";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Order Completed";
+    }
+    
+    return $str;
 }
 
 
 function get_str_orderfor()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Images à retoucher";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "Dienst besteld voor ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Service ordered for";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Images à retoucher";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Dienst besteld voor ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Service ordered for";
+    }
+    
+    return $str;
 }
 function get_str_servisecredit()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Crédits nécessaires";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "dienst Credits ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Service Credits";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Crédits nécessaires";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "dienst Credits ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Service Credits";
+    }
+    
+    return $str;
 }
 function get_str_availablecredit()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Vos crédits disponibles";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "Uw beschikbare krediet";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Your available credits";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Vos crédits disponibles";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Uw beschikbare krediet";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Your available credits";
+    }
+    
+    return $str;
 }
 
 
 function get_str_EstimatedDelivery()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Vos crédits disponibles";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "Délai de livraison estimé ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Estimated Delivery";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Vos crédits disponibles";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Délai de livraison estimé ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Estimated Delivery";
+    }
+    
+    return $str;
 }
 function get_str_Project()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Projet";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "Project ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Project";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Projet";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Project ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Project";
+    }
+    
+    return $str;
 }
 function get_str_editings()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Retouche";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "Editing ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Editing";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Retouche";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Editing ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Editing";
+    }
+    
+    return $str;
 }
 function get_str_credit()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Cr&eacute;dits";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "Kredieten";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Credits";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Cr&eacute;dits";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Kredieten";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Credits";
+    }
+    
+    return $str;
 }
 
 function get_str_contactus()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Nous contacter";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "Contacteer ons ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Contact Us";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Nous contacter";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Contacteer ons ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Contact Us";
+    }
+    
+    return $str;
 }
 
 
 
 function get_str_profilesettings()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Paramètres & Profil";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "Profiel & Instellingen ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Profile & Settings";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Paramètres & Profil";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Profiel & Instellingen ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Profile & Settings";
+    }
+    
+    return $str;
 }
 
 
 
 function get_str_noediting()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Pas de retouche";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "geen bewerken ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "No Editing";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Pas de retouche";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "geen bewerken ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "No Editing";
+    }
+    
+    return $str;
 }
 function get_str_order()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "COMMANDE";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "BESTELLEN ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "ORDER";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "COMMANDE";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "BESTELLEN ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "ORDER";
+    }
+    
+    return $str;
 }
 
 function get_str_logout()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Se déconnecter";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "Uitloggen ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Logout";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Se déconnecter";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Uitloggen ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Logout";
+    }
+    
+    return $str;
 }
 
 
 
 function get_str_ordersuccessfully()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Service commandé avec succès";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "Bestelde dienst succesvol";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Service ordered successfully";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Service commandé avec succès";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Bestelde dienst succesvol";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Service ordered successfully";
+    }
+    
+    return $str;
 }
 function get_str_msgtxt1()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Le temps estimé de traitement est de 24 heures. Une notification par email vous sera envoyée dès que vos photos seront prêtes à être téléchargées.";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "De tijd om de foto's te behandelen wordt ingeschat op 24 uur. Een notificatie email zal gestuurd worden  van zodra de geretoucheerde foto's opgeladen zijn.  ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Estimated turn around is 24 hours. An email notification will be sent to you as soon as we uploaded edited photos. ";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Le temps estimé de traitement est de 24 heures. Une notification par email vous sera envoyée dès que vos photos seront prêtes à être téléchargées.";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "De tijd om de foto's te behandelen wordt ingeschat op 24 uur. Een notificatie email zal gestuurd worden  van zodra de geretoucheerde foto's opgeladen zijn.  ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Estimated turn around is 24 hours. An email notification will be sent to you as soon as we uploaded edited photos. ";
+    }
+    
+    return $str;
 }
 
 
 function get_str_closetxt()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Fermer";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "Dicht ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Closed ";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Fermer";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Dicht ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Closed ";
+    }
+    
+    return $str;
 }
 
 function get_str_clstxt()
@@ -2036,313 +2036,313 @@ function get_str_clstxt()
 
 function get_str_projectstatus()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "État du projet";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "project Status ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Project Status ";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "État du projet";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "project Status ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Project Status ";
+    }
+    
+    return $str;
 }
 function get_str_downloadzip()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Télécharger fichier zip";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "Download zipbestand ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Download zip file ";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Télécharger fichier zip";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Download zipbestand ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Download zip file ";
+    }
+    
+    return $str;
 }
 
 function get_str_downloadimg()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Télécharger l'image";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "Download Afbeelding ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Download Image ";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Télécharger l'image";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Download Afbeelding ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Download Image ";
+    }
+    
+    return $str;
 }
 
 function get_str_oruploadmorephoto()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "ou télécharger plus de photos";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "of upload meer foto's ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "or upload more photos ";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "ou télécharger plus de photos";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "of upload meer foto's ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "or upload more photos ";
+    }
+    
+    return $str;
 }
 
 
 function get_str_updatecart()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Mise à jour panier";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "Winkelwagen bijwerken ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Update Cart ";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Mise à jour panier";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Winkelwagen bijwerken ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Update Cart ";
+    }
+    
+    return $str;
 }
 
 function get_str_checkout()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Commande";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "UITCHECKEN ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "CHECKOUT ";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Commande";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "UITCHECKEN ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "CHECKOUT ";
+    }
+    
+    return $str;
 }
 
 
 function get_str_signup()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "INSCRIVEZ-VOUS";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "SCHRIJF ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "SIGN UP ";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "INSCRIVEZ-VOUS";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "SCHRIJF ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "SIGN UP ";
+    }
+    
+    return $str;
 }
 
 function get_str_login()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "SE CONNECTOR";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "LOG IN ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "LOGIN ";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "SE CONNECTOR";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "LOG IN ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "LOGIN ";
+    }
+    
+    return $str;
 }
 
 
 
 function get_str_slogan()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "De meilleures photos, de meilleures ventes! ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "Betere foto's, betere verkoop! ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Better Photos , better sales! ";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "De meilleures photos, de meilleures ventes! ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Betere foto's, betere verkoop! ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Better Photos , better sales! ";
+    }
+    
+    return $str;
 }
 
 function get_str_delete_project_success_msg()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Projet et ses images supprimées avec succès! ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "Project en de beelden met succes verwijderd! ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Project and its images deleted successfully ! ";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Projet et ses images supprimées avec succès! ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Project en de beelden met succes verwijderd! ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Project and its images deleted successfully ! ";
+    }
+    
+    return $str;
 }
 
 
 
 function get_str_services()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "NOS SERVICES";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "ONZE DIENSTEN";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "OUR SERVICES ";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "NOS SERVICES";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "ONZE DIENSTEN";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "OUR SERVICES ";
+    }
+    
+    return $str;
 }
 
 
 
 function get_str_yourcredit()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "vos crédits";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "uw credits ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Your  credits ";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "vos crédits";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "uw credits ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Your  credits ";
+    }
+    
+    return $str;
 }
 
 function get_str_buycredit()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Acheter des cr&eacute;dits";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "Koop Credits ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Buy  credits ";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Acheter des cr&eacute;dits";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "Koop Credits ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Buy  credits ";
+    }
+    
+    return $str;
 }
 
 function get_str_price_static_txt()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "	Obtenez une photo de l'immobilier professionnellement éditée pour aussi peu que";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "	Krijg een professionnally bewerkt vastgoed foto voor zo laag als ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "	Get a professionnally edited real estate photo for as low as ";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "    Obtenez une photo de l'immobilier professionnellement éditée pour aussi peu que";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "    Krijg een professionnally bewerkt vastgoed foto voor zo laag als ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "    Get a professionnally edited real estate photo for as low as ";
+    }
+    
+    return $str;
 }
 
 function get_str_price_static_txt1()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "	utilise des crédits pour payer les services d'édition. Un crédit est nécessaire pour un emploi d'édition.";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "	maakt gebruik van credits te betalen voor het bewerken diensten. Een credit is nodig voor één bewerken baan. ";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "	uses credits to pay for editing services. One credit is necessary for one editing job. ";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "    utilise des crédits pour payer les services d'édition. Un crédit est nécessaire pour un emploi d'édition.";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "    maakt gebruik van credits te betalen voor het bewerken diensten. Een credit is nodig voor één bewerken baan. ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "    uses credits to pay for editing services. One credit is necessary for one editing job. ";
+    }
+    
+    return $str;
 }
 
 function get_str_cartmsg()
 {
-	
-	if(ICL_LANGUAGE_CODE == 'fr')
-	{
-		$str = "Le 'crédit' est le moyen de transaction utilisé sur notre site web. Chaque service qui est commandé requiert un certain nombre de ces crédits qui seront déduits de votre compte. Les crédits restant dans votre compte sont valables un an à compter du jour d'achat.";
-	}
-	else if(ICL_LANGUAGE_CODE == 'nl')
-	{
-		$str = "'Krediet' is het betaalmiddel om van onze diensten gebruik te maken. Iedere dienst vereist een bepaald aantal kredieten die afgetrokken worden van uw account. Een krediet heeft een geldigheidsduur van exact 1 jaar.";
-	}
-	else if(ICL_LANGUAGE_CODE == 'en')
-	{
-		$str = "Credit is our site currency and you use credits to order our services.For each service ordered, a certain number of credit will be deducted from your account. Unused credit are kept in your account for future use for exactly 12 months from purchase date.";
-	}
-	
-	return $str;
+    
+    if(ICL_LANGUAGE_CODE == 'fr')
+    {
+        $str = "Le 'crédit' est le moyen de transaction utilisé sur notre site web. Chaque service qui est commandé requiert un certain nombre de ces crédits qui seront déduits de votre compte. Les crédits restant dans votre compte sont valables un an à compter du jour d'achat.";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $str = "'Krediet' is het betaalmiddel om van onze diensten gebruik te maken. Iedere dienst vereist een bepaald aantal kredieten die afgetrokken worden van uw account. Een krediet heeft een geldigheidsduur van exact 1 jaar.";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $str = "Credit is our site currency and you use credits to order our services.For each service ordered, a certain number of credit will be deducted from your account. Unused credit are kept in your account for future use for exactly 12 months from purchase date.";
+    }
+    
+    return $str;
 }
 
 function mythemename_form_alter( &$form, &$form_state, $form_id )
@@ -2358,32 +2358,32 @@ add_filter('manage_media_columns', 'posts_columns_attachment_id', 1);
 add_action('manage_media_custom_column', 'posts_custom_columns_attachment_id', 1, 2);
 function posts_columns_attachment_id($defaults){
     $defaults['wps_post_attachments_id'] = __('Group ID');
-	
+    
     return $defaults;
 }
 function posts_custom_columns_attachment_id($column_name, $id){
         if($column_name === 'wps_post_attachments_id'){
         //echo $id;
-		//get_post_meta($attachment->ID, '_title_en', true);
-		echo get_post_meta($id , 'group_id', true);
+        //get_post_meta($attachment->ID, '_title_en', true);
+        echo get_post_meta($id , 'group_id', true);
     }
 }
 
 
 function time_to_his ($seconds)
-	{
-	$days = floor ($seconds / 86400);
-	if ($days > 1) // 2 days+, we need days to be in plural
-	{
-	return $days . ' days ' . gmdate ('H:i:s', $seconds);
-	}
-	else if ($days > 0) // 1 day+, day in singular
-	{
-	return $days . ' day ' . gmdate ('H:i:s', $seconds);
-	}
-	
-	return gmdate ('H:i:s', $seconds);
-	}
+    {
+    $days = floor ($seconds / 86400);
+    if ($days > 1) // 2 days+, we need days to be in plural
+    {
+    return $days . ' days ' . gmdate ('H:i:s', $seconds);
+    }
+    else if ($days > 0) // 1 day+, day in singular
+    {
+    return $days . ' day ' . gmdate ('H:i:s', $seconds);
+    }
+    
+    return gmdate ('H:i:s', $seconds);
+    }
 
 ###################### CUSTOM CODE START ############################
 /**
@@ -3218,4 +3218,190 @@ function get_str_originaltxt() {
     }
     
     return $str;
+}
+
+/*
+*Rename the "Have a Coupon?" to "Got a coupon ?"message on the checkout page...
+*/
+function woocommerce_rename_coupon_message_on_checkout() {
+    $lblCoupon = 'Got a coupon ';
+    if(ICL_LANGUAGE_CODE == 'fr'){
+        $lblCoupon = "Vous avez un coupon";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $lblCoupon = "Kreeg een coupon ";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $lblCoupon = "Got a coupon ";
+    }
+    return $lblCoupon . '?' . ' <a href="#" class="showcoupon">' . __( 'Click here to enter your code', 'woocommerce' ) . '</a>';
+}
+add_filter( 'woocommerce_checkout_coupon_message', 'woocommerce_rename_coupon_message_on_checkout' );
+
+
+/*
+*Rename the coupon field on the checkout page...
+*/
+function woocommerce_rename_coupon_field_on_checkout( $translated_text, $text, $text_domain ) {
+    // bail if not modifying frontend woocommerce text
+    if ( is_admin() || 'woocommerce' !== $text_domain ) {
+        return $translated_text;
+    }
+
+    $lblApply = 'Apply';
+    if(ICL_LANGUAGE_CODE == 'fr'){
+        $lblApply = "Appliquer";
+    }
+    else if(ICL_LANGUAGE_CODE == 'nl')
+    {
+        $lblApply = "Brengen";
+    }
+    else if(ICL_LANGUAGE_CODE == 'en')
+    {
+        $lblApply = "Apply";
+    }
+
+    //Apply button rename...
+    if ( 'Apply Coupon' === $text ) {
+        $translated_text = $lblApply;
+    }
+    return $translated_text;
+}
+add_filter( 'gettext', 'woocommerce_rename_coupon_field_on_checkout', 10, 3 );
+
+/*
+*Hide coupon field on cart page...
+*/
+function hide_coupon_field_on_cart($enabled) {
+    if ( is_cart() ) {
+        $enabled = false;
+    }
+    return $enabled;
+}
+add_filter( 'woocommerce_coupons_enabled', 'hide_coupon_field_on_cart' );
+
+
+/*
+*This function will create zip for closed project by project id...
+*/
+function createZIPOfClosedProject($pid = 0){
+    $projectStatus = 3;
+    $args2 = array(
+        'post_status' => 'any',
+        'post_type'   => 'attachment',
+        'posts_per_page'=>-1,
+        'author'=> $user_ID,
+        'meta_query' => array(
+            array(
+                'key'     => 'group_id',
+                'value'   => $pid,
+                'compare' => '=',
+                'type'    => 'numeric',
+            ),
+            array(
+                'key'     => 'image_status',
+                'value'   => $projectStatus,
+                'compare' => '=',
+                'type'    => 'numeric',
+            ),
+        ),
+    );
+    $count2 = count(query_posts( $args2 ));
+    $filelist = array();
+    while(have_posts()) : the_post();
+        $newimageid = get_field('upload_image');
+        
+        $new_feat_image =  wp_get_attachment_url( $newimageid );
+
+        $filelist[] = $new_feat_image;      
+            
+    endwhile;  wp_reset_query(); // end of the loop.
+
+    //Create ZIP ARCHIVE from images...
+    $zipname = 'order-'.$pid.'.zip';
+    $files_to_zip = array();
+    foreach ($filelist as $file) {
+        $path = parse_url($file, PHP_URL_PATH);
+            
+        //To get the dir, use: dirname($path)
+        $inprocess_image_path = $_SERVER['DOCUMENT_ROOT'] . $path;
+        $files_to_zip[] = $inprocess_image_path;
+    }
+    $upload_dir = wp_upload_dir(); 
+
+
+    if(!file_exists($upload_dir['basedir'].'/uploadedzip/')){
+        mkdir($upload_dir['basedir'].'/uploadedzip/', 0755);
+    }
+
+
+    //if true, good; if false, zip creation failed
+    $result = create_zip($files_to_zip,'wp-content/uploads/uploadedzip/'.$zipname);
+
+    /*$zip = new ZipArchive;
+    $zip->open($zipname, ZipArchive::CREATE);
+    $zipname = 'order-'.$pid.'.zip';
+    $upload_dir = wp_upload_dir(); 
+    if ($handle = opendir($upload_dir['basedir'].'/uploadedzip/')) {
+        foreach ($filelist as $file) {
+            $path = parse_url($file, PHP_URL_PATH);
+                
+            //To get the dir, use: dirname($path)
+            $inprocess_image_path = $_SERVER['DOCUMENT_ROOT'] . $path;
+            $files_to_zip[] = $inprocess_image_path;
+            $str = explode('/',$file);
+            $entry = end($str);
+            $zip->addFile('uploadedzip/'.$entry, $entry);       
+        }
+    }
+    closedir($handle);
+    $zip->close();*/
+
+    return $zipname;
+}
+
+
+/* creates a compressed zip file */
+function create_zip($files = array(), $destination = '',$overwrite = false) {
+    
+    //if the zip file already exists and overwrite is false, return false
+    if(file_exists($destination) && !$overwrite) { return false; }
+    //vars
+    $valid_files = array();
+    //if files were passed in...
+    if(is_array($files)) {
+        //cycle through each file
+        foreach($files as $file) {
+            //make sure the file exists
+            if(file_exists($file)) {
+                $valid_files[] = $file;
+            }
+        }
+    }
+    //if we have good files...
+    if(count($valid_files)) {
+        //create the archive
+        $zip = new ZipArchive();
+        if($zip->open($destination,$overwrite ? ZIPARCHIVE::OVERWRITE : ZIPARCHIVE::CREATE) !== true) {
+            return false;
+        }
+        //add the files
+        foreach($valid_files as $file) {
+            $zip->addFile($file, basename($file));
+        }
+        //debug
+        //echo 'The zip archive contains ',$zip-&gt;numFiles,' files with a status of ',$zip-&gt;status;
+ 
+        //close the zip -- done!
+        $zip->close();
+        
+        //check to make sure the file exists
+        return file_exists($destination);
+    }
+    else
+    {
+        return false;
+    }
 }
