@@ -485,6 +485,9 @@ body .exampimage .handle {
   }
   #secondary {
     margin: 0;
+    @media screen and (max-width: $mobile) {
+      text-align: center;
+    }
     .togocls {
       width: 100%;
       margin: 20px 0 10px;
@@ -531,6 +534,10 @@ body .exampimage .handle {
 .topmargin-price #secondary .border-bot3.mainlink {
   margin-bottom: 50px;
   margin-left: 0;
+}
+.photo-upload-step {
+  display: inline-block;
+  width: 100%;
 }
 /* End */
 
@@ -858,6 +865,10 @@ body .exampimage .handle {
   @media screen and (max-width: $small-desktop) {
     left: 135px;
   }
+  @media screen and (max-width: $mobile) {
+    left: 240px;
+  }
+
 }
 /* End */
 
@@ -1104,6 +1115,39 @@ body.woocommerce-checkout {
 }
 /* End */
 
+/* Contact page */
+.contact-us {
+  .contact-middle-section {
+    display: inline-block;
+    width: 100%;
+    margin-top: 30px;
+    p {
+      a {
+        font-size: 14px;
+
+        }
+    }
+    @media screen and (max-width: $ipad-portrait) {
+      p {
+        a {
+          font-size: 11px;
+        }
+      }
+    }
+    @media screen and (max-width:$mobile){
+      margin-top: 0;
+      p {
+        a {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+/* End */
+
+
+
 /* Small desktop monitor view */
 @media screen and (max-width: 1200px) {
   /* Home page example section */
@@ -1152,4 +1196,12 @@ body.woocommerce-checkout {
     clear: left;
   }
 } /* 480px */
+
+
+ /* photo upload */
+@media screen and (max-width: $ipad-portrait) {
+  .page-id-67546 .divimage:nth-child(3n + 1) {
+    clear: none;
+    }
+  }
 
