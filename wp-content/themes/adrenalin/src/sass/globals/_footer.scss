@@ -247,6 +247,9 @@ $assets-path: '../..';
         float: right;
         width: 100%;
         text-align: right;
+        @media screen and (max-width: $mobile) {
+          text-align: center;
+        }
       }
     }
     @media screen and (max-width: $mobile) {
@@ -255,15 +258,22 @@ $assets-path: '../..';
         .subfooter {
           padding-left: 50px;
           .widget_nav_menu {
-            width: 40%;
+            width: 50%;
             &:nth-child(2) {
-              width: 60%;
+              width: 50%;
             }
           }
         }
       }
       .custom-credit-cards {
         width: 40%;
+      }
+    }
+    @media screen and (max-width: $mobile) {
+      .custom-menu-links {
+        .subfooter {
+          padding-left: 0px;
+        }
       }
     }
   }
@@ -280,6 +290,10 @@ $assets-path: '../..';
       white-space: nowrap;
       @media screen and (max-width: $ipad-portrait) {
         right: -32px;
+      }
+      @media screen and (max-width: $mobile) {
+        right: 0;
+        text-align: center;
       }
     }
   }
@@ -325,6 +339,9 @@ $assets-path: '../..';
       p {
         color: #FFF;
       }
+    }
+    @media screen and (max-width: $mobile) {
+      padding: 0 15px;
     }
   }
 }
