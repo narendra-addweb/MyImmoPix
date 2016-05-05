@@ -750,7 +750,7 @@ body .msgg2 small{font-size: 25px !important; color:#be1e2d}
 .header-wrapper{}
 .tunnelicon{ margin-top:30px;}
 .tunnelicon span{ float:right; margin-left:2px;}
-.tunnel-iconimg{ width:275px!important; min-height:200px;}
+.tunnel-iconimg{min-height:200px;}
 /*.myupload{ margin-right:183px!important;}*/
 .bx-controls-direction{ display:none;}
 

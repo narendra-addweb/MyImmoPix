@@ -272,7 +272,7 @@ $assets-path: '../..';
     @media screen and (max-width: $mobile) {
       .custom-menu-links {
         .subfooter {
-          padding-left: 0px;
+          padding-left: 0;
         }
       }
     }
