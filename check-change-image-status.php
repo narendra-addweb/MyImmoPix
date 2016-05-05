@@ -308,7 +308,7 @@ function sendProjectMail($project_id, $arrPojectUserDetail = array()) {
 	global $sitepress;
 	
 	//Create zip before send mail.
-	$zipname = createZIPOfClosedProject($project_id);
+	$zipname = createZIPOfClosedProject($project_id, TRUE);
 
 	/*SEND MAIL TO USER*/
 	$post_lang_code = langcode_post_id($project_id);
@@ -324,7 +324,7 @@ function sendProjectMail($project_id, $arrPojectUserDetail = array()) {
 	$admin_email = get_option('admin_email');
 	$subject = 'MyImmoPix - Your Project completed';
 	$blog_url = str_replace('/' . ICL_LANGUAGE_CODE, '',get_bloginfo("url"));
-	$download_url = str_replace(get_bloginfo("url") . '/',"",'wp-content/uploads/uploadedzip/'.$zipname);
+	$download_url = str_replace(get_bloginfo("url") . '/',"",'wp-content/uploads/uploadedzip/'.$zipname.'&pid='.$project_id);
 
 	$message = 'Dear ' . $arrPojectUserDetail['display_name'] .',<br /><br />Your project #' . $project_id . ' has been processed. Please check <a href="'. $lang_page_url .'">Close project</a><br /><br />Click <a href="'. $blog_url .'/downloadimg.php?zip='. $download_url .'">Download zip</a> to download your project files in ZIP format<br /><br />Thanks!';
 	

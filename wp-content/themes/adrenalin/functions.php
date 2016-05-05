@@ -3286,7 +3286,10 @@ add_filter( 'woocommerce_coupons_enabled', 'hide_coupon_field_on_cart' );
 /*
 *This function will create zip for closed project by project id...
 */
-function createZIPOfClosedProject($pid = 0){
+function createZIPOfClosedProject($pid = 0, $flagName = false){
+    $zipname = 'order-'.$pid.'.zip';
+    if($flagName) return $zipname;
+
     $projectStatus = 3;
     $args2 = array(
         'post_status' => 'any',
@@ -3320,7 +3323,7 @@ function createZIPOfClosedProject($pid = 0){
     endwhile;  wp_reset_query(); // end of the loop.
 
     //Create ZIP ARCHIVE from images...
-    $zipname = 'order-'.$pid.'.zip';
+    
     $files_to_zip = array();
     foreach ($filelist as $file) {
         $path = parse_url($file, PHP_URL_PATH);
