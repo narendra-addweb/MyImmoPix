@@ -46,7 +46,7 @@ jQuery(document).ready(function() {
 
   /* Menu */
   //jQuery('#block-system-main-menu ul.menu').wrap('<div class="menu-wrap"></div>');
-  jQuery('.menu-home-menus-for-inner-pages-container').prepend('<a href="javascript:void(0);" class="menu-navbtn"><span></span><span></span><span></span></a>');
+  jQuery('.menu-home-menus-for-inner-pages-container, .menu-home-menus-container').prepend('<a href="javascript:void(0);" class="menu-navbtn"><span></span><span></span><span></span></a>');
 
    jQuery(".menu-navbtn").click(function() {
     jQuery('.homemenu .menu').slideToggle().toggleClass(' ');
