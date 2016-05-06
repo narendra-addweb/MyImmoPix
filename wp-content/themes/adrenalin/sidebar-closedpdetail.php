@@ -35,4 +35,3 @@ $downldLink = str_replace('/' . ICL_LANGUAGE_CODE, '',get_bloginfo("url"));
 	  <div class="download-zip"> <a href="<?php echo $downldLink ?>/downloadimg.php?zip=<?php echo str_replace(get_bloginfo("url") . '/',"",'wp-content/uploads/uploadedzip/'.$zipname); ?>&pid=<?php echo $pid; ?>"><?php echo get_str_downloadzip()?></a></div>
 	</div>
 </div>
-<?php
