@@ -347,6 +347,7 @@ body .exampimage .handle {
     }
     @media screen and (max-width: $mobile) {
       width: 100%;
+      padding: 0;
     }
   }
 }
@@ -795,7 +796,7 @@ body .exampimage .handle {
 @media screen and (max-width: $ipad-portrait) {
   .creditsTable {
     .loop-area {
-      float: none;
+      /*float: none;*/
       display: inline-block;
       width: 47%;
       margin: 0 6% 30px 0;
@@ -944,6 +945,9 @@ body .exampimage .handle {
 @media screen and (max-width: $mobile-portrait) {
   .uploaded-img {
     width: 100%;
+  }
+  .content-area table.my_account_orders td.order-actions a.print {
+    display: none;
   }
 }
 /* End */

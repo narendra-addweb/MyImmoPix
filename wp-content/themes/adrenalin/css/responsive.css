@@ -1202,7 +1202,7 @@ input[type="radio"] {
 
   .content-area table.my_account_orders th.order-actions, 
   .content-area table.my_account_orders td.order-actions {
-    display: none;
+    /*display: none;*/
   }
 
   /* Layer Slider */
