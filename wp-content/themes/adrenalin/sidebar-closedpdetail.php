@@ -25,7 +25,7 @@ $projectStatus = 3;
         ),
     );
     $count2 = count(query_posts( $args2 ));
-    
+    wp_reset_query();
 $zipname = createZIPOfClosedProject($pid, TRUE);
 $downldLink = str_replace('/' . ICL_LANGUAGE_CODE, '',get_bloginfo("url"));
 	
