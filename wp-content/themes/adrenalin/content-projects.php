@@ -190,10 +190,10 @@ if(isset($_POST['update'])  && $_POST['update']!='')
 		?>
         
         <div class="row border-bot mainlink">
-        <div class="col-lg-2 col-md-2 mainlink"><a href="<?php echo get_bloginfo('url').'/editing-project-detail/?pid='.$pid.'';?>"><img src="<?php echo $img['url'] ?>"  /></a><span><strong><a href="<?php echo get_bloginfo('url').'/editing-project-detail/?pid='.$pid.'';?>"><?php echo $count2;?>
+        <div class="col-lg-2 col-md-2 col-xs-3 pro-uploaded mainlink"><a href="<?php echo get_bloginfo('url').'/editing-project-detail/?pid='.$pid.'';?>"><img src="<?php echo $img['url'] ?>"  /></a><span><strong><a href="<?php echo get_bloginfo('url').'/editing-project-detail/?pid='.$pid.'';?>"><?php echo $count2;?>
         <?php echo $phstr = get_string_photos();?></a></strong></span></div>
         
-       <div class="col-lg-10 col-md-10 color-bg"> 
+       <div class="col-lg-10 col-md-10 col-xs-9 pro-uploaded color-bg"> 
             <div class="col-lg-3 col-md-3 mainlink"><a href="<?php echo get_bloginfo('url').'/editing-project-detail/?pid='.$pid.'';?>"><strong><?php echo '#'.$pid;?></strong></a></div>
             <div class="col-lg-3 col-md-3 pull-right"><strong><?php echo $strTimeAgo;?></strong></div>
         </div>
@@ -201,17 +201,17 @@ if(isset($_POST['update'])  && $_POST['update']!='')
        <?php } else {?>
        
        <div class="row border-bot">
-        <div class="col-lg-2 col-md-2 mainlink"><a href="<?php echo get_bloginfo('url').'/?p='.$gotopage.'&pid='.$pid.'';?>"><img src="<?php echo $img['url'] ?>"  /></a><span><strong><a href="<?php echo get_bloginfo('url').'/?p='.$gotopage.'&pid='.$pid.'';?>"><?php echo $count2;?> Photos</a></strong></span></div>
+        <div class="col-lg-2 col-md-2 col-xs-3 pro-uploaded mainlink"><a href="<?php echo get_bloginfo('url').'/?p='.$gotopage.'&pid='.$pid.'';?>"><img src="<?php echo $img['url'] ?>"  /></a><span><strong><a href="<?php echo get_bloginfo('url').'/?p='.$gotopage.'&pid='.$pid.'';?>"><?php echo $count2;?> Photos</a></strong></span></div>
         
-       <div class="col-lg-10 col-md-10 color-bg"> 
+       <div class="col-lg-10 col-md-10 col-xs-9 pro-uploaded color-bg"> 
             <div class="col-lg-3 col-md-3 mainlink"><a href="<?php echo get_bloginfo('url').'/?p='.$gotopage.'&pid='.$pid.'';?>"><strong><?php echo '#'.$pid;?></strong></a></div>
             
             <form name="form1" action="" method="post">
             <input type="hidden" name="postid" class="postid" value="<?php echo $_POST['postid'];?>"  />
-            <div class="col-lg-3 col-md-3">
+            <div class="col-lg-3 col-md-3 col-sm-8 col-xs-7">
             
             <input type="text" name="project_name" placeholder="<?php echo get_str_newname();?>"  class="myinputtxt" value="<?php if($_POST['project_name'] != 'My Project'){echo $_POST['project_name'];}?>"  /></div>
-            <div class="col-lg-1 col-md-1"><button type="submit" name="update" value="update" class="btn btn-primary msearchbtn"><?php echo $ustr = get_str_updatetxt();?></button></div>
+            <div class="col-lg-1 col-md-1 col-sm-4 col-xs-5"><button type="submit" name="update" value="update" class="btn btn-primary msearchbtn"><?php echo $ustr = get_str_updatetxt();?></button></div>
             </form>
             
             <div class="col-lg-3 col-md-3 pull-right myfont"><strong><?php echo $strTimeAgo;?></strong></div>

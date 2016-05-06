@@ -269,11 +269,21 @@ $assets-path: '../..';
         width: 40%;
       }
     }
-    @media screen and (max-width: $mobile) {
+    @media screen and (max-width: $mobile-portrait) {
       .custom-menu-links {
+        width: 50%;
         .subfooter {
-          padding-left: 0;
+          padding-left: 30px;
+          .widget_nav_menu {
+            width: 100%;
+            &:nth-child(2) {
+              width: 100%;
+            }
+          }
         }
+      }
+      .custom-credit-cards {
+        width: 50%;
       }
     }
   }

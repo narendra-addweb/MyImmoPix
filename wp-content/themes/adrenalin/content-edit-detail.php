@@ -83,9 +83,9 @@
 
 			<div class="row topmargin">  
 				<div class="col-lg-12 col-md-12">
-			    <div class="col-lg-3 col-md-3"><strong><?php echo '#'.$pid;?></strong></div>
-			    <div class="col-lg-3 col-md-3"><strong><?php echo $count2;?> <?php print(get_string_photo());?></strong></div>
-			    <div class="col-lg-3 col-md-3"><strong><?php echo  $strTimeAgo;?></strong></div>
+			    <div class="col-lg-3 col-md-3 col-xs-6 test"><strong><?php echo '#'.$pid;?></strong></div>
+			    <div class="col-lg-3 col-md-3 col-xs-6"><strong><?php echo $count2;?> <?php print(get_string_photo());?></strong></div>
+			    <div class="col-lg-3 col-md-3 col-xs-12"><strong><?php echo  $strTimeAgo;?></strong></div>
 			    <div class="col-lg-3 col-md-3"></div>
 				</div>
 			</div>
@@ -132,7 +132,7 @@
             		</div>
             	</div>
 							<!-- popp model window-->
-	       			<div class="col-lg-2 col-md-2 divimage" id="div<?php echo get_the_id();?>">
+	       			<div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 divimage " id="div<?php echo get_the_id();?>">
 	       				<img src="<?php echo $img['url'] ?>"  />
 	        			<span class="imgid" ><strong><?php echo '#'.get_the_id();?></strong></span><span><!--<input type="button" name="mybutton" class="btn btn-primary btn-sm dftbtn dftbtn<?php //echo get_the_ID();?>" data-toggle="modal" data-target="#myModal<?php //echo get_the_ID();?>"   id="<?php //echo get_the_ID();?>"  value="image Notes" />--></span>
 	        		</div>
@@ -209,7 +209,7 @@
             		</div>
             	</div>
 							<!-- popp model window-->
-	       			<div class="col-lg-2 col-md-2 divimage" id="div<?php echo get_the_id();?>">
+	       			<div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 divimage" id="div<?php echo get_the_id();?>">
 	       				<img src="<?php echo $img['url'] ?>"  />
 	        			<span class="imgid" ><strong><?php echo '#'.get_the_id();?></strong></span><span><!--<input type="button" name="mybutton" class="btn btn-primary btn-sm dftbtn dftbtn<?php //echo get_the_ID();?>" data-toggle="modal" data-target="#myModal<?php //echo get_the_ID();?>"   id="<?php //echo get_the_ID();?>"  value="image Notes" />--></span>
 	        		</div>

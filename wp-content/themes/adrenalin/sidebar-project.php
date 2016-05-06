@@ -85,20 +85,20 @@
   
   <div class="row topmargin mainlink">
       <div class="col-lg-8 col-md-8 "><strong><a href="<?php echo get_bloginfo('url').'/?p='.$gotopage.'/'?>"><?php echo $ustr = get_str_upload();?></a></strong></div>
-      <div class="col-lg-2 col-md-2"><strong><a href="<?php echo get_bloginfo('url').'/?p='.$gotopage.'/'?>"><?php echo $mcount1;?></a></strong></div>
+      <div class="col-lg-4 col-md-4"><strong><a href="<?php echo get_bloginfo('url').'/?p='.$gotopage.'/'?>"><?php echo $mcount1;?></a></strong></div>
   </div>
   
   <div class="row topmargin mainlink">
       <div class="col-lg-8 col-md-8"><strong><a href="<?php echo get_bloginfo('url').'/?p='.$gotopage.'&ptype=2'?>"><?php echo $ustr = get_str_editing();?>
 	 </a></strong></div>
-      <div class="col-lg-2 col-md-2"><strong><a href="<?php echo get_bloginfo('url').'/?p='.$gotopage.'&ptype=2'?>"><?php echo $mcount2;?></a></strong></div>
+      <div class="col-lg-4 col-md-4"><strong><a href="<?php echo get_bloginfo('url').'/?p='.$gotopage.'&ptype=2'?>"><?php echo $mcount2;?></a></strong></div>
   </div>
   
   <div class="row topmargin mainlink">
 
       <div class="col-lg-8 col-md-8"><strong><a href="<?php echo get_bloginfo('url').'/closed-projects/'?>"><?php echo $ustr = get_str_closed();?>
 	  </a></strong></div>
-      <div class="col-lg-2 col-md-2"><strong><a href="<?php echo get_bloginfo('url').'/closed-projects/'?>"><?php echo $mcount3;?></a></strong></div>
+      <div class="col-lg-4 col-md-4"><strong><a href="<?php echo get_bloginfo('url').'/closed-projects/'?>"><?php echo $mcount3;?></a></strong></div>
   </div>
   
   
@@ -118,7 +118,7 @@
   <div class="row topmargin ">
       
       <form name="form" action="" method="get">
-      <div class="col-lg-8 col-md-8 ">
+      <div class="col-lg-12 col-md-12 ">
       <input type="text" name="your_project_title" value="<?php echo trim($_GET['your_project_title']);?>" placeholder="<?php echo $ustr = get_str_placeholder_title();?>"  /></div>
       <div class="col-lg-6 col-md-6 topmargin "><button type="submit" name="search" class="btn btn-primary msearchbtn">
 	  <?php echo $ustr = get_str_searchtxt();?></button></div>

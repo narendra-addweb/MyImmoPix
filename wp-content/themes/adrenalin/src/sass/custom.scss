@@ -515,6 +515,19 @@ body .exampimage .handle {
       }
     }
   }
+  @media screen and (max-width: $ipad-portrait) {
+    .mbgcolr1 {
+      .topmargin4 {
+        margin-top: 20px;
+      }
+    }
+    #secondary {
+      text-align: center;
+    }
+    .topmarginorder {
+      padding: 0 15px;
+    }
+  }
 }
 .tunnelicon {
   .tunnel-iconimg {
@@ -538,7 +551,63 @@ body .exampimage .handle {
 .photo-upload-step {
   display: inline-block;
   width: 100%;
+  margin-top: 20px;
+  text-align: center;
 }
+@media screen and (max-width: $small-desktop) {
+  .pro-list-sidebar {
+    padding: 0 20px;
+    input {
+      max-width: 204px;
+      width: 100%;
+    }
+  }
+}
+@media screen and (max-width: $ipad-portrait) {
+  .upload-edit-img {
+    .imgid {
+      text-align: left;
+    }
+    .radiotxt {
+      display: inline-block;
+      span {
+        width: 100%;
+      }
+    }
+  }
+}
+@media screen and (max-width: $mobile) {
+  .res-mrg-bottom-30 {
+    margin-bottom: 30px;
+  }
+  .buttons {
+    a.button {
+      max-width: 235px;
+    }
+  }
+  .content-area {
+    footer.entry-meta {
+      padding: 0;
+    }
+  }
+}
+@media screen and (max-width: $mobile-portrait) {
+  .upload-edit-img {
+    width: 100%;
+  }
+  .border-bot {
+    .pro-uploaded {
+      width: 100%;
+      span {
+        text-align: left;
+      }
+    }
+    span {
+      text-align: left;
+    }
+  }
+}
+
 /* End */
 
 /* My account page */
@@ -778,6 +847,9 @@ body .exampimage .handle {
 /**
  * Photo upload page
  */
+.tunnel {
+  width: 100%;
+}
 .page-template-template-upload {
   .tunnelicon,
   .tunnel {
@@ -868,7 +940,11 @@ body .exampimage .handle {
   @media screen and (max-width: $mobile) {
     left: 240px;
   }
-
+}
+@media screen and (max-width: $mobile-portrait) {
+  .uploaded-img {
+    width: 100%;
+  }
 }
 /* End */
 
@@ -1202,6 +1278,9 @@ body.woocommerce-checkout {
 @media screen and (max-width: $ipad-portrait) {
   .page-id-67546 .divimage:nth-child(3n + 1) {
     clear: none;
-    }
   }
+  .page-id-67546 .divimage:nth-child(2n + 1) {
+    clear: left;
+  }
+}
 

@@ -116,7 +116,7 @@
 			 	$image_notes = get_post_meta( get_the_id() , 'image_notes'  , true); 
                 ?>
                 
-              	<div class="col-lg-4 col-md-4 col-sm-6 divimage" id="div<?php echo get_the_id();?>">
+              	<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 uploaded-img divimage" id="div<?php echo get_the_id();?>">
                 
 				
 				<div class="crossimage"><img id="<?php echo get_the_id();?>" src="<?php echo $upload_dir['baseurl'].'/icon/cross.png' ?>"  /></div>

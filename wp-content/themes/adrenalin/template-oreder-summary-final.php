@@ -21,32 +21,42 @@ get_header();
 	
 	
 	<div class="tunnelicon">
-       
-	  	<div class="col-lg-12 col-md-12 tunnel">
-		<div class="col-lg-3 col-md-3 tunnel-iconimg"><img src="<?php echo $upload_dir['baseurl']; ?>/icon/upload_photos_inactive.png" width="100px" height="80px" /></div>
-		<div class="col-lg-3 col-md-3 tunnel-iconimg"><img src="<?php echo $upload_dir['baseurl']; ?>/icon/project_review_inactive.png" width="100px" height="80px" /></div>
-		<div class="col-lg-3 col-md-3 tunnel-iconimg"><img src="<?php echo $upload_dir['baseurl']; ?>/icon/order_summary_inactive.png" width="100px" height="80px" /></div>
-		<div class="col-lg-3 col-md-3 tunnel-iconimg"><img src="<?php echo $upload_dir['baseurl']; ?>/icon/order_confirmed_active.png" width="100px" height="80px" /></div>
-		
+	  <div class="tunnel">
+  		<div class="col-lg-3 col-sm-3 col-xs-6 res-mrg-bottom-30">
+        <div class="tunnel-iconimg">
+          <img src="<?php echo $upload_dir['baseurl']; ?>/icon/upload_photos_inactive.png" width="100px" height="80px" />
+        </div>
+        <span class="photo-upload-step"><small><?php echo get_str_uploadphoto1();?> </small></span>
+      </div>
+  		<div class="col-lg-3 col-sm-3 col-xs-6 res-mrg-bottom-30">
+        <div class="tunnel-iconimg">
+          <img src="<?php echo $upload_dir['baseurl']; ?>/icon/project_review_inactive.png" width="100px" height="80px" />
+        </div>
+        <span class="photo-upload-step"><small> <?php echo get_str_review_project();?></small></span>
+      </div>
+  		<div class="col-lg-3 col-sm-3 col-xs-6 res-mrg-bottom-30">
+        <div class="tunnel-iconimg">
+          <img src="<?php echo $upload_dir['baseurl']; ?>/icon/order_summary_inactive.png" width="100px" height="80px" />
+        </div>
+        <span class="photo-upload-step"><small><?php echo get_str_ordersummary();?></small></span>
+      </div>
+  		<div class="col-lg-3 col-sm-3 col-xs-6 res-mrg-bottom-30">
+        <div class="tunnel-iconimg">
+          <img src="<?php echo $upload_dir['baseurl']; ?>/icon/order_confirmed_active.png" width="100px" height="80px" />
+        </div>
+        <span class="photo-upload-step"><small>  <?php echo get_str_order_complete();?></small></span>
+      </div>
 		</div>
-		
-    </div>
-	
-	<div class="col-lg-12 col-md-12 tunnel">
-	<div class="col-lg-3 col-md-3"><span><small><?php echo get_str_uploadphoto1();?> </small></span></div>
-	<div class="col-lg-3 col-md-3"><span><small> <?php echo get_str_review_project();?></small></span></div>
-	<div class="col-lg-3 col-md-3"><span><small><?php echo get_str_ordersummary();?></small></span></div>
-	<div class="col-lg-3 col-md-3"><span><small>  <?php echo get_str_order_complete();?></small></span></div>
-	</div>
+  </div>
 	
 	
         <div class="row">
-        <div class="col-lg-3 col-md-3 col-md-push-9 col-lg-push-9">
+        <div class="col-lg-3 col-md-3 col-sm-4 col-sm-push-8 col-md-push-9 col-lg-push-9">
           <div class="mbgcolr1 topmarginorder">
             <?php get_sidebar('finalorder'); ?>
           </div>
         </div>
-        <div class="col-lg-9 col-md-9 col-md-pull-3 col-lg-pull-3">
+        <div class="col-lg-9 col-md-9 col-sm-8 col-sm-pull-4 col-md-pull-3 col-lg-pull-3">
             <div id="primary" class="content-area mbgcolr topmarginorder ">
                 <main id="main" class="site-main" role="main">
 

@@ -44,6 +44,15 @@ jQuery(document).ready(function() {
   });
   /* End */
 
+  /* Menu */
+  //jQuery('#block-system-main-menu ul.menu').wrap('<div class="menu-wrap"></div>');
+  jQuery('.menu-home-menus-for-inner-pages-container').prepend('<a href="javascript:void(0);" class="menu-navbtn"><span></span><span></span><span></span></a>');
+
+   jQuery(".menu-navbtn").click(function() {
+    jQuery('.homemenu .menu').slideToggle().toggleClass(' ');
+  });
+
+
    /* Scrolling effect in home page*/
   jQuery( ".homemenu .menu li a" ).live( "click", function() {
     var target = jQuery(this).attr("href");

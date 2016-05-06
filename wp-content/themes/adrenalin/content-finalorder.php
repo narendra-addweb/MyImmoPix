@@ -55,9 +55,9 @@
 			$count2 = count(query_posts( $args2 ));
 			$strTimeAgo = get_string_upload($mdate);
 			?><div class="row topmargin">  <div class="col-lg-12 col-md-12">
-          <div class="col-lg-3 col-md-3"><strong><?php echo '#'.$pid;?></strong></div>
-          <div class="col-lg-3 col-md-3"><strong><?php echo $count2;?> Photos</strong></div>
-          <div class="col-lg-3 col-md-3"><strong><?php echo  $strTimeAgo;?></strong></div>
+          <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6"><strong><?php echo '#'.$pid;?></strong></div>
+          <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6"><strong><?php echo $count2;?> Photos</strong></div>
+          <div class="col-lg-3 col-md-3 col-sm-4"><strong><?php echo  $strTimeAgo;?></strong></div>
           <div class="col-lg-3 col-md-3"></div>
       </div> </div>
 			<div class="row topmargin">  
@@ -69,7 +69,7 @@
 			      $i++;
 			      $image_notes = get_post_meta( get_the_id() , 'image_notes'  , true); 
 
-			      ?><div class="col-lg-2 col-md-2 divimage" id="div<?php echo get_the_id();?>">
+			      ?><div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 divimage" id="div<?php echo get_the_id();?>">
 		               
 		                
 		        <img src="<?php echo $img['url'] ?>"  />

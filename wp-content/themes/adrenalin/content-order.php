@@ -55,7 +55,7 @@
                     $img =  vt_resize('',$feat_image,200, 120,false); //Proportionally resize
                     ?>
                    
-                    <div class="col-lg-6 col-md-6">
+                    <div class="col-lg-6 col-sm-6 col-xs-6 upload-edit-img">
                        
                        <div class="row">
                        <div class="col-lg-3 col-md-3"><img src="<?php echo $img['url'] ?>"  /> <span class="imgid" ><strong><?php echo '#'.get_the_id();?></strong></span></div>
