@@ -216,13 +216,26 @@ $assets-path: '../..';
 }
 
 @media screen and (max-width:$small-desktop) {
-  .homemenu {
-    display: inline-block;
-    width: 100%;
-    .menu-home-menus-container,
-    .menu-home-menus-for-inner-pages-container {
-      margin: 0;
+  .cg-logo-cart-wrap {
+    .logo.image {
+      /*height: 120px;*/
     }
+    .homemenu {
+      /*position: absolute;
+      top: 80px;*/
+      display: inline-block;
+      width: 100%;
+      .menu-home-menus-container,
+      .menu-home-menus-for-inner-pages-container {
+        margin: 0;
+        li {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+  .cg-menu-below.tiny {
+    display: inline-block !important;
   }
 }
 
@@ -261,44 +274,119 @@ $assets-path: '../..';
   }
 }
 
+.menu-login-btn,
+.menu-navbtn,
+.logged-in .menu-login-btn { display: none; }
+
 @media screen and (max-width:$mobile) {
-  .homemenu {
-    .menu {
-      display: none;
-    }
-    .menu-home-menus-container,
-    .menu-home-menus-for-inner-pages-container {
-      display: inline-block;
-      width: 100%;
-      .menu-navbtn {
-        display: block;
-        height: 22px;
-        width: 30px;
-        color: red;
-        font-size: 1px;
-        line-height: 22px;
-        text-decoration: none;
-        cursor: pointer;
-        span {
-          display: block;
-          height: 2px;
-          margin-top: 4px;
-          background: #666;
-        }
+  .cg-logo-cart-wrap {
+    .homemenu {
+      float: right;
+      width: auto;
+      .menu {
+        display: none;
       }
-      #menu-home-menus-for-inner-pages,
-      #menu-footer-links-company {
+      .menu-home-menus-container,
+      .menu-home-menus-for-inner-pages-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        display: inline-block;
         width: 100%;
-        li {
-          display: inline-block;
+        margin: 90px 0 0;
+        background-color: $gray-light-f4;
+        .menu-navbtn {
+          display: block;
+          height: 22px;
+          width: 30px;
+          color: red;
+          font-size: 1px;
+          line-height: 22px;
+          text-decoration: none;
+          cursor: pointer;
+          span {
+            display: block;
+            height: 2px;
+            margin-top: 4px;
+            background: #666;
+          }
+        }
+        #menu-home-menus-for-inner-pages,
+        #menu-footer-links-company,
+        #menu-home-menus {
           width: 100%;
-          margin: 0;
-          a {
+          li {
             display: inline-block;
             width: 100%;
+            margin: 0;
+            a {
+              display: inline-block;
+              width: 100%;
+              padding: 0 15px;
+            }
           }
         }
       }
     }
+    .cg-header-search .login-area {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      display: none;
+      width: 100%;
+      margin: 90px 0 0;
+      background-color: $gray-light-f4;
+      .fleft {
+        margin-top: 0;
+        padding: 5px 10px;
+      }
+      .signupcls,
+      .logincls {
+        margin-top: 23px;
+      }
+    }
+    .cg-wp-menu-wrapper {
+      .col-md-4.pull-right {
+        width: 100%;
+      }
+    }
+    .menu-login-btn,
+    .menu-navbtn {
+      display: inline-block;
+      margin: 20px 3px 5px;
+      padding: 6px 15Px;
+      border: 1px solid #1B75BB;
+      background-color: #FFF;
+      color: #1B75BB;
+      font-size: 13px;
+      line-height: 20px;
+      &:hover,
+      &:focus {
+        background-color: #1B75BB;
+        color: #FFF;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width:$mobile-portrait) {
+  .cg-header-search .seactbox .bootstrap-select {
+    width: 155px !important;
+  }
+  .cg-menu-below .cg-logo-cart-wrap .logo img {
+    max-width: 150px !important;
+  }
+  .logoslogan {
+    font-size: 11px;
+  }
+}
+
+@media screen and (max-width:$small-mobile-portrait) {
+  .cg-logo-cart-wrap .menu-login-btn,
+  .cg-logo-cart-wrap .menu-navbtn {
+    padding: 6PX 7PX;
   }
 }

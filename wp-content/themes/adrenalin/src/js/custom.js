@@ -46,12 +46,21 @@ jQuery(document).ready(function() {
 
   /* Menu */
   //jQuery('#block-system-main-menu ul.menu').wrap('<div class="menu-wrap"></div>');
-  jQuery('.menu-home-menus-for-inner-pages-container, .menu-home-menus-container').prepend('<a href="javascript:void(0);" class="menu-navbtn"><span></span><span></span><span></span></a>');
 
-   jQuery(".menu-navbtn").click(function() {
+
+  jQuery('.menu-home-menus-for-inner-pages-container, .homemenu').prepend('<a href="javascript:void(0);" class="menu-login-btn">login</a><a href="javascript:void(0);" class="menu-navbtn">Menu<span></span><span></span><span></span></a>');
+  
+  jQuery(".menu-navbtn").click(function() {
     jQuery('.homemenu .menu').slideToggle().toggleClass(' ');
+    jQuery('.login-area').hide();
   });
 
+  //jQuery('.cg-header-search').prepend('');
+
+  jQuery(".menu-login-btn").click(function() {
+    jQuery('.login-area').slideToggle().toggleClass(' ');
+    jQuery('.homemenu .menu').hide();
+  });
 
    /* Scrolling effect in home page*/
   jQuery( ".homemenu .menu li a" ).live( "click", function() {
