@@ -8,7 +8,6 @@
 $assets-path: '../..';
 /* Import to basic elements creat ed for site */
 
-
 /**
  * Top Header
  */
@@ -374,13 +373,10 @@ $assets-path: '../..';
   .logged-in {
     .cg-logo-cart-wrap .menu-login-btn { display: none; }
     .menu-navbtn {
-      margin-top: 30px;
-      margin-right: 75px;
+      margin-top: 33px;
+      margin-right: 65px;
     }
   }
-}
-
-@media screen and (max-width:$mobile-portrait) {
   .cg-header-search .seactbox .bootstrap-select {
     width: 155px !important;
   }

@@ -804,7 +804,8 @@ body .exampimage .handle {
       margin-bottom: 30px;
     }
   }
-  .content-area table.my_account_orders td.order-actions a.print {
+  .content-area table.my_account_orders td.order-actions a.print,
+  a.print {
     display: none;
   }
 }
@@ -1265,6 +1266,15 @@ body.woocommerce-checkout {
         a {
           font-size: 14px;
         }
+      }
+    }
+  }
+}
+@media screen and (max-width: $mobile) {
+  #cg-page-wrap {
+    .content-area {
+      .wpb_row {
+        margin-bottom: 0;
       }
     }
   }
