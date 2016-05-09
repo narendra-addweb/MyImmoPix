@@ -299,10 +299,6 @@ body .exampimage .handle {
       &:last-child {
         margin-right: 0;
       }
-      @media screen and (max-width: $mobile-landscape) {
-        max-width: 100%;
-        width: 100%;
-      }
       li {
         float: left;
         width: -moz-calc(50% - 5px);
@@ -311,6 +307,17 @@ body .exampimage .handle {
         margin: 0 10px 10px 0;
         &:nth-child(2n) {
           margin-right: 0;
+        }
+      }
+      @media screen and (max-width: $mobile-landscape) {
+        max-width: 100%;
+        width: 100%;
+      }
+      @media screen and (max-width: $small-mobile-portrait) {
+        li {
+          span {
+            font-size: 9px;
+          }
         }
       }
     }
@@ -825,9 +832,6 @@ body .exampimage .handle {
 }
 /* End */
 
-
-
-
 #text-12 {
   width: 100%;
   .sidebar-cart {
@@ -1002,8 +1006,31 @@ body.single-product .product-title-wrapper {
 }
 /* end  */
 
+/**
+ * Video
+ */
 
-
+@media screen and (max-width: $mobile-portrait) {
+  .blog-blue {
+    .video-content {
+      position: relative;
+      height: 0;
+      width: 90%;
+      margin: 0 auto;
+      padding-top: 25px;
+      padding-bottom: 56.25%;
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+      }
+    }
+  }
+}
 
 /**
  * Responsive design
@@ -1204,17 +1231,28 @@ body.woocommerce-checkout {
     p {
       a {
         font-size: 14px;
-
-        }
+      }
     }
-    @media screen and (max-width: $ipad-portrait) {
+  }
+  .cg-section {
+    wpb_row {
+      margin-bottom: 0 !important;
+    }
+  }
+  @media screen and (max-width: $ipad-portrait) {
+    .contact-middle-section {
       p {
         a {
           font-size: 11px;
         }
+        .contact-no {
+          color: #333;
+        }
       }
     }
-    @media screen and (max-width:$mobile){
+  }
+  @media screen and (max-width:$mobile) {
+    .contact-middle-section {
       margin-top: 0;
       p {
         a {

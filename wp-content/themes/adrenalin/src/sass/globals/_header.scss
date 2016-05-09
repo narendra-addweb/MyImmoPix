@@ -234,8 +234,32 @@ $assets-path: '../..';
       }
     }
   }
+  .cg-wp-menu-wrapper {
+    .col-lg-4 {
+      z-index: 1;
+    }
+  }
 }
 
+@media screen and (max-width:$mobile-landscape) {
+  .cg-header-search {
+    .login-area {
+      a {
+        .btn {
+          padding: 6px 10px;
+        }
+      }
+      .logincls,
+      .signupcls {
+        div {
+          a {
+            padding: 6px 10px;
+          }
+        }
+      }
+    }
+  }
+}
 
 @media screen and (max-width:$mobile) {
   .homemenu {
@@ -278,6 +302,3 @@ $assets-path: '../..';
     }
   }
 }
-
-
-
