@@ -390,7 +390,6 @@ function sendProjectMail($project_id, $arrPojectUserDetail = array()) {
 		$message = 'Beste website admin,<br /><br />De geretoucheerde foto’s van uw bestelling #' . $project_id . ' werden zopas opgeladen.<br /><br />Gelieve op de volgend link te klikken om uw herwerkte foto’s te downloaden:<br /><br /><a href="'. $blog_url .'/downloadimg.php?zip='. $download_url .'">'. $download_url .'</a><br /><br />De bestanden blijven gedurende 90 dagen beschikbaar op <a href="'. $lang_page_url .'">myimmopix.com</a>. Daarna zullen ze worden verwijderd. Wij raden u dus aan om uw foto’s zo snel als mogelijk te downloaden.<br /><br />Met vriendelijke groeten,<br />Het team van Myimmopix';
 	}
 
-
  	if(!wp_mail( $to, $subject, $message, $headers)){
     echo('The e-mail could not be sent to site admin. <br />');
  	}
