@@ -215,7 +215,17 @@ sendProjectMail('74793', $arrProjAuthorInfo);
 * This function will check and set requested attachement category and update it.
 */
 function check_and_update_attachment($parent_post_id, $file_path, $attachement_id, $post_author){
-	$category_id = 98;
+	//$category_id = 98;//For local
+	$category_id = 97;//For live
+	$post_lang_code = langcode_post_id($parent_post_id);
+	$arrInProcessCatId = array('en' => '97', 'nl' => '99', 'fr' => '100');
+	$arrProcessedCatId = array('en' => '98', 'nl' => '101', 'fr' => '102');
+
+	//Get inprocess category id...
+	if(isset($arrInProcessCatId[$post_lang_code]) && $arrInProcessCatId[$post_lang_code] > 0)	{
+		$category_id = $arrInProcessCatId[$post_lang_code];
+	}
+
 	$wp_upload_dir = wp_upload_dir();
 		
 	$filename = str_replace( $wp_upload_dir['url'] . '/', '', $file_path);
@@ -264,7 +274,7 @@ function check_and_update_attachment($parent_post_id, $file_path, $attachement_i
 		$inprocess_image_path = $_SERVER['DOCUMENT_ROOT'] . $path;
 		$attach_id = wp_insert_attachment( $attachment, $inprocess_image_path, $parent_post_id);
 
-		include_once( ABSPATH . 'wp-admin/includes/image.php' );
+		include_once(ABSPATH . 'wp-admin/includes/image.php' );
 		require_once(ABSPATH . 'wp-blog-header.php');
 		require_once(ABSPATH . 'wp-admin/includes/image.php');
 		// Generate the metadata for the attachment, and update the database record.
@@ -272,13 +282,18 @@ function check_and_update_attachment($parent_post_id, $file_path, $attachement_i
 		wp_update_attachment_metadata( $attach_id, $attach_data );
 		//set_post_thumbnail( $parent_post_id, $attach_id );
 
-		
+		update_post_meta($attachement_id, 'image_status', '3');
+
 		add_post_meta($attach_id, 'image_status', '3');
 		add_post_meta($attach_id, 'credits', '1');
 		add_post_meta($attach_id, 'group_id', $parent_post_id);
 
 		// no, then get the default one
 		$post_category = array('100');//Get custom category 'Inprocess'
+		//Get inprocess category id...
+		if(isset($arrProcessedCatId[$post_lang_code]) && $arrProcessedCatId[$post_lang_code] > 0)	{
+			$post_category = $arrProcessedCatId[$post_lang_code];
+		}
 
 		// then set category if default category is set on writting page
 		if ( $post_category )
@@ -328,6 +343,19 @@ function sendProjectMail($project_id, $arrPojectUserDetail = array()) {
 
 	$message = 'Dear ' . $arrPojectUserDetail['display_name'] .',<br /><br />Your project #' . $project_id . ' has been processed. Please check <a href="'. $lang_page_url .'">Close project</a><br /><br />Click <a href="'. $blog_url .'/downloadimg.php?zip='. $download_url .'">Download zip</a> to download your project files in ZIP format<br /><br />Thanks!';
 	
+	//Mail content for English language...
+	if(strtolower($post_lang_code) == 'en'){
+		$message = 'Hi ' . $arrPojectUserDetail['display_name'] .',<br /><br />Congratulations! We have uploaded the latest edited photo(s) for your order #' . $project_id . '.<br /><br />Please click the following link to download your edited images:<br /><br /><a href="'. $blog_url .'/downloadimg.php?zip='. $download_url .'">'. $download_url .'</a><br /><br />The images with stay on <a href="'. $lang_page_url .'">myimmopix.com</a> for 90 days. They will then be deleted, so please download them as quickly as possible.<br /><br />Sincerely yours,<br />Myimmopix - The team';
+	}
+	//Mail content for French language...
+	else if(strtolower($post_lang_code) == 'fr'){
+		$message = 'Bonjour ' . $arrPojectUserDetail['display_name'] .',<br /><br />Félicitations! Nous avons chargé les photos retouchées de votre commande #' . $project_id . '.<br /><br />Veuillez suivre le lien suivant pour télécharger vos images retouchées :<br /><br /><a href="'. $blog_url .'/downloadimg.php?zip='. $download_url .'">'. $download_url .'</a><br /><br />Les images resteront sur <a href="'. $lang_page_url .'">myimmopix.com</a> pour 90 jours. Elles serotn ensuite supprimées. Merci donc de les télécharger le plus tôt possible.<br /><br />Cordialement,<br />Myimmopix -' . "L'équipe";
+	}
+	//Mail content for Dutch language...
+	else if(strtolower($post_lang_code) == 'nl'){
+		$message = 'Beste ' . $arrPojectUserDetail['display_name'] .',<br /><br />De geretoucheerde foto’s van uw bestelling #' . $project_id . ' werden zopas opgeladen.<br /><br />Gelieve op de volgend link te klikken om uw herwerkte foto’s te downloaden:<br /><br /><a href="'. $blog_url .'/downloadimg.php?zip='. $download_url .'">'. $download_url .'</a><br /><br />De bestanden blijven gedurende 90 dagen beschikbaar op <a href="'. $lang_page_url .'">myimmopix.com</a>. Daarna zullen ze worden verwijderd. Wij raden u dus aan om uw foto’s zo snel als mogelijk te downloaden.<br /><br />Met vriendelijke groeten,<br />Het team van Myimmopix';
+	}
+	
 	$headers  = "MIME-Version: 1.0" . "\n";
     $headers .= "Content-type: text/html; charset=iso-8859-1" . "\n";
     $headers .= "X-Priority: 1 (Higuest)\n";
@@ -348,11 +376,26 @@ function sendProjectMail($project_id, $arrPojectUserDetail = array()) {
   $to = $admin_email;
   $message = 'Dear Admin,<br /><br />Your project #' . $project_id . ' has been processed. Please check <a href="'. $lang_page_url .'">Close project</a><br /><br />Click <a href="'. $blog_url .'/downloadimg.php?zip='. $download_url .'">Download zip</a> to download project files in ZIP format<br /><br />Thanks!';
 
+
+  //Mail content for English language...
+	if(strtolower($post_lang_code) == 'en'){
+		$message = 'Dear site admin,<br /><br />Congratulations! We have uploaded the latest edited photo(s) for your order #' . $project_id . '.<br /><br />Please click the following link to download your edited images:<br /><br /><a href="'. $blog_url .'/downloadimg.php?zip='. $download_url .'">'. $download_url .'</a><br /><br />The images with stay on <a href="'. $lang_page_url .'">myimmopix.com</a> for 90 days. They will then be deleted, so please download them as quickly as possible.<br /><br />Sincerely yours,<br />Myimmopix - The team';
+	}
+	//Mail content for French language...
+	else if(strtolower($post_lang_code) == 'fr'){
+		$message = 'Cher administrateur du site,<br /><br />Félicitations! Nous avons chargé les photos retouchées de votre commande #' . $project_id . '.<br /><br />Veuillez suivre le lien suivant pour télécharger vos images retouchées :<br /><br /><a href="'. $blog_url .'/downloadimg.php?zip='. $download_url .'">'. $download_url .'</a><br /><br />Les images resteront sur <a href="'. $lang_page_url .'">myimmopix.com</a> pour 90 jours. Elles serotn ensuite supprimées. Merci donc de les télécharger le plus tôt possible.<br /><br />Cordialement,<br />Myimmopix -' . "L'équipe";
+	}
+	//Mail content for Dutch language...
+	else if(strtolower($post_lang_code) == 'nl'){
+		$message = 'Beste website admin,<br /><br />De geretoucheerde foto’s van uw bestelling #' . $project_id . ' werden zopas opgeladen.<br /><br />Gelieve op de volgend link te klikken om uw herwerkte foto’s te downloaden:<br /><br /><a href="'. $blog_url .'/downloadimg.php?zip='. $download_url .'">'. $download_url .'</a><br /><br />De bestanden blijven gedurende 90 dagen beschikbaar op <a href="'. $lang_page_url .'">myimmopix.com</a>. Daarna zullen ze worden verwijderd. Wij raden u dus aan om uw foto’s zo snel als mogelijk te downloaden.<br /><br />Met vriendelijke groeten,<br />Het team van Myimmopix';
+	}
+
+
  	if(!wp_mail( $to, $subject, $message, $headers)){
     echo('The e-mail could not be sent to site admin. <br />');
  	}
   else{
-    echo("Message sent to user. <br />");
+    echo("Message sent to site admin. <br />");
   }
 }
 
