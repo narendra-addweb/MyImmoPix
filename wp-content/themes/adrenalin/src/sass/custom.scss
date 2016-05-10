@@ -609,14 +609,25 @@ body .exampimage .handle {
       span {
         text-align: left;
       }
-      form {
-        .btn {
-          white-space: normal;
-        }
-      }
     }
     span {
       text-align: left;
+    }
+  }
+}
+@media screen and (max-width: $small-mobile-portrait) {
+  .border-bot {
+    .pro-uploaded {
+      form {
+        > div {
+          width: 100%;
+          margin-top: 5px;
+          input,
+          .btn {
+            width: 100%;
+          }
+        }
+      }
     }
   }
 }
@@ -1270,13 +1281,16 @@ body.woocommerce-checkout {
     }
   }
 }
-@media screen and (max-width: $mobile) {
+@media screen and (max-width: $ipad-portrait) {
   #cg-page-wrap {
     .content-area {
       .wpb_row {
-        margin-bottom: 0;
+        margin-bottom: 0 !important;
       }
     }
+  }
+  .cg-map-info {
+    bottom: 10px;
   }
 }
 /* End */
