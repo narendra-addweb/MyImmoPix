@@ -48,7 +48,7 @@ jQuery(document).ready(function() {
   //jQuery('#block-system-main-menu ul.menu').wrap('<div class="menu-wrap"></div>');
 
 
-  jQuery('.homemenu').prepend('<a href="javascript:void(0);" class="menu-login-btn">login</a><a href="javascript:void(0);" class="menu-navbtn">Menu<span></span><span></span><span></span></a>');
+  jQuery('.homemenu').prepend('<a href="javascript:void(0);" class="menu-login-btn">login</a><a href="javascript:void(0);" class="menu-navbtn"><span></span><span></span><span></span></a>');
   
   jQuery(".menu-navbtn").click(function() {
     jQuery('.homemenu .menu').slideToggle().toggleClass(' ');
