@@ -482,7 +482,7 @@ ADRENALIN RESPONSIVE
   }
 
   .container .wpb_text_column *:last-child {
-    margin-bottom: 30px;
+    /*margin-bottom: 30px;*/
   }
 
   .container .wpb_text_column .wpcf7-form *:last-child,
@@ -1202,7 +1202,7 @@ input[type="radio"] {
 
   .content-area table.my_account_orders th.order-actions, 
   .content-area table.my_account_orders td.order-actions {
-    display: none;
+    /*display: none;*/
   }
 
   /* Layer Slider */

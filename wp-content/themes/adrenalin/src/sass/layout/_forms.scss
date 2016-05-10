@@ -271,9 +271,10 @@ form.login,
 .lwa-modal {
   z-index: 99999;
   width: 450px;
+  margin-left: -225px;
   background-color: #FFF;
   .lwa-form,
-  .lwa-remember {
+  .lwa-form {
     background-color: #FFF;
     table {
       tr {
@@ -344,6 +345,20 @@ form.login,
   .lwa-modal-close {
     &:hover {
       text-decoration: none;
+    }
+  }
+  @media screen and (max-width: $mobile-portrait) {
+    width: 300px;
+    margin-left: -150px;
+    padding: 30px;
+    .lwa-form {
+      .lwa-links {
+        a {
+          display: inline-block;
+          width: 100%;
+          margin: 0;
+        }
+      }
     }
   }
 }

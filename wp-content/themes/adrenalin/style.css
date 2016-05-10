@@ -144,15 +144,20 @@ body .loop-area:hover{background:#e0ebf5!important}
     display: block;
     margin: 10px 0 0;
 }
-.border-bot3
-{ 	
-	display: block;
-	margin: 10px 0 0;
-	border:solid 1px #999999;
-	border-radius:4px;
-	width:250px; height:150px;
-	background-color:#F59693;
-	font-size:14px; color:#FFF;
+.border-bot3 { 
+    display: inline-block;
+    float: none;
+    /*display: block;*/
+    margin: 10px 0 0;
+    border:solid 1px #999999;
+    border-radius:4px;
+    max-width:250px; 
+    width: 100%;
+    min-height:150px;
+    height: auto;
+    background-color:#F59693;
+    font-size:14px; 
+    color:#FFF;
 }
 .border-bot3 a{ color:#1C76BD; text-decoration:none;}	
 .border-bot3 a:hover{text-decoration:none;}
@@ -749,7 +754,7 @@ body .msgg2 small{font-size: 25px !important; color:#be1e2d}
 
 .header-wrapper{}
 .tunnelicon{ margin-top:30px;}
-.tunnelicon span{ float:right; margin-left:2px;}
+/*.tunnelicon span{ float:right; margin-left:2px;}*/
 .tunnel-iconimg{min-height:200px;}
 /*.myupload{ margin-right:183px!important;}*/
 .bx-controls-direction{ display:none;}

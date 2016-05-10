@@ -6,12 +6,16 @@
  */
 
 $assets-path: '../..';
-/* Import to basic elements created for site */
+/* Import to basic elements creat ed for site */
 
 
 /**
  * Top Header
  */
+.cg-menu-below {
+  position: relative;
+  z-index: 100;
+}
 .logoslogan {
   color: #676767;
   font-size: 14px;
@@ -197,7 +201,7 @@ $assets-path: '../..';
       }
     }
   }
-  @media screen and (max-width:1100px){
+  @media screen and (max-width:1100px) {
     .mean-container {
       .mean-bar {
         display: none;
@@ -209,6 +213,259 @@ $assets-path: '../..';
         img {
           max-width: 200px !important;
           padding: 0 !important;
+        }
+      }
+    }
+  } /* 1100 */
+}
+
+.menu-login-btn,
+.menu-navbtn {
+  display: none;
+}
+
+@media screen and (max-width:$small-desktop) {
+  .cg-logo-cart-wrap {
+    .logo.image {
+      /*height: 120px;*/
+    }
+    .homemenu {
+      /*position: absolute;
+      top: 80px;*/
+      display: inline-block;
+      width: 100%;
+      .menu-home-menus-container,
+      .menu-home-menus-for-inner-pages-container {
+        margin: 0;
+        li {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+  .cg-menu-below.tiny {
+    display: inline-block !important;
+  }
+}
+
+@media screen and (max-width:$ipad-portrait) {
+  .cg-header-search {
+    .seactbox {
+      .bootstrap-select {
+        width: 204px !important;
+      }
+    }
+  }
+  .cg-wp-menu-wrapper {
+    .col-lg-4 {
+      z-index: 1;
+    }
+  }
+  .cg-shopping-toolbar {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width:$mobile-landscape) {
+  .cg-header-search {
+    .login-area {
+      a {
+        .btn {
+          padding: 6px 10px;
+        }
+      }
+      .logincls,
+      .signupcls {
+        div {
+          a {
+            padding: 6px 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width:$mobile) {
+  .cg-logo-cart-wrap {
+    .homemenu {
+      float: right;
+      width: auto;
+      .menu {
+        display: none;
+      }
+      .menu-home-menus-container,
+      .menu-home-menus-for-inner-pages-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        display: inline-block;
+        width: calc(100% + 30px);
+        margin: 83px 0 0 -15px;
+        background-color: $gray-light-f4;
+        #menu-home-menus-for-inner-pages,
+        #menu-footer-links-company,
+        ul {
+          width: 100%;
+          li {
+            display: inline-block;
+            width: 100%;
+            margin: 0;
+            a {
+              display: inline-block;
+              width: 100%;
+              padding: 0 15px;
+            }
+          }
+        }
+      }
+    }
+    .cg-header-search .login-area {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      display: none;
+      width: 100%;
+      margin: 83px 0 0;
+      background-color: $gray-light-f4;
+      .fleft {
+        margin-top: 0;
+        padding: 5px 10px;
+      }
+      .signupcls,
+      .logincls {
+        margin-top: 23px;
+      }
+    }
+    .menu-login-btn {
+      display: inline-block;
+      margin: 20px 3px 5px;
+      padding: 6px 15px;
+      border: 1px solid #1B75BB;
+      background-color: #FFF;
+      color: #1B75BB;
+      font-size: 13px;
+      line-height: 20px;
+      &:hover,
+      &:focus {
+        background-color: #1B75BB;
+        color: #FFF;
+        text-decoration: none;
+      }
+    }
+    .col-lg-4.col-md-4.pull-right {
+      clear: right;
+      z-index: 101;
+      width: 100% !important;
+      .seactbox {
+        height: auto;
+        margin-top: 10px;
+        line-height: normal;
+        .bootstrap-select {
+          /*width: 150px !important;*/
+        }
+      }
+    }
+    .col-lg-8.col-md-8 {
+      position: static;
+      width: 100% !important;
+    }
+    .menu-navbtn {
+      display: inline-block;
+      height: 22px;
+      width: 24px;
+      margin-left: 20px;
+      padding-top: 3px;
+      text-decoration: none;
+      cursor: pointer;
+      span {
+        display: block;
+        height: 3px;
+        margin-top: 4px;
+        background: #666;
+      }
+    }
+  }
+  .logged-in {
+    .cg-logo-cart-wrap .menu-login-btn { display: none; }
+    .menu-navbtn {
+      margin-top: 15px;
+    }
+    .col-lg-4.col-md-4.pull-right {
+      width: auto !important;
+    }
+  }
+  .cg-menu-below {
+    .cg-logo-cart-wrap {
+      .logo {
+        max-width: 150px;
+        img {
+          max-width: 150px !important;
+        }
+      }
+    }
+  }
+  .logoslogan {
+    margin-top: -7px;
+    font-size: 11px;
+  }
+}
+
+@media screen and (max-width: $mobile-portrait) {
+  .cg-logo-cart-wrap .menu-login-btn {
+    padding: 6px 7px;
+  }
+  .cg-logo-cart-wrap {
+    .col-lg-4.col-md-4.pull-right {
+      .seactbox {
+        .bootstrap-select {
+          width: 100px !important;
+          margin-bottom: 0;
+          .dropdown-menu {
+            /*position: absolute;*/
+            right: 0;
+            left: auto;
+            width: 200px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $small-mobile-portrait) {
+  .logged-in .menu-navbtn {
+    position: absolute;
+    float: right;
+    right: 0;
+    /*z-index: 101;*/
+    height: auto;
+    margin: 49px 0 0;
+  }
+  .cg-logo-cart-wrap {
+    .cg-header-search {
+      .login-area {
+        .fleft {
+          margin-right: 0;
+          padding-top: 3px;
+          .btn {
+            padding: 7px;
+            font-size: 9px;
+            line-height: normal;
+          }
+        }
+        .signupcls,
+        .logincls {
+          a {
+            padding: 7px;
+            font-size: 10px;
+            line-height: normal;
+          }
+        }
+        .logincls {
+          margin-left: 10px;
         }
       }
     }

@@ -5,7 +5,7 @@
     <div class="entry-content margleft">
        
 	
-    <div class="row topmargin"> 
+    <div class="row"> 
        <?php  if($_GET['action'] == 'no'){?>
         <div class="col-lg-8 col-md-8 errorsmsg"><?php echo 'you are not  credited , Please try again.Purchase credit if your credits is not sufficient';?></div>
         <?php }?>
@@ -38,8 +38,8 @@
     
 	
     
-       <div class="row topmargin">  <div class="col-lg-12 col-md-12">
-            <div class="col-lg-3 col-md-3"><strong><?php echo $ustr = get_str_Project();?><?php echo '#'.$pid;?></strong></div>
+       <div class="row">  <div class="col-lg-12 col-md-12">
+            <strong><?php echo $ustr = get_str_Project();?><?php echo '#'.$pid;?></strong>
        </div></div>
         
        
@@ -55,7 +55,7 @@
                     $img =  vt_resize('',$feat_image,200, 120,false); //Proportionally resize
                     ?>
                    
-                    <div class="col-lg-6 col-md-6">
+                    <div class="col-lg-6 col-sm-6 col-xs-6 upload-edit-img">
                        
                        <div class="row">
                        <div class="col-lg-3 col-md-3"><img src="<?php echo $img['url'] ?>"  /> <span class="imgid" ><strong><?php echo '#'.get_the_id();?></strong></span></div>

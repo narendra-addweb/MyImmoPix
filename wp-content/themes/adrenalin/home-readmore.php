@@ -1,5 +1,4 @@
-<div class="col-lg-12 col-md-12">
-	<div class="container">
+<div class="container">
 		<?php if(ICL_LANGUAGE_CODE == 'en'){?>
 			<div class="readmore-left">
 				<h3>Real estate photography : a crucial impact !</h3>
@@ -45,5 +44,4 @@
 				<p>Notre ressenti et perception répondent directement et immédiatement à une quelconque atmosphère émise par le lieu et ses représentations photographiques.</p>
 			</div>
 		<?php }?>		
-	</div>
 </div>

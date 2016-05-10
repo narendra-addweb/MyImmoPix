@@ -299,10 +299,6 @@ body .exampimage .handle {
       &:last-child {
         margin-right: 0;
       }
-      @media screen and (max-width: $mobile-landscape) {
-        max-width: 100%;
-        width: 100%;
-      }
       li {
         float: left;
         width: -moz-calc(50% - 5px);
@@ -311,6 +307,17 @@ body .exampimage .handle {
         margin: 0 10px 10px 0;
         &:nth-child(2n) {
           margin-right: 0;
+        }
+      }
+      @media screen and (max-width: $mobile-landscape) {
+        max-width: 100%;
+        width: 100%;
+      }
+      @media screen and (max-width: $small-mobile-portrait) {
+        li {
+          span {
+            font-size: 9px;
+          }
         }
       }
     }
@@ -347,6 +354,7 @@ body .exampimage .handle {
     }
     @media screen and (max-width: $mobile) {
       width: 100%;
+      padding: 0;
     }
   }
 }
@@ -515,6 +523,19 @@ body .exampimage .handle {
       }
     }
   }
+  @media screen and (max-width: $ipad-portrait) {
+    .mbgcolr1 {
+      .topmargin4 {
+        margin-top: 20px;
+      }
+    }
+    #secondary {
+      text-align: center;
+    }
+    .topmarginorder {
+      padding: 0 15px;
+    }
+  }
 }
 .tunnelicon {
   .tunnel-iconimg {
@@ -538,7 +559,79 @@ body .exampimage .handle {
 .photo-upload-step {
   display: inline-block;
   width: 100%;
+  margin-top: 20px;
+  text-align: center;
 }
+@media screen and (max-width: $small-desktop) {
+  .pro-list-sidebar {
+    padding: 0 20px;
+    input {
+      max-width: 204px;
+      width: 100%;
+    }
+  }
+}
+@media screen and (max-width: $ipad-portrait) {
+  .upload-edit-img {
+    .imgid {
+      text-align: left;
+    }
+    .radiotxt {
+      display: inline-block;
+      span {
+        width: 100%;
+      }
+    }
+  }
+}
+@media screen and (max-width: $mobile) {
+  .res-mrg-bottom-30 {
+    margin-bottom: 30px;
+  }
+  .buttons {
+    a.button {
+      max-width: 235px;
+    }
+  }
+  .content-area {
+    footer.entry-meta {
+      padding: 0;
+    }
+  }
+}
+@media screen and (max-width: $mobile-portrait) {
+  .upload-edit-img {
+    width: 100%;
+  }
+  .border-bot {
+    .pro-uploaded {
+      width: 100%;
+      span {
+        text-align: left;
+      }
+    }
+    span {
+      text-align: left;
+    }
+  }
+}
+@media screen and (max-width: $small-mobile-portrait) {
+  .border-bot {
+    .pro-uploaded {
+      form {
+        > div {
+          width: 100%;
+          margin-top: 5px;
+          input,
+          .btn {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
 /* End */
 
 /* My account page */
@@ -722,11 +815,15 @@ body .exampimage .handle {
       margin-bottom: 30px;
     }
   }
+  .content-area table.my_account_orders td.order-actions a.print,
+  a.print {
+    display: none;
+  }
 }
 @media screen and (max-width: $ipad-portrait) {
   .creditsTable {
     .loop-area {
-      float: none;
+      /*float: none;*/
       display: inline-block;
       width: 47%;
       margin: 0 6% 30px 0;
@@ -755,9 +852,6 @@ body .exampimage .handle {
 }
 /* End */
 
-
-
-
 #text-12 {
   width: 100%;
   .sidebar-cart {
@@ -778,6 +872,9 @@ body .exampimage .handle {
 /**
  * Photo upload page
  */
+.tunnel {
+  width: 100%;
+}
 .page-template-template-upload {
   .tunnelicon,
   .tunnel {
@@ -863,12 +960,18 @@ body .exampimage .handle {
 }
 .crossimage {
   @media screen and (max-width: $small-desktop) {
-    left: 135px;
+    right: 0;
+    left: auto;
+    /*left: 135px;*/
   }
   @media screen and (max-width: $mobile) {
-    left: 240px;
+    /*left: 240px;*/
   }
-
+}
+@media screen and (max-width: $mobile-portrait) {
+  .uploaded-img {
+    width: 100%;
+  }
 }
 /* End */
 
@@ -922,8 +1025,31 @@ body.single-product .product-title-wrapper {
 }
 /* end  */
 
+/**
+ * Video
+ */
 
-
+@media screen and (max-width: $mobile-portrait) {
+  .blog-blue {
+    .video-content {
+      position: relative;
+      height: 0;
+      width: 90%;
+      margin: 0 auto;
+      padding-top: 25px;
+      padding-bottom: 56.25%;
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+      }
+    }
+  }
+}
 
 /**
  * Responsive design
@@ -1124,17 +1250,28 @@ body.woocommerce-checkout {
     p {
       a {
         font-size: 14px;
-
-        }
+      }
     }
-    @media screen and (max-width: $ipad-portrait) {
+  }
+  .cg-section {
+    wpb_row {
+      margin-bottom: 0 !important;
+    }
+  }
+  @media screen and (max-width: $ipad-portrait) {
+    .contact-middle-section {
       p {
         a {
           font-size: 11px;
         }
+        .contact-no {
+          color: #333;
+        }
       }
     }
-    @media screen and (max-width:$mobile){
+  }
+  @media screen and (max-width:$mobile) {
+    .contact-middle-section {
       margin-top: 0;
       p {
         a {
@@ -1142,6 +1279,18 @@ body.woocommerce-checkout {
         }
       }
     }
+  }
+}
+@media screen and (max-width: $ipad-portrait) {
+  #cg-page-wrap {
+    .content-area {
+      .wpb_row {
+        margin-bottom: 0 !important;
+      }
+    }
+  }
+  .cg-map-info {
+    bottom: 10px;
   }
 }
 /* End */
@@ -1171,6 +1320,15 @@ body.woocommerce-checkout {
   .mbx-pager ul.bx_pager_ul li {
     height: 82px;
   }
+
+  /* My account responsive table */
+  .shop_table_responsive,
+  .shop_table {
+    display: inline-block;
+    width: 100%;
+    overflow: auto;
+  }
+  /* End */
 } /* 992px */
 
 /* Mobile landscape & portrait view */
@@ -1200,8 +1358,14 @@ body.woocommerce-checkout {
 
  /* photo upload */
 @media screen and (max-width: $ipad-portrait) {
-  .page-id-67546 .divimage:nth-child(3n + 1) {
-    clear: none;
+  .page-id-67546 .divimage {
+    margin-bottom: 20px;
+    &:nth-child(3n + 1) {
+      clear: none;
+    }
+    &:nth-child(2n + 1) {
+      clear: left;
     }
   }
+}
 

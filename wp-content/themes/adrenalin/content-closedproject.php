@@ -59,10 +59,10 @@
     $img =  vt_resize('',$feat_image,120, 80,false); //Proportionally resize
     ?><div class="col-lg-12 col-md-12">
 	    <div class="row border-bot mainlink">
-	    	<div class="col-lg-2 col-md-2"><a href="<?php echo get_bloginfo('url').'/closed-project-detail/?pid='.$pid.'';?>"><img src="<?php echo $img['url'] ?>"  /></a><span><strong><a href="<?php echo get_bloginfo('url').'/closed-project-detail/?pid='.$pid.'';?>"><?php echo $count2;?> <?php echo get_string_photos();?></a></strong></span>
+	    	<div class="col-lg-2 col-md-2 col-xs-3 pro-uploaded "><a href="<?php echo get_bloginfo('url').'/closed-project-detail/?pid='.$pid.'';?>"><img src="<?php echo $img['url'] ?>"  /></a><span><strong><a href="<?php echo get_bloginfo('url').'/closed-project-detail/?pid='.$pid.'';?>"><?php echo $count2;?> <?php echo get_string_photos();?></a></strong></span>
 	    	</div>
 	    
-		   <div class="col-lg-10 col-md-10 color-bg"> 
+		   <div class="col-lg-10 col-md-10 col-xs-9 pro-uploaded color-bg"> 
 		        <div class="col-lg-3 col-md-3"><a href="<?php echo get_bloginfo('url').'/closed-project-detail/?pid='.$pid.'';?>"><strong><?php echo '#'.$pid;?></strong></a></div>
 		        <div class="col-lg-3 col-md-3 pull-right"><strong><?php echo get_str_closetxt();?><?php echo '&nbsp;'. $val;?></strong></div>
 		    </div>
