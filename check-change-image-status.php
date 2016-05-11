@@ -282,7 +282,7 @@ function check_and_update_attachment($parent_post_id, $file_path, $attachement_i
 		wp_update_attachment_metadata( $attach_id, $attach_data );
 		//set_post_thumbnail( $parent_post_id, $attach_id );
 
-		update_post_meta($attachement_id, 'image_status', '3');
+		//update_post_meta($attachement_id, 'image_status', '3');
 
 		add_post_meta($attach_id, 'image_status', '3');
 		add_post_meta($attach_id, 'credits', '1');
