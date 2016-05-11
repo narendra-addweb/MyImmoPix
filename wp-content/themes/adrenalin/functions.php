@@ -1839,20 +1839,37 @@ function get_str_editings()
     
     return $str;
 }
-function get_str_credit()
-{
-    
-    if(ICL_LANGUAGE_CODE == 'fr')
-    {
-        $str = "Cr&eacute;dits";
+
+//This function will return langual credit string...
+function get_str_credit($singular = false)
+{   //For singular string
+    if($singular){
+        if(ICL_LANGUAGE_CODE == 'fr')
+        {
+            $str = "Cr&eacute;dit";
+        }
+        else if(ICL_LANGUAGE_CODE == 'nl')
+        {
+            $str = "Krediet";
+        }
+        else if(ICL_LANGUAGE_CODE == 'en')
+        {
+            $str = "Credit";
+        }
     }
-    else if(ICL_LANGUAGE_CODE == 'nl')
-    {
-        $str = "Kredieten";
-    }
-    else if(ICL_LANGUAGE_CODE == 'en')
-    {
-        $str = "Credits";
+    else {
+        if(ICL_LANGUAGE_CODE == 'fr')
+        {
+            $str = "Cr&eacute;dits";
+        }
+        else if(ICL_LANGUAGE_CODE == 'nl')
+        {
+            $str = "Kredieten";
+        }
+        else if(ICL_LANGUAGE_CODE == 'en')
+        {
+            $str = "Credits";
+        }
     }
     
     return $str;
