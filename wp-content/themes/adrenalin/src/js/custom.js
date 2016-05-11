@@ -46,8 +46,6 @@ jQuery(document).ready(function() {
 
   /* Menu */
   //jQuery('#block-system-main-menu ul.menu').wrap('<div class="menu-wrap"></div>');
-
-
   jQuery('.homemenu').prepend('<a href="javascript:void(0);" class="menu-login-btn">login</a><a href="javascript:void(0);" class="menu-navbtn"><span></span><span></span><span></span></a>');
   
   jQuery(".menu-navbtn").click(function() {
@@ -61,6 +59,10 @@ jQuery(document).ready(function() {
     jQuery('.login-area').slideToggle().toggleClass(' ');
     jQuery('.homemenu .menu').hide();
   });
+
+  /* Table responsive */
+  jQuery('.shop_table').wrap('<div class="responsive_shop_table"></div>');
+  /* End */
 
    /* Scrolling effect in home page*/
   jQuery( ".homemenu .menu li a" ).live( "click", function() {
