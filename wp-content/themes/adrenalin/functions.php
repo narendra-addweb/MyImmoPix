@@ -3425,3 +3425,39 @@ function create_zip($files = array(), $destination = '',$overwrite = false) {
         return false;
     }
 }
+
+/**
+* This function will return post language id...
+**/
+function langcode_post_id($post_id){
+    global $wpdb;
+ 
+    $query = $wpdb->prepare('SELECT language_code FROM ' . $wpdb->prefix . 'icl_translations WHERE element_id="%d"', $post_id);
+    $query_exec = $wpdb->get_row($query);
+ 
+    return $query_exec->language_code;
+}
+
+
+/*
+* This function will return processed/Inprocessed category id from post id and language...
+**/
+function aws_get_post_cat($post_id, $whichType = 'PR'){
+    $post_lang_code = langcode_post_id($post_ID);
+    
+    if($whichType == 'PR'){//For Processed category id...
+        $arrCatId = array('en' => '97', 'nl' => '99', 'fr' => '100'); 
+        $post_category = '97';   
+    }
+    else {//For Inprocessed category id...
+        $arrCatId = array('en' => '98', 'nl' => '101', 'fr' => '102'); 
+        $post_category = '98';   
+    }
+
+    
+    //Set category id...
+    if(isset($arrCatId[$post_lang_code]) && $arrCatId[$post_lang_code] > 0)   {
+        $post_category = array($arrCatId[$post_lang_code]);
+    }
+    return $post_category;
+}

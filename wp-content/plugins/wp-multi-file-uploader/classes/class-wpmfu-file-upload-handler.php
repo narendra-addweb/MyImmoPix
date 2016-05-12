@@ -248,7 +248,10 @@ function aws_set_attachment_category( $post_ID ) {
 	
 	// no, then get the default one
 	$post_category = array('97');//Get custom category 'Inprocess'
-
+	
+	//Get inprocess category id...
+	$post_category = aws_get_post_cat($post_ID, 'IN');
+	
 	// then set category if default category is set on writting page
 	if ( $post_category )
 		wp_set_post_categories( $post_ID, $post_category );

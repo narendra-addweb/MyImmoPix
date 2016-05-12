@@ -1,5 +1,6 @@
 <?php
-
+error_reporting(-1);
+ini_set('display_errors', 'On');
 /**
 * Here project status worked like below
 *	1 = Uploaded projects
@@ -78,6 +79,30 @@ while ( $q->have_posts() ) : $q->the_post();
 	$pid = get_the_ID();
 	$post_author_id = get_post_field( 'post_author', $pid );
 	
+	//Get inprocess category id...
+	$category_id = aws_get_post_cat($parent_post_id, 'IN');
+
+	//Get attachement post for check already entry exist OR not...
+	$args = array(
+		'post_status' => 'any',
+		'post_type'   => 'attachment',
+		'post_mime_type' => $wp_filetype['type'],
+		'post_title' => preg_replace('/\.[^.]+$/', '', basename($filename)),
+		'posts_per_page'=>-1,
+		'post_parent' => $parent_post_id,
+		'cat' => $category_id,
+		'meta_query' => array(
+			array(
+				'key'     => 'image_status',
+				'value'   => 3,
+				'compare' => '=',
+			),
+		),
+	);
+	
+	$countProcced =  count(query_posts($args));
+
+
 	//Get current projects images...
 	$args2 = array(
 					'post_status' => 'any',
@@ -85,6 +110,7 @@ while ( $q->have_posts() ) : $q->the_post();
 					'posts_per_page'=>-1,
 					'suppress_filters' => true,
 					/*'author'=> $post_author_id,*/
+					'cat' => $category_id,
 					'meta_query' => array(
 							array(
 								'key'     => 'group_id',
@@ -101,7 +127,10 @@ while ( $q->have_posts() ) : $q->the_post();
 						),
 					);
 
-	$count2 = count(query_posts( $args2 ));
+	//$qry = new WP_Query($args);
+	
+	$qry = query_posts( $args2 );
+	$count2 = count($qry);
 	
 	//Check for atleast one image uploaded...
 	if($count2 > 0){
@@ -217,14 +246,9 @@ sendProjectMail('74793', $arrProjAuthorInfo);
 function check_and_update_attachment($parent_post_id, $file_path, $attachement_id, $post_author){
 	//$category_id = 98;//For local
 	$category_id = 97;//For live
-	$post_lang_code = langcode_post_id($parent_post_id);
-	$arrInProcessCatId = array('en' => '97', 'nl' => '99', 'fr' => '100');
-	$arrProcessedCatId = array('en' => '98', 'nl' => '101', 'fr' => '102');
-
+	
 	//Get inprocess category id...
-	if(isset($arrInProcessCatId[$post_lang_code]) && $arrInProcessCatId[$post_lang_code] > 0)	{
-		$category_id = $arrInProcessCatId[$post_lang_code];
-	}
+	$category_id = aws_get_post_cat($parent_post_id, 'IN');
 
 	$wp_upload_dir = wp_upload_dir();
 		
@@ -290,15 +314,15 @@ function check_and_update_attachment($parent_post_id, $file_path, $attachement_i
 
 		// no, then get the default one
 		$post_category = array('100');//Get custom category 'Inprocess'
-		//Get inprocess category id...
-		if(isset($arrProcessedCatId[$post_lang_code]) && $arrProcessedCatId[$post_lang_code] > 0)	{
-			$post_category = $arrProcessedCatId[$post_lang_code];
-		}
+		
+		//Get Processed category id...
+		$category_id = aws_get_post_cat($parent_post_id, 'PR');
 
 		// then set category if default category is set on writting page
-		if ( $post_category )
-			wp_set_post_categories( $attach_id, $post_category );
-
+		if ( $post_category ){
+			wp_set_post_categories( $attach_id, $post_category );//For processed image
+			wp_set_post_categories( $attachement_id, $post_category );//Change inprocess image to processed...
+		}
 		return true;
 	}
 	return false;
@@ -399,17 +423,6 @@ function sendProjectMail($project_id, $arrPojectUserDetail = array()) {
 }
 
 
-/**
-* This function will return post language id...
-**/
-function langcode_post_id($post_id){
-    global $wpdb;
- 
-    $query = $wpdb->prepare('SELECT language_code FROM ' . $wpdb->prefix . 'icl_translations WHERE element_id="%d"', $post_id);
-    $query_exec = $wpdb->get_row($query);
- 
-    return $query_exec->language_code;
-}
 
 /**
 * This function will return language specific url
