@@ -1401,3 +1401,29 @@ body.woocommerce-checkout {
     }
   }
 }
+
+
+/**
+ * About us
+ */
+.cg-section {
+  .wpb_wrapper {
+    .wpb_single_image,
+    .wpb_text_column {
+      display: inline-block;
+      width: 100%;
+    }
+  }
+}
+#cg-articles h3 {
+  margin-top: 20px;
+}
+/*.about-us-page {
+  .wpb_wrapper {
+    .vc_separator {
+      margin-top: 20px;
+    }
+  }
+}
+*/
+/* End */
