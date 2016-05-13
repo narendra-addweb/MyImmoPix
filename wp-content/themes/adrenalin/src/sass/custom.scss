@@ -1325,12 +1325,33 @@ body.woocommerce-checkout {
       }
     }
   }
-  .cg-map-info {
-    bottom: 10px;
-  }
 }
 /* End */
 
+@media screen and (max-width: $small-desktop) {
+  /* Address in Contact page */
+  .cg-map-info {
+    right: 0;
+    bottom: 0;
+    left: auto;
+    margin: 0 50px 20px 0;
+    .map_inner {
+      width: 300px;
+      padding-bottom: 5px;
+    }
+  }
+  .cg-map-info .col-md-4 {
+    float: none;
+  }
+  /* End */
+}
+@media screen and (max-width: $mobile) {
+  /* Address in Contact page */
+  .cg-map-info {
+    display: none;
+  }
+  /* End */
+}
 
 
 /* Small desktop monitor view */

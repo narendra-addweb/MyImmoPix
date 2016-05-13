@@ -551,7 +551,7 @@ ADRENALIN RESPONSIVE
   }
 
   .cg-map-info .col-md-4 {
-    float: none;
+    /*float: none;*/
   }
 
   #preloader {
@@ -1167,7 +1167,7 @@ input[type="radio"] {
   }
 
   .cg-map-info {
-    position: relative;
+    /*position: relative;*/
   }
 
   .map-info {
