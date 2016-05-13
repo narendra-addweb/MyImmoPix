@@ -92,6 +92,14 @@
 				$fileName = end($filePath);
 				$downldLink = str_replace('/' . ICL_LANGUAGE_CODE, '',get_bloginfo("url"));
 				$beforeImg = $arrBeforeImg[$fileName];
+				$blog_url = get_bloginfo("url");
+				if(ICL_LANGUAGE_CODE == 'fr'){
+					$blog_url = str_replace('/fr', '', $blog_url);
+				}
+				else if(ICL_LANGUAGE_CODE == 'nl'){
+					$blog_url = str_replace('/nl', '', $blog_url);
+				}
+				
 				?><div class="row topmargin">
 					<div class="col-lg-12 col-md-12">
       			<div class="">
@@ -100,7 +108,7 @@
              		<span class="imgid" ><strong><?php echo '#'.get_the_id();?></strong></span><span>&nbsp;&nbsp;<strong><?php print(get_str_originaltxt());?></strong></span>
              	</div>
               <div class="col-lg-6 col-md-6 divimage mainlink custom-close-divimage" id="">
-             		<a href="<?php echo $downldLink ?>/downloadimg.php?img=<?php echo str_replace(get_bloginfo("url") . '/',"",$new_feat_image); ?>"><img src="<?php echo $img['url'] ?>" style="padding:10px 10px 2px 10px"  /><?php echo get_str_downloadimg()?></a>
+             		<a href="<?php echo $downldLink ?>/downloadimg.php?img=<?php echo str_replace($blog_url . '/',"",$new_feat_image); ?>"><img src="<?php echo $img['url'] ?>" style="padding:10px 10px 2px 10px"  /><?php echo get_str_downloadimg()?></a>
               </div>
       			</div>
       		</div>

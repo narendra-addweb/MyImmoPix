@@ -3313,6 +3313,7 @@ function createZIPOfClosedProject($pid = 0, $flagName = false){
         'post_type'   => 'attachment',
         'posts_per_page'=>-1,
         'author'=> $user_ID,
+        'suppress_filters' => true,
         'meta_query' => array(
             array(
                 'key'     => 'group_id',
@@ -3350,7 +3351,6 @@ function createZIPOfClosedProject($pid = 0, $flagName = false){
         $files_to_zip[] = $inprocess_image_path;
     }
     $upload_dir = wp_upload_dir(); 
-
 
     if(!file_exists($upload_dir['basedir'].'/uploadedzip/')){
         mkdir($upload_dir['basedir'].'/uploadedzip/', 0755);
@@ -3446,12 +3446,13 @@ function aws_get_post_cat($post_id, $whichType = 'PR'){
     $post_lang_code = langcode_post_id($post_ID);
     
     if($whichType == 'PR'){//For Processed category id...
-        $arrCatId = array('en' => '97', 'nl' => '99', 'fr' => '100'); 
-        $post_category = '97';   
-    }
-    else {//For Inprocessed category id...
         $arrCatId = array('en' => '98', 'nl' => '101', 'fr' => '102'); 
         $post_category = '98';   
+    }
+    else {//For Inprocessed category id...
+        //$arrCatId = array('en' => '98', 'nl' => '101', 'fr' => '102'); 
+        $arrCatId = array('en' => '97', 'nl' => '99', 'fr' => '100'); 
+        $post_category = '97';   
     }
 
     

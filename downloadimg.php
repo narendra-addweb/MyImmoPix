@@ -1,4 +1,6 @@
 <?php
+error_reporting(-1);
+ini_set('display_errors', 'On');
 //Inherit wordpress framework support into this file functionality...
 if ( !isset($wp_did_header) ) {
 
@@ -19,13 +21,14 @@ if ( !isset($wp_did_header) ) {
 
 if(!empty($_GET['img'])) 
 { 
+
     $filename = basename($_GET['img']); // don't accept other directories 
     $size = @getimagesize($_GET['img']); 
 	
    $fp = @fopen($_GET['img'], "rb"); 
    if ($size && $fp) 
    { 
-      header("Content-type: {$size['mime']}"); 
+      header("Content-type: {$size['mime']}; charset=utf-8"); 
       header("Content-Length: " . filesize($_GET[img])); 
       header("Content-Disposition: attachment; filename=$filename"); 
       header('Content-Transfer-Encoding: binary'); 
@@ -50,7 +53,7 @@ if(!empty($_GET['zip']))
         else {
           createZIPOfClosedProject($_GET['pid']);
           header($_SERVER['SERVER_PROTOCOL'].' 200 OK');
-          header("Content-Type: application/zip");
+          header("Content-Type: application/zip; charset=utf-8");
           header('Pragma: public');   // required
           header('Expires: 0');       // no cache
           header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
@@ -67,6 +70,7 @@ if(!empty($_GET['zip']))
           echo 'File not readable';
       } else {
           header($_SERVER['SERVER_PROTOCOL'].' 200 OK');
+          header("Content-Type: application/zip; charset=utf-8");
           header('Pragma: public');   // required
           header('Expires: 0');       // no cache
           header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
