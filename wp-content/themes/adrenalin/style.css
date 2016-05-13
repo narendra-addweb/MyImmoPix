@@ -913,7 +913,14 @@ ul.contrast li{list-style:none!important; border:none; float:left; margin-left:5
     text-align: center;
     width: 370px;
 }
-.service-area ul li p{ color:#fff; font-size:14px; text-align:center; padding:0px 30px 0px 30px; font-size:14px; line-height:23px; font-weight:400;}
+.service-area ul li p { 
+    color:#fff;
+    text-align:center;
+    padding:0px 30px 0px 30px;
+    font-size:14px;
+    line-height:23px;
+    font-weight:400;
+}
 .iocnlogo{ background:#fff; padding:30px 0px 30px 0px;}
 .iocnlogo ul{ margin:0px; padding:0px; text-align:center;}
 .iocnlogo ul li{ margin:0px -1px 0px -1px; padding:0px; display:inline-block;list-style:none;}
