@@ -298,6 +298,9 @@ body .exampimage .handle {
         width: -moz-calc(50% - 30px);
         width: -webkit-calc(50% - 30px);
         width: calc(50% - 30px);
+        p {
+          font-size: 13px;
+        }
       }
       @media screen and (max-width: $mobile) {
         p {
