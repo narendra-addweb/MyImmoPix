@@ -299,7 +299,7 @@ body .exampimage .handle {
         width: -webkit-calc(50% - 30px);
         width: calc(50% - 30px);
       }
-      @media screen and (max-width: $mobile-landscape) {
+      @media screen and (max-width: $mobile) {
         p {
           font-size: 13px;
         }
