@@ -71,9 +71,9 @@
 			);
 			$count2 = count(query_posts( $args2 ));
 			?><div class="row topmargin">  <div class="col-lg-12 col-md-12">
-          <div class="col-lg-3 col-md-3"><strong><?php echo get_str_Project()?>  ID   <?php echo '#'.$pid;?></strong></div>
-          <div class="col-lg-3 col-md-3"><strong><?php echo $count2;?> Photos </strong></div>
-          <div class="col-lg-3 col-md-3"><strong><?php echo get_str_closetxt()?></strong></div>
+          <div class="col-lg-3 col-md-3 col-sm-6"><strong><?php echo get_str_Project()?>  ID   <?php echo '#'.$pid;?></strong></div>
+          <div class="col-lg-3 col-md-3 col-sm-3"><strong><?php echo $count2;?> Photos </strong></div>
+          <div class="col-lg-3 col-md-3 col-sm-3"><strong><?php echo get_str_closetxt()?></strong></div>
           <div class="col-lg-3 col-md-3"></div>
       </div></div><?php
 
@@ -103,11 +103,11 @@
 				?><div class="row topmargin">
 					<div class="col-lg-12 col-md-12">
       			<div class="">
-             	<div class="col-lg-6 col-md-6 col-sm-6 divimage" id="div<?php echo get_the_id();?>">
+             	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 divimage close-proj-img" id="div<?php echo get_the_id();?>">
              		<img src="<?php echo $beforeImg['url'] ?>"  />
              		<span class="imgid" ><strong><?php echo '#'.get_the_id();?></strong></span><span>&nbsp;&nbsp;<strong><?php print(get_str_originaltxt());?></strong></span>
              	</div>
-              <div class="col-lg-6 col-md-6 col-sm-6 divimage mainlink custom-close-divimage" id="">
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 divimage mainlink custom-close-divimage close-proj-img" id="">
              		<a href="<?php echo $downldLink ?>/downloadimg.php?img=<?php echo str_replace($blog_url . '/',"",$new_feat_image); ?>"><img src="<?php echo $img['url'] ?>" style="padding:10px 10px 2px 10px"  /><?php echo get_str_downloadimg()?></a>
               </div>
       			</div>

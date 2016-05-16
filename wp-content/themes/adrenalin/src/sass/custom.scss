@@ -209,8 +209,6 @@ video {
   height: auto;
 }
 
-
-
 li.ba-slider {
   padding-right: 0 !important;
 }
@@ -304,6 +302,7 @@ body .exampimage .handle {
       }
       @media screen and (max-width: $mobile) {
         p {
+          min-height: 390px;
           font-size: 13px;
         }
       }
@@ -1170,6 +1169,11 @@ body.single-product .product-title-wrapper {
     width: auto;
   }
 }
+.close-proj-img {
+  @media screen and (max-width: $mobile-portrait) {
+    width: 100%;
+  }
+}
 
 /* End */
 
@@ -1445,6 +1449,9 @@ body.woocommerce-checkout {
   }
 }
 #cg-articles h3 {
+  margin-top: 20px;
+}
+.about-us-page .wpb_wrapper h4 {
   margin-top: 20px;
 }
 /*.about-us-page {
