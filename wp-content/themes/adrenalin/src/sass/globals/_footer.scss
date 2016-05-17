@@ -47,7 +47,9 @@ $assets-path: '../..';
       border: none;
       a {
         display: inline-block;
+        height: auto;
         width: auto;
+        padding: 7px 0;
         border: none;
         background-color: transparent;
         color: $white;
@@ -55,8 +57,8 @@ $assets-path: '../..';
         line-height: normal;
         font-weight: normal;
         text-align: left;
+        vertical-align: middle;
         opacity: .7;
-        vertical-align: top;
         @include border-radius(0);
         &:hover {
           background-color: transparent;
