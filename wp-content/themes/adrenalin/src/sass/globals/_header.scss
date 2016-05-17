@@ -210,6 +210,9 @@ $assets-path: '../..';
     .cg-logo-cart-wrap {
       .logo {
         float: left;
+        a {
+          width: 100%;
+        }
         img {
           max-width: 200px !important;
           padding: 0 !important;
