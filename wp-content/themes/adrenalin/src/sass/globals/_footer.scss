@@ -52,9 +52,11 @@ $assets-path: '../..';
         background-color: transparent;
         color: $white;
         font-size: 13px;
+        line-height: normal;
         font-weight: normal;
         text-align: left;
         opacity: .7;
+        vertical-align: top;
         @include border-radius(0);
         &:hover {
           background-color: transparent;
