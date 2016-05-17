@@ -147,7 +147,26 @@ video {
 .exampimage .bx-viewport {
   height: 370px !important;
 }
-@media screen and (max-width: $small-desktop) {
+@media screen and (min-width: 1600px) {
+  /* Home page example section */
+  .exampimage {
+    height: 400px !important;
+    width: 600px;
+  }
+  .exampimage .bx-viewport {
+    height: 400px !important;
+    width: 600px !important;
+  }
+}
+/*@media screen and (max-width: $small-desktop) {
+  .exampimage {
+    height: 300px !important;
+    .bx-viewport {
+      height: 300px !important;
+    }
+  }
+}*/
+@media screen and (min-width: $ipad-portrait) and (max-width: $small-desktop) {
   .exampimage {
     height: 300px !important;
     .bx-viewport {
@@ -155,15 +174,15 @@ video {
     }
   }
 }
-@media screen and (max-width: $ipad-portrait) {
+/*@media screen and (max-width: $ipad-portrait) {
   .exampimage {
     height: 280px !important;
     .bx-viewport {
       height: 280px !important;
     }
   }
-}
-@media screen and (max-width: $mobile) {
+}*/
+@media screen and (min-width: $mobile) and (max-width: $ipad-portrait) {
   .exampimage {
     height: 300px !important;
     .bx-viewport {
@@ -301,8 +320,8 @@ body .exampimage .handle {
         }
       }
       @media screen and (max-width: $mobile) {
+        min-height: 390px;
         p {
-          min-height: 390px;
           font-size: 13px;
         }
       }
@@ -1096,15 +1115,6 @@ body.single-product .product-title-wrapper {
 @media screen and (min-width:1600px) {
   .container {
     max-width: 1470px;
-  }
-  /* Home page example section */
-  .exampimage {
-    height: 400px !important;
-    width: 600px;
-  }
-  .exampimage .bx-viewport {
-    height: 400px !important;
-    width: 600px !important;
   }
   .mbx-pager {
     float: right;
