@@ -1471,7 +1471,10 @@ body.woocommerce-checkout {
 */
 /* End */
 
-/* privacy page */
+
+/**
+ * Privacy page
+ */
 .content-area {
   .cls-privacy {
     ul {
@@ -1481,6 +1484,10 @@ body.woocommerce-checkout {
         border: none;
         text-align: left;
         list-style: unset;
+        a {
+          color: #BE1E2D !important;
+          &:hover { color: #222 !important; }
+        }
       }
     }
   }
