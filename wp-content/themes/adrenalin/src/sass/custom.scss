@@ -691,6 +691,11 @@ body .exampimage .handle {
     }
   }
 }
+@media screen and (min-width: 768px) and (max-width: $ipad-portrait) {
+  .border-bot .pro-uploaded form > div.col-lg-1.col-xs-5 {
+    margin-left: -40px;
+  }
+}
 
 /* End */
 

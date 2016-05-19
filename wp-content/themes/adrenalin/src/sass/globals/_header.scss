@@ -446,6 +446,48 @@ $assets-path: '../..';
   }
 }
 
+@media screen and (max-width: 420px) {
+  .cg-logo-cart-wrap .cg-header-search .login-area {
+    display: inline-block;
+    width: 100%;
+    padding: 15px 15px 10px;
+    .fleft,
+    .logincls,
+    .signupcls {
+      float: left;
+      display: inline-block;
+      min-height: 0;
+      height: auto;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      line-height: normal;
+      a {
+        float: left;
+        display: inline-block;
+        min-height: 0;
+        height: auto;
+        width: 100%;
+        margin: 0 0 15px;
+        line-height: normal;
+        text-align: center;
+      }
+      .btn {
+        display: inline-block;
+        width: 100%;
+      }
+      ul {
+        display: inline-block;
+        width: 100%;
+        li {
+          display: inline-block;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
 @media screen and (max-width: $small-mobile-portrait) {
   .logged-in .menu-navbtn {
     position: absolute;
@@ -462,21 +504,21 @@ $assets-path: '../..';
           margin-right: 0;
           padding-top: 3px;
           .btn {
-            padding: 7px;
+            /*padding: 7px;
             font-size: 9px;
-            line-height: normal;
+            line-height: normal;*/
           }
         }
         .signupcls,
         .logincls {
           a {
-            padding: 7px;
+            /*padding: 7px;
             font-size: 10px;
-            line-height: normal;
+            line-height: normal;*/
           }
         }
         .logincls {
-          margin-left: 10px;
+          /*margin-left: 10px;*/
         }
       }
     }
