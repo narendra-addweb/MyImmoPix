@@ -9,10 +9,13 @@ get_header();
 ?>
 
 <div class="content-area">
-    <div class="col-lg-12 col-md-12">
-   <?php echo do_shortcode( '[vc_row][vc_column width="1/1"][vc_column_text][layerslider id="1"]'.'[/vc_column_text][/vc_column][/vc_row]' ); ?>
-   </div>
-   <div class="col-lg-12 col-md-12">
+  <div class="col-lg-12 col-md-12"><?php 
+  $arrPreventSliderPages = array('1948', '71349', '71350', '1928','66788','66791');//For contact and about us pages...
+  if(!in_array(get_the_ID(), $arrPreventSliderPages)){
+  	echo do_shortcode( '[vc_row][vc_column width="1/1"][vc_column_text][layerslider id="1"]'.'[/vc_column_text][/vc_column][/vc_row]' );	
+  }
+  ?></div>
+  <div class="col-lg-12 col-md-12">
    
             <?php
 			
