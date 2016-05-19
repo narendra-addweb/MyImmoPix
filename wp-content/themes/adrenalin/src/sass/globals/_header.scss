@@ -152,6 +152,14 @@ $assets-path: '../..';
     }
   }
 }
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .cg-wp-menu-wrapper {
+    > .pull-right { width: 400px; }
+    > .col-md-8 { width: 565px; }
+  }
+}
+
 /* End */
 
 /* Fixed header */

@@ -54,7 +54,6 @@ a {
 /**
  * video
  */
-
 video {
   position: relative;
   min-height: 277px;
@@ -315,6 +314,10 @@ body .exampimage .handle {
         p {
           font-size: 13px;
         }
+      }
+      @media screen and (min-width: 768px) and (max-width: $ipad-portrait) {
+        height: 160px;
+        overflow: auto;
       }
       @media screen and (max-width: $mobile) {
         min-height: 390px;
@@ -641,6 +644,9 @@ body .exampimage .handle {
 @media screen and (max-width: $mobile) {
   .res-mrg-bottom-30 {
     margin-bottom: 30px;
+  }
+  .tunnelicon .res-mrg-bottom-30 {
+    &:nth-child(2n+1) { clear: left; }
   }
   .buttons {
     a.button {
@@ -1331,6 +1337,21 @@ body.woocommerce-checkout {
     }
   }
 }
+
+.page-id-66791,
+.page-id-66788
+ {
+  .wpb_row.vc_row-fluid {
+    > .wpb_column.vc_column_container {
+      > .wpb_wrapper {
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
 @media screen and (max-width: $ipad-portrait) {
   #cg-page-wrap {
     .content-area {
@@ -1429,7 +1450,7 @@ body.woocommerce-checkout {
 } /* 480px */
 
 
- /* photo upload */
+/* photo upload */
 @media screen and (max-width: $ipad-portrait) {
   .page-id-67546 .divimage {
     margin-bottom: 20px;

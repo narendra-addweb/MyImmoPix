@@ -219,9 +219,7 @@ if(isset($_POST['update'])  && $_POST['update']!='')
 					}
 		
 		$v = get_str_upload();
-			
-		
-		
+
         if(isset($_GET['ptype']) && !empty($_GET['ptype'])){
 		?>
         
