@@ -152,7 +152,7 @@ do_action( 'woocommerce_before_cart' );
         <?php do_action( 'woocommerce_after_cart_table' ); ?>
     </form>
 </div>
-<?php if($page_id == '66589'){?>
+<?php if($page_id == '66589' || $page_id == '66691' || $page_id == '66737'){?>
 <div class="mycredit"><strong> <?php echo get_str_yourcredit();?> </strong></div>
 <div class="mycredit1"><?php echo do_shortcode('[usercreditwoocommerce]');?></div>
 <?php }?>
