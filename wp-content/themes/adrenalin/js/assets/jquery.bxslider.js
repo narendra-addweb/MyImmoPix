@@ -39,7 +39,7 @@
 		// TOUCH
 		touchEnabled: false,
 		swipeThreshold: 50,
-		oneToOneTouch: true,
+		oneToOneTouch: false,
 		preventDefaultSwipeX: true,
 		preventDefaultSwipeY: false,
 

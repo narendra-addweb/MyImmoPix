@@ -235,6 +235,13 @@ $assets-path: '../..';
   display: none;
 }
 
+@media screen and (min-width: $ipad-portrait) and (max-width: $small-desktop) {
+  .cg-header-search .login-area .logincls {
+    margin-top: -18px;
+    margin-left: 0;
+  }
+}
+
 @media screen and (max-width:$small-desktop) {
   .cg-logo-cart-wrap {
     .logo.image {
@@ -448,7 +455,7 @@ $assets-path: '../..';
 
 @media screen and (max-width: 420px) {
   .cg-logo-cart-wrap .cg-header-search .login-area {
-    display: inline-block;
+    /*display: inline-block;*/
     width: 100%;
     padding: 15px 15px 10px;
     .fleft,
